@@ -19,7 +19,7 @@ scenarios to illustrate the different approaches.
   <summary>ConnectinGEO is funded by the Horizon 2020 Framework Program</summary>
   <p><br/>
 
-![ec logo](images/ec.png "EC Logo")
+![ec logo](/images/ec.png "EC Logo")
 <div>
 ConnectinGEO is funded by the Horizon 2020 Framework Program for Research
 and Innovation (SC5-18a-2014-H2020) of the European Union under grant
