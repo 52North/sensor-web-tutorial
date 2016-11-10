@@ -1,3 +1,8 @@
+---
+title: Sensor Web Best Practices - Chapter 2
+layout: post
+---
+
 ## Important components of SWE
 
 Within this section, several base components of the SWE framework are denoted

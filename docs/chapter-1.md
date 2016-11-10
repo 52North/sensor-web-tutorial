@@ -1,3 +1,8 @@
+---
+title: Sensor Web Best Practices - Chapter 1
+layout: post
+---
+
 ## Spatial Data Infrastructures (SDI)
 
 A Spatial Data Infrastructure denotes a collection of technologies, policies and

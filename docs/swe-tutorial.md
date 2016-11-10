@@ -1,3 +1,8 @@
+---
+title: Sensor Web Best Practices - Introduction
+layout: post
+---
+
 # Best Practices for using Sensor Web Technology
 
 This tutorial has been developed within the
