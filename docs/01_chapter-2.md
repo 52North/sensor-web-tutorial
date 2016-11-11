@@ -1,6 +1,6 @@
 ---
-title: Sensor Web Best Practices - Chapter 2
-layout: post
+title: 2. Sensor Web Overview
+layout: page
 ---
 
 ## Important components of SWE

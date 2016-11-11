@@ -1,7 +1,34 @@
 ---
-title: Sensor Web Best Practices - Chapter 1
-layout: post
+title: 1. SDIs and the Sensor Web
+layout: page
 ---
+
+## Exemplary Use Case Scenario
+
+In times of climate change and global warming, the exploitation of renewable
+resources is of high relevance. In particular, solar energy may be collected
+and transformed into electricity with the help of solar plants. In this context,
+the Surface Solar Irradiance (SSI) is an indicator for the potential of solar
+energy. Via associated SSI measurements, suitable locations for installation of
+new as well as monitoring of existing solar plants becomes possible. In
+addition, when collecting SSI measurements of the same location over a period of
+time, the energy output from solar irradiation can be forecast with respect to
+storage and planning (Menard n.y). For this reason, SSI data can measured in
+several ways, e.g. in-situ pyranometric sensors, satellite image processing or
+numerical weather models. Each of these options may be defined as a sensor,
+which takes certain inputs and produces SSI data as output. However, each sensor
+uses a different access interface as well as input- and output definitions. As a
+result, researchers and consumers of the SSI data have to deal with
+heterogeneous sensor interfaces, making it hard to combine measurements of
+different sources.
+
+To overcome this heterogeneity, standardized formats and services have to be
+employed for interoperable exchange of SSI data. According to Menard et al.
+(2015), the Sensor Web Enablement (SWE) Framework offers this very
+functionality, open standards for sensor data encoding and exchange as well as
+several Web services to homogeneously access sensor data from heterogeneous
+sensors. Within this Best Practice Guide, the central components of the SWE
+framework are introduced to provide basic knowledge on how to use them.
 
 ## Spatial Data Infrastructures (SDI)
 
