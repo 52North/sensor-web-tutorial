@@ -36,7 +36,7 @@ generic set of properties applicable for various processes. It inherits several
 metadata elements from the class _DescribedObject_, as shown in the below figure.
 Note that the figure is simplified compared to the official standard:
 
-![sml1.png](/images/sml1.png "Abstract process model from the SensorML standard (Botts & Robin, 2014) - simplified figure")
+![sml1.png](images/sml1.png "Abstract process model from the SensorML standard (Botts & Robin, 2014) - simplified figure")
 
 From simple hardware devices that measure natural phenomena like temperature, up
 to complex computational processes, which take several inputs and produce one or
@@ -50,7 +50,7 @@ _AbstractProcess_ (e.g. _SimpleProcess_) have to define a _method_ property, des
 the algorithm, how input data is transformed to output data, as modeled
 according to the following figure.
 
-![sml2.png](/images/sml2.png "SimpleProcess and ProcessMethod modelling (Botts & Robin, 2014) - simplified figure")
+![sml2.png](images/sml2.png "SimpleProcess and ProcessMethod modelling (Botts & Robin, 2014) - simplified figure")
 
 While the presented _SimpleProcess_ is useful to model (virtual) computations,
 physical sensors can be defined according to the below figure. Compared to a virtual
@@ -58,7 +58,7 @@ process, additional information about location and temporal aspects of the
 sensor can be set. If the single process is only part of a composed process,
 then this may be reflected in the _attachedTo_ property.
 
-![sml3.png](/images/sml3.png "Modelling of physical sensors (Botts & Robin, 2014) - simplified figure")
+![sml3.png](images/sml3.png "Modelling of physical sensors (Botts & Robin, 2014) - simplified figure")
 
 To illustrate this quite abstract description, a concrete example shall
 demonstrate how to model sensor/procedure metadata within SensorML 2.0.

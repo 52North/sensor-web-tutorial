@@ -16,7 +16,7 @@ The following figure presents an overview of the components of an observation
 (Bröring et al. 2011 a). Note that the figure has been simplified in order to
 omit complex information.
 
-![om1.png](/images/om1.png "Modelling concept of an observation - simplified figure")
+![om1.png](images/om1.png "Modelling concept of an observation - simplified figure")
 
 An observation is a composed object providing relevant observation details.
 In consequence, an _observation_ belongs to a _procedure_ that measured a certain
@@ -37,7 +37,7 @@ are defined to discretise the whole area of the associated feature. In
 consequence, a single coverage consists of multiple entries, one per
 sub-geometry and/or timestamp.
 
-![om2.png](/images/om2.png "Specialized types for discrete observations (Cox, 2013) - simplified figure")
+![om2.png](images/om2.png "Specialized types for discrete observations (Cox, 2013) - simplified figure")
 
 The following figure represents the standardized coverage
 observation types according to the O&M standard (Cox 2013) in a simplified way.
@@ -48,7 +48,7 @@ each sub-geometry resulting from the discretization process is denoted as a
 _sampling feature_. Hence, each concrete measurement value of a coverage
 observation refers to a _sampling feature_.
 
-![om3.png](/images/om3.png "Specialized types for coverage observations (Cox 2013) - simplified figure")
+![om3.png](images/om3.png "Specialized types for coverage observations (Cox 2013) - simplified figure")
 
 In the following, some examples are given, showcasing encoded O&M documents
 within certain use cases.
