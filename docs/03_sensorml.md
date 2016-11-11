@@ -24,13 +24,13 @@ themselves. It represents a uniform description format to describe relevant
 sensor metadata such as calibration parameters, input/output as well as location
 definitions, pre- or post-measurement actions/transformations or any other
 information, which is necessary to correctly interpret and process observations
-(OGC 2011). Within this scope, a sensor is denoted as a _process_, which may be a
+([OGC 2011](99_bibliography.html)). Within this scope, a sensor is denoted as a _process_, which may be a
 physical or virtual component transforming dedicated input data to one or more
 outputs via a certain transformation/method. For each degree of complexity,
 SensorML provides means to describe the whole process metadata in an
 interoperable way.
 
-According to the standard version 2.0 (Botts & Robin, 2014), a process is
+According to the standard version 2.0 ([Botts & Robin, 2014](99_bibliography.html)), a process is
 modeled as an instance of _AbstractProcess_ class, which denotes an abstract
 generic set of properties applicable for various processes. It inherits several
 metadata elements from the class _DescribedObject_, as shown in the below figure.
@@ -69,7 +69,7 @@ At the website
 various exemplar SensorML documents/snippets are available showcasing the
 features of SensorML within various use cases. As a concrete example this
 document uses an exemplar sensor description of the SOS instance within the
-NeXOS project (NeXOS Project, 2016) available at
+NeXOS project ([NeXOS Project, 2016](99_bibliography.html)) available at
 
 > [http://hspeed.trios.de:8888/52n-sos-webapp](http://hspeed.trios.de:8888/52n-sos-webapp).
 
@@ -79,7 +79,7 @@ Sending a DescribeSensor request including the parameters
 
 (e.g. using a [KVP request](http://hspeed.trios.de:8888/52n-sos-webapp/service?service=SOS&version=2.0.0&request=DescribeSensor&procedure=http://www.nexosproject.eu/resources/procedures/trios/LISA/3075&procedureDescriptionFormat=http://www.opengis.net/sensorml/2.0))
 will result in the following sensor description of a water sensor measuring
-the phenomenon "Specific Absorption Coefficient at 254nm":
+the phenomenon `Specific Absorption Coefficient at 254nm`:
 
 ~~~ xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -13,7 +13,7 @@ OGC **Observations & Measurements** standard version 2.0, which can be downloade
 > [http://www.opengeospatial.org/standards/om](http://www.opengeospatial.org/standards/om).
 
 The following figure presents an overview of the components of an observation
-(Bröring et al. 2011 a). Note that the figure has been simplified in order to
+([Bröring et al. 2011 a](99_bibliography.html)). Note that the figure has been simplified in order to
 omit complex information.
 
 ![om1.png](images/om1.png "Modelling concept of an observation - simplified figure")
@@ -40,7 +40,7 @@ sub-geometry and/or timestamp.
 ![om2.png](images/om2.png "Specialized types for discrete observations (Cox, 2013) - simplified figure")
 
 The following figure represents the standardized coverage
-observation types according to the O&M standard (Cox 2013) in a simplified way.
+observation types according to the O&M standard ([Cox 2013](99_bibliography.html)) in a simplified way.
 Considering the discretization of an area-based _featureOfInterest_, the standard
 introduces two distinct declarations. The whole _featureOfInterest_ as a single
 object (a spatially distributed entity) is denoted as ultimate feature, whereas
@@ -58,7 +58,7 @@ within certain use cases.
 _Stationary in-situ_ sensors are located at a fixed position directly attached
 to the associated _featureOfInterest_. In consequence, the properties _procedure_
 and _featureOfInterest_ have constant geo-locations and the overall observations
-always refer to the same spatial extent (the one of the featureOfInterest). As
+always refer to the same spatial extent (the one of the _featureOfInterest_). As
 an example for _stationary in-situ_ sensors, the below XML illustrates an exemplary
 `OM_Observation` instance of a temperature sensor, measuring
 the _observedProperty_ “Ambient temperature”. As result, a simple measurement
@@ -167,7 +167,7 @@ spatially varying entities to geo-reference a certain observation within the
 associated _featureOfInterest_.
 
 An exemplary observation for a _mobile in-situ_ sensor is discussed within the
-context of 52°North enviroCar project (enviroCar 2015). In this citizen
+context of 52°North enviroCar project ([enviroCar 2015](99_bibliography.html)). In this citizen
 science project, floating car data like fuel consumption, speed or pollution
 impact is collected/computed using a dedicated device (OBD II adapter) and
 a smartphone app. Via associated analysis functionalities, the data can be

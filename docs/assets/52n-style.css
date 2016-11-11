@@ -1,3 +1,7 @@
+html, body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -25,4 +29,8 @@ td {
 
 .n52-nav {
   line-height: 1.2em;
+}
+
+h5 {
+  font-size: 1.1em;
 }

@@ -10,7 +10,7 @@ and shortly described. Within the subsequent sections, certain key aspects are
 elaborated in more detail. First, aspects about sensor data sources are covered.
 Second, the relevant OGC standards are introduced.
 
-### 5.1 Data Sources (Sensors)
+### Data Sources (Sensors)
 
 Fundamentally, data sources of observations can be distinguished as follows. For
 once, sensor entities capturing observations are trivial data sources, as they
@@ -38,7 +38,7 @@ operations ensures that the service implementation performs the operation in
 conformance to the expected data schema. Otherwise, the SOS might not be able to
 access the data properly.
 
-### 5.2 OGC Standards
+### OGC Standards
 
 The SWE framework comprises multiple formats for interoperable exchange of
 sensor data as well as Web Service specifications to allow access to sensor data
@@ -46,7 +46,7 @@ as well as tasking of sensors. The following list gives an overview of central
 SWE standards. Where applicable, a sufficient description of the standard is
 included. For key standards, the short description references a subsequent
 section within this document, providing more details. Note that only the most
-recent versions (date 09.09.2016) of each standard are denoted.
+recent versions (date 2016-09-09) of each standard are denoted.
 
 Standardized **formats**:
 
@@ -58,7 +58,7 @@ connected sensor instruments. Via dedicated commands, relevant sensor metadata
 (e.g. sensor description encoded in SensorML) can be retrieved from the
 instrument directly. In addition, offered configurations and settings can be
 remotely applied to an instrument using dedicated PUCK operations. The official
-specification is available under http://www.opengeospatial.org/standards/puck.
+specification is available under [http://www.opengeospatial.org/standards/puck](http://www.opengeospatial.org/standards/puck).
 
 * **Sensor Model Language (SensorML)**: SensorML specifies a homogeneous
 description of procedure metadata, describing the entity that measures an
@@ -76,34 +76,34 @@ Sensor descriptions as SensorML, observation data encoded in O&M or specific
 data like features or certain results. Moreover, certain transactional
 operations are specified to add/remove new sensors as well as observations. An
 extensive overview of the available operations and relevant other service
-aspects are given in section 7.1.
+aspects are given in the dedicated section.
 
 * **Sensor Planning Service (SPS)**: Via dedicated operations offered by a SPS,
 the sensors themselves can be tasked to perform certain measurements, as
-elaborated in section 7.2.
+elaborated in the dedicated section.
 
 * **SensorThings API**: As elaborated in section 10, the SensorThings API is
 targeted to allow homogeneous access to heterogeneous smart sensors within the
 Web of Things approach. The standard is located at
-http://docs.opengeospatial.org/is/15-078r6/15-078r6.html.
+[http://docs.opengeospatial.org/is/15-078r6/15-078r6.html](http://docs.opengeospatial.org/is/15-078r6/15-078r6.html).
 
 Additional relevant concepts:
 
 * **SWE Common Data Model**: This document defines data types shared by multiple
 SWE specifications. Hence, it serves as a base document but offers no operations
 or encodings. The specification is available from
-http://www.opengeospatial.org/standards/swecommon.
+[http://www.opengeospatial.org/standards/swecommon](http://www.opengeospatial.org/standards/swecommon).
 
 * **SWE Service Model**: Within this document, common data types that are relevant
 for other specifications are specified. In particular, the in- and output types
 of the SOS operations are defined. The standard can be downloaded via a link on
-the website http://www.opengeospatial.org/standards/swes.
+the website [http://www.opengeospatial.org/standards/swes](http://www.opengeospatial.org/standards/swes).
 
 Other services, e.g. offered by 52°North:
 
 * **Discovery**: To discover sensor data repositories as well as available SWE
 Web services offered by different suppliers, catalogue-based services can be
-employed. According to Bröring et al. (2011 a), the standard OGC Catalogue
+employed. According to [Bröring et al. (2011 a)](99_bibliography.html), the standard OGC Catalogue
 (Nebert et al.) is not sufficient to reflect the requirements of SWE, due to
 different metadata models (SensorML versus ebRIM) and the dynamic nature of
 sensor networks. In consequence, some enhancements have been proposed to allow
@@ -122,11 +122,11 @@ With the help of these additional components, standard OGC Catalogues can be
 used to discover sensor data. For instances end-users may query potential
 sensors observing certain observable properties, suppliers of SWE Web services
 can make their services publicly available to others. For more detailed
-information, please refer to Bröring et al. (2011 a) or 52°North (2016 a).
+information, please refer to [Bröring et al. (2011 a)](99_bibliography.html) or [52°North (2016 a)](99_bibliography.html).
 
 * **Sensor Event Service (SES)**: The SES realizes a publish-subscribe
 notification service, where users may subscribe to so-called topics like
 _Measurement_ or _SensorManagement_ to receive an associated notification on
 occurring events. For instance, having subscribed to Measurements, all
 subscribers receive an O&M encoded observation as soon as it is available. For
-more information, please consult 52°North (2016 b).
+more information, please consult [52°North (2016 b)](99_bibliography.html).
