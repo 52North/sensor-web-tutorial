@@ -15,6 +15,18 @@ technology. It gives an overview on the relevant standards and the related
 technology. In order to give the users a jump start, it uses exemplary
 scenarios to illustrate the different approaches.
 
+## Contents
+
+<div class="trigger">
+  {% for my_page in site.pages %}
+    {% if my_page.title %}
+    <div>
+      <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
+<br/>
 
 ## Acknowledgement
 
