@@ -1,0 +1,28 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border:2px solid #000000;
+  margin-bottom: 1em;
+  margin-left:1.5em;
+  margin-right:1.5em;
+}
+
+th {
+  padding:0.5em;
+  border:2px solid #000000;
+}
+
+td {
+  padding:0.5em;
+  border:1px solid #000000;
+}
+
+.n52-header {
+  border-top: 27px solid #4f504a;
+  border-bottom: 1px solid #69ceea;
+  background-color: #ffffff;
+}
+
+.n52-nav {
+  line-height: 1.2em;
+}
