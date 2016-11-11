@@ -21,7 +21,7 @@ description: > #
   technology. It gives an overview on the relevant standards and the related
   technology. In order to give the users a jump start, it uses exemplary
   scenarios to illustrate the different approaches.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/sensor-web-tutorial" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: FiveTwoN
 github_username:  52North
