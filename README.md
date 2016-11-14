@@ -1,4 +1,4 @@
-# Best Practices for using Sensor Web Technology
+# Best Practices for Using Sensor Web Technology
 
 This tutorial has been developed within the
 [ConnectinGEO](http://connectingeo.net/) project in order
@@ -10,24 +10,17 @@ scenarios to illustrate the different approaches.
 
 ## Acknowledgement
 
-<details>
-  <summary>ConnectinGEO is funded by the Horizon 2020 Framework Program</summary>
-  <p><br/>
+<img align="left" src="docs/images/ec.png" alt="EC Logo" style="margin-right :1em" />
 
-![ec logo](images/ec.png "EC Logo")
-<div>
 ConnectinGEO is funded by the Horizon 2020 Framework Program for Research
 and Innovation (SC5-18a-2014-H2020) of the European Union under grant
 agreement number 641538.
-</div>
-  </p>
-</details>
+
+<br/>
 
 ## Copyright Notice
 
-<details>
-  <summary>Copyright © 2016, ConnectinGEO Consortium</summary>
-  <div><br/>
+Copyright © 2016, ConnectinGEO Consortium
 
 The ConnectinGEO Consortium grants third parties the right to use and
 distribute all or parts of this document, provided that the ConnectinGEO
@@ -43,4 +36,3 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 DOCUMENT, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</div>
-</details>
