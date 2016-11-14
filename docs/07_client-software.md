@@ -91,7 +91,7 @@ API to retrieve observation data and display is accordingly. The below figure sh
 the landing page, displaying a map with available stations on the left as
 well as a list of available phenomena (observed properties) on the right.
 
-![clients3.png](images/clients3.png "Landing page of sensor web client")
+[![clients3.png](images/clients3.png "Landing page of sensor web client")](images/clients3.png)
 
 On startup, the relevant data (stations as well as phenomena) is automatically
 retrieved from the configured SOS instance
@@ -100,7 +100,7 @@ Via the phenomena list, stations can be filtered. E.g. by clicking on the
 phenomena _Direct Horizontal Irradiance_, the associated stations are determined
 and the map view is refreshed showing only the remaining stations.
 
-![clients4.png](images/clients4.png "Stations filtered by phenomena")
+[![clients4.png](images/clients4.png "Stations filtered by phenomena")](images/clients4.png)
 
 To visualize observation data, a station on the map has to be clicked,
 which opens a dialog box to select the phenomena according to the figure below.
@@ -108,7 +108,7 @@ In this case, only the previously filtered _Direct Horizontal Irradiance_
 is available. User may select the time series datasets they intend to retrieve
 and visualize and click on the _OK_ button.
 
-![clients5.png](images/clients5.png "Phenomena selection after click on marked station")
+[![clients5.png](images/clients5.png "Phenomena selection after click on marked station")](images/clients5.png)
 
 For instance, when selecting all three time series datasets, the client builds
 and executes a request against the REST API to retrieve available data for all
@@ -116,7 +116,7 @@ selected datasets. To reduce the amount of data being requested, a standard
 time interval (the last available week) is added to the request. After fetching
 the data, the client creates a graph visualization, as shown in the following figure.
 
-![clients6.png](images/clients6.png "Time series graph of selected phenomena Direct Horizontal Irradiance")
+[![clients6.png](images/clients6.png "Time series graph of selected phenomena Direct Horizontal Irradiance")](images/clients6.png)
 
 The graph shows the value distribution of the selected phenomena for seven
 days, each day annotated at midnight and midday. Using this graph view as a
