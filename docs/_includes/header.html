@@ -7,7 +7,7 @@
         <a class="site-title" href="{{ "/" | relative_url}}">{{ site.title | escape }}</a>
       </div>
       <div style="flex: 1;"></div>
-      <div style="float: right">
+      <div style="float: right; padding-right:10px">
         <a href="http://52north.org">
           <img src="images/52n-logoclaim-rgb.svg" style="width:150px;"/>
         </a>
@@ -27,8 +27,12 @@
 
         <div class="trigger">
           {% for my_page in site.pages %}
-            {% if my_page.title %}
-            <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+            {% if my_page.title && my_page.title == page.title %}
+              {% if my_page.title == page.title %}
+                <a class="page-link" href="{{ my_page.url | relative_url }}" style="white-space: nowrap;font-weight: bold">{{ my_page.title | escape }}</a>
+              {% else %}
+                <a class="page-link" href="{{ my_page.url | relative_url }}" style="white-space: nowrap;">{{ my_page.title | escape }}</a>
+              {% endif %}
             {% endif %}
           {% endfor %}
         </div>

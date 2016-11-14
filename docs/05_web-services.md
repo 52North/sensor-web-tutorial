@@ -482,3 +482,308 @@ submitted using request parameters listed in the following table.
 
 
 ### Sensor Planning Service
+
+The OGC **Sensor Planning Service (SPS)** is a Web service to acquire
+information about the capabilities of sensors and how to task them through
+specified operations. Remarkably, the SPS does not allow retrieval of observations,
+as this is done by a SOS. Instead it may be used to dynamically change the
+parametrization of sensors to adjust them to a new observation scenario. The
+standardized specification is available at
+
+> [http://www.opengeospatial.org/standards/sps](http://www.opengeospatial.org/standards/sps)
+
+Similar to the presentation of the SOS, the section introduces each specified
+operation of an SPS version 2.0 by listing the operations purpose and request
+parameters. All information has been extracted from the official SPS 2.0
+standard ([Simonis & Echterhoff, 2016](99_bibliography.html)).
+
+In general, the SPS is designed in a generic fashion to support arbitrary
+types of sensors. As each sensor is different and requires syntactically
+and/or semantically different input parameters to be tasked, several operations
+are specified. Typically, a client first has to acquire meta-information about
+the capabilities and available parameters (including their syntax) to know how
+to task them. Having gathered these information, so-called tasks can be
+registered/submitted to the sensor to actually perform the parametrization
+adjustment. The following core operations are mandatory:
+
+* **GetCapabilities** - metadata about service and sensor
+
+* **DescribeTasking** - metadata about sensor parameter structure for subsequent task creations
+
+* **Submit** - create and execute a new task by specifying relevant sensor parameters
+
+* **GetStatus** - get status of a certain task
+
+* **GetTask** - get status of a certain task (currently more or less equal to GetStatus)
+
+* **DescribeResultAccess** - acquire information on how/where to retrieve result data (e.g. observation data from an associated SOS)
+
+In addition, the following optional operations can be offered by an SPS:
+
+* **DescribeSensor** - metadata about the sensor, similar to SOS operation
+
+* **Reserve** - create a new task, but do not execute it immeadiately
+
+* **Confirm** - execute a reserved task
+
+* **GetFeasibility** - create and execute a new task or get alternative parameter constellations to improve the request
+
+* **Update** - update a non-finished task
+
+* **Cancel** - cancel/abort a scheduled (reserved/executing) task
+
+* **UpdateSensorDescription** - update the description of the sensor, similar to SOS operation
+
+#### GetCapabilities
+
+The `GetCapabilites` operation returns general metadata about the SPS, such as
+service identification and provider information. Specific to an SPS, additional
+information about the procedure, the observed property and observed area as well
+as supported encodings of tasking parameters and a minimum status time, for which
+the SPS stores the state of a finalized task, are of high relevance. A
+`GetCapabilities` request may include the following parameters:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “GetCapabilities”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| acceptVersions| submit accepted versions, e.g. “2.0.0”| no|
+| acceptFormats| preferred response formats| no|
+| updateSequence| service metadata document version, value is “increased” whenever any change is made in complete service metadata document| no|
+| sections| include only relevant sections within the response document and omit the rest| no|
+
+#### DescribeTasking
+
+The `DescribeTasking` operation can be used to retrieve the description of data
+structures for tasking parameters for subsequent tasking requests. Using the
+returned tasking parameter description as a basis, clients know how to
+formulate/encode associated parameters within Submit requests. The following
+request parameters are offered:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “DescribeTasking”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure| reference to the target sensor/procedure | yes|
+
+#### Submit
+
+Via the `Submit` operation, clients may reparametrize the sensor/procedure
+according to the parameter structure, as retrieved from a `DescribeTasking`
+request. As Submit request may contain invalid parameter constellations, the
+SPS instance first performs a feasibility check before executing the task. The
+available request parameters are:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “Submit”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure| reference to the target sensor/procedure | yes|
+| latestResponseTime| definition of a point in time, when the service shall respond at the latest| no|
+| taskingParameters| definition of parameters according to sensor-related structure| yes|
+
+In response, the service provides a so-called _status report_, providing information
+on the request as well as task status and other meta-information. Moreover, the
+response also contains a reference to a created task. The following figure shows all properties
+of a status report. In particular, a request may have the status _Accepted_,
+_Pending_ or _Rejected_. E.g. it might be rejected for a non-valid parameter definition.
+If the SPS is busy with the execution of another task or is performing a
+feasibility check, the request status is set to _Pending_. Should a client receive
+a Submit response, where the request is still _Pending_, then subsequent calls of
+the `GetStatus` operation should be used in order to retrieve the final result of
+the request. In general, within the processing of a Submit request, the request
+and task experience several transition state changes when they are initialized,
+processed and finished.
+
+![services1.png](images/services1.png "Properties of SPS status report")
+
+#### GetStatus
+
+As mentioned in the previous section, the `GetStatus` operation is used to
+retrieve the latest status report for a certain task. Without definition of
+the optional since parameter, the operation returns the last available status
+report for the specified task. The request parameters are:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “GetStatus”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| task| reference to the target task | yes|
+| since| definition of a point in time. The response will then contain a status report for each transition state change that happened since that point of time. In particular, this might result in an empty response, if no state change occurred.| no|
+
+#### GetTask
+
+Via the `GetTask` operation, clients can retrieve information about the specified
+task. Currently, this operation is very similar to `GetStatus`, but is intended to
+be an extension point for future developments. The response contains the requested
+task including its last available status report. The request parameters are:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “GetTask”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| task| reference to the target task | yes|
+
+#### DescribeResultAccess
+
+Via this operation, clients are enabled to acquire information on where to
+retrieve data that was produced by a certain task or where to retrieve sensor
+observations from a specified sensor in general. The response may contain a link
+to any information resource, such as simple files on an FTP server or any
+remote location. Of particular interest is a reference to other OGC services
+like an SOS or a Web Feature Service.
+
+Within the request, clients may submit either a procedure or task identifier.
+While the former is a generic query to find out, how all measured data from that
+particular sensor is accessible (e.g. resulting in the base URL of a SOS), the
+latter intends to acquire only the measurements associated with the task (e.g.
+resulting in a fully parametrized SOS `GetObservation` request). In addition to
+this reference location, further metadata about the type of reference (e.g.
+title, role, format). The following table contains the request parameters:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “DescribeResultAccess”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| target| identifier of either a procedure or a task | yes|
+
+#### DescribeSensor
+
+Similar to the equivalently named SOS request (see above), the operation may be
+used to get a Sensor description, preferably encoded in SensorML.
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “DescribeSensor”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure| reference to the target sensor/procedure | yes|
+| procedureDescriptionFormat| selects the target description format identifier| yes|
+| validTime| Time instant or period for which the sensor description is retrieved| no|
+
+#### Reserve
+
+Basically, this operation causes the same effect as a `Submit` request. A client
+encodes a certain parameter constellation using the valid structure from a
+`DescribeTasking` response and the SPS creates a new task (and performs
+feasibility checks). However, in contrast to the `Submit` operation, the task is
+only created and not executed immediately. Instead the task is just reserved and
+addressable via its identifier. To execute the task, a client has to send a
+subsequent `Confirm` request, as explained in below. Similarly, a reserved task
+can also be canceled via the `Cancel` operation, as described below. In consequence,
+the request parameters equal those of the Submit operation. The response of the
+SPS again contains a status report providing task metadata (where the state of the
+task is set to _Reserved_).
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “Reserve”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure| reference to the target sensor/procedure | yes|
+| latestResponseTime| definition of a point in time, when the service shall respond at the latest| no|
+| taskingParameters| definition of parameters according to sensor-related structure| yes|
+| reservationExpiration| definition of a future point in time, when the reserved task shall expire and be automatically canceled| no|
+
+#### Confirm
+
+Via the `Confirm` operation, clients are enabled to start a reserved task, which
+has not expired yet. Implicitly, this changes the tasks state from _Reserved_ to
+_InExecution_. Within the response, the modified status report is attached. The
+available request parameters are:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “Confirm”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| task| Identifier of the target reserved task | yes|
+
+#### GetFeasibility
+
+The `GetFeasibility` operation is meant to check the feasibility of a certain
+parameter constellation. Clients may execute this operation previously to a
+`Submit` operation, in order to verify their request. If the parameter
+constellation is feasible, then a new task is created, similar to the `Submit`
+operation. The response contains a status report with metadata about the task.
+In addition the response might offer dedicated feasible _alternatives_, where
+each _alternative_ suggests a similar parameter constellation to obtain similar
+results. This might be of high relevance to optimize requests. Of course,
+these _alternatives_ are only feasible at the time, when they were created. Due
+to future changes, the feasibility might be lost. The subsequent table lists
+the available request parameters:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “GetFeasibility”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure| reference to the target sensor/procedure | yes|
+| latestResponseTime| definition of a point in time, when the service shall respond at the latest| no|
+| taskingParameters| definition of parameters according to sensor-related structure| yes|
+
+#### 7.2.11 Update
+
+This operation enables clients to update an already created task, which has
+not yet finalized. The response contains a status report representing the metadata
+of the modified task as well as the identifier of that task. In case, the request
+is rejected (e.g. if an unmodifiable property was tried to be modified), then the
+response will contains the “old” unmodified status report.
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “Update”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure| reference to the target sensor/procedure | yes|
+| latestResponseTime| definition of a point in time, when the service shall respond at the latest| no|
+| taskingParameters| definition of parameters according to sensor-related structure| yes|
+| targetTask| identifier of the target unfinished task| yes|
+
+#### Cancel
+
+The `Cancel` operation is meant to cancel a scheduled task. A task is scheduled,
+when its state is _Reserved_ or _InExecution_. If the request fails, the task remains
+untouched and a proper reason shall be part of the response document. The request
+parameters are:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “Cancel”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| task| Identifier of the target scheduled task | yes|
+
+#### UpdateSensorDescription
+
+This operation is equal to the equivalent of the SOS (see above) and is meant
+to update an existing sensor description of a certain sensor/procedure. Again it
+is recommended to use SensorML as description format. The request parameters are:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SPS”| no|
+| request| fixed value “DescribeSensor”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure| reference to a dedicated procedure, for which the description shall be updated| yes|
+| procedureDescriptionFormat| reference to a known procedure description format, such as “http://www.opengis.net/sensorML/1.0.1” or “http://www.opengis.net/sensorML/2.0”| yes|
+| description| contains the new sensor description according to the specified procedureDescriptionFormat within property data; optional property validTime might store the time instant or period for which the description is valid| yes|
