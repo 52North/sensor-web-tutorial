@@ -7,6 +7,11 @@ technology. It gives an overview on the relevant standards and the related
 technology. In order to give the users a jump start, it uses exemplary
 scenarios to illustrate the different approaches.
 
+## Read the Tutorial!
+
+The tutorial is available on the 52°North GitHub Pages:
+
+https://52north.github.io/sensor-web-tutorial/
 
 ## Acknowledgement
 
