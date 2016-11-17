@@ -18,7 +18,7 @@ Instructions for all supported platform are available at:
 This section provides a brief overview on the available Docker images for
 the Sensor Web, created and maintained by 52°North:
 
-[https://hub.docker.com/r/52north/](https://hub.docker.com/r/52north/)
+> [https://hub.docker.com/r/52north/](https://hub.docker.com/r/52north/)
 
 [mdillon](https://hub.docker.com/r/mdillon/postgis/)
 provides docker images of PostgreSQL with PostGIS extensions and templates installed.
