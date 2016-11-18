@@ -47,7 +47,7 @@ Run the following docker commands:
 1. Run the **sos** docker image:
 `docker run --link sos-empty-postgres:postgres -p 8080:8080 52north/sos:4.3.8`
 
-Alternatively, you can use the following **docker-compose** file (run with
+Alternatively, you can use the following **docker-compose.yml** file (run with
 `docker-compose build && docker-compose up`):
 
 ```yml
@@ -94,7 +94,7 @@ docker image. Execute the following docker commands:
 `docker run --link sos-weather-postgres:postgres -p 8080:8080 52north/sos-configured:4.3.8`
 
 
-Alternatively, you can use the following **docker-compose** file (run with
+Alternatively, you can use the following **docker-compose.yml** file (run with
 `docker-compose build && docker-compose up`):
 
 ```yml
