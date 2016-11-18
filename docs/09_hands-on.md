@@ -85,13 +85,13 @@ You will have your SOS running in a few seconds.
 ##### Using a Pre-filled Database
 
 For this example, we use the pre-configured **52north/sos-configured** docker image.
-A database with some sample data is available as the **52north/sos-example-postgres**
+A database with some sample data is available as the **52north/sos-weather-postgres**
 docker image. Execute the following docker commands:
 
 1. Start the postgres container:
-`docker run --name sos-example-postgres -p 5432:5432 52north/sos-example-postgres:4.3.8`
+`docker run --name sos-weather-postgres -p 5432:5432 52north/sos-weather-postgres:4.3.8`
 1. Run the **sos-configured** docker image:
-`docker run --link sos-example-postgres:postgres -p 8080:8080 52north/sos-configured:4.3.8`
+`docker run --link sos-weather-postgres:postgres -p 8080:8080 52north/sos-configured:4.3.8`
 
 
 Alternatively, you can use the following **docker-compose** file (run with
@@ -100,8 +100,8 @@ Alternatively, you can use the following **docker-compose** file (run with
 ```yml
 version: '2'
 services:
-  sos-example-postgres:
-    image: 52north/sos-example-postgres:4.3.8
+  sos-weather-postgres:
+    image: 52north/sos-weather-postgres:4.3.8
     ports:
       - 5432:5432
     expose:
@@ -115,7 +115,7 @@ services:
     ports:
       - 8080:8080
     links:
-      - sos-example-postgres:postgres
+      - sos-weather-postgres:postgres
 ```
 
 The SOS is now up and running at [http://localhost:8080/52n-sos-webapp](http://localhost:8080/52n-sos-webapp).
