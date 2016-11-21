@@ -152,7 +152,7 @@ of [MINES ParisTech / ARMINES](http://www.mines-paristech.fr/) and also from the
 
 The database is available as a docker container:
 
-> https://hub.docker.com/r/52north/sos-solar-postgres/
+> [https://hub.docker.com/r/52north/sos-solar-postgres/](https://hub.docker.com/r/52north/sos-solar-postgres/)
 
 For usage, adjust the above docker commands (or `docker-compose.yml`) with the corresponding image:
 `52north/sos-solar-postgres:4.3.8`.
