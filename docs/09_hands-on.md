@@ -131,3 +131,42 @@ Series REST API bundled in the webapp. You can access the API at:
 The images also contain the Helgoland JavaScript client. You can access the
 client at:
 [http://localhost:8080/52n-sos-webapp/static/client/helgoland/#/map](http://localhost:8080/52n-sos-webapp/static/client/helgoland/#/map)
+
+#### More Example Data
+
+##### SOS Solar Irradiance Example Database
+
+This database contains in-situ data for Solar Irrandiance as well
+as data derived by several models. The data is located at a station
+in [Signes, France](https://www.google.de/maps/search/signes/@43.2760265,5.7793974,12z,),
+and contains data for the first two weeks of September 2015.
+
+The provided data is an excerpt of the database provided on
+[http://webservice-energy.org/](http://webservice-energy.org/). This platform is
+an effort carried out by the center
+[Observation, Impacts, Energy](http://www.oie.mines-paristech.fr/Accueil/) (O.I.E.)
+of [MINES ParisTech / ARMINES](http://www.mines-paristech.fr/) and also from the
+[SoDa](http://www.soda-pro.com/) Team toward the Energy and Environmental Community.
+
+###### Access
+
+The database is available as a docker container:
+
+> https://hub.docker.com/r/52north/sos-solar-postgres/
+
+For usage, adjust the above docker commands (or `docker-compose.yml`) with the corresponding image:
+`52north/sos-solar-postgres:4.3.8`.
+
+###### Acknowledgement
+
+The data contained in this sample database has been kindly provided by
+[Solaïs](http://www.solais.fr/en/).
+
+[![solais](images/solais.png)](http://www.solais.fr/en/)
+
+Addtionally, we thank
+[Mines ParisTech](http://www.mines-paristech.fr/)
+(i.e. [Lionel Menard](http://www.mines-paristech.fr/Services/Annuaire/lionel-menard))
+for supporting the collection of the sample data.
+
+[![mines-paristech](images/mines-paristech.png)](http://www.mines-paristech.fr/)
