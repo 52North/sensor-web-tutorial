@@ -28,7 +28,7 @@ github_username:  52North
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-merlot
+theme: jekyll-theme-minimal
 gems:
   - jekyll-feed
 exclude:
