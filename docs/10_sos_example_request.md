@@ -19,10 +19,10 @@ prepared example requests or your own requests.
 
 ![Testclient.png](images/Testclient.png "52°North SOS Test Client")
 
-With the four fields "Service", "Version", "Binding and "Operation" the example requests can be filtered.
+With the four fields "Service", "Version", "Binding" and "Operation" the example requests can be filtered.
 In the field "Load a example request" an example request can be choosen. If a request is loaded, it is shown 
 at the bottom of the page. The example request can be manipulated or you can create your own requests. It is also
-possible to follow this tutorial along and use the presented requests in the 52°North SOS Test Client.
+possible to follow this tutorial along and use the presented requests in the **52°North SOS Test Client**.
 
 ## Enable transactional SOS operations
 For security reasons, the transactional SOS operations are disabled by default and the _Transactional Security_ is
