@@ -17,7 +17,7 @@ returns the requested observations.
 It is recommended to use the **52°North SOS Test Client** to test your installation of the SOS by sending
 prepared example requests or your own requests.
 
-![Testclient.png](images/Testclient.png "52°North SOS Test Client")
+![Testclient.PNG](images/Testclient.PNG "52°North SOS Test Client")
 
 With the four fields "Service", "Version", "Binding" and "Operation" the example requests can be filtered.
 In the field "Load a example request" an example request can be choosen. If a request is loaded, it is shown 
@@ -29,7 +29,7 @@ For security reasons, the transactional SOS operations are disabled by default a
 activated by default with allowed IPs _127.0.0.1_. To follow the given examples in this tutorial activate the
 transactional SOS operations in the **Operations settings** (Admin >> Settings >> Operations).
 
-![transactionalOperations.png](images/transactionalOperations.png "active transactional operations")
+![transactionalOperations.PNG](images/transactionalOperations.PNG "active transactional operations")
 
 ## InsertSensor
 The `InsertSensor` operation can be used to add to the SOS a detailed sensor description about a certain sensor,
