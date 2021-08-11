@@ -186,8 +186,9 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
 ~~~
 
 In response to a successful `InsertSensor` request, the SOS responds with a pointer
-to the created sensor instance as well as a pointer to the created offering associated
-to the inserted sensor/procedure.
+to the created sensor instance (`<swes:assignedProcedure>`) as well as a pointer to the created offering associated
+to the inserted sensor/procedure (`<swes:assignedOffering>`). This references are needed for the next step to insert
+an observation.
 
 ~~~xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -201,11 +202,350 @@ to the inserted sensor/procedure.
 
 ## InsertObservation
 
-missing text
+The `InsertObservation` operation is used to insert new observations for registered sensors to the SOS. The available request parameters
+are listed in the following:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SOS”| no|
+| request| fixed value “DescribeSensor”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| observation| the instance of OM_Observation that shall be inserted| yes|
+| offering| reference to an existing offering to which the observation(s) shall be added | no|
+
+This example of an `InsertObservation` request  uses the reference to the procedure/ sensor and the reference
+to the offering of the `InsertSensor` response. The example is an observation at the previous inserted
+procedure/sensor. The sensor measured in Muenster an air temperature of 18.2°C at 09:37:12 o'clock local time
+on the 6. August 2021.
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:InsertObservation
+    xmlns:sos="http://www.opengis.net/sos/2.0"
+    xmlns:swes="http://www.opengis.net/swes/2.0"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:om="http://www.opengis.net/om/2.0"
+    xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
+    xmlns:sf="http://www.opengis.net/sampling/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd          http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd">
+    <!-- reference to an offering (multiple offerings possible) -->
+    <sos:offering>Thermometer_1285_offering</sos:offering>
+    <sos:observation>
+        <om:OM_Observation gml:id="o1">
+            <!-- reference to the type of the observation -->
+			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+			<!-- period in time for which the observation applies -->
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:37:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+			<!-- point in time when the observation was published (here: reference to phenomenonTime) -->
+            <om:resultTime xlink:href="#phenomenonTime"/>
+			<!-- reference to the procedure/ sensor -->
+            <om:procedure xlink:href="Thermometer_1285"/>
+			<!-- reference to the observed property/ phenomenon -->
+            <om:observedProperty xlink:href="air_temperature"/>
+			<!-- feature of interest of the observation -->
+            <om:featureOfInterest>
+                <sams:SF_SpatialSamplingFeature gml:id="ssf_muenster">
+                    <!-- unique identifier of the featur of interest -->
+					<gml:identifier codeSpace="">Muenster</gml:identifier>
+					<!-- name of the feature of interest -->
+                    <gml:name>Muenster</gml:name>
+					<!-- reference to the geometry type of the feature of interest -->
+                    <sf:type xlink:href="http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"/>
+					<!-- reference to the sampled feature (here: no sampled feature) -->
+                    <sf:sampledFeature xlink:href="http://www.opengis.net/def/nil/OGC/0/unknown"/>
+					<!-- geometry of the feature of interest -->
+                    <sams:shape>
+                        <gml:Point gml:id="p_muenster">
+                            <gml:pos srsName="http://www.opengis.net/def/crs/EPSG/0/4326">51.935101100104916 7.651968812254194</gml:pos>
+                        </gml:Point>
+                    </sams:shape>
+                </sams:SF_SpatialSamplingFeature>
+            </om:featureOfInterest>
+			<!-- result of the observation -->
+            <om:result xsi:type="gml:MeasureType" uom="degC">18.2</om:result>
+        </om:OM_Observation>
+    </sos:observation>
+</sos:InsertObservation>
+~~~
+
+A successful insertion results in an instance of an _insert observation response_ (`<sos:InsertObservationResponse>`).
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:InsertObservationResponse xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosInsertObservation.xsd"/>
+~~~
 
 ## GetCapabilities
 
-missing text
+Similar to other OGC services, the `GetCapabilities` operation responds with
+metadata about the service instance itself. Amongst others, the Capabilities
+document lists available _sensors/ procedures_, _offerings_, _observed properties/ phenomenon_,
+_features of interest_ as well as spatial and temporal bounding boxes of the
+available _observations_. A `GetCapabilities` request may contain the following
+parameters:
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SOS”| no|
+| request| fixed value “GetCapabilities”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| acceptVersions| submit accepted versions, e.g. “2.0.0”| no|
+| acceptFormats| preferred response formats| no|
+| updateSequence| service metadata document version, value is “increased” whenever any change is made in complete service metadata document| no|
+| sections| include only relevant sections within the response document and omit the rest| no|
+
+For example this `GetCapabilities` request contains an _accepted version_ (`<ows:AcceptedVersion>`) and filters for
+the relevant _sections_ (`<ows:Sections>`).
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:GetCapabilities
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sos="http://www.opengis.net/sos/2.0"
+    xmlns:ows="http://www.opengis.net/ows/1.1"
+    xmlns:swe="http://www.opengis.net/swe/2.0" service="SOS" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosGetCapabilities.xsd">
+    <!-- submit the accepted version -->
+	<ows:AcceptVersions>
+        <ows:Version>2.0.0</ows:Version>
+    </ows:AcceptVersions>
+	<!-- response document includes this sections and omits all others -->
+	<ows:Sections>
+        <ows:Section>OperationsMetadata</ows:Section>
+        <ows:Section>ServiceIdentification</ows:Section>
+        <ows:Section>ServiceProvider</ows:Section>
+        <ows:Section>FilterCapabilities</ows:Section>
+        <ows:Section>Contents</ows:Section>
+    </ows:Sections>
+</sos:GetCapabilities>
+~~~
+
+The response document of the example request contains the most relevant sections. These are the
+_service identification_ which provides metadata about the service itself (`<ows:ServiceIdentification>`),
+the _service provider_ which offers metadata about the provider/ organization (`<ows:ServiceProvider>`),
+the _operations metadata_ which contains metadata about the offered operations (`<ows:OperationsMetadata>`),
+the _filter capabilities_ which includes metadata about the supported filter functionalities
+(`<sos:filterCapabilities>`) and the _contents_ which contains metadata about available observation offerings
+(`<sos:contents>`). The following response of the exemplar `GetCapabilities` request is not completely shown.
+Some parts are omitted to enable better readabiltiy.
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:Capabilities xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:swes="http://www.opengis.net/swes/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" version="2.0.0" updateSequence="2021-08-11T11:03:46.885+02:00" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosGetCapabilities.xsd">
+  <!-- metadata about the service itself, such as title, version, language -->
+  <ows:ServiceIdentification>
+    <ows:Title xml:lang="eng">52N SOS</ows:Title>
+    <ows:Abstract xml:lang="eng">52North Sensor Observation Service - Data Access for the Sensor Web</ows:Abstract>
+    <ows:ServiceType>OGC:SOS</ows:ServiceType>
+    <ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
+    <ows:ServiceTypeVersion>2.0.0</ows:ServiceTypeVersion>
+    <ows:Profile>http://www.opengis.net/extension/SOSDO/1.0/observationDeletion</ows:Profile>
+    <ows:Profile>http://www.opengis.net/extension/SOSDO/2.0/observationDeletion</ows:Profile>
+    <!-- ... -->
+    <ows:Fees>NONE</ows:Fees>
+    <ows:AccessConstraints>NONE</ows:AccessConstraints>
+  </ows:ServiceIdentification>
+  <!-- metadata about the provider/ organization, such as contact information -->
+  <ows:ServiceProvider>
+    <ows:ProviderName>52North</ows:ProviderName>
+    <ows:ProviderSite xlink:href="TBA" xlink:title="TBA"/>
+    <ows:ServiceContact>
+      <ows:IndividualName>TBA</ows:IndividualName>
+      <ows:PositionName>TBA</ows:PositionName>
+      <ows:ContactInfo>
+        <ows:Phone>
+          <ows:Voice>+49(0)251/396 371-0</ows:Voice>
+          <ows:Facsimile>TBA</ows:Facsimile>
+        </ows:Phone>
+        <ows:Address>
+          <ows:DeliveryPoint>Martin-Luther-King-Weg 24</ows:DeliveryPoint>
+          <ows:City>Münster</ows:City>
+          <ows:AdministrativeArea>North Rhine-Westphalia</ows:AdministrativeArea>
+          <ows:PostalCode>48155</ows:PostalCode>
+          <ows:Country>Germany</ows:Country>
+          <ows:ElectronicMailAddress>info@52north.org</ows:ElectronicMailAddress>
+        </ows:Address>
+        <ows:OnlineResource xlink:href="http://52north.org/swe"/>
+        <ows:HoursOfService>TBA</ows:HoursOfService>
+        <ows:ContactInstructions>TBA</ows:ContactInstructions>
+      </ows:ContactInfo>
+      <ows:Role codeSpace="TBA">TBA</ows:Role>
+    </ows:ServiceContact>
+  </ows:ServiceProvider>
+  <!-- metadata about the offered operations, including which operations are offered (like GetCapabilites, DescribeSensor, GetObservation, …), available bindings (e.g. POX, KVP, SOAP, JSON) and a URL endpoint -->
+  <ows:OperationsMetadata>
+    <ows:Operation name="Batch">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Post xlink:href="http://localhost:8080/52n-sos-webapp/service">
+            <ows:Constraint name="Content-Type">
+              <ows:AllowedValues>
+                <ows:Value>application/json</ows:Value>
+              </ows:AllowedValues>
+            </ows:Constraint>
+          </ows:Post>
+        </ows:HTTP>
+      </ows:DCP>
+    </ows:Operation>
+    <ows:Operation name="DescribeSensor">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="http://localhost:8080/52n-sos-webapp/service">
+            <ows:Constraint name="Content-Type">
+              <ows:AllowedValues>
+                <ows:Value>application/x-kvp</ows:Value>
+              </ows:AllowedValues>
+            </ows:Constraint>
+          </ows:Get>
+          <ows:Post xlink:href="http://localhost:8080/52n-sos-webapp/service">
+            <ows:Constraint name="Content-Type">
+              <ows:AllowedValues>
+                <ows:Value>application/exi</ows:Value>
+                <ows:Value>application/json</ows:Value>
+                <ows:Value>application/soap+xml</ows:Value>
+                <ows:Value>application/xml</ows:Value>
+                <ows:Value>text/xml</ows:Value>
+              </ows:AllowedValues>
+            </ows:Constraint>
+          </ows:Post>
+        </ows:HTTP>
+      </ows:DCP>
+      <ows:Parameter name="procedure">
+        <ows:AllowedValues>
+          <ows:Value>Thermometer_1285</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+      <ows:Parameter name="procedureDescriptionFormat">
+        <ows:AllowedValues>
+          <ows:Value>http://inspire.ec.europa.eu/schemas/ompr/3.0</ows:Value>
+          <ows:Value>http://www.opengis.net/def/timeseries/observationProcess</ows:Value>
+          <ows:Value>http://www.opengis.net/sensorML/1.0.1</ows:Value>
+          <ows:Value>http://www.opengis.net/sensorml/2.0</ows:Value>
+          <ows:Value>http://www.opengis.net/waterml/2.0/observationProcess</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+      <ows:Parameter name="validTime">
+        <ows:AnyValue/>
+      </ows:Parameter>
+    </ows:Operation>
+	<!-- ... -->
+  </ows:OperationsMetadata>
+  <!-- metadata about the supported spatial and temporal filter functionalities extension: container for extensions -->
+  <sos:filterCapabilities>
+    <fes:Filter_Capabilities>
+      <fes:Conformance>
+        <fes:Constraint name="ImplementsAdHocQuery">
+          <ows:NoValues/>
+          <ows:DefaultValue>false</ows:DefaultValue>
+        </fes:Constraint>
+        <fes:Constraint name="ImplementsExtendedOperators">
+          <ows:NoValues/>
+          <ows:DefaultValue>false</ows:DefaultValue>
+        </fes:Constraint>
+        <!-- ... -->
+      </fes:Conformance>
+      <fes:Spatial_Capabilities>
+        <fes:GeometryOperands>
+          <fes:GeometryOperand xmlns:ns="http://www.opengis.net/gml/3.2" name="ns:Envelope"/>
+        </fes:GeometryOperands>
+        <fes:SpatialOperators>
+          <fes:SpatialOperator name="BBOX">
+            <fes:GeometryOperands>
+              <fes:GeometryOperand xmlns:ns="http://www.opengis.net/gml/3.2" name="ns:Envelope"/>
+            </fes:GeometryOperands>
+          </fes:SpatialOperator>
+        </fes:SpatialOperators>
+      </fes:Spatial_Capabilities>
+      <fes:Temporal_Capabilities>
+        <fes:TemporalOperands>
+          <fes:TemporalOperand xmlns:ns="http://www.opengis.net/gml/3.2" name="ns:TimeInstant"/>
+          <fes:TemporalOperand xmlns:ns="http://www.opengis.net/gml/3.2" name="ns:TimePeriod"/>
+        </fes:TemporalOperands>
+        <fes:TemporalOperators>
+          <fes:TemporalOperator name="Before">
+            <fes:TemporalOperands>
+              <fes:TemporalOperand xmlns:ns="http://www.opengis.net/gml/3.2" name="ns:TimeInstant"/>
+              <fes:TemporalOperand xmlns:ns="http://www.opengis.net/gml/3.2" name="ns:TimePeriod"/>
+            </fes:TemporalOperands>
+          </fes:TemporalOperator>
+          <fes:TemporalOperator name="After">
+            <fes:TemporalOperands>
+              <fes:TemporalOperand xmlns:ns="http://www.opengis.net/gml/3.2" name="ns:TimeInstant"/>
+              <fes:TemporalOperand xmlns:ns="http://www.opengis.net/gml/3.2" name="ns:TimePeriod"/>
+            </fes:TemporalOperands>
+          </fes:TemporalOperator>
+          <!-- ... -->
+        </fes:TemporalOperators>
+      </fes:Temporal_Capabilities>
+    </fes:Filter_Capabilities>
+  </sos:filterCapabilities>
+  <!-- metadata about available observation offerings including their associated properties such as identifier, procedure, reponseFormats, temporal and spatial aspects, ... -->
+  <sos:contents>
+    <sos:Contents>
+      <swes:offering>
+        <sos:ObservationOffering xmlns:ns="http://www.opengis.net/sos/2.0">
+          <!-- unique identifier of the offering -->
+		  <swes:identifier>Thermometer_1285_offering</swes:identifier>
+		  <!-- name of the offering -->
+          <swes:name codeSpace="http://www.opengis.net/def/nil/OGC/0/unknown">Thermometer 1285 Offering</swes:name>
+		  <!-- unique identifier of the procedure/ sensor -->
+          <swes:procedure>Thermometer_1285</swes:procedure>
+		  <!-- available formats for the sensor descriptions -->
+          <swes:procedureDescriptionFormat>http://inspire.ec.europa.eu/schemas/ompr/3.0</swes:procedureDescriptionFormat>
+          <swes:procedureDescriptionFormat>http://www.opengis.net/def/timeseries/observationProcess</swes:procedureDescriptionFormat>
+          <swes:procedureDescriptionFormat>http://www.opengis.net/sensorML/1.0.1</swes:procedureDescriptionFormat>
+          <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
+          <swes:procedureDescriptionFormat>http://www.opengis.net/waterml/2.0/observationProcess</swes:procedureDescriptionFormat>
+		  <!-- unique identifier of the observed property/ phenomena -->
+          <swes:observableProperty>air_temperature</swes:observableProperty>
+          <swes:relatedFeature>
+            <swes:FeatureRelationship>
+              <swes:target xlink:href="Muenster"/>
+            </swes:FeatureRelationship>
+          </swes:relatedFeature>
+		  <!-- bounding box of the observed area -->
+          <sos:observedArea>
+            <gml:Envelope srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+              <gml:lowerCorner>51.935101100104916 7.651968812254194</gml:lowerCorner>
+              <gml:upperCorner>51.935101100104916 7.651968812254194</gml:upperCorner>
+            </gml:Envelope>
+          </sos:observedArea>
+		  <!-- period in time for which the observations apply -->
+          <sos:phenomenonTime>
+            <gml:TimePeriod gml:id="phenomenonTime_1">
+              <gml:beginPosition>2021-08-06T07:37:12.000Z</gml:beginPosition>
+              <gml:endPosition>2021-08-06T07:37:12.000Z</gml:endPosition>
+            </gml:TimePeriod>
+          </sos:phenomenonTime>
+		  <!-- period in time when the observations were published -->
+          <sos:resultTime>
+            <gml:TimePeriod gml:id="resultTime_1">
+              <gml:beginPosition>2021-08-06T07:37:12.000Z</gml:beginPosition>
+              <gml:endPosition>2021-08-06T07:37:12.000Z</gml:endPosition>
+            </gml:TimePeriod>
+          </sos:resultTime>
+		  <!-- available response formats -->
+          <sos:responseFormat>application/json</sos:responseFormat>
+          <sos:responseFormat>application/netcdf</sos:responseFormat>
+          <!-- .... -->
+		  <!-- reference to the observation type -->
+          <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</sos:observationType>
+		  <!-- reference to the type of the associated featur of interest -->
+          <sos:featureOfInterestType>http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint</sos:featureOfInterestType>
+        </sos:ObservationOffering>
+      </swes:offering>
+    </sos:Contents>
+  </sos:contents>
+</sos:Capabilities>
+~~~
 
 ## GetDataAvailability`
 
