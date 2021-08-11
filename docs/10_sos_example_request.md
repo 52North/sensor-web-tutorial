@@ -547,14 +547,176 @@ Some parts are omitted to enable better readabiltiy.
 </sos:Capabilities>
 ~~~
 
-## GetDataAvailability`
+## GetDataAvailability
 
-missing text
+The `GetDataAvailability` operations is not part of the SOS standard, but implemented in the 
+**52°North SOS**. The operation responses information about the available observations.
+
+missing table
+
+The following `GetDataAvailability` request contains examples to filter the available observations.
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<gda:GetDataAvailability
+    xmlns:gda="http://www.opengis.net/sosgda/1.0"
+    xmlns:swes="http://www.opengis.net/swes/2.0"
+    xmlns:fes="http://www.opengis.net/fes/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:swe="http://www.opengis.net/swe/2.0" service="SOS" version="2.0.0">
+	<!-- response document includes data of this procedure and omits all others (optional, multiple values possible) -->
+    <gda:procedure>Thermometer_1285</gda:procedure>
+	<!-- response document includes data of this observed property and omits all others (optional, multiple values possible) -->
+    <gda:observedProperty>air_temperature</gda:observedProperty>
+	<!-- response document includes data of this feature of interest and omits all others (optional, multiple values possible) -->
+    <gda:featureOfInterest>Muenster</gda:featureOfInterest>
+	<!-- response document includes data of this offering and omits all others (optional, multiple values possible) -->
+    <gda:offering>Thermometer_1285_offering</gda:offering>
+</gda:GetDataAvailability>
+~~~
+
+The response document of the `GetDataAvailability` contains the _procedure/ sensor_, _observed property/ phenomenon_,
+_feature of interest_, _phenomenon time_, _offering_ and _description formats_.
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<gda:GetDataAvailabilityResponse xmlns:gda="http://www.opengis.net/sosgda/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/sosgda/2.0 http://waterml2.org/schemas/gda/2.0/gda.xsd">
+  <gda:dataAvailabilityMember gml:id="dam_1">
+    <!-- procedure/ sensor of the observation -->
+	<gda:procedure xlink:href="Thermometer_1285" xlink:title="Thermometer 1285"/>
+	<!-- observed property/ phenomenon of the observation -->
+    <gda:observedProperty xlink:href="air_temperature" xlink:title="air_temperature"/>
+	<!-- feature of interest of the observation -->
+    <gda:featureOfInterest xlink:href="Muenster" xlink:title="Muenster"/>
+	<!-- period in time for which the observation applies -->
+    <gda:phenomenonTime>
+      <gml:TimePeriod gml:id="tp_1">
+        <gml:beginPosition>2021-08-06T07:37:12.000Z</gml:beginPosition>
+        <gml:endPosition>2021-08-06T07:37:12.000Z</gml:endPosition>
+      </gml:TimePeriod>
+    </gda:phenomenonTime>
+	<!-- offering of the observation -->
+    <gda:offering xlink:href="Thermometer_1285_offering" xlink:title="Thermometer 1285 Offering"/>
+	<!-- available description formats -->
+    <gda:formatDescriptor>
+      <gda:procedureDescriptionFormatDescriptor>
+        <gda:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</gda:procedureDescriptionFormat>
+      </gda:procedureDescriptionFormatDescriptor>
+      <gda:observationFormatDescriptor>
+        <gda:responseFormat>text/xml; subtype="om/1.0.0"</gda:responseFormat>
+        <gda:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</gda:observationType>
+      </gda:observationFormatDescriptor>
+      <gda:observationFormatDescriptor>
+        <gda:responseFormat>http://www.opengis.net/om/2.0</gda:responseFormat>
+        <gda:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</gda:observationType>
+      </gda:observationFormatDescriptor>
+      <gda:observationFormatDescriptor>
+        <gda:responseFormat>application/json</gda:responseFormat>
+        <gda:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</gda:observationType>
+      </gda:observationFormatDescriptor>
+    </gda:formatDescriptor>
+  </gda:dataAvailabilityMember>
+</gda:GetDataAvailabilityResponse>
+~~~
 
 ## GetObservation
 
-missing text
+The `GetObservation` operation requests observation data encoded in Observations & Measurement (O&M)
+standard or any other suitable format. In general a SOS might host a huge number of observations, each
+composed within a certain offering. For this reason, several filter options can be submitted in a 
+`GetObservation` request, as listed in the below table. Note that altought all filter options are not
+mandatory, at least some filters should be set in order to reduce the length of the response document.
 
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SOS”| no|
+| request| fixed value “GetObservation”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| featureOfInterest| reference to a dedicated feature of interest; used to filter observations by feature of interest| no|
+| observedProperty| reference to a dedicated observable property / phenomenon; used to filter observations by observable property| no|
+| offering| reference to a dedicated offering which composes of observations from a certain procedure and observable property| no|
+| procedure| reference to a dedicated procedure; used to filter observations by procedure| no|
+| spatialFilter| Used to filter observation with regard to spatial properties| no|
+| temporalFilter| Used to filter observation with regard to temporal properties| no|
+| responseFormat| Used to specify the desired response format, the default format for SOS 2.0 is http://www.opengis.net/om/2.0 | no|
+
+The following `GetObservation` request contains an example for each filter option:
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:GetObservation
+    xmlns:sos="http://www.opengis.net/sos/2.0"
+    xmlns:fes="http://www.opengis.net/fes/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:swes="http://www.opengis.net/swes/2.0"
+    xmlns:sosrf="http://www.opengis.net/sosrf/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd">
+	<!-- response document includes observation of this procedure and omits all others (optional, multiple values possible) -->
+    <sos:procedure>Thermometer_1285</sos:procedure>
+    <!-- response document includes observation of this offering and omits all others (optional, multiple values possible) -->
+    <sos:offering>Thermometer_1285_offering</sos:offering>
+    <!-- response document includes observation of this observed property and omits all others (optional, multiple values possible) -->
+    <sos:observedProperty>air_temperature</sos:observedProperty>
+    <!-- observations are filtered by time (optional) -->
+    <sos:temporalFilter>
+        <fes:During>
+            <fes:ValueReference>phenomenonTime</fes:ValueReference>
+            <gml:TimePeriod gml:id="tp_1">
+                <gml:beginPosition>2021-08-06T09:00:00.000+02:00</gml:beginPosition>
+                <gml:endPosition>2021-08-06T10:00:00.000+02:00</gml:endPosition>
+            </gml:TimePeriod>
+        </fes:During>
+    </sos:temporalFilter>
+    <!-- response document includes observation of this feature of interest and omits all others (optional, multiple values possible) -->
+    <sos:featureOfInterest>Muenster</sos:featureOfInterest>
+    <!-- observations are filtered by location (optional) -->
+    <sos:spatialFilter>
+        <fes:BBOX>
+            <fes:ValueReference>om:featureOfInterest/sams:SF_SpatialSamplingFeature/sams:shape</fes:ValueReference>
+            <gml:Envelope srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+                <gml:lowerCorner>7.5 51.5</gml:lowerCorner>
+                <gml:upperCorner>8.5 52.5</gml:upperCorner>
+            </gml:Envelope>
+        </fes:BBOX>
+    </sos:spatialFilter>
+    <!-- accepted response format (optional) -->
+    <sos:responseFormat>http://www.opengis.net/om/2.0</sos:responseFormat>
+</sos:GetObservation>
+~~~
+
+The response document to the `GetObservation` request can hold multiple observations. In this case it
+only includes the observation which was inserted earlier.
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:GetObservationResponse xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:swes="http://www.opengis.net/swes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd">
+  <sos:observationData>
+    <om:OM_Observation xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="o_31">
+      <!-- reference to the observation type -->
+	  <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+      <!-- period in time for which the observation applies -->
+	  <om:phenomenonTime>
+        <gml:TimeInstant xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="phenomenonTime_31">
+          <gml:timePosition>2021-08-06T07:37:12.000Z</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+	  <!-- point in time when the observation was published (here: reference to phenomenonTime) -->
+      <om:resultTime xlink:href="#phenomenonTime_31"/>
+	  <!-- procedure/ sensor of the observation -->
+      <om:procedure xlink:href="Thermometer_1285" xlink:title="Thermometer 1285"/>
+	  <!-- observed property/ phenomenon of the observation -->
+      <om:observedProperty xlink:href="air_temperature" xlink:title="air_temperature"/>
+	  <!-- feature of interest of the observation -->
+      <om:featureOfInterest xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Muenster" xlink:title="Muenster"/>
+	  <!-- result of the observation -->
+      <om:result xmlns:ns="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uom="degC" xsi:type="ns:MeasureType">18.2</om:result>
+    </om:OM_Observation>
+  </sos:observationData>
+</sos:GetObservationResponse>
+~~~
 
 
 
