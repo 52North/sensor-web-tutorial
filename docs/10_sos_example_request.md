@@ -17,12 +17,15 @@ returns the requested observations.
 It is recommended to use the **52°North SOS Test Client** to test your installation of the SOS by sending
 prepared example requests or your own requests.
 
-![Testclient.PNG](images/Testclient.PNG "52°North SOS Test Client")
+![testclientRequest.PNG](images/testclientRequest.PNG "52°North SOS Test Client")
 
-With the four fields "Service", "Version", "Binding" and "Operation" the example requests can be filtered.
-In the field "Load a example request" an example request can be choosen. If a request is loaded, it is shown 
-at the bottom of the page. The example request can be manipulated or you can create your own requests. It is also
-possible to follow this tutorial along and use the presented requests in the **52°North SOS Test Client**.
+1. Here the example requests can be filtered by service, version, binding and operation.
+2. Here an example request can be choosen.
+3. This is the URL of the SOS.
+4. In this field the choosen request gets loaded. The request can be manipulated or you can add your own request
+in this field.
+
+It is also possible to follow this tutorial along and use the presented requests in the **52°North SOS Test Client**.
 
 ## Enable transactional SOS operations
 For security reasons, the transactional SOS operations are disabled by default and the _Transactional Security_ is
