@@ -385,19 +385,7 @@ Some parts are omitted to enable better readabiltiy.
   </ows:ServiceProvider>
   <!-- metadata about the offered operations, including which operations are offered (like GetCapabilites, DescribeSensor, GetObservation, …), available bindings (e.g. POX, KVP, SOAP, JSON) and a URL endpoint -->
   <ows:OperationsMetadata>
-    <ows:Operation name="Batch">
-      <ows:DCP>
-        <ows:HTTP>
-          <ows:Post xlink:href="http://localhost:8080/52n-sos-webapp/service">
-            <ows:Constraint name="Content-Type">
-              <ows:AllowedValues>
-                <ows:Value>application/json</ows:Value>
-              </ows:AllowedValues>
-            </ows:Constraint>
-          </ows:Post>
-        </ows:HTTP>
-      </ows:DCP>
-    </ows:Operation>
+    <!-- ... -->
     <ows:Operation name="DescribeSensor">
       <ows:DCP>
         <ows:HTTP>
@@ -437,6 +425,55 @@ Some parts are omitted to enable better readabiltiy.
       </ows:Parameter>
       <ows:Parameter name="validTime">
         <ows:AnyValue/>
+      </ows:Parameter>
+    </ows:Operation>
+	<ows:Operation name="GetCapabilities">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="http://localhost:8080/52n-sos-webapp/service">
+            <ows:Constraint name="Content-Type">
+              <ows:AllowedValues>
+                <ows:Value>application/x-kvp</ows:Value>
+              </ows:AllowedValues>
+            </ows:Constraint>
+          </ows:Get>
+          <ows:Post xlink:href="http://localhost:8080/52n-sos-webapp/service">
+            <ows:Constraint name="Content-Type">
+              <ows:AllowedValues>
+                <ows:Value>application/exi</ows:Value>
+                <ows:Value>application/json</ows:Value>
+                <ows:Value>application/soap+xml</ows:Value>
+                <ows:Value>application/xml</ows:Value>
+                <ows:Value>text/xml</ows:Value>
+              </ows:AllowedValues>
+            </ows:Constraint>
+          </ows:Post>
+        </ows:HTTP>
+      </ows:DCP>
+      <ows:Parameter name="AcceptFormats">
+        <ows:AllowedValues>
+          <ows:Value>application/xml</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+      <ows:Parameter name="AcceptVersions">
+        <ows:AllowedValues>
+          <ows:Value>1.0.0</ows:Value>
+          <ows:Value>2.0.0</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+      <ows:Parameter name="Sections">
+        <ows:AllowedValues>
+          <ows:Value>All</ows:Value>
+          <ows:Value>Contents</ows:Value>
+          <ows:Value>FilterCapabilities</ows:Value>
+          <ows:Value>InsertionCapabilities</ows:Value>
+          <ows:Value>OperationsMetadata</ows:Value>
+          <ows:Value>ServiceIdentification</ows:Value>
+          <ows:Value>ServiceProvider</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+      <ows:Parameter name="updateSequence">
+        <ows:NoValues/>
       </ows:Parameter>
     </ows:Operation>
 	<!-- ... -->
@@ -552,12 +589,26 @@ Some parts are omitted to enable better readabiltiy.
 
 ## GetDataAvailability
 
-The `GetDataAvailability` operations is not part of the SOS standard, but implemented in the 
-**52°North SOS**. The operation responses information about the available observations.
+The `GetDataAvailability` operations is not part of the SOS standard, but recommended by the technical guidance for
+impelmenting download services using the OGC sensor observation service and ISO 19143 filter encoding 
+([https://inspire.ec.europa.eu/id/document/tg/download-sos](https://inspire.ec.europa.eu/id/document/tg/download-sos))
+as well as by the OGC SOS 2.0 hydrology profile best practice
+([https://docs.opengeospatial.org/bp/14-004r1/14-004r1.html](https://docs.opengeospatial.org/bp/14-004r1/14-004r1.html)).
+The operation is implemented in the **52°North SOS** and responses information about the available observations. The
+available observations can be filtered by the below listed parameters:
 
-missing table
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SOS”| no|
+| request| fixed value “GetDataAvailability”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| featureOfInterest| reference to a dedicated feature of interest; used to filter observations by feature of interest| no|
+| observedProperty| reference to a dedicated observable property / phenomenon; used to filter observations by observable property| no|
+| offering| reference to a dedicated offering which composes of observations from a certain procedure and observable property| no|
+| procedure| reference to a dedicated procedure; used to filter observations by procedure| no|
 
-The following `GetDataAvailability` request contains examples to filter the available observations.
+The following `GetDataAvailability` request contains examples for each filter option.
 
 ~~~xml
 <?xml version="1.0" encoding="UTF-8"?>
