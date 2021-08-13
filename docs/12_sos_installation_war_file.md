@@ -48,8 +48,7 @@ This window will show up when `Tomcat9w.exe` is executed.
 
 If your Tomcat server is running you can check if it was succesfully set up by entering this URL in your
 internet browser except you choosed a different port for the installation:
-
-- [http://localhost:8080/](http://localhost:8080/)
+[http://localhost:8080/](http://localhost:8080/)
 
 If the Tomcat server is running you should see this page:
 
