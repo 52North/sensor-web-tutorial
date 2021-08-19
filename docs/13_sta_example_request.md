@@ -31,7 +31,9 @@ To create new data in the STA the HTTP POST request is used and to read the HTTP
 information read the documentation:
 [https://docs.ogc.org/is/18-088/18-088.html](https://docs.ogc.org/is/18-088/18-088.html)
 
-## Create Thing
+## Create Data
+
+### Create Thing
 
 To insert data the first step is to create a `Thing` with a HTTP POST request. The URI uses two components
 which are first the _service root URI_ and second the _resource path_. Against a local installation
@@ -72,7 +74,7 @@ except the selflink do not lead to any data because the data is not yet created.
 }
 ~~~
 
-## Create Location
+### Create Location
 
 After that a `Location` needs to be added. In this example the URI for the POST request looks like this:
 
@@ -104,7 +106,7 @@ using the unique identifier of the `Thing`:
 }
 ~~~
 
-The response shows the parameters which were send by the request and links to the `Location` itself,
+The response shows the parameters which were send by the request and the links to the `Location` itself,
 the `Thing` and the `HistoricalLocations`. The link to the `Thing` leads to the weather station
 which was added beforehand.
 
@@ -133,7 +135,7 @@ which was added beforehand.
 }
 ~~~
 
-## Create Sensor
+### Create Sensor
 
 In the next step a `Sensor` is created. In the following the URI for the POST request is shown:
 
@@ -168,7 +170,7 @@ which is added later.
 }
 ~~~
 
-To present later in the tutorial the filter opitions a futher `Sensor` is added:
+To present later in the tutorial the filter opitions a second `Sensor` is added:
 
 ~~~json
 {
@@ -180,9 +182,9 @@ To present later in the tutorial the filter opitions a futher `Sensor` is added:
 }
 ~~~
 
-## Create ObservedProperty
+### Create ObservedProperty
 
-Next an `ObservedProperty` needs to be created. The URI for the POST request shown below:
+Next an `ObservedProperty` needs to be created. The URI for the POST request is shown below:
 
 > [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties)
 
@@ -224,7 +226,7 @@ needs to be created:
 }
 ~~~
 
-## Create Datastream
+### Create Datastream
 
 After that a `Datastream` is created. The URI for the POST request looks like this:
 
@@ -258,7 +260,7 @@ and a `Thing` are linked by there unique _idenitifier_:
 ~~~
 
 Again the response contains the parameters of the request as well as links to the `ObservedProperty`,
-the `Observations` which are added last, the `Thing` and the `Sensor`:
+the `Observations`, the `Thing` and the `Sensor`:
 
 ~~~json
 {
@@ -310,7 +312,7 @@ For the second `Sensor` a second `Datastream` needs to be created.
 }
 ~~~
 
-## Create FeatureOfInterest
+### Create FeatureOfInterest
 
 Next a `FeatureOfInterest` needs to be created. The URI for the POST request is shown in the following:
 
@@ -362,14 +364,14 @@ to the `Observations`:
 }
 ~~~
 
-## Create Observation
+### Create Observation
 
 The `Observations` are created last. The URI of the POST request is presented below:
 
 > [http://localhost:8080/52n-sensorthings-webapp/Observations](http://localhost:8080/52n-sensorthings-webapp/Observations)
 
 The body of the request contains the _phenomenon time_ which is the time the observation was taken,
-the _result time_ which is the time the observation was published, the _result_ of the observation.
+the _result time_ which is the time the observation was published and the _result_ of the observation.
 The `Observation` is linked to the `Datastream` and `FeatureOfInterest` by there unique identifier:
 
 ~~~json
@@ -528,5 +530,302 @@ Also for the second `Sensor` `Observations` are added:
   "FeatureOfInterest": {
       "@iot.id": "muenster"
   }
+}
+~~~
+
+## Read Data
+
+### Read Sensor
+
+The data in the STA can be read by sending a HTTP GET request. If a ceratin `Sensor` is requested
+the URI consists out of the _service root URI_, the _resource path_ and the _identifier_. For the
+inserted example data the URI looks like this:
+
+> [http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)](http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1))
+
+The response is a json document. It contains the parameters of the `Sensor` and links to the `Sensor` itself
+and the `Datastream`:
+
+~~~json
+{
+    "@iot.id": "thermometer_1",
+    "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)",
+    "name": "Thermometer",
+    "description": "This thermometer measures the air temperatur",
+    "encodingType": "application/pdf",
+    "metadata": "http://example.org/Thermometer.pdf",
+    "Datastreams@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)/Datastreams"
+}
+~~~
+
+### Read Datastreams with a certain ObservedProperty
+
+request: Datastreams which contain a certain ObservedProperty
+
+> [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams)
+
+response
+
+~~~json
+{
+    "@iot.count": 1,
+    "value": [
+        {
+            "@iot.id": "thermometer_readings_102",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)",
+            "name": "Thermometer Readings",
+            "description": "This is the reading of a thermometer.",
+            "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+            "unitOfMeasurement": {
+                "name": "degree Celsius",
+                "symbol": "°C",
+                "definition": "http://unitsofmeasure.org/ucum.html#para-30"
+            },
+            "observedArea": null,
+            "phenomenonTime": "2021-08-17T13:57:53.000Z/2021-08-17T17:58:13.000Z",
+            "properties": {
+                "categoryId": 1,
+                "categoryName": "DEFAULT_STA_CATEGORY",
+                "categoryDescription": "DEFAULT_STA_CATEGORY"
+            },
+            "ObservedProperty@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/ObservedProperty",
+            "Observations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations",
+            "Thing@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Thing",
+            "Sensor@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Sensor"
+        }
+    ]
+}
+~~~
+
+### Read Observations of a certain Datastream
+
+request: all Observations of one Datastream
+
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations)
+
+response
+
+~~~json
+{
+    "@iot.count": 5,
+    "value": [
+        {
+            "@iot.id": "45725aa8-6aab-4861-8b0c-80650e8ec5a0",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(45725aa8-6aab-4861-8b0c-80650e8ec5a0)",
+            "result": "15.3000000000",
+            "resultTime": "2021-08-17T16:58:22Z",
+            "phenomenonTime": "2021-08-17T16:58:22.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(45725aa8-6aab-4861-8b0c-80650e8ec5a0)/Datastream",
+            "FeatureOfInterest@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(45725aa8-6aab-4861-8b0c-80650e8ec5a0)/FeatureOfInterest"
+        },
+        {
+            "@iot.id": "656145a4-9124-4af2-ad99-2707e6fb4088",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(656145a4-9124-4af2-ad99-2707e6fb4088)",
+            "result": "16.4000000000",
+            "resultTime": "2021-08-17T13:57:53Z",
+            "phenomenonTime": "2021-08-17T13:57:53.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(656145a4-9124-4af2-ad99-2707e6fb4088)/Datastream",
+            "FeatureOfInterest@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(656145a4-9124-4af2-ad99-2707e6fb4088)/FeatureOfInterest"
+        },
+        {
+            "@iot.id": "cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4)",
+            "result": "15.9000000000",
+            "resultTime": "2021-08-17T15:58:08Z",
+            "phenomenonTime": "2021-08-17T15:58:08.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4)/Datastream",
+            "FeatureOfInterest@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4)/FeatureOfInterest"
+        },
+        {
+            "@iot.id": "cf46d95a-6372-45d1-a201-619d386074c0",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cf46d95a-6372-45d1-a201-619d386074c0)",
+            "result": "16.2000000000",
+            "resultTime": "2021-08-17T14:58:16Z",
+            "phenomenonTime": "2021-08-17T14:58:16.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cf46d95a-6372-45d1-a201-619d386074c0)/Datastream",
+            "FeatureOfInterest@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cf46d95a-6372-45d1-a201-619d386074c0)/FeatureOfInterest"
+        },
+        {
+            "@iot.id": "fd612941-cb7e-4f0d-997f-13b684e178c0",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(fd612941-cb7e-4f0d-997f-13b684e178c0)",
+            "result": "14.8000000000",
+            "resultTime": "2021-08-17T17:58:13Z",
+            "phenomenonTime": "2021-08-17T17:58:13.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(fd612941-cb7e-4f0d-997f-13b684e178c0)/Datastream",
+            "FeatureOfInterest@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(fd612941-cb7e-4f0d-997f-13b684e178c0)/FeatureOfInterest"
+        }
+    ]
+}
+~~~
+
+### Read Observations filtered by resultTime
+
+request: Observations of one Datastream filter by the resultTime 
+
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z)
+
+response
+
+~~~json
+{
+    "@iot.count": 2,
+    "value": [
+        {
+            "@iot.id": "cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4)",
+            "result": "15.9000000000",
+            "resultTime": "2021-08-17T15:58:08Z",
+            "phenomenonTime": "2021-08-17T15:58:08.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4)/Datastream",
+            "FeatureOfInterest@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4)/FeatureOfInterest"
+        },
+        {
+            "@iot.id": "cf46d95a-6372-45d1-a201-619d386074c0",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cf46d95a-6372-45d1-a201-619d386074c0)",
+            "result": "16.2000000000",
+            "resultTime": "2021-08-17T14:58:16Z",
+            "phenomenonTime": "2021-08-17T14:58:16.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cf46d95a-6372-45d1-a201-619d386074c0)/Datastream",
+            "FeatureOfInterest@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cf46d95a-6372-45d1-a201-619d386074c0)/FeatureOfInterest"
+        }
+    ]
+}
+~~~
+
+### Read Datastreams with a certain FeatureOfInterest
+
+request: all Datastreams for a certain FeatureOfInterest
+
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster'](http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster')
+
+response
+
+~~~json
+{
+    "@iot.count": 2,
+    "value": [
+        {
+            "@iot.id": "barometer_readings_103",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(barometer_readings_103)",
+            "name": "Barometer Readings",
+            "description": "This is the reading of a barometer.",
+            "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+            "unitOfMeasurement": {
+                "name": "Pascal",
+                "symbol": "Pa",
+                "definition": "http://unitsofmeasure.org/ucum.html#para-30"
+            },
+            "observedArea": null,
+            "phenomenonTime": "2021-08-17T13:57:53.000Z/2021-08-17T17:58:13.000Z",
+            "properties": {
+                "categoryId": 1,
+                "categoryName": "DEFAULT_STA_CATEGORY",
+                "categoryDescription": "DEFAULT_STA_CATEGORY"
+            },
+            "ObservedProperty@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(barometer_readings_103)/ObservedProperty",
+            "Observations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(barometer_readings_103)/Observations",
+            "Thing@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(barometer_readings_103)/Thing",
+            "Sensor@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(barometer_readings_103)/Sensor"
+        },
+        {
+            "@iot.id": "thermometer_readings_102",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)",
+            "name": "Thermometer Readings",
+            "description": "This is the reading of a thermometer.",
+            "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+            "unitOfMeasurement": {
+                "name": "degree Celsius",
+                "symbol": "°C",
+                "definition": "http://unitsofmeasure.org/ucum.html#para-30"
+            },
+            "observedArea": null,
+            "phenomenonTime": "2021-08-17T13:57:53.000Z/2021-08-17T17:58:13.000Z",
+            "properties": {
+                "categoryId": 1,
+                "categoryName": "DEFAULT_STA_CATEGORY",
+                "categoryDescription": "DEFAULT_STA_CATEGORY"
+            },
+            "ObservedProperty@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/ObservedProperty",
+            "Observations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations",
+            "Thing@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Thing",
+            "Sensor@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Sensor"
+        }
+    ]
+}
+~~~
+
+### Read Observations with expanded FeatureOfInterest
+
+request: all Observations of one Datastream, orderby phenomenontime ascending, paging (top and skip),
+expand FeatureOfInterest
+
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest)
+
+response
+
+~~~json
+{
+    "@iot.count": 5,
+    "@iot.nextLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$top=2&$orderby=phenomenonTime asc&$expand=FeatureOfInterest($top=100)&$skip=4",
+    "value": [
+        {
+            "@iot.id": "cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4)",
+            "result": "15.9000000000",
+            "resultTime": "2021-08-17T15:58:08Z",
+            "phenomenonTime": "2021-08-17T15:58:08.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(cb2c0cc6-c9c8-4e47-a665-9029a0ff6ac4)/Datastream",
+            "FeatureOfInterest": {
+                "@iot.id": "muenster",
+                "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/FeaturesOfInterest(muenster)",
+                "name": "Muenster",
+                "description": "This is the city of Muenster.",
+                "encodingType": "application/vnd.geo+json",
+                "feature": {
+                    "type": "Point",
+                    "coordinates": [
+                        7.65196881,
+                        51.9351011
+                    ],
+                    "crs": {
+                        "type": "name",
+                        "properties": {
+                            "name": "EPSG:4326"
+                        }
+                    }
+                },
+                "Observations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/FeaturesOfInterest(muenster)/Observations"
+            }
+        },
+        {
+            "@iot.id": "45725aa8-6aab-4861-8b0c-80650e8ec5a0",
+            "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(45725aa8-6aab-4861-8b0c-80650e8ec5a0)",
+            "result": "15.3000000000",
+            "resultTime": "2021-08-17T16:58:22Z",
+            "phenomenonTime": "2021-08-17T16:58:22.000Z",
+            "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(45725aa8-6aab-4861-8b0c-80650e8ec5a0)/Datastream",
+            "FeatureOfInterest": {
+                "@iot.id": "muenster",
+                "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/FeaturesOfInterest(muenster)",
+                "name": "Muenster",
+                "description": "This is the city of Muenster.",
+                "encodingType": "application/vnd.geo+json",
+                "feature": {
+                    "type": "Point",
+                    "coordinates": [
+                        7.65196881,
+                        51.9351011
+                    ],
+                    "crs": {
+                        "type": "name",
+                        "properties": {
+                            "name": "EPSG:4326"
+                        }
+                    }
+                },
+                "Observations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/FeaturesOfInterest(muenster)/Observations"
+            }
+        }
+    ]
 }
 ~~~
