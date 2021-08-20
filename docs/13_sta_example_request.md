@@ -667,7 +667,7 @@ The response contains the five `Observations` which were created for the `Datast
 This example shows how to add a filter to the request. It is equal to the example before, but this time a
 parameter is added to the GET request to filter the `Observations` by the result time:
 
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z)
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime%20ge%202021-08-17T14:00:00Z%20and%20resultTime%20le%202021-08-17T16:00:00Z)
 
 The response document only contains `Observations` which were published in the requested time period:
 
@@ -703,7 +703,7 @@ In this example is shown how to request all `Datastreams` with the same `Feature
 more complicated because the `FeatureOfInterest` is only indirectly linked to the `Datastream` by the
 `Observations`. For this request a filter needs to be used:
 
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster'](http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster')
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster'](http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id%20eq%20%27muenster%27)
 
 The response holds both `Datastreams` which were created because there `Observations` are linked to the same
 `FeatureOfInterest`:
@@ -769,7 +769,7 @@ of a certain `Datastream` are requested. But this time parameters are added to t
 the observations ascending by the phenomenon time, to request the top two`Observations`, to skip
 the first two `Observations` and to expand the linked `FeatureOfInterest`:
 
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest)
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime%20asc&$top=2&$skip=2&$expand=FeatureOfInterest)
 
 The response document contains the requested `Observations`:
 
