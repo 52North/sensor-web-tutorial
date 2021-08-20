@@ -27,6 +27,8 @@ of a property _(here: observations by the thermometer and barometer)_
 - **FeatureOfInterest**, an `Observation` results in a value being assigned to a phenomenon. The phenomenon
 is a property of a feature, the latter being the `FeatureOfInterest` of the `Observation` _(here: city of Muenster)_
 
+![sta_uml_diagram.png](images/sta_uml_diagram.png "UML Diagram of the STA Entities")
+
 To create new data in the STA the HTTP POST request is used and to read the HTTP GET request. For more
 information read the documentation:
 [https://docs.ogc.org/is/18-088/18-088.html](https://docs.ogc.org/is/18-088/18-088.html)
