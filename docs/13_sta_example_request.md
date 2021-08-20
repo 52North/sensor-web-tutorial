@@ -537,7 +537,7 @@ Also for the second `Sensor` `Observations` are added:
 
 ### Read Sensor
 
-The data in the STA can be read by sending a HTTP GET request. If a ceratin `Sensor` is requested
+The data in the STA can be read by sending a HTTP GET request. If a certain `Sensor` is requested
 the URI consists out of the _service root URI_, the _resource path_ and the _identifier_. For the
 inserted example data the URI looks like this:
 
@@ -560,11 +560,14 @@ and the `Datastream`:
 
 ### Read Datastreams with a certain ObservedProperty
 
-request: Datastreams which contain a certain ObservedProperty
+All `Datastreams` which are linked to a certain `ObservedProperty` can be read by using the URI for the
+`ObservedProperty` and expanding it with the _ressource path_ of the linked `Datastream`. The request for
+the example is shown below:
 
 > [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams)
 
-response
+The response document contains all `Datastreams` which are linked to the certain `ObservedProperty` (here:
+one datastream "thermometere_readings_102"):
 
 ~~~json
 {
@@ -599,11 +602,12 @@ response
 
 ### Read Observations of a certain Datastream
 
-request: all Observations of one Datastream
+This is another example of requesting all entities which are linked to a different entity. This time all
+`Observations` with a certain `Datastream` are requested:
 
 > [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations)
 
-response
+The response contains the five `Observations` which were created for the `Datastream`:
 
 ~~~json
 {
@@ -660,11 +664,12 @@ response
 
 ### Read Observations filtered by resultTime
 
-request: Observations of one Datastream filter by the resultTime 
+This example shows how to add a filter to the request. It is equal to the example before, but this time a
+parameter is added to the GET request to filter the `Observations` by the result time:
 
 > [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z)
 
-response
+The response document only contains `Observations` which were published in the requested time period:
 
 ~~~json
 {
@@ -694,11 +699,14 @@ response
 
 ### Read Datastreams with a certain FeatureOfInterest
 
-request: all Datastreams for a certain FeatureOfInterest
+In this example is shown how to request all `Datastreams` with the same `FeatureOfInterest`. This request is
+more complicated because the `FeatureOfInterest` is only indirectly linked to the `Datastream` by the
+`Observations`. For this request a filter needs to be used:
 
 > [http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster'](http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster')
 
-response
+The response holds both `Datastreams` which were created because there `Observations` are linked to the same
+`FeatureOfInterest`:
 
 ~~~json
 {
@@ -756,12 +764,14 @@ response
 
 ### Read Observations with expanded FeatureOfInterest
 
-request: all Observations of one Datastream, orderby phenomenontime ascending, paging (top and skip),
-expand FeatureOfInterest
+In this example is shown how to structure the response document. In this request again all `Observations`
+of a certain `Datastream` are requested. But this time parameters are added to the GET request to order
+the observations ascending by the phenomenon time, to request the top two`Observations`, to skip
+the first two `Observations` and to expand the linked `FeatureOfInterest`:
 
 > [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest)
 
-response
+The response document contains the requested `Observations`:
 
 ~~~json
 {
