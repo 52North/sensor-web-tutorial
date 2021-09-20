@@ -1,5 +1,5 @@
 ---
-title: 12. SOS Installation WAR-File
+title: 10. SOS Installation WAR-File
 layout: page
 ---
 
