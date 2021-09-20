@@ -42,34 +42,34 @@ The installation process starts with the Welcome-page. If you have an exported c
 a previous SOS installation you can upload this file here, else you can start the installation without
 a configuration file.
 
-![SetupSOS_2.png](images/SetupSOS_2.PNG "52°North SOS Installation Wizard Datasource Configuration")
+![SetupSOS_2.png](images/SetupSOS_2.png "52°North SOS Installation Wizard Datasource Configuration")
 
 In the next steps you configure your datasource. First you need to select the database managment system
 which you are using as the datasource.
 
-![SetupSOS_3.png](images/SetupSOS_3.PNG "52°North SOS Installation Wizard Datasource Configuration")
+![SetupSOS_3.png](images/SetupSOS_3.png "52°North SOS Installation Wizard Datasource Configuration")
 
 Next you need to set the parameters of your database, so the SOS can reach the database.
 
-![SetupSOS_4.png](images/SetupSOS_4.PNG "52°North SOS Installation Wizard Datasource Configuration")
+![SetupSOS_4.png](images/SetupSOS_4.png "52°North SOS Installation Wizard Datasource Configuration")
 
 You can also configure advanced database settings.
 
-![SetupSOS_5.png](images/SetupSOS_5.PNG "52°North SOS Installation Wizard Datasource Configuration")
+![SetupSOS_5.png](images/SetupSOS_5.png "52°North SOS Installation Wizard Datasource Configuration")
 
 Under Actions you can chose if you want to create new table, delete all extings tables or update all extings tables in your database. If you use the database for the first time you do not want to chance
 the settings and leave only `Create tables` marked.
 
-![SetupSOS_6.png](images/SetupSOS_6.PNG "52°North SOS Installation Wizard Optional Settings")
+![SetupSOS_6.png](images/SetupSOS_6.png "52°North SOS Installation Wizard Optional Settings")
 
 Next you can add information about the service provider. All these settings can be changed later
 in the administrative backend.
 
-![SetupSOS_7.png](images/SetupSOS_7.PNG "52°North SOS Installation Wizard Optional Settings")
+![SetupSOS_7.png](images/SetupSOS_7.png "52°North SOS Installation Wizard Optional Settings")
 
 You can also upload a service provider file which overrides the above settings.
 
-![SetupSOS_8.png](images/SetupSOS_8.PNG "52°North SOS Installation Wizard Optional Settings")
+![SetupSOS_8.png](images/SetupSOS_8.png "52°North SOS Installation Wizard Optional Settings")
 
 You finish your installation by setting a username and a password for the SOS.
 
