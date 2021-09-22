@@ -1,0 +1,52 @@
+site_name: Sensor Web Tutorial
+
+
+# Documentation and theme
+theme:
+  name: readthedocs
+  feature:
+    tabs: false
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - codehilite:
+      linenums: true
+      guess_lang: false
+  - footnotes
+  - markdown_include.include:
+      base_path: docs
+  - meta
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+
+nav:
+  - index.md
+  - 01_sdis-and-swe.md
+  - 02_swe-overview.md
+  - 03_sensorml.md
+  - 04_o-and-m.md
+  - 05_web-services.md
+  - 06_sos-setup.md
+  - 07_client-software.md
+  - 08_iot.md
+  - 09_hands-on.md
+  - 10_sos_installation_war_file.md
+  - 11_sos_example_request.md
+  - 12_advanced_sos_example_request.md
+  - 13_sos_admin_interface.md
+  - 14_sta_installation_war_file.md
+  - 15_sta_example_request.md
+  - 89_installation_requirments_for_windows.md
+  - 99_bibliography.md

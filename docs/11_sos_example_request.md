@@ -10,10 +10,17 @@ is the `InsertSensor` operation. This request inserts a new sensor into the SOS.
 Next comes the `InsertObservation` operation. This request inserts a new observation
 for a registered sensor to the SOS. With the operation `GetCapabilities` metadata about the
 SOS instance itself can be requested. The operation `GetDataAvailability` responses
-information about the available observations in the SOS. Last the  `GetObservation` operation
+information about the available observations in the SOS. Last the `GetObservation` operation
 returns the requested observations.
 
-## 52°North SOS Test Clients
+### Enable transactional SOS operations
+For security reasons, the transactional SOS operations are disabled by default and the _Transactional Security_ is
+activated by default with allowed IPs _127.0.0.1_. To follow the given examples in this tutorial activate the
+transactional SOS operations in the **Operations settings** (Admin >> Settings >> Operations).
+
+![transactionalOperations.PNG](images/transactionalOperations.PNG "active transactional operations")
+
+### 52°North SOS Test Client
 It is recommended to use the **52°North SOS Test Client** to test your installation of the SOS by sending
 prepared example requests or your own requests.
 
@@ -27,16 +34,19 @@ in this field.
 
 It is also possible to follow this tutorial along and use the presented requests in the **52°North SOS Test Client**.
 
-## Enable transactional SOS operations
-For security reasons, the transactional SOS operations are disabled by default and the _Transactional Security_ is
-activated by default with allowed IPs _127.0.0.1_. To follow the given examples in this tutorial activate the
-transactional SOS operations in the **Operations settings** (Admin >> Settings >> Operations).
+### Workflow
 
-![transactionalOperations.PNG](images/transactionalOperations.PNG "active transactional operations")
+The workflow would be
 
-## InsertSensor
+ * [InsertSensor](#insertsensor)
+ * [InsertObservation](#insertobservation)
+ * [GetCapabilities](#getcapabilities)
+ * [GetDataAvailability](#getdataavailability)
+ * [GetObservation](#getobservation)
+
+#### InsertSensor
 The `InsertSensor` operation can be used to add to the SOS a detailed sensor description about a certain sensor,
-encoded in a Sensor Model Language (SensorML) version 1.0.1 or 2.0 document.
+encoded in a *OGC Sensor Model Language (SensorML)* version 1.0.1 or 2.0 document.
 To insert a certain sensor description the following request parameters are offered:
 
 | Parameter Name| Description| Mandatory|
@@ -203,7 +213,7 @@ an observation.
 </swes:InsertSensorResponse>
 ~~~
 
-## InsertObservation
+#### InsertObservation
 
 The `InsertObservation` operation is used to insert new observations for registered sensors to the SOS. The available request parameters
 are listed in the following:
@@ -286,7 +296,7 @@ A successful insertion results in an instance of an _insert observation response
 <sos:InsertObservationResponse xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosInsertObservation.xsd"/>
 ~~~
 
-## GetCapabilities
+#### GetCapabilities
 
 Similar to other OGC services, the `GetCapabilities` operation responds with
 metadata about the service instance itself. Amongst others, the Capabilities
@@ -587,10 +597,10 @@ Some parts are omitted to enable better readabiltiy.
 </sos:Capabilities>
 ~~~
 
-## GetDataAvailability
+#### GetDataAvailability
 
 The `GetDataAvailability` operations is not part of the SOS standard, but recommended by the technical guidance for
-impelmenting download services using the OGC sensor observation service and ISO 19143 filter encoding 
+impelmenting download services using the OGC Sensor Observation Service and ISO 19143 filter encoding 
 ([https://inspire.ec.europa.eu/id/document/tg/download-sos](https://inspire.ec.europa.eu/id/document/tg/download-sos))
 as well as by the OGC SOS 2.0 hydrology profile best practice
 ([https://docs.opengeospatial.org/bp/14-004r1/14-004r1.html](https://docs.opengeospatial.org/bp/14-004r1/14-004r1.html)).
@@ -673,7 +683,7 @@ _feature of interest_, _phenomenon time_, _offering_ and _description formats_.
 </gda:GetDataAvailabilityResponse>
 ~~~
 
-## GetObservation
+#### GetObservation
 
 The `GetObservation` operation requests observation data encoded in Observations & Measurement (O&M)
 standard or any other suitable format. In general a SOS might host a huge number of observations, each

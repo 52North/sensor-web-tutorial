@@ -13,7 +13,7 @@ OGC **Observations & Measurements** standard version 2.0, which can be downloade
 > [http://www.opengeospatial.org/standards/om](http://www.opengeospatial.org/standards/om).
 
 The following figure presents an overview of the components of an observation
-([Bröring et al. 2011 a](99_bibliography.html)). Note that the figure has been simplified in order to
+([Bröring et al. 2011 a](99_bibliography.md)). Note that the figure has been simplified in order to
 omit complex information.
 
 ![om1.png](images/om1.png "Modelling concept of an observation - simplified figure")
@@ -40,7 +40,7 @@ sub-geometry and/or timestamp.
 ![om2.png](images/om2.png "Specialized types for discrete observations (Cox, 2013) - simplified figure")
 
 The following figure represents the standardized coverage
-observation types according to the O&M standard ([Cox 2013](99_bibliography.html)) in a simplified way.
+observation types according to the O&M standard ([Cox 2013](99_bibliography.md)) in a simplified way.
 Considering the discretization of an area-based _featureOfInterest_, the standard
 introduces two distinct declarations. The whole _featureOfInterest_ as a single
 object (a spatially distributed entity) is denoted as ultimate feature, whereas
@@ -167,7 +167,7 @@ spatially varying entities to geo-reference a certain observation within the
 associated _featureOfInterest_.
 
 An exemplary observation for a _mobile in-situ_ sensor is discussed within the
-context of 52°North enviroCar project ([enviroCar 2015](99_bibliography.html)). In this citizen
+context of 52°North enviroCar project ([enviroCar 2015](99_bibliography.md)). In this citizen
 science project, floating car data like fuel consumption, speed or pollution
 impact is collected/computed using a dedicated device (OBD II adapter) and
 a smartphone app. Via associated analysis functionalities, the data can be
@@ -344,7 +344,7 @@ itself is constant (stationary).
 
 Fotoquest
 
-> [http://www.iiasa.ac.at/web/home/about/news/20150709-Fotoquest.html](http://www.iiasa.ac.at/web/home/about/news/20150709-Fotoquest.html) and [http://fotoquest.at/](http://fotoquest.at/)
+> [http://www.iiasa.ac.at/web/home/about/news/20150709-Fotoquest.md](http://www.iiasa.ac.at/web/home/about/news/20150709-Fotoquest.md) and [http://fotoquest.at/](http://fotoquest.at/)
 
 is a citizen science project within Austria. The aim is to collect land cover
 observation using a game-like app on users mobile smartphones. A grid was

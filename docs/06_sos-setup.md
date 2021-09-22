@@ -61,7 +61,7 @@ schema and is hence not recommended.
 In contrast to the previous solution, this approach makes use of an additional
 abstraction layer defining configuration files to match the SOS implementation
 to the data schema of the database. For instance, such a database abstraction
-layer is provided by the Hibernate framework ([Redhat, 2016](99_bibliography.html)), which offers
+layer is provided by the Hibernate framework ([Redhat, 2016](99_bibliography.md)), which offers
 so-called mapping files to link the tables and columns of the database to the
 relevant aspects of O&M. With the help of these mapping files, the SOS server
 is able to flexibly adapt to a different database schema. If the mapping leads
@@ -108,7 +108,7 @@ schema into account to properly migrate the data from one database to the other.
 
 ##### Data Import Using Transactional SOS Operations
 
-As introduced in the [corresponding section](05_web-services.html), an SOS offers transactional operations to insert
+As introduced in the [corresponding section](05_web-services.md), an SOS offers transactional operations to insert
 new sensor data to the underlying database. The data to be inserted is sent
 within a transactional request and is then automatically stored within the
 database using the data schema of the SOS instance.
@@ -138,7 +138,7 @@ the processing chain.
 
 In order to reduce communication with the database, a SOS server may cache
 frequently queried data. For instance, the GetCapabilities operation (see
-[corresponding section](05_web-services.html)) provides a general overview of
+[corresponding section](05_web-services.md)) provides a general overview of
 available sensor data. If the corresponding metadata was cached by the SOS server,
 it would not have to retrieve that data from the database for each request.
 Instead it would rely on the cached information to answer the request. Of course,

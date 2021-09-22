@@ -11,7 +11,15 @@ SOS instance itself (`GetCapabilities`), how to get information about the availa
 (`GetDataAvailability`) and how to get observation data (`GetObservation`). In this section
 the same operations are used, but this time the example is a complex observation with multiple results.
 
-## InsertSensor
+The workflow would be
+
+ * [InsertSensor](#insertsensor)
+ * [InsertObservation](#insertobservation)
+ * [GetCapabilities](#getcapabilities)
+ * [GetDataAvailability](#getdataavailability)
+ * [GetObservation](#getobservation)
+
+### InsertSensor
 
 Again an exemplar `InsertSensor` request against a local installation of the SOS ([http://localhost:8080/52n-sos-webapp/service](http://localhost:8080/52n-sos-webapp/service))
 using POX binding is illustrated in the below example. This time the observation of the sensor is a complex type
@@ -195,7 +203,7 @@ an observation.
 </swes:InsertSensorResponse>
 ~~~
 
-## InsertObservation
+### InsertObservation
 
 As previous this example of an `InsertObservation` request  uses the reference to the procedure/ sensor and
 the reference to the offering of the `InsertSensor` response. In this example the observation has multiple values
@@ -305,7 +313,7 @@ A successful insertion results in an instance of an _insert observation response
 <sos:InsertObservationResponse xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosInsertObservation.xsd"/>
 ~~~
 
-## GetCapabilities
+### GetCapabilities
 
 The `GetCapabilities` request is identical to the example in the last section.
 
@@ -588,7 +596,7 @@ Some parts are omitted to enable better readabiltiy.
 </sos:Capabilities>
 ~~~
 
-## GetDataAvailability
+### GetDataAvailability
 
 Compared to the example of the previous section only the identifiers changed. As before the following
 `GetDataAvailability` request contains examples for each filter option.
@@ -648,7 +656,7 @@ _feature of interest_, _phenomenon time_, _offering_ and _description formats_.
 </gda:GetDataAvailabilityResponse>
 ~~~
 
-## GetObservation
+### GetObservation
 
 Also the following `GetObservation` request contains an example for each filter option:
 

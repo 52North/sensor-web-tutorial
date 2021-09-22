@@ -13,7 +13,7 @@ energy. Via associated SSI measurements, suitable locations for installation of
 new as well as monitoring of existing solar plants becomes possible. In
 addition, when collecting SSI measurements of the same location over a period of
 time, the energy output from solar irradiation can be forecast with respect to
-storage and planning ([Menard n.y](99_bibliography.html)). For this reason, SSI data can measured in
+storage and planning ([Menard n.y](99_bibliography.md)). For this reason, SSI data can measured in
 several ways, e.g. in-situ pyranometric sensors, satellite image processing or
 numerical weather models. Each of these options may be defined as a sensor,
 which takes certain inputs and produces SSI data as output. However, each sensor
@@ -41,7 +41,7 @@ Initiative INSPIRE (Infrastructure for Spatial Information in the European
 Community) or GEOSS (Global Earth Observation System of Systems). The latter is
 of particular interest, as it aims to establish a global public infrastructure
 to observe and offer near-real-time environmental data including measured data
-from various sensors ([GEO Group on Earth Observations, 2016](99_bibliography.html)). As a crucial part
+from various sensors ([GEO Group on Earth Observations, 2016](99_bibliography.md)). As a crucial part
 of the GEOSS infrastructure, standardized formats and services for sensor data
 exchange and access can be offered by the SWE framework, realizing a specific
 SDI for sensor data. The SWE framework and its relevant parts are addressed in
@@ -50,7 +50,7 @@ the subsequent sections.
 ## What does SWE stand for?
 
 SWE is an acronym for Sensor Web Enablement and comprises standardized formats
-and Web service interfaces in the fields of sensor data ([Bröring et al, 2011 a](99_bibliography.html)).
+and Web service interfaces in the fields of sensor data ([Bröring et al, 2011 a](99_bibliography.md)).
 Since 2003, the standardization organisation the Open Geospatial Consortium
 (OGC) follows the vision to make heterogeneous sensor data (like remote
 satellite / airborne imaging data, in-situ monitoring sensors or even virtual
@@ -64,16 +64,16 @@ observing sensor itself. As the most prominent Web service, the Sensor
 Observation Service (SOS) grants access to stored sensor data. Section 5
 continues with a detailed overview of all components within the SWE framework,
 covering sensor device aspects as well as the standardized formats and services.
-In general, [Bröring et al (2011 a)](99_bibliography.html) provide detailed background information as
+In general, [Bröring et al (2011 a)](99_bibliography.md) provide detailed background information as
 well as historical developments and an overview of the current state. For any
 aspects not covered within this guide, please refer to this article.
 
 ## 4. Terms and Definitions within SWE
 To better understand the subsequent sections, important and frequently used
 terms are defined. Note that the introduced terms relate to the version 2.0 of
-the respective standards. For additional information about each term, [Bröring et al. (2011 a)](99_bibliography.html)'s
+the respective standards. For additional information about each term, [Bröring et al. (2011 a)](99_bibliography.md)'s
 article or the official specification of the Sensor
-Observation Service ([OGC, 2012](99_bibliography.html)) can be consulted.
+Observation Service ([OGC, 2012](99_bibliography.md)) can be consulted.
 
 | Term          | Definition    |
 | ------------- | ------------- |

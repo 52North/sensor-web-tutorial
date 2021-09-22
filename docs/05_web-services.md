@@ -21,7 +21,7 @@ the following. With regard to the core operations
 service interface (request parameters) and an example is presented. For most
 optional operations, only a description of the method as well as the request
 parameters is included. Most of the subsequent information was extracted from
-the SOS 2.0 standard specification ([OGC 2012](99_bibliography.html)). A valid SOS instance is available
+the SOS 2.0 standard specification ([OGC 2012](99_bibliography.md)). A valid SOS instance is available
 via the URL
 
 > [http://insitu.webservice-energy.org/52n-sos-webapp](http://insitu.webservice-energy.org/52n-sos-webapp).
@@ -495,7 +495,7 @@ standardized specification is available at
 Similar to the presentation of the SOS, the section introduces each specified
 operation of an SPS version 2.0 by listing the operations purpose and request
 parameters. All information has been extracted from the official SPS 2.0
-standard ([Simonis & Echterhoff, 2016](99_bibliography.html)).
+standard ([Simonis & Echterhoff, 2016](99_bibliography.md)).
 
 In general, the SPS is designed in a generic fashion to support arbitrary
 types of sensors. As each sensor is different and requires syntactically

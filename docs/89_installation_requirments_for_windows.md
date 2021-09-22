@@ -17,14 +17,14 @@ database managment system. If you want to use different software, have an other 
 or want to build the SOS from source you can find more information here:
 [52°North SOS 5.x Documentation](https://wiki.52north.org/SensorWeb/SensorObservationServiceVDocumentation)
 
-## Installing Java
+### Installing Java
 
 First you need to download and install a __Java Runtime Enviroment__ (JRE) or __Java Development Kit__ (JDK) with the
 __version 8.0 or higher__: [Download](https://www.oracle.com/java/technologies/javase-downloads.html)
 
 During the installation follow the instructions of the installer.
 
-## Installing Tomcat
+### Installing Tomcat
 
 After you installed Java you need to download and install an __Apache Tomcat server version 8 or higher__:
 [Download](https://tomcat.apache.org/download-90.cgi)
@@ -54,7 +54,7 @@ If the Tomcat server is running you should see this page:
 
 ![tomcatStartpage.PNG](images/tomcatStartpage.PNG "Apache Tomcat 9.0 Startpage")
 
-## Installing PostgreSQL/ PostGIS
+### Installing PostgreSQL/ PostGIS
 
 Now you need to download and install __PostgreSQL version 9 or higher__: [Download](https://www.postgresql.org/download/)
 

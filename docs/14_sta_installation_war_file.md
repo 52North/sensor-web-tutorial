@@ -1,5 +1,5 @@
 ---
-title: 13. STA Installation WAR-File
+title: 14. STA Installation WAR-File
 layout: page
 ---
 
@@ -16,14 +16,20 @@ For Windows systems we provide a tutorial, how to setup the system for the insta
 In the tutorial we use __Apache Tomcat__ as the application server
 and __PostgreSQL/ PostGIS__ as the database management system: [Tutorial](89_installation_requirments_for_windows.md)
 
-## Installing the Webapp
+### Installing the Webapp
+
+#### Download and deploy
 
 When your system matches the requirments above, download the package including the __war-file__: [52°North STA latest version](https://github.com/52North/sensorweb-server-sta/releases/tag/v3.0.0)
 
 Unzip the package and browse to the folder `UNZIPPED_PACKAGE/bin/target` where the file `52n-sensorthings-webapp.war`
 is located. Copy the file `52n-sensorthings-webapp.war` into the folder `TOMCAT_BASE/webapps`. Make sure your Tomcat
 and PostgreSQL are running. After a moment the __war-file__ gets converted and in the folder should be a new
-folder `52n-sensorthings-webapp`. Next navigate in this new folder to the `application.yml` and open it with
+folder `52n-sensorthings-webapp`.
+
+#### Configuration
+
+Next navigate in this new folder to the `application.yml` and open it with
 an editor (`TOMCAT_BASE\webapps\52n-sensorthings-webapp\WEB-INF\classes`). You need to adjust the following
 settings manually:
 

@@ -85,7 +85,7 @@ elaborated in the dedicated section.
 * **SensorThings API**: As elaborated in section 10, the SensorThings API is
 targeted to allow homogeneous access to heterogeneous smart sensors within the
 Web of Things approach. The standard is located at
-[http://docs.opengeospatial.org/is/15-078r6/15-078r6.html](http://docs.opengeospatial.org/is/15-078r6/15-078r6.html).
+[http://docs.opengeospatial.org/is/15-078r6/15-078r6.md](http://docs.opengeospatial.org/is/15-078r6/15-078r6.md).
 
 Additional relevant concepts:
 
@@ -103,7 +103,7 @@ Other services, e.g. offered by 52°North:
 
 * **Discovery**: To discover sensor data repositories as well as available SWE
 Web services offered by different suppliers, catalogue-based services can be
-employed. According to [Bröring et al. (2011 a)](99_bibliography.html), the standard OGC Catalogue
+employed. According to [Bröring et al. (2011 a)](99_bibliography.md), the standard OGC Catalogue
 (Nebert et al.) is not sufficient to reflect the requirements of SWE, due to
 different metadata models (SensorML versus ebRIM) and the dynamic nature of
 sensor networks. In consequence, some enhancements have been proposed to allow
@@ -122,11 +122,11 @@ With the help of these additional components, standard OGC Catalogues can be
 used to discover sensor data. For instances end-users may query potential
 sensors observing certain observable properties, suppliers of SWE Web services
 can make their services publicly available to others. For more detailed
-information, please refer to [Bröring et al. (2011 a)](99_bibliography.html) or [52°North (2016 a)](99_bibliography.html).
+information, please refer to [Bröring et al. (2011 a)](99_bibliography.md) or [52°North (2016 a)](99_bibliography.md).
 
 * **Sensor Event Service (SES)**: The SES realizes a publish-subscribe
 notification service, where users may subscribe to so-called topics like
 _Measurement_ or _SensorManagement_ to receive an associated notification on
 occurring events. For instance, having subscribed to Measurements, all
 subscribers receive an O&M encoded observation as soon as it is available. For
-more information, please consult [52°North (2016 b)](99_bibliography.html).
+more information, please consult [52°North (2016 b)](99_bibliography.md).
