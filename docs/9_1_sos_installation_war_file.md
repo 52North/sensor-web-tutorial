@@ -150,7 +150,7 @@ On the *Settings* installation page you can define several configuration paramet
 
 This includes parameter for the SOS Capabilities (service provider and identification), CRS of the datasource, service parameter and specific parameter for some use cases.
 
-All these settings can be changed later in the [administrative backend](9_4__sos_admin_interface.md).
+All these settings can be changed later in the [administrative backend](9_2_sos_admin_interface.md).
 
 ###### Service Provider
 

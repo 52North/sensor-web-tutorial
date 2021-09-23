@@ -27,25 +27,68 @@ is located. Copy the file `52n-sensorthings-webapp.war` into the folder `TOMCAT_
 and PostgreSQL are running. After a moment the __war-file__ gets converted and in the folder should be a new
 folder `52n-sensorthings-webapp`.
 
+When your system matches the requirments above, download the  __war-file__: [52°North SensorThings-API workshop version](http://52north.org/delivery/SensorWeb/Workshops/Frejus_2021/52n-sensorthings-webapp.war){target=_blank}
+
+> ####### Activity 1
+>  
+> 1. Save the file to `/home/demo/`
+> 1. Open a terminal [see](09_hands-on/#open-a-terminal){target=_blank}
+> 1. Copy the file `52n-sensorthings-webapp` into the folder `TOMCAT_BASE/webapps`
+> 	* Type `sudo cp /home/demo/52n-sensorthings-webapp.war /opt/tomcat/webapps/`
+> 1. Press *enter*
+
+After a moment the __war-file__ gets converted and in the folder should be a new
+folder `52n-sos-webapp`. If this is the case than you can reach the webapp with this URL:
+[http://localhost:8080/52n-sos-webapp/](http://localhost:8080/52n-sensorthings-webapp/){target=_blank}
+
+If the download does not work, you find an already downloaded version in `/home/demo/webapps/`:
+
+  * Alternative `sudo cp /home/demo/52n-sensorthings-webapp.war /opt/tomcat/webapps/`
+
 #### Configuration
 
 Next navigate in this new folder to the `application.yml` and open it with
-an editor (`TOMCAT_BASE\webapps\52n-sensorthings-webapp\WEB-INF\classes`). You need to adjust the following
+an editor (`TOMCAT_BASE/webapps/52n-sensorthings-webapp/WEB-INF/classes`). You need to adjust the following
 settings manually:
 
-- __server__ -> __rootURL__: Used for response serialization + url parsing, external URL Must be set correctly!
+- __server__ -> __rootURL__: Used for response serialization + url parsing, external URL Must be set correctly! ->Tutorial: `"http://localhost:8080/52n-sensorthings-webapp/"`
 - __server__ -> __servlet__ -> __context-path__: The path of the running STA (name of the applet in the
-Apache Tomcat).
+Apache Tomcat). -> Tutorial: `"/52n-sensorthings-webapp"`
 - __spring__ -> __datasource__: Connection information to the database
-	- __username__: Database user name
-	- __password__: Database user password
-	- __url__: URL to the database (last value is the database name)
+	- __username__: Database user name -> Tutorial: `postgres`
+	- __password__: Database user password -> Tutorial: `postgres`
+	- __url__: URL to the database (last value is the database name) -> Tutorial: `jdbc:postgresql://localhost:5432/sensorweb`
 	- __jpa__ -> __properties__ -> __hibernate__ -> __hbm2ddl___ -> __auto__: If you use the STA together
-	with the SOS, set the setting to `none`!
+	with the SOS, set the setting to `none`! -> Tutorial: `non´
 
+> ####### Activity 1a
+>  
+> Modify `application.yml` via *terminal* and *vi*
+>
+> 1. Open a terminal [see](09_hands-on/#open-a-terminal){target=_blank}
+> 1. Open the `application.yml` in an editor 
+> 	* Type `sudo vi /opt/tomcat/webapps/52n-sensorthings-webapp/WEB-INF/classes/application.yml`
+> 1. Press *enter*
+> 1. Change the above mentioned parameter
+> 1. Save the changes
 
-If this is the case than you can reach the webapp with this URL:
-[http://localhost:8080/52n-sensorthings-webapp/](http://localhost:8080/52n-sensorthings-webapp/)
+> ####### Activity 1b
+>  
+> 1. Open the *Files* application (*Activities* -> file cabinet symbol)
+> 1. Go to `opt` -> `tomcat` -> `webapps` -> `52n-sensorthings-webapp` -> `WEB-INF` -> `classes`
+> 1. Right clik on`application.yml`and select `Open with Text Editor`
+> 1. Change the above mentioned parameter
+> 1. Save the changes
+
+> ####### Activity 1b
+>  
+> 1. Open the Tomcat manager
+> 		* [http://localhost:8080/manager/html/)](http://localhost:8080/manager/html/){target=_blank}
+> 1. Type credentials `admin:tomcat`
+> 1. Press `Start` or `Reload` in the *Commands* column behind */52n-sensorthings-webapp*
+
+If this service is started you can reach the webapp with this URL:
+[http://localhost:8080/52n-sensorthings-webapp/](http://localhost:8080/52n-sensorthings-webapp/){target=_blank}
 
 When you successfully reach the service the response should be a json document looking like this:
 

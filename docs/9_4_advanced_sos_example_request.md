@@ -188,6 +188,16 @@ at the office of 52°North GmbH in the city of Muenster.
 </swes:InsertSensor>
 ~~~
 
+> ####### Activity 1
+>
+> 1. Copy the above `InsertSensor` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
 The response is similar to the example in the previous section. The SOS responds with a pointer
 to the created sensor instance (`<swes:assignedProcedure>`) as well as a pointer to the created offering associated
 to the inserted sensor/procedure (`<swes:assignedOffering>`). This references are needed for the next step to insert
@@ -306,6 +316,16 @@ in Muenster applies for 09:37:12 o'clock local time on the 6. August 2021
 </sos:InsertObservation>
 ~~~
 
+> ####### Activity 2
+>
+> 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
 A successful insertion results in an instance of an _insert observation response_ (`<sos:InsertObservationResponse>`).
 
 ~~~xml
@@ -338,6 +358,16 @@ The `GetCapabilities` request is identical to the example in the last section.
     </ows:Sections>
 </sos:GetCapabilities>
 ~~~
+
+> ####### Activity 3
+>
+> 1. Copy the above `GetCapabilities` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
 
 Again the response document of the example request contains the most relevant sections. These are the
 _service identification_ which provides metadata about the service itself (`<ows:ServiceIdentification>`),
@@ -620,6 +650,16 @@ Compared to the example of the previous section only the identifiers changed. As
 </gda:GetDataAvailability>
 ~~~
 
+> ####### Activity 4
+>
+> 1. Copy the above `GetDataAvailability` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
 The response document of the `GetDataAvailability` contains the _procedure/ sensor_, _observed property/ phenomenon_,
 _feature of interest_, _phenomenon time_, _offering_ and _description formats_.
 
@@ -704,6 +744,16 @@ Also the following `GetObservation` request contains an example for each filter 
 </sos:GetObservation>
 ~~~
 
+> ####### Activity 6
+>
+> 1. Copy the above `GetObservation` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
 The response document to the `GetObservation` request can hold multiple observations. In this case it
 only includes the observation which was inserted earlier, but this time the observation holds multiple values.
 
@@ -779,3 +829,502 @@ only includes the observation which was inserted earlier, but this time the obse
   </sos:observationData>
 </sos:GetObservationResponse>
 ~~~
+
+#### DescribeSensor
+
+The `DescribeSensor` operation requests the sensor/procedure description usually encoded in SensorML
+standard or any other suitable format.
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SOS”| no|
+| request| fixed value “DescribeSensor”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure | reference to a dedicated procedure| yes|
+| procedureDescriptionFormat| Used to specify the desired response format, the default format for SOS 2.0 is http://www.opengis.net/sensorML/1.0.1 | yes|
+| validTime | Used to filter sensor description with regard to temporal properties| no|
+
+The following `DescribeSensor` request contains an example for each filter option:
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<swes:DescribeSensor service="SOS" version="2.0.0"
+    xmlns:swes="http://www.opengis.net/swes/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/swes/2.0 http://schemas.opengis.net/swes/2.0/swes.xsd">
+    <swes:procedure>Weather_Sensor_1234</swes:procedure>
+    <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
+</swes:DescribeSensor>
+~~~
+
+> ####### Activity 6
+>
+> 1. Copy the above `DescribeSensor` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
+The response document to the `DescribeSensor` request can hold multiple procedure description if `UpdateSensorDescription` for the requested sensor were performed and the are in the extent of the requested validTime filter. In this case it
+only includes one procedure description.
+
+~~~xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <swes:DescribeSensorResponse xmlns:swes="http://www.opengis.net/swes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xsi:schemaLocation="http://www.opengis.net/swes/2.0 http://schemas.opengis.net/swes/2.0/swesDescribeSensor.xsd">
+      <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
+      <swes:description>
+        <swes:SensorDescription>
+          <swes:validTime>
+            <gml:TimePeriod gml:id="tp_079f9d07a638a7fa0804eb0be6b8082c9e8dc3c5d75b8ba785910f158593ff9c">
+              <gml:beginPosition>2021-09-23T13:00:02.828Z</gml:beginPosition>
+              <gml:endPosition indeterminatePosition="unknown"/>
+            </gml:TimePeriod>
+          </swes:validTime>
+          <swes:data>
+            <sml:PhysicalSystem xmlns:sml="http://www.opengis.net/sensorml/2.0" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="Weather_Sensor">
+              <!--unique identifier of the procedure/ sensor (used for references)-->
+              <gml:identifier codeSpace="uniqueID">Weather_Sensor_1234</gml:identifier>
+              <sml:keywords>
+                <sml:KeywordList>
+                  <sml:keyword>Weather_Sensor_1234_offering</sml:keyword>
+                  <sml:keyword>Weather Sensor 1234 at the 52°North GmbH office building</sml:keyword>
+                  <sml:keyword>weather_observation</sml:keyword>
+                  <sml:keyword>Weather_Sensor_1234</sml:keyword>
+                  <sml:keyword>Weather Sensor 1234</sml:keyword>
+                </sml:KeywordList>
+              </sml:keywords>
+              <sml:identification>
+                <sml:IdentifierList>
+                  <sml:identifier>
+                    <sml:Term definition="urn:ogc:def:identifier:OGC:1.0:longName">
+                      <sml:label>longName</sml:label>
+                      <sml:value>Weather Sensor 1234 at the 52°North GmbH office building</sml:value>
+                    </sml:Term>
+                  </sml:identifier>
+                  <sml:identifier>
+                    <sml:Term definition="urn:ogc:def:identifier:OGC:1.0:shortName">
+                      <sml:label>shortName</sml:label>
+                      <sml:value>Weather Sensor 1234</sml:value>
+                    </sml:Term>
+                  </sml:identifier>
+                  <sml:identifier>
+                    <sml:Term definition="urn:ogc:def:identifier:OGC:uniqueID">
+                      <sml:label>uniqueID</sml:label>
+                      <sml:value>Weather_Sensor_1234</sml:value>
+                    </sml:Term>
+                  </sml:identifier>
+                </sml:IdentifierList>
+              </sml:identification>
+              <!--offering of the procedure/ sensor-->
+              <!--feature of interest of the procedure/ sensor-->
+              <sml:validTime>
+                <gml:TimePeriod gml:id="tp_f41ee0624573d867c0288973770b796b7bf92f9105ed97abbb737152b010269a">
+                  <gml:beginPosition>2021-09-23T13:00:02.828Z</gml:beginPosition>
+                  <gml:endPosition indeterminatePosition="unknown"/>
+                </gml:TimePeriod>
+              </sml:validTime>
+              <sml:capabilities name="metadata">
+                <sml:CapabilityList>
+                  <sml:capability name="insitu">
+                    <swe:Boolean definition="insitu">
+                      <swe:value>true</swe:value>
+                    </swe:Boolean>
+                  </sml:capability>
+                  <sml:capability name="mobile">
+                    <swe:Boolean definition="mobile">
+                      <swe:value>false</swe:value>
+                    </swe:Boolean>
+                  </sml:capability>
+                </sml:CapabilityList>
+              </sml:capabilities>
+              <sml:capabilities name="offerings">
+                <sml:CapabilityList>
+                  <sml:capability name="Weather_Sensor_1234_Offering">
+                    <swe:Text definition="http://www.opengis.net/def/offering/identifier">
+                      <swe:label>Weather Sensor 1234 Offering</swe:label>
+                      <swe:value>Weather_Sensor_1234_offering</swe:value>
+                    </swe:Text>
+                  </sml:capability>
+                </sml:CapabilityList>
+              </sml:capabilities>
+              <sml:contacts>
+                <sml:ContactList>
+                  <sml:contact>
+                    <gmd:CI_ResponsibleParty>
+                      <gmd:individualName>
+                        <gco:CharacterString>TBA</gco:CharacterString>
+                      </gmd:individualName>
+                      <gmd:positionName>
+                        <gco:CharacterString>TBA</gco:CharacterString>
+                      </gmd:positionName>
+                      <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                          <gmd:phone>
+                            <gmd:CI_Telephone>
+                              <gmd:voice>
+                                <gco:CharacterString>+49(0)251/396 371-0</gco:CharacterString>
+                              </gmd:voice>
+                              <gmd:facsimile>
+                                <gco:CharacterString>TBA</gco:CharacterString>
+                              </gmd:facsimile>
+                            </gmd:CI_Telephone>
+                          </gmd:phone>
+                          <gmd:address>
+                            <gmd:CI_Address>
+                              <gmd:deliveryPoint>
+                                <gco:CharacterString>Martin-Luther-King-Weg 24</gco:CharacterString>
+                              </gmd:deliveryPoint>
+                              <gmd:city>
+                                <gco:CharacterString>Münster</gco:CharacterString>
+                              </gmd:city>
+                              <gmd:administrativeArea>
+                                <gco:CharacterString>North Rhine-Westphalia</gco:CharacterString>
+                              </gmd:administrativeArea>
+                              <gmd:postalCode>
+                                <gco:CharacterString>48155</gco:CharacterString>
+                              </gmd:postalCode>
+                              <gmd:country>
+                                <gco:CharacterString>Germany</gco:CharacterString>
+                              </gmd:country>
+                              <gmd:electronicMailAddress>
+                                <gco:CharacterString>info@52north.org</gco:CharacterString>
+                              </gmd:electronicMailAddress>
+                            </gmd:CI_Address>
+                          </gmd:address>
+                          <gmd:onlineResource xlink:href="http://52north.org/swe"/>
+                          <gmd:hoursOfService>
+                            <gco:CharacterString>TBA</gco:CharacterString>
+                          </gmd:hoursOfService>
+                          <gmd:contactInstructions>
+                            <gco:CharacterString>TBA</gco:CharacterString>
+                          </gmd:contactInstructions>
+                        </gmd:CI_Contact>
+                      </gmd:contactInfo>
+                      <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode/" codeListValue="CI_RoleCode_pointOfContact">Point of Contact</gmd:CI_RoleCode>
+                      </gmd:role>
+                    </gmd:CI_ResponsibleParty>
+                  </sml:contact>
+                </sml:ContactList>
+              </sml:contacts>
+              <sml:featuresOfInterest>
+                <sml:FeatureList definition="http://www.opengis.net/def/featureOfInterest/identifier">
+                  <!--name of the feature of interest-->
+                  <swe:label>Muenster</swe:label>
+                  <!--unique identifier of the feature of interest (used for references)-->
+                  <sml:feature xlink:href="Muenster"/>
+                </sml:FeatureList>
+              </sml:featuresOfInterest>
+              <sml:inputs>
+                <sml:InputList>
+                  <!--input of the procedure/ sensor (multiple inputs possible)-->
+                  <sml:input name="weather">
+                    <sml:ObservableProperty definition="weather"/>
+                  </sml:input>
+                </sml:InputList>
+              </sml:inputs>
+              <sml:outputs>
+                <sml:OutputList>
+                  <sml:output name="weather_observation">
+                    <swe:DataRecord>
+                      <swe:field name="air_temperature">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+                          <swe:label>air_temperature</swe:label>
+                          <swe:uom code="degC"/>
+                        </swe:Quantity>
+                      </swe:field>
+                      <swe:field name="wmo_weather_code">
+                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+                          <swe:codeSpace xlink:href="NOT_DEFINED"/>
+                        </swe:Category>
+                      </swe:field>
+                      <swe:field name="isFreezing">
+                        <swe:Boolean definition="isFreezing"/>
+                      </swe:field>
+                      <swe:field name="wind_direction">
+                        <swe:Quantity definition="wind_direction">
+                          <swe:uom code="degree"/>
+                        </swe:Quantity>
+                      </swe:field>
+                      <swe:field name="wind_speed">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+                          <swe:uom code="m/s"/>
+                        </swe:Quantity>
+                      </swe:field>
+                      <swe:field name="manuel_observation">
+                        <swe:Text definition="manuel_observation"/>
+                      </swe:field>
+                    </swe:DataRecord>
+                  </sml:output>
+                </sml:OutputList>
+              </sml:outputs>
+              <!--position of the procedure/ sensor-->
+              <sml:position>
+                <swe:Vector referenceFrame="urn:ogc:def:crs:EPSG::4326">
+                  <swe:coordinate name="easting">
+                    <swe:Quantity axisID="x">
+                      <swe:uom code="degree"/>
+                      <swe:value>7.651968812254194</swe:value>
+                    </swe:Quantity>
+                  </swe:coordinate>
+                  <swe:coordinate name="northing">
+                    <swe:Quantity axisID="y">
+                      <swe:uom code="degree"/>
+                      <swe:value>51.935101100104916</swe:value>
+                    </swe:Quantity>
+                  </swe:coordinate>
+                  <swe:coordinate name="altitude">
+                    <swe:Quantity axisID="z">
+                      <swe:uom code="m"/>
+                      <swe:value>52.0</swe:value>
+                    </swe:Quantity>
+                  </swe:coordinate>
+                </swe:Vector>
+              </sml:position>
+            </sml:PhysicalSystem>
+          </swes:data>
+        </swes:SensorDescription>
+      </swes:description>
+    </swes:DescribeSensorResponse>
+~~~
+
+#### Additional InsertObservations
+
+Now we insert some additional observation.
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:InsertObservation
+    xmlns:sos="http://www.opengis.net/sos/2.0"
+    xmlns:swes="http://www.opengis.net/swes/2.0"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:om="http://www.opengis.net/om/2.0"
+    xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
+    xmlns:sf="http://www.opengis.net/sampling/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd          http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd">
+    <!-- reference to an offering (multiple offerings possible) -->
+    <sos:offering>Weather_Sensor_1234_offering</sos:offering>
+    <sos:observation>
+        <om:OM_Observation gml:id="o2">
+            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:38:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+            <om:resultTime xlink:href="#phenomenonTime"/>
+            <om:procedure xlink:href="Weather_Sensor_1234"/>
+            <om:observedProperty xlink:href="weather_observation"/>
+            <om:featureOfInterest xlink:href="Muenster"/>
+            <om:result xsi:type="swe:DataRecordPropertyType">
+                <!-- this complex observation has multiple results -->
+                <swe:DataRecord>
+                    <swe:field name="air_temperature">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+                            <swe:uom code="degC"/>
+                            <swe:value>18.3</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="wmo_weather_code">
+                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+                            <swe:codeSpace xlink:href="NOT_DEFINED"/>
+                            <swe:value>81</swe:value>
+                        </swe:Category>
+                    </swe:field>
+                    <swe:field name="isFreezing">
+                        <swe:Boolean definition="isFreezing">
+                            <swe:value>false</swe:value>
+                        </swe:Boolean>
+                    </swe:field>
+                    <swe:field name="wind_direction">
+                        <swe:Quantity definition="wind_direction">
+                            <swe:uom code="degree"/>
+                            <swe:value>313</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="wind_speed">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+                            <swe:uom code="m/s"/>
+                            <swe:value>7.5</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="manuel_observation">
+                        <swe:Text definition="manuel_observation">
+                            <swe:value>slight rain shower</swe:value>
+                        </swe:Text>
+                    </swe:field>
+                </swe:DataRecord>
+            </om:result>
+        </om:OM_Observation>
+		        <om:OM_Observation gml:id="o3">
+            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:39:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+            <om:resultTime xlink:href="#phenomenonTime"/>
+            <om:procedure xlink:href="Weather_Sensor_1234"/>
+            <om:observedProperty xlink:href="weather_observation"/>
+            <om:featureOfInterest xlink:href="Muenster"/>
+            <om:result xsi:type="swe:DataRecordPropertyType">
+                <!-- this complex observation has multiple results -->
+                <swe:DataRecord>
+                    <swe:field name="air_temperature">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+                            <swe:uom code="degC"/>
+                            <swe:value>18.5</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="wmo_weather_code">
+                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+                            <swe:codeSpace xlink:href="NOT_DEFINED"/>
+                            <swe:value>80</swe:value>
+                        </swe:Category>
+                    </swe:field>
+                    <swe:field name="isFreezing">
+                        <swe:Boolean definition="isFreezing">
+                            <swe:value>false</swe:value>
+                        </swe:Boolean>
+                    </swe:field>
+                    <swe:field name="wind_direction">
+                        <swe:Quantity definition="wind_direction">
+                            <swe:uom code="degree"/>
+                            <swe:value>312</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="wind_speed">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+                            <swe:uom code="m/s"/>
+                            <swe:value>7.5</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="manuel_observation">
+                        <swe:Text definition="manuel_observation">
+                            <swe:value>slight rain shower</swe:value>
+                        </swe:Text>
+                    </swe:field>
+                </swe:DataRecord>
+            </om:result>
+        </om:OM_Observation>
+		        <om:OM_Observation gml:id="o4">
+            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:40:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+            <om:resultTime xlink:href="#phenomenonTime"/>
+            <om:procedure xlink:href="Weather_Sensor_1234"/>
+            <om:observedProperty xlink:href="weather_observation"/>
+            <om:featureOfInterest xlink:href="Muenster"/>
+            <om:result xsi:type="swe:DataRecordPropertyType">
+                <!-- this complex observation has multiple results -->
+                <swe:DataRecord>
+                    <swe:field name="air_temperature">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+                            <swe:uom code="degC"/>
+                            <swe:value>18.0</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="wmo_weather_code">
+                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+                            <swe:codeSpace xlink:href="NOT_DEFINED"/>
+                            <swe:value>79</swe:value>
+                        </swe:Category>
+                    </swe:field>
+                    <swe:field name="isFreezing">
+                        <swe:Boolean definition="isFreezing">
+                            <swe:value>false</swe:value>
+                        </swe:Boolean>
+                    </swe:field>
+                    <swe:field name="wind_direction">
+                        <swe:Quantity definition="wind_direction">
+                            <swe:uom code="degree"/>
+                            <swe:value>313</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="wind_speed">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+                            <swe:uom code="m/s"/>
+                            <swe:value>7.5</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="manuel_observation">
+                        <swe:Text definition="manuel_observation">
+                            <swe:value>slight rain shower</swe:value>
+                        </swe:Text>
+                    </swe:field>
+                </swe:DataRecord>
+            </om:result>
+        </om:OM_Observation>
+		        <om:OM_Observation gml:id="o5">
+            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:41:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+            <om:resultTime xlink:href="#phenomenonTime"/>
+            <om:procedure xlink:href="Weather_Sensor_1234"/>
+            <om:observedProperty xlink:href="weather_observation"/>
+            <om:featureOfInterest xlink:href="Muenster"/>
+            <om:result xsi:type="swe:DataRecordPropertyType">
+                <!-- this complex observation has multiple results -->
+                <swe:DataRecord>
+                    <swe:field name="air_temperature">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+                            <swe:uom code="degC"/>
+                            <swe:value>18.3</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="wmo_weather_code">
+                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+                            <swe:codeSpace xlink:href="NOT_DEFINED"/>
+                            <swe:value>81</swe:value>
+                        </swe:Category>
+                    </swe:field>
+                    <swe:field name="isFreezing">
+                        <swe:Boolean definition="isFreezing">
+                            <swe:value>false</swe:value>
+                        </swe:Boolean>
+                    </swe:field>
+                    <swe:field name="wind_direction">
+                        <swe:Quantity definition="wind_direction">
+                            <swe:uom code="degree"/>
+                            <swe:value>312</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="wind_speed">
+                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+                            <swe:uom code="m/s"/>
+                            <swe:value>7.6</swe:value>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="manuel_observation">
+                        <swe:Text definition="manuel_observation">
+                            <swe:value>slight rain shower</swe:value>
+                        </swe:Text>
+                    </swe:field>
+                </swe:DataRecord>
+            </om:result>
+        </om:OM_Observation>
+    </sos:observation>
+</sos:InsertObservation>
+~~~
+
+> ####### Activity 7
+>
+> 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button

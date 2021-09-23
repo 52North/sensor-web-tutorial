@@ -33,6 +33,20 @@ To create new data in the STA the HTTP POST request is used and to read the HTTP
 information read the documentation:
 [https://docs.ogc.org/is/18-088/18-088.html](https://docs.ogc.org/is/18-088/18-088.html)
 
+
+> ####### Activity 1
+>  
+> Open Postman
+>
+> 1. Open the *Files* application (*Activities* -> file cabinet symbol)
+> 1. Go to `opt` -> `Postman` double-click `Postman` symbol
+> 1. Click the `+` next to the `Overview` tab to open a new tab
+> 1. Select `POST` in the drop-down (`GET`)
+> 1. Enter the URL: http://localhost:8080/52n-sensorthings-webapp/
+> 1. Select `Body`
+>		* Check `raw`
+>		* Select `JSON`` in the drop-down (`Text`)
+
 ## Create Data
 
 ### Create Thing
@@ -56,6 +70,19 @@ a _name_ and a _description_ for the `Thing` as well as the _properties_ of the 
   }
 }
 ~~~
+
+> ####### Activity 2
+>  
+> Execute `Things` creation in Postman
+>
+> 1. Add `Thing` to the URL
+> 1. Copy the above `Thing` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
 
 The response contains the parameters which were inserted by the request as well as a link to the `Thing` itself,
 a link to the `Datastream`, a link to the `Location` and a link to the `HistoricalLocations`. For now the links
@@ -108,6 +135,20 @@ using the unique identifier of the `Thing`:
 }
 ~~~
 
+
+> ####### Activity 3
+>  
+> Execute `Location` creation in Postman
+>
+> 1. Replace `Things` or add to the URL `Locations`
+> 1. Copy the above `Locations` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
+
 The response shows the parameters which were send by the request and the links to the `Location` itself,
 the `Thing` and the `HistoricalLocations`. The link to the `Thing` leads to the weather station
 which was added beforehand.
@@ -157,6 +198,19 @@ about the `Sensor`:
 }
 ~~~
 
+> ####### Activity 4
+>  
+> Execute `Sensor` creation in Postman
+>
+> 1. Replace `Locations` or add to the URL `Sensors`
+> 1. Copy the above `Sensors` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
+
 The response holds the parameters of the request, a link to the `Sensor` itself and a link to the `Datastream`
 which is added later.
 
@@ -184,6 +238,18 @@ To present later in the tutorial the filter opitions a second `Sensor` is added:
 }
 ~~~
 
+> ####### Activity 5
+>  
+> Execute a second `Sensor` creation in Postman
+>
+> 1. Copy the above `Sensors` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
+
 ### Create ObservedProperty
 
 Next an `ObservedProperty` needs to be created. The URI for the POST request is shown below:
@@ -201,6 +267,19 @@ of the `ObservedProperty`:
   "definition": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/"
 }
 ~~~
+
+> ####### Activity 6
+>  
+> Execute `ObservedProperty` creation in Postman
+>
+> 1. Replace `Sensors` or add to the URL `ObservedProperties`
+> 1. Copy the above `ObservedProperty` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
 
 The parameters of the request are part of the response as well as a link to the `ObservedProperty` itself and
 a link to the `Datastream` which is added in the next step:
@@ -227,6 +306,18 @@ needs to be created:
   "definition": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0015/"
 }
 ~~~
+
+> ####### Activity 7
+>  
+> Execute a second `ObservedProperty` creation in Postman
+>
+> 1. Copy the above `ObservedProperty` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
 
 ### Create Datastream
 
@@ -260,6 +351,19 @@ and a `Thing` are linked by there unique _idenitifier_:
   }
 }
 ~~~
+
+> ####### Activity 8
+>  
+> Execute `Datastream` creation in Postman
+>
+> 1. Replace `ObservedProperties` or add to the URL `Datastreams`
+> 1. Copy the above `Datastream` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
 
 Again the response contains the parameters of the request as well as links to the `ObservedProperty`,
 the `Observations`, the `Thing` and the `Sensor`:
@@ -314,6 +418,18 @@ For the second `Sensor` a second `Datastream` needs to be created.
 }
 ~~~
 
+> ####### Activity 9
+>  
+> Execute a second `Datastream` creation in Postman
+>
+> 1. Copy the above `Datastream` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
+
 ### Create FeatureOfInterest
 
 Next a `FeatureOfInterest` needs to be created. The URI for the POST request is shown in the following:
@@ -338,6 +454,19 @@ an _encoding Type_ for the _feature_ and a description of the _feature_:
   }
 }
 ~~~
+
+> ####### Activity 10
+>  
+> Execute `FeatureOfInterest` creation in Postman
+>
+> 1. Replace `Datastreams` or add to the URL `FeaturesOfInterest`
+> 1. Copy the above `FeatureOfInterest` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
 
 The response holds the parameters of the request, a link to the `FeatureOfInterest` itself and a link
 to the `Observations`:
@@ -389,6 +518,19 @@ The `Observation` is linked to the `Datastream` and `FeatureOfInterest` by there
   }
 }
 ~~~
+
+> ####### Activity 11
+>  
+> Execute `Observation` creation in Postman
+>
+> 1. Replace `Datastreams` or add to the URL `Observations`
+> 1. Copy the above `Observation` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
 
 The response contains the parameters of the request and links to the `Observation` itself, the `Datastream`
 and `FeatureOfInterest`:
@@ -463,6 +605,19 @@ To make it possible to filter the `Observations` more `Observations` are added:
 }
 ~~~
 
+> ####### Activity 11
+>  
+> Execute further `Observation` creation in Postman 
+> For each above `Observation` request
+>
+> 1. Copy the `Observation` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
+
 Also for the second `Sensor` `Observations` are added:
 
 ~~~json
@@ -535,15 +690,32 @@ Also for the second `Sensor` `Observations` are added:
 }
 ~~~
 
+> ####### Activity 12
+>  
+> Execute further `Observation` creation in Postman 
+> For each above `Observation` request
+>
+> 1. Copy the `Observation` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Body` section
+> 		* Click in the field
+> 		* Mark the content (CTRL + a) if present
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
+
+
 ## Read Data
 
 ### Read Sensor
 
 The data in the STA can be read by sending a HTTP GET request. If a certain `Sensor` is requested
-the URI consists out of the _service root URI_, the _resource path_ and the _identifier_. For the
-inserted example data the URI looks like this:
+the URI consists out of the _service root URI_, the _resource path_ and the _identifier_.
 
-> [http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)](http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1))
+> ####### Activity 13
+>  
+> 1. Click the following URL
+>
+> [http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)](http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)){target=_blank}
 
 The response is a json document. It contains the parameters of the `Sensor` and links to the `Sensor` itself
 and the `Datastream`:
@@ -563,10 +735,13 @@ and the `Datastream`:
 ### Read Datastreams with a certain ObservedProperty
 
 All `Datastreams` which are linked to a certain `ObservedProperty` can be read by using the URI for the
-`ObservedProperty` and expanding it with the _ressource path_ of the linked `Datastream`. The request for
-the example is shown below:
+`ObservedProperty` and expanding it with the _ressource path_ of the linked `Datastream`.
 
-> [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams)
+> ####### Activity 14
+>  
+> 1. Click the following URL
+>
+> [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams){target=_blank}
 
 The response document contains all `Datastreams` which are linked to the certain `ObservedProperty` (here:
 one datastream "thermometere_readings_102"):
@@ -605,9 +780,13 @@ one datastream "thermometere_readings_102"):
 ### Read Observations of a certain Datastream
 
 This is another example of requesting all entities which are linked to a different entity. This time all
-`Observations` with a certain `Datastream` are requested:
+`Observations` with a certain `Datastream` are requested.
 
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations)
+> ####### Activity 15
+>  
+> 1. Click the following URL
+>
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations){target=_blank}
 
 The response contains the five `Observations` which were created for the `Datastream`:
 
@@ -667,9 +846,13 @@ The response contains the five `Observations` which were created for the `Datast
 ### Read Observations filtered by resultTime
 
 This example shows how to add a filter to the request. It is equal to the example before, but this time a
-parameter is added to the GET request to filter the `Observations` by the result time:
+parameter is added to the GET request to filter the `Observations` by the result time.
 
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime%20ge%202021-08-17T14:00:00Z%20and%20resultTime%20le%202021-08-17T16:00:00Z)
+> ####### Activity 16
+>  
+> 1. Click the following URL
+>
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime%20ge%202021-08-17T14:00:00Z%20and%20resultTime%20le%202021-08-17T16:00:00Z){target=_blank}
 
 The response document only contains `Observations` which were published in the requested time period:
 
@@ -703,9 +886,13 @@ The response document only contains `Observations` which were published in the r
 
 In this example is shown how to request all `Datastreams` with the same `FeatureOfInterest`. This request is
 more complicated because the `FeatureOfInterest` is only indirectly linked to the `Datastream` by the
-`Observations`. For this request a filter needs to be used:
+`Observations`.
 
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster'](http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id%20eq%20%27muenster%27)
+> ####### Activity 17
+>  
+> 1. Click the following URL
+>
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster'](http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id%20eq%20%27muenster%27){target=_blank}
 
 The response holds both `Datastreams` which were created because there `Observations` are linked to the same
 `FeatureOfInterest`:
@@ -769,9 +956,13 @@ The response holds both `Datastreams` which were created because there `Observat
 In this example is shown how to structure the response document. In this request again all `Observations`
 of a certain `Datastream` are requested. But this time parameters are added to the GET request to order
 the observations ascending by the phenomenon time, to request the top two`Observations`, to skip
-the first two `Observations` and to expand the linked `FeatureOfInterest`:
+the first two `Observations` and to expand the linked `FeatureOfInterest`.
 
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime%20asc&$top=2&$skip=2&$expand=FeatureOfInterest)
+> ####### Activity 18
+>  
+> 1. Click the following URL
+>
+> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime asc&$top=2&$skip=2&$expand=FeatureOfInterest](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$orderby=phenomenonTime%20asc&$top=2&$skip=2&$expand=FeatureOfInterest){target=_blank}
 
 The response document contains the requested `Observations`:
 

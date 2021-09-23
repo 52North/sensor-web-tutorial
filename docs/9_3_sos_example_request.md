@@ -201,12 +201,12 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
 
 > ####### Activity 2
 >
-> 1. Copy the above `InsertSensor` reuqest (mark the request and CTRL + C)
+> 1. Copy the above `InsertSensor` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 > 		* Click in the request field
 > 		* Mark the content (CTRL + a)
 > 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + V)
+> 		* Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 In response to a successful `InsertSensor` request, the SOS responds with a pointer
@@ -302,12 +302,12 @@ on the 6. August 2021.
 
 > ####### Activity 3
 >
-> 1. Copy the above `InsertObservation` reuqest (mark the request and CTRL + C)
+> 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 > 		* Click in the request field
 > 		* Mark the content (CTRL + a)
 > 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + V)
+> 		* Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 A successful insertion results in an instance of an _insert observation response_ (`<sos:InsertObservationResponse>`).
@@ -364,12 +364,12 @@ the relevant _sections_ (`<ows:Sections>`).
 
 > ####### Activity 4
 >
-> 1. Copy the above `GetCapabilities` reuqest (mark the request and CTRL + C)
+> 1. Copy the above `GetCapabilities` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 > 		* Click in the request field
 > 		* Mark the content (CTRL + a)
 > 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + V)
+> 		* Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response document of the example request contains the most relevant sections. These are the
@@ -672,12 +672,12 @@ The following `GetDataAvailability` request contains examples for each filter op
 
 > ####### Activity 5
 >
-> 1. Copy the above `GetDataAvailability` reuqest (mark the request and CTRL + C)
+> 1. Copy the above `GetDataAvailability` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 > 		* Click in the request field
 > 		* Mark the content (CTRL + a)
 > 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + V)
+> 		* Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response document of the `GetDataAvailability` contains the _procedure/ sensor_, _observed property/ phenomenon_,
@@ -794,12 +794,12 @@ The following `GetObservation` request contains an example for each filter optio
 
 > ####### Activity 6
 >
-> 1. Copy the above `GetObservation` reuqest (mark the request and CTRL + C)
+> 1. Copy the above `GetObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 > 		* Click in the request field
 > 		* Mark the content (CTRL + a)
 > 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + V)
+> 		* Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response document to the `GetObservation` request can hold multiple observations. In this case it
@@ -863,12 +863,12 @@ The following `DescribeSensor` request contains an example for each filter optio
 
 > ####### Activity 7
 >
-> 1. Copy the above `DescribeSensor` reuqest (mark the request and CTRL + C)
+> 1. Copy the above `DescribeSensor` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 > 		* Click in the request field
 > 		* Mark the content (CTRL + a)
 > 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + V)
+> 		* Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response document to the `DescribeSensor` request can hold multiple procedure description if `UpdateSensorDescription` for the requested sensor were performed and the are in the extent of the requested validTime filter. In this case it
@@ -1067,3 +1067,88 @@ only includes one procedure description.
       </swes:description>
     </swes:DescribeSensorResponse>
 ~~~
+
+#### Additional InsertObservations
+
+Now we insert some additional observation.
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:InsertObservation
+    xmlns:sos="http://www.opengis.net/sos/2.0"
+    xmlns:swes="http://www.opengis.net/swes/2.0"
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:om="http://www.opengis.net/om/2.0"
+    xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
+    xmlns:sf="http://www.opengis.net/sampling/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd          http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd">
+    <sos:offering>Thermometer_1285_offering</sos:offering>
+    <sos:observation>
+        <om:OM_Observation gml:id="o2">
+			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:38:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+            <om:resultTime xlink:href="#phenomenonTime"/>
+            <om:procedure xlink:href="Thermometer_1285"/>
+            <om:observedProperty xlink:href="air_temperature"/>
+            <om:featureOfInterest xlink:href="Muenster"/>
+            <om:result xsi:type="gml:MeasureType" uom="degC">18.3</om:result>
+        </om:OM_Observation>
+		<om:OM_Observation gml:id="o3">
+			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:39:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+            <om:resultTime xlink:href="#phenomenonTime"/>
+            <om:procedure xlink:href="Thermometer_1285"/>
+            <om:observedProperty xlink:href="air_temperature"/>
+            <om:featureOfInterest xlink:href="Muenster"/>
+            <om:result xsi:type="gml:MeasureType" uom="degC">18.2</om:result>
+        </om:OM_Observation>
+		<om:OM_Observation gml:id="o4">
+			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:40:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+            <om:resultTime xlink:href="#phenomenonTime"/>
+            <om:procedure xlink:href="Thermometer_1285"/>
+            <om:observedProperty xlink:href="air_temperature"/>
+            <om:featureOfInterest xlink:href="Muenster"/>
+            <om:result xsi:type="gml:MeasureType" uom="degC">18.1</om:result>
+        </om:OM_Observation>
+		<om:OM_Observation gml:id="o5">
+			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+            <om:phenomenonTime>
+                <gml:TimeInstant gml:id="phenomenonTime">
+                    <gml:timePosition>2021-08-06T09:41:12.000+02:00</gml:timePosition>
+                </gml:TimeInstant>
+            </om:phenomenonTime>
+            <om:resultTime xlink:href="#phenomenonTime"/>
+            <om:procedure xlink:href="Thermometer_1285"/>
+            <om:observedProperty xlink:href="air_temperature"/>
+            <om:featureOfInterest xlink:href="Muenster"/>
+            <om:result xsi:type="gml:MeasureType" uom="degC">18.0</om:result>
+        </om:OM_Observation>
+    </sos:observation>
+</sos:InsertObservation>
+~~~
+
+> ####### Activity 8
+>
+> 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + v)
+> 1. Click the `Send` button
