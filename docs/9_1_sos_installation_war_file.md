@@ -1,5 +1,5 @@
 ---
-title: 10. SOS Installation WAR-File
+title: 9.1. SOS Installation WAR-File
 layout: page
 ---
 
@@ -24,19 +24,31 @@ or want to build the SOS from source you can find more information here:
 
 #### Download and deploy
 
-When your system matches the requirments above, download the package including the __war-file__: [52°North SOS latest version](https://github.com/52North/SOS/releases){target=_blank}
+When your system matches the requirments above, download the  __war-file__: [52°North SOS workshop version](http://52north.org/delivery/SensorWeb/Workshops/Frejus_2021/52n-sos-webapp.war){target=_blank}
 
-Unzip the package and browse to the folder `UNZIPPED_PACKAGE/bin/target` where the file `52n-sos-webapp.war`
-is located. Copy the file `52n-sos-webapp.war` into the folder `TOMCAT_BASE/webapps`. Make sure your Tomcat
-and PostgreSQL are running. After a moment the __war-file__ gets converted and in the folder should be a new
+> ####### Activity 1
+>  
+> 1. Save the file to `/home/demo/`
+> 1. Open a terminal [see](09_hands-on/#open-a-terminal){target=_blank}
+> 1. Copy the file `52n-sos-webapp.war` into the folder `TOMCAT_BASE/webapps`
+> 	* Type `sudo cp /home/demo/52n-sos-webapp.war /opt/tomcat/webapps/`
+> 1. Press *enter*
+
+After a moment the __war-file__ gets converted and in the folder should be a new
 folder `52n-sos-webapp`. If this is the case than you can reach the webapp with this URL:
 [http://localhost:8080/52n-sos-webapp/](http://localhost:8080/52n-sos-webapp/){target=_blank}
 
+If the download does not work, you find an already downloaded version in `/home/demo/webapps/`:
+
+  * Alternative `sudo cp /home/demo/52n-sos-webapp.war /opt/tomcat/webapps/`
+
 #### Installation
 
-Open a *browser* and enter the following URL
-
-> [http://localhost:8080/52n-sos-webapp/](http://localhost:8080/52n-sos-webapp/){target=_blank}
+> ####### Activity 2
+> 
+> 1. Click the link or open a *browser* and enter the following URL:
+> 
+>>  [http://localhost:8080/52n-sos-webapp/](http://localhost:8080/52n-sos-webapp/){target=_blank}
 
 When you succesfully reach the service it should look like this:
 
@@ -44,18 +56,17 @@ When you succesfully reach the service it should look like this:
 
 You can start the installation process by clicking `here` on the link in the *red banner*.
 
-##### Upload a configuration file (optional)
+#####  Welcome page
 
 The installation process starts with the Welcome-page.
 
 ![SetupSOS_1.PNG](images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
 
-If you have an exported configuration file of a previous SOS installation you can upload this file here.
-For that click *Browse* in the *Upload a previous configuration file* section, select the file and click `Upload`.
+> ####### Activity 3
+> 
+> 1. Click the blue `Start` button.
 
-Otherwise you can start the installation without a configuration file by clicking the blue `Start` button.
-
-##### Select the datasource
+#####  Select the datasource
 
 In the next steps you configure your datasource. 
 
@@ -71,9 +82,11 @@ The 52N SOS supports the database managment system:
   
 The *Custom* datasource should be selected if you do not use the created database model but views or adjusted hibernate mapping files. In this case the *existing* database model would not be validated against the expected!
 
-In this tutorial we select `PostgreSQL/PostGIS` as datasource.
-
 ![SetupSOS_2.png](images/SetupSOS_2.png "52°North SOS Installation Wizard Datasource Configuration")
+
+> ####### Activity 4
+> 
+> 1. In this tutorial we select `PostgreSQL/PostGIS` as datasource.
 
 Next you need to set the parameters of your database.
 
@@ -82,6 +95,12 @@ Next you need to set the parameters of your database.
 In the *Database configuration* you define the connection parameters and credentials of the database.
 
 ![SetupSOS_3.png](images/SetupSOS_3.png "52°North SOS Installation Wizard Datasource Configuration")
+
+> ####### Activity 5
+> 
+> As we have created the `sensorweb` database, we have to change the `Database` paramert
+> 
+> 1. Change `Database` from `sos`to `sensorweb`
 
 ###### Advandced Database Configuration
 
@@ -110,6 +129,10 @@ In this tutorial we use the **default configuration**!
 
 ![SetupSOS_4.png](images/SetupSOS_4.png "52°North SOS Installation Wizard Datasource Configuration")
 
+> ####### Activity 6
+>  
+>  * No, we use the default configuration
+
 ###### Actions
 
 Under Actions you can chose if you want to create new table, delete all extings tables or update all extings tables in your database. If you use the database for the first time you do not want to change
@@ -117,13 +140,17 @@ the settings and leave only `Create tables` marked. When the database model alre
 
 ![SetupSOS_5.png](images/SetupSOS_5.png "52°North SOS Installation Wizard Datasource Configuration")
 
+> ####### Activity 7
+> 
+> 1. Press `Next` button
+
 ##### Settings
 
 On the *Settings* installation page you can define several configuration parameter of the SOS.
 
 This includes parameter for the SOS Capabilities (service provider and identification), CRS of the datasource, service parameter and specific parameter for some use cases.
 
-All these settings can be changed later in the [administrative backend](13_sos_admin_interface.md).
+All these settings can be changed later in the [administrative backend](9_4__sos_admin_interface.md).
 
 ###### Service Provider
 
@@ -227,6 +254,33 @@ The `Procedure request/response handling` settings provides the definition of
 * Allow only requesting of procedure instances/aggregations
 * Add outputs or encode  child procedure in SensorML
 
+> ####### Activity 8
+> 
+> 1. Select the `Service Provider` tab
+> 	* Change the default definitions
+> 		* *Name* -> e.g. `SIST`
+> 		* *Website* -> e.g. `https://sist.cnrs.fr/`
+> 		* *Phone*
+> 		* *Mail-Address*
+> 		* *Address*
+> 		* *Postal Code*
+> 		* *City*
+> 		* *State*
+> 		* *Country* -> `France`
+> 		* ...
+> 1. Select the `Service Identification` tab
+> 	* Change the default definitions
+> 		* *Title* -> `SIST SOS`
+> 		* *Keywords* -> `SIST,CNRS, Sensor Web Workshop, Frejus`
+> 		* *Abstract* -> `SIST Sensor Observation Service for Sensor Web Workshop`
+> 1. Select the `Transactional Security` tab
+> 	* *Uncheck* `Transactional security active`
+> 1. Select the `Service` tab
+> 	* *Uncheck* `Block restrictionless requests`
+> 1. Select the `Miscellaneous` tab
+> 	* Change *Token separator* to `#`
+> 	* Change *Token separator* to `@`
+> 1. `Save` changes
 
 ##### Finish installation
 
@@ -234,8 +288,39 @@ You finish your installation by setting a username and a password for the SOS.
 
 ![SetupSOS_8.png](images/SetupSOS_8.png "52°North SOS Installation Wizard Optional Settings")
 
+> ####### Activity 8
+> 
+> 1. Type `admin` in the *Username" field
+> 1. Type `admin` in the *Username" field
+> 1. Click `Install`
+
 Dependending on the configuration the installation takes a while to create the database model, load the classes and harvest the metadata (if the database was not empty).
 
 ![webappInstallCompleted.PNG](images/webappInstallCompleted.PNG "52°North SOS Startpage")
 
 You now have succesfully installed the __52°North SOS__.
+
+#### Additional 
+
+Additional installation/configuration steps which are not part of this hands-on
+
+##### Download latest release
+
+When your system matches the requirments above, download the package including the __war-file__: [52°North SOS latest version](https://github.com/52North/SOS/releases){target=_blank}
+
+Unzip the package and browse to the folder `UNZIPPED_PACKAGE/bin/target` where the file `52n-sos-webapp.war`
+is located. Copy the file `52n-sos-webapp.war` into the folder `/opt/tomcat/webapps`. Make sure your Tomcat
+and PostgreSQL are running. After a moment the __war-file__ gets converted and in the folder should be a new
+folder `52n-sos-webapp`. If this is the case than you can reach the webapp with this URL:
+[http://localhost:8080/52n-sos-webapp/](http://localhost:8080/52n-sos-webapp/){target=_blank}
+
+##### Upload a configuration file
+
+The installation process starts with the Welcome-page.
+
+![SetupSOS_1.PNG](images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
+
+If you have an exported configuration file of a previous SOS installation you can upload this file here.
+For that click *Browse* in the *Upload a previous configuration file* section, select the file and click `Upload`.
+
+Otherwise you can start the installation without a configuration file by clicking the blue `Start` button.

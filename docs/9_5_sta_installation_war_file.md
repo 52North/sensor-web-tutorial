@@ -1,5 +1,5 @@
 ---
-title: 14. STA Installation WAR-File
+title: 9.5. STA Installation WAR-File
 layout: page
 ---
 

@@ -26,23 +26,27 @@ the Sensor Web Workshop at Fréjus 2021:
 
 #### Installation of the image
 
-1. Download one of the previously mentiond images to your preferred location
-1. Unzip the downloaded image to your preferred location
-1. Start *VirtualBox*
-1. Select *File*, *Import Appliance*
-	1. Select the *.ova* file from the dialog (from the unzipped package)
-	1. Click *Import*
-1. Check the *Appliance Settings*
-	1. Click *Import*
+> ####### Activity
+>
+>1. Download one of the previously mentiond images to your preferred location
+>1. Unzip the downloaded image to your preferred location
+>1. Start *VirtualBox*
+>1. Select *File*, *Import Appliance*
+>	* Select the *.ova* file from the dialog (from the unzipped package)
+>	* Click *Import*
+>5. Check the *Appliance Settings*
+>	* Click *Import*
 
 More details are in the official [VirtualBox documentations](https://www.virtualbox.org/manual/ch01.html#ovf-import-appliance){target=_blank}
 
 #### Run the VirtualBox images
 
-1. Select the VirtualBox you would like to start
-	- Click *Start* on the panel
-	- Or *right click* and select *Start*
-1. The images starts
+> ####### Activity
+>
+>1. Select the VirtualBox you would like to start
+>	- Click *Start* on the panel
+>	- Or *right click* and select *Start*
+>1. The images starts
 
 ##### Debian
 
@@ -66,3 +70,42 @@ More details are in the official [VirtualBox documentations](https://www.virtual
 > **Username**: admin
 
 > **Password**: password
+
+
+### Create PostgreSQL database
+
+#### Open a terminal
+
+> ####### Activity
+>
+>1. Login to Debian with `demo` password
+>1. Open a terminal´
+>	* Click *Activities* (top left)
+>	* Type in *Type to search* `terminal`	
+>	* Press enter and a terminal window opens	
+
+#### Create the databse
+
+> ####### Activity
+>
+>1. Switch to *postgres* user
+>	* Type `su - postgres` and *enter*	
+>1. Conntect ot postgresql
+>	* Type `psql` and *enter*
+>1. Create the `sensorweb` database
+>	* Type `CREATE DATABASE sensorweb´;` and *enter*
+>1. Quit psql
+>	* Type `\q` and *enter*
+	
+#### Create PostGIS extension
+
+> ####### Activity
+>
+>1. Connect to the new `sensorweb` database 
+>	*Type `psql -d  sensorweb  -U postgres` and *enter*
+>1. Create the PostGIS extension
+>	* Type `CREATE EXTENSION postgis;` and *enter*
+>1. Quit psql
+>	* Type `\q` and *enter*
+>1. Quit as user *postgres*
+>	* Type `exit` and *enter*

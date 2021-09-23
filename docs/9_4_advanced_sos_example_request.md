@@ -1,5 +1,5 @@
 ---
-title: 12. Advanced SOS Example Requests
+title: 9.4. Advanced SOS Example Requests
 layout: page
 ---
 

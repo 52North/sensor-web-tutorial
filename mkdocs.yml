@@ -42,11 +42,11 @@ nav:
   - 07_client-software.md
   - 08_iot.md
   - 09_hands-on.md
-  - 10_sos_installation_war_file.md
-  - 11_sos_example_request.md
-  - 12_advanced_sos_example_request.md
-  - 13_sos_admin_interface.md
-  - 14_sta_installation_war_file.md
-  - 15_sta_example_request.md
+  - 9_1_sos_installation_war_file.md
+  - 9_2_sos_admin_interface.md
+  - 9_3_sos_example_request.md
+  - 9_4_advanced_sos_example_request.md
+  - 9_5_sta_installation_war_file.md
+  - 9_6_sta_example_request.md
   - 89_installation_requirments_for_windows.md
   - 99_bibliography.md

@@ -1,5 +1,5 @@
 ---
-title: 11. SOS Example Requests
+title: 9.3. SOS Example Requests
 layout: page
 ---
 
@@ -12,13 +12,6 @@ for a registered sensor to the SOS. With the operation `GetCapabilities` metadat
 SOS instance itself can be requested. The operation `GetDataAvailability` responses
 information about the available observations in the SOS. Last the `GetObservation` operation
 returns the requested observations.
-
-### Enable transactional SOS operations
-For security reasons, the transactional SOS operations are disabled by default and the _Transactional Security_ is
-activated by default with allowed IPs _127.0.0.1_. To follow the given examples in this tutorial activate the
-transactional SOS operations in the **Operations settings** (Admin >> Settings >> Operations).
-
-![transactionalOperations.PNG](images/transactionalOperations.PNG "active transactional operations")
 
 ### 52°North SOS Test Client
 It is recommended to use the **52°North SOS Test Client** to test your installation of the SOS by sending
@@ -33,6 +26,14 @@ prepared example requests or your own requests.
 in this field.
 
 It is also possible to follow this tutorial along and use the presented requests in the **52°North SOS Test Client**.
+
+> ####### Activity 1
+>
+> 1. Click `Client`
+> 1. Select `POX` in the *Any Binding* drop down menu
+> 1. Select `[POX] GetCapabilities (SOS 2.0.0)` in the *Load a example request ...* drop down menu
+> 1. Click the `Send`button
+> In the `Responce` section the *Capabilities* response would be shown.
 
 ### Workflow
 
@@ -198,6 +199,16 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
 </swes:InsertSensor>
 ~~~
 
+> ####### Activity 2
+>
+> 1. Copy the above `InsertSensor` reuqest (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
 In response to a successful `InsertSensor` request, the SOS responds with a pointer
 to the created sensor instance (`<swes:assignedProcedure>`) as well as a pointer to the created offering associated
 to the inserted sensor/procedure (`<swes:assignedOffering>`). This references are needed for the next step to insert
@@ -289,6 +300,16 @@ on the 6. August 2021.
 </sos:InsertObservation>
 ~~~
 
+> ####### Activity 3
+>
+> 1. Copy the above `InsertObservation` reuqest (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
 A successful insertion results in an instance of an _insert observation response_ (`<sos:InsertObservationResponse>`).
 
 ~~~xml
@@ -340,6 +361,16 @@ the relevant _sections_ (`<ows:Sections>`).
     </ows:Sections>
 </sos:GetCapabilities>
 ~~~
+
+> ####### Activity 4
+>
+> 1. Copy the above `GetCapabilities` reuqest (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
 
 The response document of the example request contains the most relevant sections. These are the
 _service identification_ which provides metadata about the service itself (`<ows:ServiceIdentification>`),
@@ -639,6 +670,16 @@ The following `GetDataAvailability` request contains examples for each filter op
 </gda:GetDataAvailability>
 ~~~
 
+> ####### Activity 5
+>
+> 1. Copy the above `GetDataAvailability` reuqest (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
 The response document of the `GetDataAvailability` contains the _procedure/ sensor_, _observed property/ phenomenon_,
 _feature of interest_, _phenomenon time_, _offering_ and _description formats_.
 
@@ -751,6 +792,16 @@ The following `GetObservation` request contains an example for each filter optio
 </sos:GetObservation>
 ~~~
 
+> ####### Activity 6
+>
+> 1. Copy the above `GetObservation` reuqest (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
 The response document to the `GetObservation` request can hold multiple observations. In this case it
 only includes the observation which was inserted earlier.
 
@@ -780,4 +831,239 @@ only includes the observation which was inserted earlier.
     </om:OM_Observation>
   </sos:observationData>
 </sos:GetObservationResponse>
+~~~
+
+#### DescribeSensor
+
+The `DescribeSensor` operation requests the sensor/procedure description usually encoded in SensorML
+standard or any other suitable format.
+
+| Parameter Name| Description| Mandatory|
+| -----| -----| -----|
+| service| fixed value “SOS”| no|
+| request| fixed value “DescribeSensor”| yes|
+| version| indicates the service version, e.g. “2.0.0”| yes|
+| extension| specific extension, e.g. “language”| no|
+| procedure | reference to a dedicated procedure| yes|
+| procedureDescriptionFormat| Used to specify the desired response format, the default format for SOS 2.0 is http://www.opengis.net/sensorML/1.0.1 | yes|
+| validTime | Used to filter sensor description with regard to temporal properties| no|
+
+The following `DescribeSensor` request contains an example for each filter option:
+
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<swes:DescribeSensor service="SOS" version="2.0.0"
+    xmlns:swes="http://www.opengis.net/swes/2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gml="http://www.opengis.net/gml/3.2" xsi:schemaLocation="http://www.opengis.net/swes/2.0 http://schemas.opengis.net/swes/2.0/swes.xsd">
+    <swes:procedure>Thermometer_1285</swes:procedure>
+    <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
+</swes:DescribeSensor>
+~~~
+
+> ####### Activity 7
+>
+> 1. Copy the above `DescribeSensor` reuqest (mark the request and CTRL + C)
+> 1. Paste the request in the field of the `Request` section
+> 		* Click in the request field
+> 		* Mark the content (CTRL + a)
+> 		* Delete the content (del)
+> 		* Insert the copied request (CTRL + V)
+> 1. Click the `Send` button
+
+The response document to the `DescribeSensor` request can hold multiple procedure description if `UpdateSensorDescription` for the requested sensor were performed and the are in the extent of the requested validTime filter. In this case it
+only includes one procedure description.
+
+~~~xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <swes:DescribeSensorResponse xmlns:swes="http://www.opengis.net/swes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xsi:schemaLocation="http://www.opengis.net/swes/2.0 http://schemas.opengis.net/swes/2.0/swesDescribeSensor.xsd">
+      <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
+      <swes:description>
+        <swes:SensorDescription>
+          <swes:validTime>
+            <gml:TimePeriod gml:id="tp_3939b5573eca9e66e3bc2a75b4239d63a3926cb2c1d0c9f2dc62fade376ff9d8">
+              <gml:beginPosition>2021-09-23T12:36:25.047Z</gml:beginPosition>
+              <gml:endPosition indeterminatePosition="unknown"/>
+            </gml:TimePeriod>
+          </swes:validTime>
+          <swes:data>
+            <sml:PhysicalSystem xmlns:sml="http://www.opengis.net/sensorml/2.0" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="Thermometer">
+              <!--unique identifier of the procedure/ sensor (used for references)-->
+              <gml:identifier codeSpace="uniqueID">Thermometer_1285</gml:identifier>
+              <sml:keywords>
+                <sml:KeywordList>
+                  <sml:keyword>Thermometer 1285 at the 52°North GmbH office building</sml:keyword>
+                  <sml:keyword>air_temperature</sml:keyword>
+                  <sml:keyword>Thermometer 1285</sml:keyword>
+                  <sml:keyword>Thermometer_1285</sml:keyword>
+                  <sml:keyword>Thermometer_1285_offering</sml:keyword>
+                </sml:KeywordList>
+              </sml:keywords>
+              <sml:identification>
+                <sml:IdentifierList>
+                  <sml:identifier>
+                    <sml:Term definition="urn:ogc:def:identifier:OGC:1.0:longName">
+                      <sml:label>longName</sml:label>
+                      <sml:value>Thermometer 1285 at the 52°North GmbH office building</sml:value>
+                    </sml:Term>
+                  </sml:identifier>
+                  <sml:identifier>
+                    <sml:Term definition="urn:ogc:def:identifier:OGC:1.0:shortName">
+                      <sml:label>shortName</sml:label>
+                      <sml:value>Thermometer 1285</sml:value>
+                    </sml:Term>
+                  </sml:identifier>
+                  <sml:identifier>
+                    <sml:Term definition="urn:ogc:def:identifier:OGC:uniqueID">
+                      <sml:label>uniqueID</sml:label>
+                      <sml:value>Thermometer_1285</sml:value>
+                    </sml:Term>
+                  </sml:identifier>
+                </sml:IdentifierList>
+              </sml:identification>
+              <!--offering of the procedure/ sensor-->
+              <!--feature of interest of the procedure/ sensor-->
+              <sml:validTime>
+                <gml:TimePeriod gml:id="tp_ee5989ed2aada7b515fb18e2a8969dd886d5f3012d8766de6036b297887ed6be">
+                  <gml:beginPosition>2021-09-23T12:36:25.047Z</gml:beginPosition>
+                  <gml:endPosition indeterminatePosition="unknown"/>
+                </gml:TimePeriod>
+              </sml:validTime>
+              <sml:capabilities name="metadata">
+                <sml:CapabilityList>
+                  <sml:capability name="insitu">
+                    <swe:Boolean definition="insitu">
+                      <swe:value>true</swe:value>
+                    </swe:Boolean>
+                  </sml:capability>
+                  <sml:capability name="mobile">
+                    <swe:Boolean definition="mobile">
+                      <swe:value>false</swe:value>
+                    </swe:Boolean>
+                  </sml:capability>
+                </sml:CapabilityList>
+              </sml:capabilities>
+              <sml:capabilities name="offerings">
+                <sml:CapabilityList>
+                  <sml:capability name="Thermometer_1285_Offering">
+                    <swe:Text definition="http://www.opengis.net/def/offering/identifier">
+                      <swe:label>Thermometer 1285 Offering</swe:label>
+                      <swe:value>Thermometer_1285_offering</swe:value>
+                    </swe:Text>
+                  </sml:capability>
+                </sml:CapabilityList>
+              </sml:capabilities>
+              <sml:contacts>
+                <sml:ContactList>
+                  <sml:contact>
+                    <gmd:CI_ResponsibleParty>
+                      <gmd:individualName>
+                        <gco:CharacterString>TBA</gco:CharacterString>
+                      </gmd:individualName>
+                      <gmd:positionName>
+                        <gco:CharacterString>TBA</gco:CharacterString>
+                      </gmd:positionName>
+                      <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                          <gmd:phone>
+                            <gmd:CI_Telephone>
+                              <gmd:voice>
+                                <gco:CharacterString>+49(0)251/396 371-0</gco:CharacterString>
+                              </gmd:voice>
+                              <gmd:facsimile>
+                                <gco:CharacterString>TBA</gco:CharacterString>
+                              </gmd:facsimile>
+                            </gmd:CI_Telephone>
+                          </gmd:phone>
+                          <gmd:address>
+                            <gmd:CI_Address>
+                              <gmd:deliveryPoint>
+                                <gco:CharacterString>Martin-Luther-King-Weg 24</gco:CharacterString>
+                              </gmd:deliveryPoint>
+                              <gmd:city>
+                                <gco:CharacterString>Münster</gco:CharacterString>
+                              </gmd:city>
+                              <gmd:administrativeArea>
+                                <gco:CharacterString>North Rhine-Westphalia</gco:CharacterString>
+                              </gmd:administrativeArea>
+                              <gmd:postalCode>
+                                <gco:CharacterString>48155</gco:CharacterString>
+                              </gmd:postalCode>
+                              <gmd:country>
+                                <gco:CharacterString>Germany</gco:CharacterString>
+                              </gmd:country>
+                              <gmd:electronicMailAddress>
+                                <gco:CharacterString>info@52north.org</gco:CharacterString>
+                              </gmd:electronicMailAddress>
+                            </gmd:CI_Address>
+                          </gmd:address>
+                          <gmd:onlineResource xlink:href="http://52north.org/swe"/>
+                          <gmd:hoursOfService>
+                            <gco:CharacterString>TBA</gco:CharacterString>
+                          </gmd:hoursOfService>
+                          <gmd:contactInstructions>
+                            <gco:CharacterString>TBA</gco:CharacterString>
+                          </gmd:contactInstructions>
+                        </gmd:CI_Contact>
+                      </gmd:contactInfo>
+                      <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode/" codeListValue="CI_RoleCode_pointOfContact">Point of Contact</gmd:CI_RoleCode>
+                      </gmd:role>
+                    </gmd:CI_ResponsibleParty>
+                  </sml:contact>
+                </sml:ContactList>
+              </sml:contacts>
+              <sml:featuresOfInterest>
+                <sml:FeatureList definition="http://www.opengis.net/def/featureOfInterest/identifier">
+                  <!--name of the feature of interest-->
+                  <swe:label>Muenster</swe:label>
+                  <!--unique identifier of the feature of interest (used for references)-->
+                  <sml:feature xlink:href="Muenster"/>
+                </sml:FeatureList>
+              </sml:featuresOfInterest>
+              <sml:inputs>
+                <sml:InputList>
+                  <!--input of the procedure/ sensor (multiple inputs possible)-->
+                  <sml:input name="weather">
+                    <sml:ObservableProperty definition="weather"/>
+                  </sml:input>
+                </sml:InputList>
+              </sml:inputs>
+              <sml:outputs>
+                <sml:OutputList>
+                  <sml:output name="air_temperature">
+                    <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+                      <swe:uom code="degC"/>
+                    </swe:Quantity>
+                  </sml:output>
+                </sml:OutputList>
+              </sml:outputs>
+              <!--position of the procedure/ sensor-->
+              <sml:position>
+                <swe:Vector referenceFrame="urn:ogc:def:crs:EPSG::4326">
+                  <swe:coordinate name="easting">
+                    <swe:Quantity axisID="x">
+                      <swe:uom code="degree"/>
+                      <swe:value>7.651968812254194</swe:value>
+                    </swe:Quantity>
+                  </swe:coordinate>
+                  <swe:coordinate name="northing">
+                    <swe:Quantity axisID="y">
+                      <swe:uom code="degree"/>
+                      <swe:value>51.935101100104916</swe:value>
+                    </swe:Quantity>
+                  </swe:coordinate>
+                  <swe:coordinate name="altitude">
+                    <swe:Quantity axisID="z">
+                      <swe:uom code="m"/>
+                      <swe:value>52.0</swe:value>
+                    </swe:Quantity>
+                  </swe:coordinate>
+                </swe:Vector>
+              </sml:position>
+            </sml:PhysicalSystem>
+          </swes:data>
+        </swes:SensorDescription>
+      </swes:description>
+    </swes:DescribeSensorResponse>
 ~~~
