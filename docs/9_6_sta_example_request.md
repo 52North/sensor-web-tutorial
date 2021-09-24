@@ -75,7 +75,7 @@ a _name_ and a _description_ for the `Thing` as well as the _properties_ of the 
 >  
 > Execute `Things` creation in Postman
 >
-> 1. Add `Thing` to the URL
+> 1. Add `Things` to the URL
 > 1. Copy the above `Thing` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 > 		* Click in the field

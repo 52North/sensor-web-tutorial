@@ -76,7 +76,7 @@ Configuration of the logging of the SOS
 > We modify the days to keep and the file size
 >
 > 1. Hover over the `Admin` and `Setings` and *click* on `Logging`
-> 1. Set *Days of log files to keep* to `5´
+> 1. Set *Days of log files to keep* to `5`
 > 1. Set *Max file size* to `5MB`
 
 ![Admin_5.PNG](images/Admin_5.png "52°North SOS Admin interface")

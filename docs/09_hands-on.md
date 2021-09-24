@@ -19,23 +19,24 @@ Instructions for all supported platform are available at:
 This section provides a brief overview on the available VirtualBox images for
 the Sensor Web Workshop at Fréjus 2021:
 
-> [Debian](https://52north.org/delivery/SensorWeb/Workshops/Frejus_2021/Sensor%20Web%20Workshop%202021.zip){target=_blank}
+> [Debian](https://52north.org/delivery/SensorWeb/Workshops/Frejus_2021/Sensor%20Web%20Workshop%202021.ova){target=_blank}
 
-> [Debian with preinstalled SOS/STA](https://52north.org/delivery/SensorWeb/Workshops/Frejus_2021/Sensor%20Web%20Workshop%202021 inst.zip){target=_blank}
+> [Debian with preinstalled SOS/STA](https://52north.org/delivery/SensorWeb/Workshops/Frejus_2021/Sensor%20Web%20Workshop%202021 inst.ova){target=_blank}
 
 
 #### Installation of the image
 
 > ####### Activity
 >
->1. Download one of the previously mentiond images to your preferred location
->1. Unzip the downloaded image to your preferred location
+>1. Download `Debian` of the previously mentiond images to your preferred location, e.g `/home/demo/`
 >1. Start *VirtualBox*
->1. Select *File*, *Import Appliance*
->	* Select the *.ova* file from the dialog (from the unzipped package)
+>1. Select *File*, *Import Appliance* (*Datai* and *Appliance importieren* in the screenshot)
+>	* Select the *.ova* file from the dialog (e.g. from `/home/demo/`)
 >	* Click *Import*
 >5. Check the *Appliance Settings*
 >	* Click *Import*
+
+![VirtualBox_1.png](images/VirtualBox_1.png "VirtualBox")
 
 More details are in the official [VirtualBox documentations](https://www.virtualbox.org/manual/ch01.html#ovf-import-appliance){target=_blank}
 
@@ -47,6 +48,11 @@ More details are in the official [VirtualBox documentations](https://www.virtual
 >	- Click *Start* on the panel
 >	- Or *right click* and select *Start*
 >1. The images starts
+>1. Login withe the `Debian` password
+>1. Open Firefox
+>	* Click *Activities* (top left)
+>   * Click *Firefox* symbol
+>1. Firefox starts with the tutorial (in the browser of the image: `http://localhost:8080/tutorial/`)
 
 ##### Debian
 
@@ -84,7 +90,7 @@ More details are in the official [VirtualBox documentations](https://www.virtual
 >	* Type in *Type to search* `terminal`	
 >	* Press enter and a terminal window opens	
 
-#### Create the databse
+#### Create the database
 
 > ####### Activity
 >

@@ -291,7 +291,7 @@ You finish your installation by setting a username and a password for the SOS.
 > ####### Activity 8
 > 
 > 1. Type `admin` in the *Username" field
-> 1. Type `admin` in the *Username" field
+> 1. Type `password` in the *Password" field
 > 1. Click `Install`
 
 Dependending on the configuration the installation takes a while to create the database model, load the classes and harvest the metadata (if the database was not empty).
