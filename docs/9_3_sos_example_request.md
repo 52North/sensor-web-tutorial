@@ -1085,61 +1085,67 @@ Now we insert some additional observation.
     xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
     xmlns:sf="http://www.opengis.net/sampling/2.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd          http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd">
-    <sos:offering>Thermometer_1285_offering</sos:offering>
-    <sos:observation>
-        <om:OM_Observation gml:id="o2">
-			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
-            <om:phenomenonTime>
-                <gml:TimeInstant gml:id="phenomenonTime">
-                    <gml:timePosition>2021-08-06T09:38:12.000+02:00</gml:timePosition>
-                </gml:TimeInstant>
-            </om:phenomenonTime>
-            <om:resultTime xlink:href="#phenomenonTime"/>
-            <om:procedure xlink:href="Thermometer_1285"/>
-            <om:observedProperty xlink:href="air_temperature"/>
-            <om:featureOfInterest xlink:href="Muenster"/>
-            <om:result xsi:type="gml:MeasureType" uom="degC">18.3</om:result>
-        </om:OM_Observation>
-		<om:OM_Observation gml:id="o3">
-			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
-            <om:phenomenonTime>
-                <gml:TimeInstant gml:id="phenomenonTime">
-                    <gml:timePosition>2021-08-06T09:39:12.000+02:00</gml:timePosition>
-                </gml:TimeInstant>
-            </om:phenomenonTime>
-            <om:resultTime xlink:href="#phenomenonTime"/>
-            <om:procedure xlink:href="Thermometer_1285"/>
-            <om:observedProperty xlink:href="air_temperature"/>
-            <om:featureOfInterest xlink:href="Muenster"/>
-            <om:result xsi:type="gml:MeasureType" uom="degC">18.2</om:result>
-        </om:OM_Observation>
-		<om:OM_Observation gml:id="o4">
-			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
-            <om:phenomenonTime>
-                <gml:TimeInstant gml:id="phenomenonTime">
-                    <gml:timePosition>2021-08-06T09:40:12.000+02:00</gml:timePosition>
-                </gml:TimeInstant>
-            </om:phenomenonTime>
-            <om:resultTime xlink:href="#phenomenonTime"/>
-            <om:procedure xlink:href="Thermometer_1285"/>
-            <om:observedProperty xlink:href="air_temperature"/>
-            <om:featureOfInterest xlink:href="Muenster"/>
-            <om:result xsi:type="gml:MeasureType" uom="degC">18.1</om:result>
-        </om:OM_Observation>
-		<om:OM_Observation gml:id="o5">
-			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
-            <om:phenomenonTime>
-                <gml:TimeInstant gml:id="phenomenonTime">
-                    <gml:timePosition>2021-08-06T09:41:12.000+02:00</gml:timePosition>
-                </gml:TimeInstant>
-            </om:phenomenonTime>
-            <om:resultTime xlink:href="#phenomenonTime"/>
-            <om:procedure xlink:href="Thermometer_1285"/>
-            <om:observedProperty xlink:href="air_temperature"/>
-            <om:featureOfInterest xlink:href="Muenster"/>
-            <om:result xsi:type="gml:MeasureType" uom="degC">18.0</om:result>
-        </om:OM_Observation>
-    </sos:observation>
+	<sos:offering>Thermometer_1285_offering</sos:offering>
+	<sos:observation>
+    <om:OM_Observation gml:id="o2">
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+      <om:phenomenonTime>
+        <gml:TimeInstant gml:id="phenomenonTime">
+          <gml:timePosition>2021-08-06T09:38:12.000+02:00</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+      <om:resultTime xlink:href="#phenomenonTime"/>
+      <om:procedure xlink:href="Thermometer_1285"/>
+      <om:observedProperty xlink:href="air_temperature"/>
+      <om:featureOfInterest xlink:href="Muenster"/>
+      <om:result xsi:type="gml:MeasureType" uom="degC">18.3</om:result>
+    </om:OM_Observation>
+  </sos:observation>
+  <sos:observation>
+    <om:OM_Observation gml:id="o3">
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+      <om:phenomenonTime>
+        <gml:TimeInstant gml:id="phenomenonTime2">
+          <gml:timePosition>2021-08-06T09:39:12.000+02:00</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+      <om:resultTime xlink:href="#phenomenonTime2"/>
+      <om:procedure xlink:href="Thermometer_1285"/>
+      <om:observedProperty xlink:href="air_temperature"/>
+      <om:featureOfInterest xlink:href="Muenster"/>
+      <om:result xsi:type="gml:MeasureType" uom="degC">18.2</om:result>
+    </om:OM_Observation>
+  </sos:observation>
+  <sos:observation>
+    <om:OM_Observation gml:id="o4">
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+      <om:phenomenonTime>
+        <gml:TimeInstant gml:id="phenomenonTime3">
+          <gml:timePosition>2021-08-06T09:40:12.000+02:00</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+      <om:resultTime xlink:href="#phenomenonTime3"/>
+      <om:procedure xlink:href="Thermometer_1285"/>
+      <om:observedProperty xlink:href="air_temperature"/>
+      <om:featureOfInterest xlink:href="Muenster"/>
+      <om:result xsi:type="gml:MeasureType" uom="degC">18.1</om:result>
+    </om:OM_Observation>
+  </sos:observation>
+  <sos:observation>
+    <om:OM_Observation gml:id="o5">
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+      <om:phenomenonTime>
+        <gml:TimeInstant gml:id="phenomenonTime4">
+          <gml:timePosition>2021-08-06T09:41:12.000+02:00</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+      <om:resultTime xlink:href="#phenomenonTime4"/>
+      <om:procedure xlink:href="Thermometer_1285"/>
+      <om:observedProperty xlink:href="air_temperature"/>
+      <om:featureOfInterest xlink:href="Muenster"/>
+      <om:result xsi:type="gml:MeasureType" uom="degC">18.0</om:result>
+    </om:OM_Observation>
+  </sos:observation>
 </sos:InsertObservation>
 ~~~
 
