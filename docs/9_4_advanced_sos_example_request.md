@@ -1108,214 +1108,220 @@ Now we insert some additional observation.
     xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
     xmlns:sf="http://www.opengis.net/sampling/2.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd          http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd">
-    <!-- reference to an offering (multiple offerings possible) -->
-    <sos:offering>Weather_Sensor_1234_offering</sos:offering>
-    <sos:observation>
-        <om:OM_Observation gml:id="o2">
-            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
-            <om:phenomenonTime>
-                <gml:TimeInstant gml:id="phenomenonTime">
-                    <gml:timePosition>2021-08-06T09:38:12.000+02:00</gml:timePosition>
-                </gml:TimeInstant>
-            </om:phenomenonTime>
-            <om:resultTime xlink:href="#phenomenonTime"/>
-            <om:procedure xlink:href="Weather_Sensor_1234"/>
-            <om:observedProperty xlink:href="weather_observation"/>
-            <om:featureOfInterest xlink:href="Muenster"/>
-            <om:result xsi:type="swe:DataRecordPropertyType">
-                <!-- this complex observation has multiple results -->
-                <swe:DataRecord>
-                    <swe:field name="air_temperature">
-                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
-                            <swe:uom code="degC"/>
-                            <swe:value>18.3</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="wmo_weather_code">
-                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
-                            <swe:codeSpace xlink:href="NOT_DEFINED"/>
-                            <swe:value>81</swe:value>
-                        </swe:Category>
-                    </swe:field>
-                    <swe:field name="isFreezing">
-                        <swe:Boolean definition="isFreezing">
-                            <swe:value>false</swe:value>
-                        </swe:Boolean>
-                    </swe:field>
-                    <swe:field name="wind_direction">
-                        <swe:Quantity definition="wind_direction">
-                            <swe:uom code="degree"/>
-                            <swe:value>313</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="wind_speed">
-                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
-                            <swe:uom code="m/s"/>
-                            <swe:value>7.5</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="manuel_observation">
-                        <swe:Text definition="manuel_observation">
-                            <swe:value>slight rain shower</swe:value>
-                        </swe:Text>
-                    </swe:field>
-                </swe:DataRecord>
-            </om:result>
-        </om:OM_Observation>
-		        <om:OM_Observation gml:id="o3">
-            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
-            <om:phenomenonTime>
-                <gml:TimeInstant gml:id="phenomenonTime">
-                    <gml:timePosition>2021-08-06T09:39:12.000+02:00</gml:timePosition>
-                </gml:TimeInstant>
-            </om:phenomenonTime>
-            <om:resultTime xlink:href="#phenomenonTime"/>
-            <om:procedure xlink:href="Weather_Sensor_1234"/>
-            <om:observedProperty xlink:href="weather_observation"/>
-            <om:featureOfInterest xlink:href="Muenster"/>
-            <om:result xsi:type="swe:DataRecordPropertyType">
-                <!-- this complex observation has multiple results -->
-                <swe:DataRecord>
-                    <swe:field name="air_temperature">
-                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
-                            <swe:uom code="degC"/>
-                            <swe:value>18.5</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="wmo_weather_code">
-                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
-                            <swe:codeSpace xlink:href="NOT_DEFINED"/>
-                            <swe:value>80</swe:value>
-                        </swe:Category>
-                    </swe:field>
-                    <swe:field name="isFreezing">
-                        <swe:Boolean definition="isFreezing">
-                            <swe:value>false</swe:value>
-                        </swe:Boolean>
-                    </swe:field>
-                    <swe:field name="wind_direction">
-                        <swe:Quantity definition="wind_direction">
-                            <swe:uom code="degree"/>
-                            <swe:value>312</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="wind_speed">
-                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
-                            <swe:uom code="m/s"/>
-                            <swe:value>7.5</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="manuel_observation">
-                        <swe:Text definition="manuel_observation">
-                            <swe:value>slight rain shower</swe:value>
-                        </swe:Text>
-                    </swe:field>
-                </swe:DataRecord>
-            </om:result>
-        </om:OM_Observation>
-		        <om:OM_Observation gml:id="o4">
-            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
-            <om:phenomenonTime>
-                <gml:TimeInstant gml:id="phenomenonTime">
-                    <gml:timePosition>2021-08-06T09:40:12.000+02:00</gml:timePosition>
-                </gml:TimeInstant>
-            </om:phenomenonTime>
-            <om:resultTime xlink:href="#phenomenonTime"/>
-            <om:procedure xlink:href="Weather_Sensor_1234"/>
-            <om:observedProperty xlink:href="weather_observation"/>
-            <om:featureOfInterest xlink:href="Muenster"/>
-            <om:result xsi:type="swe:DataRecordPropertyType">
-                <!-- this complex observation has multiple results -->
-                <swe:DataRecord>
-                    <swe:field name="air_temperature">
-                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
-                            <swe:uom code="degC"/>
-                            <swe:value>18.0</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="wmo_weather_code">
-                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
-                            <swe:codeSpace xlink:href="NOT_DEFINED"/>
-                            <swe:value>79</swe:value>
-                        </swe:Category>
-                    </swe:field>
-                    <swe:field name="isFreezing">
-                        <swe:Boolean definition="isFreezing">
-                            <swe:value>false</swe:value>
-                        </swe:Boolean>
-                    </swe:field>
-                    <swe:field name="wind_direction">
-                        <swe:Quantity definition="wind_direction">
-                            <swe:uom code="degree"/>
-                            <swe:value>313</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="wind_speed">
-                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
-                            <swe:uom code="m/s"/>
-                            <swe:value>7.5</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="manuel_observation">
-                        <swe:Text definition="manuel_observation">
-                            <swe:value>slight rain shower</swe:value>
-                        </swe:Text>
-                    </swe:field>
-                </swe:DataRecord>
-            </om:result>
-        </om:OM_Observation>
-		        <om:OM_Observation gml:id="o5">
-            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
-            <om:phenomenonTime>
-                <gml:TimeInstant gml:id="phenomenonTime">
-                    <gml:timePosition>2021-08-06T09:41:12.000+02:00</gml:timePosition>
-                </gml:TimeInstant>
-            </om:phenomenonTime>
-            <om:resultTime xlink:href="#phenomenonTime"/>
-            <om:procedure xlink:href="Weather_Sensor_1234"/>
-            <om:observedProperty xlink:href="weather_observation"/>
-            <om:featureOfInterest xlink:href="Muenster"/>
-            <om:result xsi:type="swe:DataRecordPropertyType">
-                <!-- this complex observation has multiple results -->
-                <swe:DataRecord>
-                    <swe:field name="air_temperature">
-                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
-                            <swe:uom code="degC"/>
-                            <swe:value>18.3</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="wmo_weather_code">
-                        <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
-                            <swe:codeSpace xlink:href="NOT_DEFINED"/>
-                            <swe:value>81</swe:value>
-                        </swe:Category>
-                    </swe:field>
-                    <swe:field name="isFreezing">
-                        <swe:Boolean definition="isFreezing">
-                            <swe:value>false</swe:value>
-                        </swe:Boolean>
-                    </swe:field>
-                    <swe:field name="wind_direction">
-                        <swe:Quantity definition="wind_direction">
-                            <swe:uom code="degree"/>
-                            <swe:value>312</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="wind_speed">
-                        <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
-                            <swe:uom code="m/s"/>
-                            <swe:value>7.6</swe:value>
-                        </swe:Quantity>
-                    </swe:field>
-                    <swe:field name="manuel_observation">
-                        <swe:Text definition="manuel_observation">
-                            <swe:value>slight rain shower</swe:value>
-                        </swe:Text>
-                    </swe:field>
-                </swe:DataRecord>
-            </om:result>
-        </om:OM_Observation>
-    </sos:observation>
+  <!-- reference to an offering (multiple offerings possible) -->
+  <sos:offering>Weather_Sensor_1234_offering</sos:offering>
+  <sos:observation>
+    <om:OM_Observation gml:id="o2">
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+      <om:phenomenonTime>
+        <gml:TimeInstant gml:id="phenomenonTime">
+          <gml:timePosition>2021-08-06T09:38:12.000+02:00</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+      <om:resultTime xlink:href="#phenomenonTime"/>
+      <om:procedure xlink:href="Weather_Sensor_1234"/>
+      <om:observedProperty xlink:href="weather_observation"/>
+      <om:featureOfInterest xlink:href="Muenster"/>
+      <om:result xsi:type="swe:DataRecordPropertyType">
+        <!-- this complex observation has multiple results -->
+        <swe:DataRecord>
+          <swe:field name="air_temperature">
+            <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+              <swe:uom code="degC"/>
+              <swe:value>18.3</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wmo_weather_code">
+            <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+              <swe:codeSpace xlink:href="NOT_DEFINED"/>
+              <swe:value>81</swe:value>
+            </swe:Category>
+          </swe:field>
+          <swe:field name="isFreezing">
+            <swe:Boolean definition="isFreezing">
+              <swe:value>false</swe:value>
+            </swe:Boolean>
+          </swe:field>
+          <swe:field name="wind_direction">
+            <swe:Quantity definition="wind_direction">
+              <swe:uom code="degree"/>
+              <swe:value>313</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wind_speed">
+            <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+              <swe:uom code="m/s"/>
+              <swe:value>7.5</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="manuel_observation">
+            <swe:Text definition="manuel_observation">
+              <swe:value>slight rain shower</swe:value>
+            </swe:Text>
+          </swe:field>
+        </swe:DataRecord>
+      </om:result>
+    </om:OM_Observation>
+  </sos:observation>
+  <sos:observation>
+    <om:OM_Observation gml:id="o3">
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+      <om:phenomenonTime>
+        <gml:TimeInstant gml:id="phenomenonTime2">
+          <gml:timePosition>2021-08-06T09:39:12.000+02:00</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+      <om:resultTime xlink:href="#phenomenonTime2"/>
+      <om:procedure xlink:href="Weather_Sensor_1234"/>
+      <om:observedProperty xlink:href="weather_observation"/>
+      <om:featureOfInterest xlink:href="Muenster"/>
+      <om:result xsi:type="swe:DataRecordPropertyType">
+        <!-- this complex observation has multiple results -->
+        <swe:DataRecord>
+          <swe:field name="air_temperature">
+            <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+              <swe:uom code="degC"/>
+              <swe:value>18.5</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wmo_weather_code">
+            <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+              <swe:codeSpace xlink:href="NOT_DEFINED"/>
+              <swe:value>80</swe:value>
+            </swe:Category>
+          </swe:field>
+          <swe:field name="isFreezing">
+            <swe:Boolean definition="isFreezing">
+              <swe:value>false</swe:value>
+            </swe:Boolean>
+          </swe:field>
+          <swe:field name="wind_direction">
+            <swe:Quantity definition="wind_direction">
+              <swe:uom code="degree"/>
+              <swe:value>312</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wind_speed">
+            <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+              <swe:uom code="m/s"/>
+              <swe:value>7.5</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="manuel_observation">
+            <swe:Text definition="manuel_observation">
+              <swe:value>slight rain shower</swe:value>
+            </swe:Text>
+          </swe:field>
+        </swe:DataRecord>
+      </om:result>
+    </om:OM_Observation>
+  </sos:observation>
+  <sos:observation>
+    <om:OM_Observation gml:id="o4">
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+      <om:phenomenonTime>
+        <gml:TimeInstant gml:id="phenomenonTime3">
+          <gml:timePosition>2021-08-06T09:40:12.000+02:00</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+      <om:resultTime xlink:href="#phenomenonTime3"/>
+      <om:procedure xlink:href="Weather_Sensor_1234"/>
+      <om:observedProperty xlink:href="weather_observation"/>
+      <om:featureOfInterest xlink:href="Muenster"/>
+      <om:result xsi:type="swe:DataRecordPropertyType">
+        <!-- this complex observation has multiple results -->
+        <swe:DataRecord>
+          <swe:field name="air_temperature">
+            <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+              <swe:uom code="degC"/>
+              <swe:value>18.0</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wmo_weather_code">
+            <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+              <swe:codeSpace xlink:href="NOT_DEFINED"/>
+              <swe:value>79</swe:value>
+            </swe:Category>
+          </swe:field>
+          <swe:field name="isFreezing">
+            <swe:Boolean definition="isFreezing">
+              <swe:value>false</swe:value>
+            </swe:Boolean>
+          </swe:field>
+          <swe:field name="wind_direction">
+            <swe:Quantity definition="wind_direction">
+              <swe:uom code="degree"/>
+              <swe:value>313</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wind_speed">
+            <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+              <swe:uom code="m/s"/>
+              <swe:value>7.5</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="manuel_observation">
+            <swe:Text definition="manuel_observation">
+              <swe:value>slight rain shower</swe:value>
+            </swe:Text>
+          </swe:field>
+        </swe:DataRecord>
+      </om:result>
+    </om:OM_Observation>
+  </sos:observation>
+  <sos:observation>
+    <om:OM_Observation gml:id="o5">
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_ComplexObservation"/>
+      <om:phenomenonTime>
+        <gml:TimeInstant gml:id="phenomenonTime4">
+          <gml:timePosition>2021-08-06T09:41:12.000+02:00</gml:timePosition>
+        </gml:TimeInstant>
+      </om:phenomenonTime>
+      <om:resultTime xlink:href="#phenomenonTime4"/>
+      <om:procedure xlink:href="Weather_Sensor_1234"/>
+      <om:observedProperty xlink:href="weather_observation"/>
+      <om:featureOfInterest xlink:href="Muenster"/>
+      <om:result xsi:type="swe:DataRecordPropertyType">
+        <!-- this complex observation has multiple results -->
+        <swe:DataRecord>
+          <swe:field name="air_temperature">
+            <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
+              <swe:uom code="degC"/>
+              <swe:value>18.3</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wmo_weather_code">
+            <swe:Category definition="https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM">
+              <swe:codeSpace xlink:href="NOT_DEFINED"/>
+              <swe:value>81</swe:value>
+            </swe:Category>
+          </swe:field>
+          <swe:field name="isFreezing">
+            <swe:Boolean definition="isFreezing">
+              <swe:value>false</swe:value>
+            </swe:Boolean>
+          </swe:field>
+          <swe:field name="wind_direction">
+            <swe:Quantity definition="wind_direction">
+              <swe:uom code="degree"/>
+              <swe:value>312</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="wind_speed">
+            <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P25/current/WINDS/">
+              <swe:uom code="m/s"/>
+              <swe:value>7.6</swe:value>
+            </swe:Quantity>
+          </swe:field>
+          <swe:field name="manuel_observation">
+            <swe:Text definition="manuel_observation">
+              <swe:value>slight rain shower</swe:value>
+            </swe:Text>
+          </swe:field>
+        </swe:DataRecord>
+      </om:result>
+    </om:OM_Observation>
+  </sos:observation>
 </sos:InsertObservation>
 ~~~
 
