@@ -107,7 +107,7 @@ to export your `Data as CSV (Zip-Archive)`.
 ### List Selection
 
 Alternativ to the `Map` tab you can use the `List selection` tab to add new timeseries data to the diagram.
-Similiar to the `Map`tab the first step is to select a provider.
+Similiar to the `Map` tab the first step is to select a provider.
 
 ![HelgolandListSelection.png](images/HelgolandListSelection.png "Helgoland List Selection")
 
