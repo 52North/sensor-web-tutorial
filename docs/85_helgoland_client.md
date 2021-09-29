@@ -104,5 +104,28 @@ to export your `Data as CSV (Zip-Archive)`.
 >
 > 1. Try the different options and find the best way to visualize your data
 
+### List Selection
+
+Alternativ to the `Map` tab you can use the `List selection` tab to add new timeseries data to the diagram.
+Similiar to the `Map`tab the first step is to select a provider.
+
+![HelgolandListSelection.png](images/HelgolandListSelection.png "Helgoland List Selection")
+
+> ####### Activity 7
+>
+> 1. Click on your data provider
+
+Next you have to select your timeseries data by chosing a category, a station, a phenomenon and a sensor
+from the list. When you select all criterias, the timeseries data is added to the diagram.
+
+![HelgolandListSelection2.png](images/HelgolandListSelection2.png "Helgoland List Selection")
+
+> ####### Activity 8
+>
+> 1. Select a `Category` by clicking on an item in the list
+> 1. Select a `Station` by clicking on an item in the list
+> 1. Select a `Phenomenon` by clicking on an item in the list
+> 1. Select a `Sensor` by clicking on an item in the list
+
 Now you successfully  learnt how to use the **52°North Helgoland Client** and can explore, visualize
 and analyse your sensor web data.
