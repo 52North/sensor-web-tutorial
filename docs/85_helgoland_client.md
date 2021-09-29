@@ -68,7 +68,7 @@ by clicking on it.
 
 > ####### Activity 4
 >
-> 1. Click on your choosen station
+> 1. Select the station by clicking on the symbol in the map
 
 ### Select Time Series Data
 
@@ -95,7 +95,7 @@ selected favorites under the `Favorites` tab.
 to export your `Data as CSV (Zip-Archive)`.
 1. Here you can enable or disable the visibility of the data in the diagram.
 1. Here you can open a window with a map of the measurement station.
-1. By clicking on the pencil you can chance the color of the displayed data in the diagram.
+1. By clicking on the pencil you can change the color of the displayed data in the diagram.
 1. Here you can delete the timeseries data from the diagram.
 1. By moving the red window or the edges of the window you can adjust the displayed period of time.
 1. This button clears all data from the diagram.
