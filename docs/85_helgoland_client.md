@@ -63,7 +63,7 @@ it is only on station, which measures the air temperature.
 
 ![HelgolandMap.png](images/HelgolandMap.png "Helgoland Map")
 
-If you chosed a station which timeseries data you want to present in a diagram you can select it
+If you chosed a station, which timeseries data you want to present in a diagram, you can select it
 by clicking on it.
 
 > ####### Activity 4
@@ -72,14 +72,14 @@ by clicking on it.
 
 ### Select Time Series Data
 
-After you clicked on a station a popup opens. In this you can select a timeseries data and confirm
+After you clicked on a station a popup opens. In this you can select timeseries data and confirm
 your decision.
 
 ![HelgolandMapPopup.png](images/HelgolandMapPopup.png "Helgoland Map Popup")
 
 > ####### Activity 5
 >
-> 1. Select a timeseries data
+> 1. Select timeseries data
 > 1. Click on `Show adjustments in diagram`
 
 ### Visualize Time Series Data
