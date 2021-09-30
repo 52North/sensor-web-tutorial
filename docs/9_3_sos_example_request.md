@@ -1158,3 +1158,7 @@ Now we insert some additional observation.
 > 		* Delete the content (del)
 > 		* Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
+
+The observations which were added to the SOS in this tutorial can also be viewn in the
+**52°North Helgoland Client**. This tutorial shows how to use the Helgoland Client:
+[tutorial](85_helgoland_client.md)
