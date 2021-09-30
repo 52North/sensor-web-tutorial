@@ -1,5 +1,5 @@
 ---
-title: Helgoland Client
+title: 9.7. Helgoland Client
 layout: page
 ---
 
@@ -129,3 +129,160 @@ from the list. When you select all criterias, the timeseries data is added to th
 
 Now you successfully  learnt how to use the **52°North Helgoland Client** and can explore, visualize
 and analyse your sensor web data.
+
+### Standalone installation
+
+#### Requirments
+- __Application server__ compatible to Java Servlet-API 2.5 or higher
+
+#### Installation
+When your system matches the requirments above, download the latest releas __war-file__ from here:
+
+> [52°North Helgoland](https://github.com/52North/helgoland/releases){target=_blank}
+
+* Select the *helgoland-timeseries.war* to download
+* Copy the downloaded file into the folder application server webapp folder, e.g. `TOMCAT_BASE/webapps`
+
+After a moment the __war-file__ gets converted and in the folder should be a new
+folder `helgoland-timeseries`. If this is the case than you can reach the webapp with this URL:
+
+> [http://localhost:8080/helgoland-timeseries/](http://localhost:8080/helgoland-timeseries/){target=_blank}
+
+### Configuration
+
+* Go to the application server webapp folder, e.g. `TOMCAT_BASE/webapps`
+* Go to 
+	* **standalone**: `/helgoland-timeseries/assets/`
+	* **SOS**: `/52n-sos-webapp/static/client/helgoland/assets/`
+* Open `settings.json` in an editor
+
+The most important setting is the `datasetApis` where you define the `Helgoland-API`s the client should use.
+Here you can defined multiple Helgoland-API and SensorThings-API serivces.
+
+Other settings are
+
+* **providerBlackList**: If an API provides multiple services you can blacklist some services
+* **defaultTimeseriesTimeduration**: The default time duration for the timeseries in the diagram
+* **languages**: Supported languages. The translation files are stored in the `/i18n` folder of the assets folder. Filename is defined `code` + `.json`, e.g. `en.json`
+* **timespanPresets**: Predefined timespans which can be selected instead of start and end time.
+
+~~~json
+{
+  "providerBlackList": [{
+    "serviceId": "srv_42c69c781d20426f2d383c11625a26b5",
+    "apiUrl": "https://sensorweb.demo.52north.org/sensorwebclient-webapp-stable/api/v1/"
+  }],
+  "defaultTimeseriesTimeduration": {
+    "duration": {
+      "days": 7
+    },
+    "align": "end"
+  },
+  "datasetApis": [
+    {
+      "name": "localhost",
+      "url": "http://localhost:8080/52n-sos-webapp/api/"
+    }
+  ],
+  "languages": [{
+      "label": "Deutsch",
+      "code": "de"
+    },
+    {
+      "label": "English",
+      "code": "en"
+    },
+    {
+      "label": "Portuguese",
+      "code": "pt"
+    }
+  ],
+  "proxyUrl": "https://cors-anywhere.herokuapp.com/",
+  "timespanPresets": [{
+      "name": "lastHour",
+      "label": "timeSelection.presets.lastHour",
+      "timespan": {
+        "from": "moment().subtract(1, 'hours')",
+        "to": "moment()"
+      },
+      "seperatorAfterThisItem": true
+    },
+    {
+      "name": "today",
+      "label": "timeSelection.presets.today",
+      "timespan": {
+        "from": "moment().startOf('day')",
+        "to": "moment().endOf('day')"
+      }
+    },
+    {
+      "name": "yesterday",
+      "label": "timeSelection.presets.yesterday",
+      "timespan": {
+        "from": "moment().subtract(1, 'days').startOf('day')",
+        "to": "moment().subtract(1, 'days').endOf('day')"
+      }
+    },
+    {
+      "name": "todayYesterday",
+      "label": "timeSelection.presets.todayYesterday",
+      "timespan": {
+        "from": "moment().subtract(1, 'days').startOf('day')",
+        "to": "moment().endOf('day')"
+      },
+      "seperatorAfterThisItem": true
+    },
+    {
+      "name": "thisWeek",
+      "label": "timeSelection.presets.thisWeek",
+      "timespan": {
+        "from": "moment().startOf('isoWeek')",
+        "to": "moment().endOf('isoWeek')"
+      }
+    },
+    {
+      "name": "lastWeek",
+      "label": "timeSelection.presets.lastWeek",
+      "timespan": {
+        "from": "moment().subtract(1, 'weeks').startOf('isoWeek')",
+        "to": "moment().subtract(1, 'weeks').endOf('isoWeek')"
+      },
+      "seperatorAfterThisItem": true
+    },
+    {
+      "name": "thisMonth",
+      "label": "timeSelection.presets.thisMonth",
+      "timespan": {
+        "from": "moment().startOf('month')",
+        "to": "moment().endOf('month')"
+      }
+    },
+    {
+      "name": "lastMonth",
+      "label": "timeSelection.presets.lastMonth",
+      "timespan": {
+        "from": "moment().subtract(1, 'months').startOf('month')",
+        "to": "moment().subtract(1, 'months').endOf('month')"
+      },
+      "seperatorAfterThisItem": true
+    },
+    {
+      "name": "thisYear",
+      "label": "timeSelection.presets.thisYear",
+      "timespan": {
+        "from": "moment().startOf('year')",
+        "to": "moment().endOf('year')"
+      }
+    },
+    {
+      "name": "lastYear",
+      "label": "timeSelection.presets.lastYear",
+      "timespan": {
+        "from": "moment().subtract(1, 'years').startOf('year')",
+        "to": "moment().subtract(1, 'years').endOf('year')"
+      }
+    }
+  ]
+}
+
+~~~
