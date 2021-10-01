@@ -66,4 +66,4 @@ The workflow would be:
 
 ![ImporterStep8.PNG](images/ImporterStep8.PNG "Final Step")
 
-![ImporterStep8Finish.PNG](images/ImporterStep8.PNG "Final Step")
+![ImporterStep8Finish.PNG](images/ImporterStep8Finish.PNG "Final Step")
