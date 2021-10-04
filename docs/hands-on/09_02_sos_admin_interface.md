@@ -4,6 +4,8 @@ layout: page
 ---
 ### Introduction
 
+TODO Check for completeness
+
 With the `Admin` interface you can change the settings, de-/activate operations, encodings and bindings or change the logging and check the latest log statements.
 
 #### Admin interface
@@ -77,12 +79,13 @@ Configuration of the logging of the SOS
 > 1. Hover over the `Admin` and `Settings` and *click* on `Logging`
 > 1. Set *Days of log files to keep* to `5`
 > 1. Set *Max file size* to `5MB`
+> 1. Save the changes
 
 ![Admin_5.PNG](../images/Admin_5.png "52°North SOS Admin interface")
 
 ##### Operations
 
-This configuration page allows the de-/activating of the support operations.
+This configuration page allows the de-/activation of the supported operations.
 
 > ####### Activity 6
 >
@@ -90,7 +93,7 @@ This configuration page allows the de-/activating of the support operations.
 
 ![Admin_6.PNG](../images/Admin_6.png "52°North SOS Admin interface")
 
-To follow the given examples in this next chapter we activate the
+To follow the given examples in the next chapter we activate the
 transactional SOS operations.
 
 ![transactionalOperations.PNG](../images/transactionalOperations.PNG "active transactional operations")
@@ -99,14 +102,14 @@ transactional SOS operations.
 >
 > We activate the following operations
 >
-> 1. Click the *red inaktive* button behind `InsertObservation`
-> 1. Click the *red inaktive* button behind `InsertResult`
-> 1. Click the *red inaktive* button behind `InsertResultTemplate`
-> 1. Click the *red inaktive* button behind `InsertSensor`
+> 1. Click the *red inactive* button behind `InsertObservation`
+> 1. Click the *red inactive* button behind `InsertResult`
+> 1. Click the *red inactive* button behind `InsertResultTemplate`
+> 1. Click the *red inactive* button behind `InsertSensor`
 
 ##### Encodings
 
-This configuration page allows the de-/activating of the support encodings.
+This configuration page allows the de-/activation of the supported encodings.
 
 > ####### Activity 8
 >
@@ -116,7 +119,7 @@ This configuration page allows the de-/activating of the support encodings.
 
 ##### Bindings
 
-This configuration page allows the de-/activating of the support bindings.
+This configuration page allows the de-/activation of the supported bindings.
 
 > ####### Activity 9
 >
@@ -129,7 +132,6 @@ This configuration page allows the de-/activating of the support bindings.
 > We deactivate the following bindings
 >
 > 1. Click the *green active* button behind `application/exi`
-> 1. Click the *green active* button behind `application/soap+xml`
 
 ##### Profiles
 

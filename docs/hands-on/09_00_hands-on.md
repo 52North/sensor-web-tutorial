@@ -32,6 +32,8 @@ the Sensor Web Workshop at Fréjus 2021:
 >     * Select the *.ova* file from the dialog (e.g. from `/home/demo/`)
 >     * Click *Import*
 > 1. Check the *Appliance Settings*
+>     * Adjust the system setting (CPU/RAM) to roughly half of the host system
+>     * Change the `Guest OS Type` to `Debian (64-bit)`
 >     * Click *Import*
 
 ![VirtualBox_1.png](../images/VirtualBox_1.png "VirtualBox")
@@ -95,7 +97,7 @@ More details are in the official [VirtualBox documentations](https://www.virtual
 > 1. Connect ot postgresql
 >     * Type `psql` and *enter*
 > 1. Create the `sensorweb` database
->     * Type `CREATE DATABASE sensorweb´;` and *enter*
+>     * Type `CREATE DATABASE sensorweb;` and *enter*
 > 1. Quit `psql`
 >     * Type `\q` and *enter*
 

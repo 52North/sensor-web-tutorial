@@ -779,16 +779,6 @@ The following `GetObservation` request contains an example for each filter optio
     </sos:temporalFilter>
     <!-- response document includes observation of this feature of interest and omits all others (optional, multiple values possible) -->
     <sos:featureOfInterest>Muenster</sos:featureOfInterest>
-    <!-- observations are filtered by location (optional) -->
-    <sos:spatialFilter>
-        <fes:BBOX>
-            <fes:ValueReference>om:featureOfInterest/sams:SF_SpatialSamplingFeature/sams:shape</fes:ValueReference>
-            <gml:Envelope srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
-                <gml:lowerCorner>7.5 51.5</gml:lowerCorner>
-                <gml:upperCorner>8.5 52.5</gml:upperCorner>
-            </gml:Envelope>
-        </fes:BBOX>
-    </sos:spatialFilter>
     <!-- accepted response format (optional) -->
     <sos:responseFormat>http://www.opengis.net/om/2.0</sos:responseFormat>
 </sos:GetObservation>

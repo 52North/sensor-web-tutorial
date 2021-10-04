@@ -250,6 +250,8 @@ To present later in the tutorial the filter options, a second `Sensor` is added:
 
 #### Create ObservedProperty
 
+TODO change this to a PUT/Update of the Definition, as the same is created by the SOS
+
 Next an `ObservedProperty` needs to be created. The URI for the POST request is shown below:
 
 > [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties)

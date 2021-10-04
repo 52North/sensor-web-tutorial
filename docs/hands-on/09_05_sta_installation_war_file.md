@@ -23,7 +23,7 @@ and __PostgreSQL/ PostGIS__ as the database management system: [Tutorial](../89_
 When your system matches the requirements above, download the package including the __war-file__: [52°North STA latest version](https://github.com/52North/sensorweb-server-sta/releases/tag/v3.0.0)
 
 Unzip the package and browse to the folder `UNZIPPED_PACKAGE/bin/target` where the file `52n-sensorthings-webapp.war`
-is located. Copy the file `52n-sensorthings-webapp.war` into the folder `TOMCAT_BASE/webapps`. Make sure your Tomcat
+is located. Copy the file `52n-sensorthings-webapp.war` into the folder `/opt/tomcat/webapps`. Make sure your Tomcat
 and PostgreSQL are running. After a moment the __war-file__ gets converted and in the folder should be a new
 folder `52n-sensorthings-webapp`.
 
@@ -33,7 +33,7 @@ When your system matches the requirements above, download the  __war-file__: [52
 >  
 > 1. Save the file to `/home/demo/`
 > 1. Open a terminal [see](09_00_hands-on.md/#open-a-terminal){target=_blank}
-> 1. Copy the file `52n-sensorthings-webapp` into the folder `TOMCAT_BASE/webapps`
+> 1. Copy the file `52n-sensorthings-webapp` into the folder `/opt/tomcat/webapps`
 >
 >     ```sh
 >     sudo cp /home/demo/52n-sensorthings-webapp.war /opt/tomcat/webapps/
@@ -47,17 +47,17 @@ folder `52n-sos-webapp`. If this is the case than you can reach the webapp with 
 
 If the download does not work, you find an already downloaded version in `/home/demo/webapps/`:
 
-* Alternative `sudo cp /home/demo/52n-sensorthings-webapp.war /opt/tomcat/webapps/`
+* Alternative `sudo cp /home/demo/webapps/52n-sensorthings-webapp.war /opt/tomcat/webapps/`
 
 #### Configuration
 
 Next navigate in this new folder to the `application.yml` and open it with
-an editor (`TOMCAT_BASE/webapps/52n-sensorthings-webapp/WEB-INF/classes`). You need to adjust the following
+an editor (`/opt/tomcat/webapps/52n-sensorthings-webapp/WEB-INF/classes`). You need to adjust the following
 settings manually:
 
-* __server__ -> __rootURL__: Used for response serialization + url parsing, external URL Must be set correctly! ->Tutorial: `"http://localhost:8080/52n-sensorthings-webapp/"`
-* __server__ -> __servlet__ -> __context-path__: The path of the running STA (name of the applet in the
-Apache Tomcat). -> Tutorial: `"/52n-sensorthings-webapp"`
+* __server__ -> __rootUrl__: Used for response serialization + url parsing, external URL Must be set correctly! ->Tutorial: `"http://localhost:8080/52n-sensorthings-webapp/"`
+* __server__ -> __servlet__ -> __context-path__: The path of the running STA (name of the applet in the Apache Tomcat). -> Tutorial: `"/52n-sensorthings-webapp"`
+* __server__ -> __feature__ -> __httpReadOnly__: To allow transactional operations this has to be set to `false`
 * __spring__ -> __datasource__: Connection information to the database
     * __username__: Database user name -> Tutorial: `postgres`
     * __password__: Database user password -> Tutorial: `postgres`
@@ -66,13 +66,13 @@ Apache Tomcat). -> Tutorial: `"/52n-sensorthings-webapp"`
 
 > ####### Activity 1a
 >  
-> Modify `application.yml` via *terminal* and *vi*
+> Modify `application.yml` via *terminal* and *vim*
 >
 > 1. Open a terminal [see](09_00_hands-on.md#open-a-terminal){target=_blank}
 > 1. Open the `application.yml` in an editor
 >
 >     ```sh
->     sudo vi /opt/tomcat/webapps/52n-sensorthings-webapp/WEB-INF/classes/application.yml
+>     sudo vim /opt/tomcat/webapps/52n-sensorthings-webapp/WEB-INF/classes/application.yml
 >     ```
 >
 > 1. Press *enter*

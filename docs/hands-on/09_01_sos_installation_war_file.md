@@ -30,7 +30,7 @@ When your system matches the requirements above, download the  __war-file__: [52
 >  
 > 1. Save the file to `/home/demo/`
 > 1. Open a terminal [see](09_hands-on/#open-a-terminal){target=_blank}
-> 1. Copy the file `52n-sos-webapp.war` into the folder `TOMCAT_BASE/webapps`
+> 1. Copy the file `52n-sos-webapp.war` into the folder `/opt/tomcat/webapps`
 >
 >    - Type `sudo cp /home/demo/52n-sos-webapp.war /opt/tomcat/webapps/`
 >
@@ -43,7 +43,7 @@ folder `52n-sos-webapp`. If this is the case than you can reach the webapp with 
 
 If the download does not work, you find an already downloaded version in `/home/demo/webapps/`:
 
-- Alternative `sudo cp /home/demo/52n-sos-webapp.war /opt/tomcat/webapps/`
+- Alternative `sudo cp /home/demo/webapps/52n-sos-webapp.war /opt/tomcat/webapps/`
 
 #### Installation
 
@@ -142,6 +142,8 @@ the settings and leave only `Create tables` marked. When the database model alre
 
 ![SetupSOS_5.png](../images/SetupSOS_5.png "52°North SOS Installation Wizard Datasource Configuration")
 
+## TODO
+
 > ####### Activity 7
 >
 > 1. Press `Next` button
@@ -177,7 +179,7 @@ This information would be provided in the Capabilities.
 
 The `Service` settings provides the definition of
 
-- SOS URL
+- SOS URL (TODO Beschreibung)
 - Strict SpatialFiltering
 - Create/Update FOI geometry
 - List only parent offerings
@@ -270,7 +272,9 @@ The `Procedure request/response handling` settings provides the definition of
 - Allow only requesting of procedure instances/aggregations
 - Add outputs or encode  child procedure in SensorML
 
-> ####### Activity 8
+> ####### Activity 8 
+>
+> TODO Explain settings
 >
 > 1. Select the `Service Provider` tab
 >
@@ -306,7 +310,7 @@ The `Procedure request/response handling` settings provides the definition of
 >    - Change *Token separator* to `#`
 >    - Change *Tuple separator* to `@`
 >
-> 1. `Save` changes
+> 1. Save changes with `Next`
 
 ##### Finish installation
 
@@ -327,6 +331,8 @@ Dependending on the configuration the installation takes a while to create the d
 You now have successfully installed the __52°North SOS__.
 
 #### Further steps
+
+TODO remove?
 
 Additional installation/configuration steps which are not part of this hands-on
 

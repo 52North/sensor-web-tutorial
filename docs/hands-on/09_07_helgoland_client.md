@@ -142,7 +142,7 @@ When your system matches the requirements above, download the latest release __w
 > [52°North Helgoland](https://github.com/52North/helgoland/releases){target=_blank}
 
 * Select the *helgoland-timeseries.war* to download
-* Copy the downloaded file into the folder application server webapp folder, e.g. `TOMCAT_BASE/webapps`
+* Copy the downloaded file into the folder application server webapp folder, e.g. `/opt/tomcat/webapps`
 
 After a moment the __war-file__ gets converted and in the folder should be a new
 folder `helgoland-timeseries`. If this is the case than you can reach the webapp with this URL:
@@ -151,7 +151,7 @@ folder `helgoland-timeseries`. If this is the case than you can reach the webapp
 
 ### Configuration
 
-* Go to the application server webapp folder, e.g. `TOMCAT_BASE/webapps`
+* Go to the application server webapp folder, e.g. `/opt/tomcat/webapps`
 * Go to
   * **standalone**: `/helgoland-timeseries/assets/`
   * **SOS**: `/52n-sos-webapp/static/client/helgoland/assets/`
