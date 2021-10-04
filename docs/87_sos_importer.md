@@ -26,13 +26,14 @@ The workflow would be:
 
 ### Start SOS Importer Wizard
 
-At first you need to download the current **SOS Importer Wizard** (`52n-sos-importer-wizard-VERSION_NUMBER-bin.jar`)
-and the current **SOS Importer Feeder** (`52n-sos-importer-feeder-VERSION_NUMBER-bin.jar`):
-[Download](https://github.com/52North/sos-importer/releases)
+At first you need to download the current **SOS Importer Wizard**
+([52n-sos-importer-wizard-0.4.2-bin.jar](https://github.com/52North/sos-importer/releases/download/v0.4.2/52n-sos-importer-wizard-0.4.2-bin.jar))
+and the current **SOS Importer Feeder**
+([52n-sos-importer-feeder-0.4.2-bin.jar](https://github.com/52North/sos-importer/releases/download/v0.4.2/52n-sos-importer-feeder-0.4.2-bin.jar)).
 
 When the files are downloaded you can store them together in a folder of your choice. Next you need
-a csv-file with data you want to import. You can find the example csv-file which is used in this tutorial
-here: [Download](https://wiki.52north.org/SensorWeb/SosImporter#Demo_data)
+a csv-file with data you want to import. You can download the example csv-file which is used in this tutorial
+here: [Download](https://wiki.52north.org/pub/SensorWeb/SosImporter/example-data.csv)
 
 After that you need to make sure you have a running SOS instance. If you do not have a running
 SOS instance you can check out this tutorial, how to set up a SOS:
