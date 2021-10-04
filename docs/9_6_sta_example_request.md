@@ -296,7 +296,7 @@ a link to the `Datastream` which is added in the next step:
 ~~~
 
 The second `Sensor` which was added beforehand observes a different phenomenon so a second `ObservedProperty`
-needs to be created: 
+needs to be created:
 
 ~~~json
 {

@@ -33,6 +33,7 @@ When your system matches the requirments above, download the  __war-file__: [52�
 > 1. Copy the file `52n-sos-webapp.war` into the folder `TOMCAT_BASE/webapps`
 > 	* Type `sudo cp /home/demo/52n-sos-webapp.war /opt/tomcat/webapps/`
 > 1. Press *enter*
+>
 
 After a moment the __war-file__ gets converted and in the folder should be a new
 folder `52n-sos-webapp`. If this is the case than you can reach the webapp with this URL:
@@ -45,9 +46,9 @@ If the download does not work, you find an already downloaded version in `/home/
 #### Installation
 
 > ####### Activity 2
-> 
+>
 > 1. Click the link or open a *browser* and enter the following URL:
-> 
+>
 >>  [http://localhost:8080/52n-sos-webapp/](http://localhost:8080/52n-sos-webapp/){target=_blank}
 
 When you succesfully reach the service it should look like this:
@@ -63,7 +64,7 @@ The installation process starts with the Welcome-page.
 ![SetupSOS_1.PNG](images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
 
 > ####### Activity 3
-> 
+>
 > 1. Click the blue `Start` button.
 
 #####  Select the datasource
@@ -74,18 +75,18 @@ First you need to select the database managment system which you are using as th
 
 The 52N SOS supports the database managment system:
 
-  * H2/GeoDB (*file based* and *in memory*)
-  * MySQL/MariaDB
-  * Oracle Spatial
-  * PostgreSQL/PostGIS
-  * SQL Server
+* H2/GeoDB (*file based* and *in memory*)
+* MySQL/MariaDB
+* Oracle Spatial
+* PostgreSQL/PostGIS
+* SQL Server
   
 The *Custom* datasource should be selected if you do not use the created database model but views or adjusted hibernate mapping files. In this case the *existing* database model would not be validated against the expected!
 
 ![SetupSOS_2.png](images/SetupSOS_2.png "52°North SOS Installation Wizard Datasource Configuration")
 
 > ####### Activity 4
-> 
+>
 > 1. In this tutorial we select `PostgreSQL/PostGIS` as datasource.
 
 Next you need to set the parameters of your database.
@@ -97,9 +98,9 @@ In the *Database configuration* you define the connection parameters and credent
 ![SetupSOS_3.png](images/SetupSOS_3.png "52°North SOS Installation Wizard Datasource Configuration")
 
 > ####### Activity 5
-> 
+>
 > As we have created the `sensorweb` database, we have to change the `Database` paramert
-> 
+>
 > 1. Change `Database` from `sos`to `sensorweb`
 
 ###### Advandced Database Configuration
@@ -251,8 +252,8 @@ The `netCDF` settings provides the definition of netCDF output parameter/definit
 ###### Procedure request/response handling
 The `Procedure request/response handling` settings provides the definition of
 
-* Allow only requesting of procedure instances/aggregations
-* Add outputs or encode  child procedure in SensorML
+- Allow only requesting of procedure instances/aggregations
+- Add outputs or encode  child procedure in SensorML
 
 > ####### Activity 8
 > 
@@ -289,7 +290,7 @@ You finish your installation by setting a username and a password for the SOS.
 ![SetupSOS_8.png](images/SetupSOS_8.png "52°North SOS Installation Wizard Optional Settings")
 
 > ####### Activity 8
-> 
+>
 > 1. Type `admin` in the *Username" field
 > 1. Type `password` in the *Password" field
 > 1. Click `Install`

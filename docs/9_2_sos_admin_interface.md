@@ -13,7 +13,7 @@ The admin interface allows the administrator to change the settings or modify th
 
 > ####### Activity 1
 >
-> 1.  Click `Admin`
+> 1. Click `Admin`
 
 Now you see the Admin start page with information about the Version and the build and installation date.
 
@@ -41,12 +41,12 @@ An additional tab exists in the admin settings, the `Credentials` tab to change 
 
 #### Datasource Maintenance
 
-With the *Datasource Maintanence* the administrator can 
+With the *Datasource Maintanence* the administrator can
 
 * remove the data from the database
 * delete data which are marked as delete
 * insert some sample data
-* reset the datasouce configuration
+* reset the datasource configuration
 * insert predefined observableProperties and units.
 
 > ####### Activity 3
@@ -75,7 +75,7 @@ Configuration of the logging of the SOS
 >
 > We modify the days to keep and the file size
 >
-> 1. Hover over the `Admin` and `Setings` and *click* on `Logging`
+> 1. Hover over the `Admin` and `Settings` and *click* on `Logging`
 > 1. Set *Days of log files to keep* to `5`
 > 1. Set *Max file size* to `5MB`
 
@@ -87,7 +87,7 @@ This configuration page allows the de-/activating of the support operations.
 
 > ####### Activity 6
 >
-> 1. Hover over the `Admin` and `Setings` and *click* on `Operations`
+> 1. Hover over the `Admin` and `Settings` and *click* on `Operations`
 
 ![Admin_6.PNG](images/Admin_6.png "52°North SOS Admin interface")
 
@@ -97,7 +97,7 @@ transactional SOS operations.
 ![transactionalOperations.PNG](images/transactionalOperations.PNG "active transactional operations")
 
 > ####### Activity 7
-> 
+>
 > We activate the following operations
 >
 > 1. Click the *red inaktive* button behind `InsertObservation`
@@ -152,10 +152,10 @@ Currently, the 52N SOS provides three profiles:
 
 #### Further configurations
 
-The following configuration are not part of the turorial and are only mentioned briefly here.
+The following configuration are not part of the tutorial and are only mentioned briefly here.
 
 * *Extensions* -> de-/activate extensions
 * *Datasource* -> change the datasource settings (connections, user, password, ...)
 * *Procedure Descriptions* -> modify procedure descriptions
-* *Capabilities Settings* -> create static Capabilities or add Capabiitie extensions
+* *Capabilities Settings* -> create static Capabilities or add Capabilities extensions
 * *Observable Properties* -> change the observableProperties identifier

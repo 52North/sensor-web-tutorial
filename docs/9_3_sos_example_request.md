@@ -39,11 +39,11 @@ It is also possible to follow this tutorial along and use the presented requests
 
 The workflow would be
 
- * [InsertSensor](#insertsensor)
- * [InsertObservation](#insertobservation)
- * [GetCapabilities](#getcapabilities)
- * [GetDataAvailability](#getdataavailability)
- * [GetObservation](#getobservation)
+* [InsertSensor](#insertsensor)
+* [InsertObservation](#insertobservation)
+* [GetCapabilities](#getcapabilities)
+* [GetDataAvailability](#getdataavailability)
+* [GetObservation](#getobservation)
 
 #### InsertSensor
 The `InsertSensor` operation can be used to add to the SOS a detailed sensor description about a certain sensor,
@@ -66,7 +66,7 @@ An exemplar `InsertSensor` request against a local installation of the SOS ([htt
 using POX binding is illustrated in the below example. The sensor in this example is a thermometer measuring
 the air temperature at the office of 52°North GmbH located in the city of Muenster.
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <swes:InsertSensor
     xmlns:swes="http://www.opengis.net/swes/2.0"
@@ -78,9 +78,9 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gco="http://www.isotc211.org/2005/gco"
     xmlns:gmd="http://www.isotc211.org/2005/gmd" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosInsertSensor.xsd  http://www.opengis.net/swes/2.0 http://schemas.opengis.net/swes/2.0/swes.xsd">
-	<!-- reference to a known procedure description format such as “http://www.opengis.net/sensorML/1.0.1” or “http://www.opengis.net/sensorML/2.0” -->
+  <!-- reference to a known procedure description format such as “http://www.opengis.net/sensorML/1.0.1” or “http://www.opengis.net/sensorML/2.0” -->
     <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
-	<!-- procedure/ sensor description using the format specified in parameter procedureDescriptionFormat, e.g. a valid SensorML document -->
+  <!-- procedure/ sensor description using the format specified in parameter procedureDescriptionFormat, e.g. a valid SensorML document -->
     <swes:procedureDescription>
         <sml:PhysicalSystem gml:id="Thermometer">
             <!-- unique identifier of the procedure/ sensor (used for references) -->
@@ -88,7 +88,7 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
             <sml:identification>
                 <sml:IdentifierList>
                     <!-- long and short description of the procedure/ sensor -->
-					<sml:identifier>
+                    <sml:identifier>
                         <sml:Term definition="urn:ogc:def:identifier:OGC:1.0:longName">
                             <sml:label>longName</sml:label>
                             <sml:value>Thermometer 1285 at the 52°North GmbH office building</sml:value>
@@ -102,7 +102,7 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
                     </sml:identifier>
                 </sml:IdentifierList>
             </sml:identification>
-			<!-- offering of the procedure/ sensor -->
+            <!-- offering of the procedure/ sensor -->
             <sml:capabilities name="offerings">
                 <sml:CapabilityList>
                     <!-- Special capabilities used to specify offerings. -->
@@ -111,9 +111,9 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
                     <sml:capability name="offeringID">
                         <swe:Text definition="urn:ogc:def:identifier:OGC:offeringID">
                             <!-- name of the offering -->
-							<swe:label>Thermometer 1285 Offering</swe:label>
+                            <swe:label>Thermometer 1285 Offering</swe:label>
                             <!-- unique identifier of the offering (used for references) -->
-							<swe:value>Thermometer_1285_offering</swe:value>
+                            <swe:value>Thermometer_1285_offering</swe:value>
                         </swe:Text>
                     </sml:capability>
                 </sml:CapabilityList>
@@ -134,19 +134,19 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
                     </sml:capability>
                 </sml:CapabilityList>
             </sml:capabilities>
-			<!-- feature of interest of the procedure/ sensor -->
+            <!-- feature of interest of the procedure/ sensor -->
             <sml:featuresOfInterest>
                 <sml:FeatureList definition="http://www.opengis.net/def/featureOfInterest/identifier">
                     <!-- name of the feature of interest -->
-					<swe:label>Muenster</swe:label>
-					<!-- unique identifier of the feature of interest (used for references) -->
+                    <swe:label>Muenster</swe:label>
+                    <!-- unique identifier of the feature of interest (used for references) -->
                     <sml:feature xlink:href="Muenster"/>
                 </sml:FeatureList>
             </sml:featuresOfInterest>
             <sml:inputs>
                 <sml:InputList>
                     <!-- input of the procedure/ sensor (multiple inputs possible) -->
-					<sml:input name="weather">
+                    <sml:input name="weather">
                         <sml:ObservableProperty definition="weather"/>
                     </sml:input>
                 </sml:InputList>
@@ -154,14 +154,14 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
             <sml:outputs>
                 <sml:OutputList>
                     <!-- output of the procedure/ sensor (multiple output possible) -->
-					<sml:output name="air_temperature">
+                    <sml:output name="air_temperature">
                         <swe:Quantity definition="http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/">
                             <swe:uom code="degC"/>
                         </swe:Quantity>
                     </sml:output>
                 </sml:OutputList>
             </sml:outputs>
-			<!-- position of the procedure/ sensor -->
+            <!-- position of the procedure/ sensor -->
             <sml:position>
                 <swe:Vector referenceFrame="urn:ogc:def:crs:EPSG::4326">
                     <swe:coordinate name="easting">
@@ -186,18 +186,18 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
             </sml:position>
         </sml:PhysicalSystem>
     </swes:procedureDescription>
-	<!-- reference to a dedicated observable property/ phenomenon that is measured by the inserted procedure/ sensor (multiple values possible) -->
+    <!-- reference to a dedicated observable property/ phenomenon that is measured by the inserted procedure/ sensor (multiple values possible) -->
     <swes:observableProperty>air_temperature</swes:observableProperty>
     <swes:metadata>
         <sos:SosInsertionMetadata>
-			<!-- reference to an observation type which is produced by the procedure/ sensor (multiple values possible) -->
+            <!-- reference to an observation type which is produced by the procedure/ sensor (multiple values possible) -->
             <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</sos:observationType>
-			<!-- reference to the type of the feature of interest which is observed by the procedure/ sensor -->
+            <!-- reference to the type of the feature of interest which is observed by the procedure/ sensor -->
             <sos:featureOfInterestType>http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint</sos:featureOfInterestType>
         </sos:SosInsertionMetadata>
     </swes:metadata>
 </swes:InsertSensor>
-~~~
+```
 
 > ####### Activity 2
 >
@@ -261,31 +261,31 @@ on the 6. August 2021.
     <sos:observation>
         <om:OM_Observation gml:id="o1">
             <!-- reference to the type of the observation -->
-			<om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
-			<!-- period in time for which the observation applies -->
+            <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+            <!-- period in time for which the observation applies -->
             <om:phenomenonTime>
                 <gml:TimeInstant gml:id="phenomenonTime">
                     <gml:timePosition>2021-08-06T09:37:12.000+02:00</gml:timePosition>
                 </gml:TimeInstant>
             </om:phenomenonTime>
-			<!-- point in time when the observation was published (here: reference to phenomenonTime) -->
+            <!-- point in time when the observation was published (here: reference to phenomenonTime) -->
             <om:resultTime xlink:href="#phenomenonTime"/>
-			<!-- reference to the procedure/ sensor -->
+            <!-- reference to the procedure/ sensor -->
             <om:procedure xlink:href="Thermometer_1285"/>
-			<!-- reference to the observed property/ phenomenon -->
+            <!-- reference to the observed property/ phenomenon -->
             <om:observedProperty xlink:href="air_temperature"/>
-			<!-- feature of interest of the observation -->
+            <!-- feature of interest of the observation -->
             <om:featureOfInterest>
                 <sams:SF_SpatialSamplingFeature gml:id="ssf_muenster">
                     <!-- unique identifier of the featur of interest -->
-					<gml:identifier codeSpace="">Muenster</gml:identifier>
-					<!-- name of the feature of interest -->
+                    <gml:identifier codeSpace="">Muenster</gml:identifier>
+                    <!-- name of the feature of interest -->
                     <gml:name>Muenster</gml:name>
-					<!-- reference to the geometry type of the feature of interest -->
+                    <!-- reference to the geometry type of the feature of interest -->
                     <sf:type xlink:href="http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint"/>
-					<!-- reference to the sampled feature (here: no sampled feature) -->
+                    <!-- reference to the sampled feature (here: no sampled feature) -->
                     <sf:sampledFeature xlink:href="http://www.opengis.net/def/nil/OGC/0/unknown"/>
-					<!-- geometry of the feature of interest -->
+                    <!-- geometry of the feature of interest -->
                     <sams:shape>
                         <gml:Point gml:id="p_muenster">
                             <gml:pos srsName="http://www.opengis.net/def/crs/EPSG/0/4326">51.935101100104916 7.651968812254194</gml:pos>
@@ -293,7 +293,7 @@ on the 6. August 2021.
                     </sams:shape>
                 </sams:SF_SpatialSamplingFeature>
             </om:featureOfInterest>
-			<!-- result of the observation -->
+            <!-- result of the observation -->
             <om:result xsi:type="gml:MeasureType" uom="degC">18.2</om:result>
         </om:OM_Observation>
     </sos:observation>
@@ -348,11 +348,11 @@ the relevant _sections_ (`<ows:Sections>`).
     xmlns:ows="http://www.opengis.net/ows/1.1"
     xmlns:swe="http://www.opengis.net/swe/2.0" service="SOS" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosGetCapabilities.xsd">
     <!-- submit the accepted version -->
-	<ows:AcceptVersions>
+    <ows:AcceptVersions>
         <ows:Version>2.0.0</ows:Version>
     </ows:AcceptVersions>
-	<!-- response document includes this sections and omits all others -->
-	<ows:Sections>
+    <!-- response document includes this sections and omits all others -->
+    <ows:Sections>
         <ows:Section>OperationsMetadata</ows:Section>
         <ows:Section>ServiceIdentification</ows:Section>
         <ows:Section>ServiceProvider</ows:Section>
@@ -468,7 +468,7 @@ Some parts are omitted to enable better readabiltiy.
         <ows:AnyValue/>
       </ows:Parameter>
     </ows:Operation>
-	<ows:Operation name="GetCapabilities">
+    <ows:Operation name="GetCapabilities">
       <ows:DCP>
         <ows:HTTP>
           <ows:Get xlink:href="http://localhost:8080/52n-sos-webapp/service">
@@ -517,7 +517,7 @@ Some parts are omitted to enable better readabiltiy.
         <ows:NoValues/>
       </ows:Parameter>
     </ows:Operation>
-	<!-- ... -->
+    <!-- ... -->
   </ows:OperationsMetadata>
   <!-- metadata about the supported spatial and temporal filter functionalities extension: container for extensions -->
   <sos:filterCapabilities>
@@ -574,52 +574,52 @@ Some parts are omitted to enable better readabiltiy.
       <swes:offering>
         <sos:ObservationOffering xmlns:ns="http://www.opengis.net/sos/2.0">
           <!-- unique identifier of the offering -->
-		  <swes:identifier>Thermometer_1285_offering</swes:identifier>
-		  <!-- name of the offering -->
+          <swes:identifier>Thermometer_1285_offering</swes:identifier>
+          <!-- name of the offering -->
           <swes:name codeSpace="http://www.opengis.net/def/nil/OGC/0/unknown">Thermometer 1285 Offering</swes:name>
-		  <!-- unique identifier of the procedure/ sensor -->
+          <!-- unique identifier of the procedure/ sensor -->
           <swes:procedure>Thermometer_1285</swes:procedure>
-		  <!-- available formats for the sensor descriptions -->
+          <!-- available formats for the sensor descriptions -->
           <swes:procedureDescriptionFormat>http://inspire.ec.europa.eu/schemas/ompr/3.0</swes:procedureDescriptionFormat>
           <swes:procedureDescriptionFormat>http://www.opengis.net/def/timeseries/observationProcess</swes:procedureDescriptionFormat>
           <swes:procedureDescriptionFormat>http://www.opengis.net/sensorML/1.0.1</swes:procedureDescriptionFormat>
           <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
           <swes:procedureDescriptionFormat>http://www.opengis.net/waterml/2.0/observationProcess</swes:procedureDescriptionFormat>
-		  <!-- unique identifier of the observed property/ phenomena -->
+          <!-- unique identifier of the observed property/ phenomena -->
           <swes:observableProperty>air_temperature</swes:observableProperty>
           <swes:relatedFeature>
             <swes:FeatureRelationship>
               <swes:target xlink:href="Muenster"/>
             </swes:FeatureRelationship>
           </swes:relatedFeature>
-		  <!-- bounding box of the observed area -->
+          <!-- bounding box of the observed area -->
           <sos:observedArea>
             <gml:Envelope srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
               <gml:lowerCorner>51.935101100104916 7.651968812254194</gml:lowerCorner>
               <gml:upperCorner>51.935101100104916 7.651968812254194</gml:upperCorner>
             </gml:Envelope>
           </sos:observedArea>
-		  <!-- period in time for which the observations apply -->
+          <!-- period in time for which the observations apply -->
           <sos:phenomenonTime>
             <gml:TimePeriod gml:id="phenomenonTime_1">
               <gml:beginPosition>2021-08-06T07:37:12.000Z</gml:beginPosition>
               <gml:endPosition>2021-08-06T07:37:12.000Z</gml:endPosition>
             </gml:TimePeriod>
           </sos:phenomenonTime>
-		  <!-- period in time when the observations were published -->
+          <!-- period in time when the observations were published -->
           <sos:resultTime>
             <gml:TimePeriod gml:id="resultTime_1">
               <gml:beginPosition>2021-08-06T07:37:12.000Z</gml:beginPosition>
               <gml:endPosition>2021-08-06T07:37:12.000Z</gml:endPosition>
             </gml:TimePeriod>
           </sos:resultTime>
-		  <!-- available response formats -->
+          <!-- available response formats -->
           <sos:responseFormat>application/json</sos:responseFormat>
           <sos:responseFormat>application/netcdf</sos:responseFormat>
           <!-- .... -->
-		  <!-- reference to the observation type -->
+          <!-- reference to the observation type -->
           <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</sos:observationType>
-		  <!-- reference to the type of the associated featur of interest -->
+          <!-- reference to the type of the associated featur of interest -->
           <sos:featureOfInterestType>http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint</sos:featureOfInterestType>
         </sos:ObservationOffering>
       </swes:offering>
@@ -659,13 +659,13 @@ The following `GetDataAvailability` request contains examples for each filter op
     xmlns:fes="http://www.opengis.net/fes/2.0"
     xmlns:gml="http://www.opengis.net/gml/3.2"
     xmlns:swe="http://www.opengis.net/swe/2.0" service="SOS" version="2.0.0">
-	<!-- response document includes data of this procedure and omits all others (optional, multiple values possible) -->
+    <!-- response document includes data of this procedure and omits all others (optional, multiple values possible) -->
     <gda:procedure>Thermometer_1285</gda:procedure>
-	<!-- response document includes data of this observed property and omits all others (optional, multiple values possible) -->
+    <!-- response document includes data of this observed property and omits all others (optional, multiple values possible) -->
     <gda:observedProperty>air_temperature</gda:observedProperty>
-	<!-- response document includes data of this feature of interest and omits all others (optional, multiple values possible) -->
+    <!-- response document includes data of this feature of interest and omits all others (optional, multiple values possible) -->
     <gda:featureOfInterest>Muenster</gda:featureOfInterest>
-	<!-- response document includes data of this offering and omits all others (optional, multiple values possible) -->
+    <!-- response document includes data of this offering and omits all others (optional, multiple values possible) -->
     <gda:offering>Thermometer_1285_offering</gda:offering>
 </gda:GetDataAvailability>
 ~~~
@@ -688,21 +688,21 @@ _feature of interest_, _phenomenon time_, _offering_ and _description formats_.
 <gda:GetDataAvailabilityResponse xmlns:gda="http://www.opengis.net/sosgda/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/sosgda/2.0 http://waterml2.org/schemas/gda/2.0/gda.xsd">
   <gda:dataAvailabilityMember gml:id="dam_1">
     <!-- procedure/ sensor of the observation -->
-	<gda:procedure xlink:href="Thermometer_1285" xlink:title="Thermometer 1285"/>
-	<!-- observed property/ phenomenon of the observation -->
+    <gda:procedure xlink:href="Thermometer_1285" xlink:title="Thermometer 1285"/>
+    <!-- observed property/ phenomenon of the observation -->
     <gda:observedProperty xlink:href="air_temperature" xlink:title="air_temperature"/>
-	<!-- feature of interest of the observation -->
+    <!-- feature of interest of the observation -->
     <gda:featureOfInterest xlink:href="Muenster" xlink:title="Muenster"/>
-	<!-- period in time for which the observation applies -->
+    <!-- period in time for which the observation applies -->
     <gda:phenomenonTime>
       <gml:TimePeriod gml:id="tp_1">
         <gml:beginPosition>2021-08-06T07:37:12.000Z</gml:beginPosition>
         <gml:endPosition>2021-08-06T07:37:12.000Z</gml:endPosition>
       </gml:TimePeriod>
     </gda:phenomenonTime>
-	<!-- offering of the observation -->
+    <!-- offering of the observation -->
     <gda:offering xlink:href="Thermometer_1285_offering" xlink:title="Thermometer 1285 Offering"/>
-	<!-- available description formats -->
+    <!-- available description formats -->
     <gda:formatDescriptor>
       <gda:procedureDescriptionFormatDescriptor>
         <gda:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</gda:procedureDescriptionFormat>
@@ -759,7 +759,7 @@ The following `GetObservation` request contains an example for each filter optio
     xmlns:swes="http://www.opengis.net/swes/2.0"
     xmlns:sosrf="http://www.opengis.net/sosrf/1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd">
-	<!-- response document includes observation of this procedure and omits all others (optional, multiple values possible) -->
+      <!-- response document includes observation of this procedure and omits all others (optional, multiple values possible) -->
     <sos:procedure>Thermometer_1285</sos:procedure>
     <!-- response document includes observation of this offering and omits all others (optional, multiple values possible) -->
     <sos:offering>Thermometer_1285_offering</sos:offering>
@@ -811,22 +811,22 @@ only includes the observation which was inserted earlier.
   <sos:observationData>
     <om:OM_Observation xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="o_31">
       <!-- reference to the observation type -->
-	  <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
+      <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
       <!-- period in time for which the observation applies -->
-	  <om:phenomenonTime>
+      <om:phenomenonTime>
         <gml:TimeInstant xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="phenomenonTime_31">
           <gml:timePosition>2021-08-06T07:37:12.000Z</gml:timePosition>
         </gml:TimeInstant>
       </om:phenomenonTime>
-	  <!-- point in time when the observation was published (here: reference to phenomenonTime) -->
+      <!-- point in time when the observation was published (here: reference to phenomenonTime) -->
       <om:resultTime xlink:href="#phenomenonTime_31"/>
-	  <!-- procedure/ sensor of the observation -->
+      <!-- procedure/ sensor of the observation -->
       <om:procedure xlink:href="Thermometer_1285" xlink:title="Thermometer 1285"/>
-	  <!-- observed property/ phenomenon of the observation -->
+      <!-- observed property/ phenomenon of the observation -->
       <om:observedProperty xlink:href="air_temperature" xlink:title="air_temperature"/>
-	  <!-- feature of interest of the observation -->
+      <!-- feature of interest of the observation -->
       <om:featureOfInterest xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="Muenster" xlink:title="Muenster"/>
-	  <!-- result of the observation -->
+      <!-- result of the observation -->
       <om:result xmlns:ns="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uom="degC" xsi:type="ns:MeasureType">18.2</om:result>
     </om:OM_Observation>
   </sos:observationData>
@@ -1085,8 +1085,8 @@ Now we insert some additional observation.
     xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
     xmlns:sf="http://www.opengis.net/sampling/2.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="SOS" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd          http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd">
-	<sos:offering>Thermometer_1285_offering</sos:offering>
-	<sos:observation>
+    <sos:offering>Thermometer_1285_offering</sos:offering>
+    <sos:observation>
     <om:OM_Observation gml:id="o2">
       <om:type xlink:href="http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement"/>
       <om:phenomenonTime>
@@ -1161,4 +1161,4 @@ Now we insert some additional observation.
 
 The observations which were added to the SOS in this tutorial can also be viewn in the
 **52°North Helgoland Client**. This tutorial shows how to use the Helgoland Client:
-[tutorial](85_helgoland_client.md)
+[tutorial](9_7_helgoland_client.md)
