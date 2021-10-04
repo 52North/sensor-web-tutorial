@@ -27,7 +27,7 @@ of a property _(here: observations by the thermometer and barometer)_
 - **FeatureOfInterest**, an `Observation` results in a value being assigned to a phenomenon. The phenomenon
 is a property of a feature, the latter being the `FeatureOfInterest` of the `Observation` _(here: city of Muenster)_
 
-![sta_uml_diagram.png](images/sta_uml_diagram.png "UML Diagram of the STA Entities")
+![sta_uml_diagram.png](../images/sta_uml_diagram.png "UML Diagram of the STA Entities")
 
 To create new data in the STA the HTTP POST request is used and to read the HTTP GET request. For more
 information read the documentation:
@@ -78,7 +78,7 @@ a _name_ and a _description_ for the `Thing` as well as the _properties_ of the 
 > 1. Copy the above `Thing` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -142,7 +142,7 @@ using the unique identifier of the `Thing`:
 > 1. Copy the above `Locations` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -204,7 +204,7 @@ about the `Sensor`:
 > 1. Copy the above `Sensors` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -243,7 +243,7 @@ To present later in the tutorial the filter options, a second `Sensor` is added:
 > 1. Copy the above `Sensors` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -274,7 +274,7 @@ of the `ObservedProperty`:
 > 1. Copy the above `ObservedProperty` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -312,7 +312,7 @@ needs to be created:
 > 1. Copy the above `ObservedProperty` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -358,7 +358,7 @@ and a `Thing` are linked by there unique _identifier_:
 > 1. Copy the above `Datastream` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -423,7 +423,7 @@ For the second `Sensor` a second `Datastream` needs to be created.
 > 1. Copy the above `Datastream` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -461,7 +461,7 @@ an _encoding Type_ for the _feature_ and a description of the _feature_:
 > 1. Copy the above `FeatureOfInterest` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -525,7 +525,7 @@ The `Observation` is linked to the `Datastream` and `FeatureOfInterest` by there
 > 1. Copy the above `Observation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -611,7 +611,7 @@ To make it possible to filter the `Observations` more `Observations` are added:
 > 1. Copy the `Observation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -696,7 +696,7 @@ Also for the second `Sensor` `Observations` are added:
 > 1. Copy the `Observation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
->     - Mark the content (CTRL + a) if present
+>     - Mark the content (CTRL + A) if present
 >     - Delete the content (del)
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button

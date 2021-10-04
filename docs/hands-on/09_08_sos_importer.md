@@ -37,7 +37,7 @@ here: [Download](https://wiki.52north.org/pub/SensorWeb/SosImporter/example-data
 
 After that you need to make sure you have a running SOS instance. If you do not have a running
 SOS instance you can check out this tutorial, how to set up a SOS:
-[Tutorial](9_1_sos_installation_war_file.md)
+[Tutorial](09_01_sos_installation_war_file.md)
 
 Now you can execute the `52n-sos-importer-wizard-VERSION_NUMBER-bin.jar` which will guide you
 through the process of setting up the import of the csv-file.
@@ -58,7 +58,7 @@ you can choose if you want to use a `One-Time-Feed from a local CSV file` or a
 `One-Time-Feed/ Repetitive Feed from a FTP-Server`. In this tutorial we choose the
 `One-Time-Feed from a local CSV file`.
 
-![ImporterStep1.PNG](images/ImporterStep1.PNG "Choose CSV File")
+![ImporterStep1.PNG](../images/ImporterStep1.PNG "Choose CSV File")
 
 > ####### Activity 2
 >
@@ -74,7 +74,7 @@ In the next step you select the column separator, the text qualifier and the dec
 csv-file. Also you can choose until which line the data should be ignored. In this tutorial we
 choose 1 line because the headings of the columns should be ignored.
 
-![ImporterStep2.PNG](images/ImporterStep2.PNG "Define CSV File Metadata")
+![ImporterStep2.PNG](../images/ImporterStep2.PNG "Define CSV File Metadata")
 
 > ####### Activity 3
 >
@@ -90,7 +90,7 @@ In this step you need to choose the metadata for the selected column. In the exa
 column contains the date and time. For the date and time you need to choose a format from the
 dropdown-menu. When the needed format is missing, you can add it by clicking on the pencil.
 
-![ImporterStep3a.PNG](images/ImporterStep3a.PNG "Choose Metadata for the selected Column")
+![ImporterStep3a.PNG](../images/ImporterStep3a.PNG "Choose Metadata for the selected Column")
 
 > ####### Activity 4
 >
@@ -100,7 +100,7 @@ dropdown-menu. When the needed format is missing, you can add it by clicking on 
 
 The other three columns contain measured values which are numeric values.
 
-![ImporterStep3a2.PNG](images/ImporterStep3a2.PNG "Choose Metadata for the selected Column")
+![ImporterStep3a2.PNG](../images/ImporterStep3a2.PNG "Choose Metadata for the selected Column")
 
 > ####### Activity 5
 >
@@ -113,7 +113,7 @@ The other three columns contain measured values which are numeric values.
 
 After that step you need to define the timezone for the marked date and time by setting an UTC offset.
 
-![ImporterStep5a.PNG](images/ImporterStep5a.PNG "Complete Time Data")
+![ImporterStep5a.PNG](../images/ImporterStep5a.PNG "Complete Time Data")
 
 > ####### Activity 6
 >
@@ -126,7 +126,7 @@ Now you only need to add the data which is missing in the csv-file. First you ne
 **Feature of Interest** to every column of measurements. Select `Set identifier manually` and add your
 **Feature of Interest** by setting a name and a URI.
 
-![ImporterStep6b.PNG](images/ImporterStep6b.PNG "Add missing Metadata")
+![ImporterStep6b.PNG](../images/ImporterStep6b.PNG "Add missing Metadata")
 
 > ####### Activity 7
 >
@@ -138,7 +138,7 @@ Now you only need to add the data which is missing in the csv-file. First you ne
 
 Next you need to choose an **Observed Property** for every column of measurements.
 
-![ImporterStep6b2.PNG](images/ImporterStep6b2.PNG "Add missing Metadata")
+![ImporterStep6b2.PNG](../images/ImporterStep6b2.PNG "Add missing Metadata")
 
 > ####### Activity 8
 >
@@ -150,7 +150,7 @@ Next you need to choose an **Observed Property** for every column of measurement
 
 Following you need to set a **Unit of Measurement** for every column of measurements.
 
-![ImporterStep6b3.PNG](images/ImporterStep6b3.PNG "Add missing Metadata")
+![ImporterStep6b3.PNG](../images/ImporterStep6b3.PNG "Add missing Metadata")
 
 > ####### Activity 9
 >
@@ -162,7 +162,7 @@ Following you need to set a **Unit of Measurement** for every column of measurem
 
 Last you need to add a **Sensor** to every column of measurements.
 
-![ImporterStep6b4.PNG](images/ImporterStep6b4.PNG "Add missing Metadata")
+![ImporterStep6b4.PNG](../images/ImporterStep6b4.PNG "Add missing Metadata")
 
 > ####### Activity 10
 >
@@ -177,7 +177,7 @@ Last you need to add a **Sensor** to every column of measurements.
 In this step you need to add a position to the **Feature of Interest** by adding a latitude,
 a longitude and an altitude. `WGS84` is the reference system in this tutorial.
 
-![ImporterStep6c.PNG](images/ImporterStep6c.PNG "Add missing Positions")
+![ImporterStep6c.PNG](../images/ImporterStep6c.PNG "Add missing Positions")
 
 > ####### Activity 11
 >
@@ -194,7 +194,7 @@ configuration file and name the configuration file. In this tutorial the offerin
 sensor name, the specification version is `2.0.0`, the binding is `POX` and as an import strategy
 `Single Observation` is used.
 
-![ImporterStep7.PNG](images/ImporterStep7.PNG "Final Configuration")
+![ImporterStep7.PNG](../images/ImporterStep7.PNG "Final Configuration")
 
 > ####### Activity 12
 >
@@ -211,7 +211,7 @@ sensor name, the specification version is `2.0.0`, the binding is `POX` and as a
 When you see this window, a configuration file was generated and stored at the defined location.
 By clicking on `Start` you can now start the import of the data file.
 
-![ImporterStep8.PNG](images/ImporterStep8.PNG "Final Step")
+![ImporterStep8.PNG](../images/ImporterStep8.PNG "Final Step")
 
 > ####### Activity 13
 >
@@ -220,7 +220,7 @@ By clicking on `Start` you can now start the import of the data file.
 After the import is finished the window should look like the following. Now you have successfully
 imported the data from the csv-file. You can close the window by clicking on `Finish`.
 
-![ImporterStep8Finish.PNG](images/ImporterStep8Finish.PNG "Final Step")
+![ImporterStep8Finish.PNG](../images/ImporterStep8Finish.PNG "Final Step")
 
 > ####### Activity 14
 >

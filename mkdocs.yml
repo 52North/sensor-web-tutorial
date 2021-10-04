@@ -41,14 +41,16 @@ nav:
   - 06_sos-setup.md
   - 07_client-software.md
   - 08_iot.md
-  - 09_hands-on.md
-  - 9_1_sos_installation_war_file.md
-  - 9_2_sos_admin_interface.md
-  - 9_3_sos_example_request.md
-  - 9_4_advanced_sos_example_request.md
-  - 9_5_sta_installation_war_file.md
-  - 9_6_sta_example_request.md
-  - 9_7_helgoland_client.md
-  - 9_8_sos_importer.md
+  
+  - "Hands-On":
+    - hands-on/09_00_hands-on.md
+    - hands-on/09_01_sos_installation_war_file.md
+    - hands-on/09_02_sos_admin_interface.md
+    - hands-on/09_03_sos_example_request.md
+    - hands-on/09_04_advanced_sos_example_request.md
+    - hands-on/09_05_sta_installation_war_file.md
+    - hands-on/09_06_sta_example_request.md
+    - hands-on/09_07_helgoland_client.md
+    - hands-on/09_08_sos_importer.md
   - 89_installation_requirements_for_windows.md
   - 99_bibliography.md

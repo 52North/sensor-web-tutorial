@@ -18,7 +18,7 @@ returns the requested observations.
 It is recommended to use the **52°North SOS Test Client** to test your installation of the SOS by sending
 prepared example requests or your own requests.
 
-![testclientRequest.PNG](images/testclientRequest.PNG "52°North SOS Test Client")
+![testclientRequest.PNG](../images/testclientRequest.PNG "52°North SOS Test Client")
 
 1. Here the example requests can be filtered by service, version, binding and operation.
 2. Here an example request can be chosen.
@@ -206,7 +206,7 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
 > 1. Copy the above `InsertSensor` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -307,7 +307,7 @@ on the 6. August 2021.
 > 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -369,7 +369,7 @@ the relevant _sections_ (`<ows:Sections>`).
 > 1. Copy the above `GetCapabilities` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -677,7 +677,7 @@ The following `GetDataAvailability` request contains examples for each filter op
 > 1. Copy the above `GetDataAvailability` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -799,7 +799,7 @@ The following `GetObservation` request contains an example for each filter optio
 > 1. Copy the above `GetObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -868,7 +868,7 @@ The following `DescribeSensor` request contains an example for each filter optio
 > 1. Copy the above `DescribeSensor` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
@@ -1156,11 +1156,11 @@ Now we insert some additional observation.
 > 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The observations which were added to the SOS in this tutorial can also be viewed in the
 **52°North Helgoland Client**. This tutorial shows how to use the Helgoland Client:
-[tutorial](9_7_helgoland_client.md)
+[tutorial](09_07_helgoland_client.md)

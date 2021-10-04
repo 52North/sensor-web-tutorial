@@ -1,5 +1,5 @@
 ---
-title: 9.1. SOS Installation WAR-File
+title: 9.1. SOS Installation
 layout: page
 ---
 
@@ -14,7 +14,7 @@ __52°North SOS__ the following software has to be downloaded and installed:
 
 For Windows systems we provide a tutorial, how to setup the system for the installation of the SOS.
 In the tutorial we use __Apache Tomcat__ as the application server
-and __PostgreSQL/PostGIS__ as the database management system: [Tutorial](89_installation_requirements_for_windows.md)
+and __PostgreSQL/PostGIS__ as the database management system: [Tutorial](../89_installation_requirements_for_windows.md)
 
 If you want to use different software, have an other operating system
 or want to build the SOS from source you can find more information here:
@@ -22,7 +22,7 @@ or want to build the SOS from source you can find more information here:
 
 ### Installing the Webapp
 
-#### Download and deploy
+#### Download and Deploy
 
 When your system matches the requirements above, download the  __war-file__: [52°North SOS workshop version](http://52north.org/delivery/SensorWeb/Workshops/Frejus_2021/52n-sos-webapp.war){target=_blank}
 
@@ -55,21 +55,21 @@ If the download does not work, you find an already downloaded version in `/home/
 
 When you successfully reach the service it should look like this:
 
-![webappStartpage.PNG](images/webappStartpage.PNG "52°North SOS Startpage")
+![webappStartpage.PNG](../images/webappStartpage.PNG "52°North SOS Startpage")
 
 You can start the installation process by clicking `here` on the link in the *red banner*.
 
-##### Welcome page
+##### Welcome Page
 
 The installation process starts with the Welcome-page.
 
-![SetupSOS_1.PNG](images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
+![SetupSOS_1.PNG](../images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
 
 > ####### Activity 3
 >
 > 1. Click the blue `Start` button.
 
-##### Select the datasource
+##### Datasource Selection
 
 In the next steps you configure your datasource.
 
@@ -85,7 +85,7 @@ The 52N SOS supports the database management system:
   
 The *Custom* datasource should be selected if you do not use the created database model but views or adjusted hibernate mapping files. In this case the *existing* database model would not be validated against the expected!
 
-![SetupSOS_2.png](images/SetupSOS_2.png "52°North SOS Installation Wizard Datasource Configuration")
+![SetupSOS_2.png](../images/SetupSOS_2.png "52°North SOS Installation Wizard Datasource Configuration")
 
 > ####### Activity 4
 >
@@ -97,7 +97,7 @@ Next you need to set the parameters of your database.
 
 In the *Database configuration* you define the connection parameters and credentials of the database.
 
-![SetupSOS_3.png](images/SetupSOS_3.png "52°North SOS Installation Wizard Datasource Configuration")
+![SetupSOS_3.png](../images/SetupSOS_3.png "52°North SOS Installation Wizard Datasource Configuration")
 
 > ####### Activity 5
 >
@@ -129,7 +129,7 @@ The `Feature concept` provides two selections:
 
 In this tutorial we use the **default configuration**!
 
-![SetupSOS_4.png](images/SetupSOS_4.png "52°North SOS Installation Wizard Datasource Configuration")
+![SetupSOS_4.png](../images/SetupSOS_4.png "52°North SOS Installation Wizard Datasource Configuration")
 
 > ####### Activity 6
 >  
@@ -140,7 +140,7 @@ In this tutorial we use the **default configuration**!
 Under Actions you can chose if you want to create new table, delete all existing tables or update all existing tables in your database. If you use the database for the first time you do not want to change
 the settings and leave only `Create tables` marked. When the database model already exists `unselect` the `Create tables`.
 
-![SetupSOS_5.png](images/SetupSOS_5.png "52°North SOS Installation Wizard Datasource Configuration")
+![SetupSOS_5.png](../images/SetupSOS_5.png "52°North SOS Installation Wizard Datasource Configuration")
 
 > ####### Activity 7
 >
@@ -152,17 +152,17 @@ On the *Settings* installation page you can define several configuration paramet
 
 This includes parameter for the SOS Capabilities (service provider and identification), CRS of the datasource, service parameter and specific parameter for some use cases.
 
-All these settings can be changed later in the [administrative backend](9_2_sos_admin_interface.md).
+All these settings can be changed later in the [administrative backend](09_02_sos_admin_interface.md).
 
 ###### Service Provider
 
 Here you can define the information about the `Service Provider` which is provided in the Capabilities.
 
-![SetupSOS_6.png](images/SetupSOS_6.png "52°North SOS Installation Wizard Optional Settings")
+![SetupSOS_6.png](../images/SetupSOS_6.png "52°North SOS Installation Wizard Optional Settings")
 
 You can also upload a service provider file which overrides the above settings.
 
-![SetupSOS_7.png](images/SetupSOS_7.png "52°North SOS Installation Wizard Optional Settings")
+![SetupSOS_7.png](../images/SetupSOS_7.png "52°North SOS Installation Wizard Optional Settings")
 
 ###### Service Identification
 
@@ -184,7 +184,7 @@ The `Service` settings provides the definition of
 - Insert procedure/FOI via InsertResult
 - ...
 
-![SetupSOS_7_1.png](images/SetupSOS_7_1.png "52°North SOS Installation Wizard Optional Settings")
+![SetupSOS_7_1.png](../images/SetupSOS_7_1.png "52°North SOS Installation Wizard Optional Settings")
 
 ###### Miscellaneous
 
@@ -312,7 +312,7 @@ The `Procedure request/response handling` settings provides the definition of
 
 You finish your installation by setting a username and a password for the SOS.
 
-![SetupSOS_8.png](images/SetupSOS_8.png "52°North SOS Installation Wizard Optional Settings")
+![SetupSOS_8.png](../images/SetupSOS_8.png "52°North SOS Installation Wizard Optional Settings")
 
 > ####### Activity 8
 >
@@ -322,11 +322,11 @@ You finish your installation by setting a username and a password for the SOS.
 
 Dependending on the configuration the installation takes a while to create the database model, load the classes and harvest the metadata (if the database was not empty).
 
-![webappInstallCompleted.PNG](images/webappInstallCompleted.PNG "52°North SOS Startpage")
+![webappInstallCompleted.PNG](../images/webappInstallCompleted.PNG "52°North SOS Startpage")
 
 You now have successfully installed the __52°North SOS__.
 
-#### Additional
+#### Further steps
 
 Additional installation/configuration steps which are not part of this hands-on
 
@@ -344,7 +344,7 @@ folder `52n-sos-webapp`. If this is the case than you can reach the webapp with 
 
 The installation process starts with the Welcome-page.
 
-![SetupSOS_1.PNG](images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
+![SetupSOS_1.PNG](../images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
 
 If you have an exported configuration file of a previous SOS installation you can upload this file here.
 For that click *Browse* in the *Upload a previous configuration file* section, select the file and click `Upload`.

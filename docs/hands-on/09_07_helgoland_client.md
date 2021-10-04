@@ -8,8 +8,8 @@ layout: page
 The **52°North Helgoland Client** is a lightweight web application that enables the exploration, visualization
 and analysis of sensor web data in various fields of use, e.g. hydrology, meteorology, environmental monitoring,
 traffic management. This tutorial shows you how to use the Helgoland Client. In this tutorial we use as an
-example the **52°North SOS** which was installed in the [SOS Installation War File](9_1_sos_installation_war_file.md)
-tutorial and we use the data which was added to the SOS in the [SOS Example Request](9_3_sos_example_request.md)
+example the **52°North SOS** which was installed in the [SOS Installation War File](09_01_sos_installation_war_file.md)
+tutorial and we use the data which was added to the SOS in the [SOS Example Request](09_03_sos_example_request.md)
 tutorial. But you can also follow along the tutorial with different data.
 
 ### Workflow
@@ -26,7 +26,7 @@ The workflow would be:
 The **52°North Helgoland Client** is part of the **52°North SOS** installation. You can access
 the Helgoland Client from the SOS menu.
 
-![openHelgolandClient.png](images/openHelgolandClient.png "52°North SOS Startpage")
+![openHelgolandClient.png](../images/openHelgolandClient.png "52°North SOS Startpage")
 
 > ####### Activity 1
 >
@@ -38,7 +38,7 @@ the Helgoland Client from the SOS menu.
 When you open the Helgoland Client you come to the `Diagram` tab. Because you opened the
 Helgoland Client for the first time you have no data selected to be shown in the diagram.
 
-![HelgolandDiagramEmpty.png](images/HelgolandDiagramEmpty.png "Helgoland Diagram")
+![HelgolandDiagramEmpty.png](../images/HelgolandDiagramEmpty.png "Helgoland Diagram")
 
 1. Here you can adjust the language (currently supported languages are English, German and Portuguese)
 1. Here you can start the process of choosing timeseries data to be presented in the diagram
@@ -51,7 +51,7 @@ Helgoland Client for the first time you have no data selected to be shown in the
 After you clicked on the button you come to the `Map` tab. At the moment you do not see the map
 because you first need to select a provider. In this tutorial the previous installed SOS is chosen.
 
-![HelgolandProvider.png](images/HelgolandProvider.png "Chose Provider")
+![HelgolandProvider.png](../images/HelgolandProvider.png "Chose Provider")
 
 > ####### Activity 3
 >
@@ -60,7 +60,7 @@ because you first need to select a provider. In this tutorial the previous insta
 Now you can explore all the measurement stations, which are provided by the service. In this example
 it is only on station, which measures the air temperature.
 
-![HelgolandMap.png](images/HelgolandMap.png "Helgoland Map")
+![HelgolandMap.png](../images/HelgolandMap.png "Helgoland Map")
 
 If you have chosen a station, which timeseries data you want to present in a diagram, you can select it
 by clicking on it.
@@ -74,7 +74,7 @@ by clicking on it.
 After you clicked on a station a popup opens. In this you can select timeseries data and confirm
 your decision.
 
-![HelgolandMapPopup.png](images/HelgolandMapPopup.png "Helgoland Map Popup")
+![HelgolandMapPopup.png](../images/HelgolandMapPopup.png "Helgoland Map Popup")
 
 > ####### Activity 5
 >
@@ -86,7 +86,7 @@ your decision.
 The diagram now displays your chosen timeseries data. You can now visualize the data or go back
 to the map to add more timeseries data.
 
-![HelgolandDiagramData.png](images/HelgolandDiagramData.png "Helgoland Diagram")
+![HelgolandDiagramData.png](../images/HelgolandDiagramData.png "Helgoland Diagram")
 
 1. By clicking on the star you can add the timeseries data to your favorites. You can see your
 selected favorites under the `Favorites` tab.
@@ -108,7 +108,7 @@ to export your `Data as CSV (Zip-Archive)`.
 Alternativ to the `Map` tab you can use the `List selection` tab to add new timeseries data to the diagram.
 Similar to the `Map` tab the first step is to select a provider.
 
-![HelgolandListSelection.png](images/HelgolandListSelection.png "Helgoland List Selection")
+![HelgolandListSelection.png](../images/HelgolandListSelection.png "Helgoland List Selection")
 
 > ####### Activity 7
 >
@@ -117,7 +117,7 @@ Similar to the `Map` tab the first step is to select a provider.
 Next you have to select your timeseries data by choosing a category, a station, a phenomenon and a sensor
 from the list. When you select all criteria, the timeseries data is added to the diagram.
 
-![HelgolandListSelection2.png](images/HelgolandListSelection2.png "Helgoland List Selection")
+![HelgolandListSelection2.png](../images/HelgolandListSelection2.png "Helgoland List Selection")
 
 > ####### Activity 8
 >

@@ -24,7 +24,7 @@ the Sensor Web Workshop at Fréjus 2021:
 
 #### Installation of the image
 
-> ####### Activity
+> ####### Activity 1
 >
 > 1. Download `Debian` of the previously mentioned images to your preferred location, e.g `/home/demo/`
 > 1. Start *VirtualBox*
@@ -34,13 +34,13 @@ the Sensor Web Workshop at Fréjus 2021:
 > 1. Check the *Appliance Settings*
 >     * Click *Import*
 
-![VirtualBox_1.png](images/VirtualBox_1.png "VirtualBox")
+![VirtualBox_1.png](../images/VirtualBox_1.png "VirtualBox")
 
 More details are in the official [VirtualBox documentations](https://www.virtualbox.org/manual/ch01.html#ovf-import-appliance){target=_blank}
 
 #### Run the VirtualBox images
 
-> ####### Activity
+> ####### Activity 2
 >
 >1. Select the VirtualBox you would like to start
 >     * Click *Start* on the panel
@@ -78,7 +78,7 @@ More details are in the official [VirtualBox documentations](https://www.virtual
 
 #### Open a terminal
 
-> ####### Activity
+> ####### Activity 3
 >
 > 1. Login to Debian with `demo` password
 > 1. Open a terminal´
@@ -88,7 +88,7 @@ More details are in the official [VirtualBox documentations](https://www.virtual
 
 #### Create the database
 
-> ####### Activity
+> ####### Activity 4
 >
 > 1. Switch to *postgres* user
 >     * Type `su - postgres` and *enter*
@@ -101,7 +101,7 @@ More details are in the official [VirtualBox documentations](https://www.virtual
 
 #### Create PostGIS extension
 
-> ####### Activity
+> ####### Activity 5
 >
 > 1. Connect to the new `sensorweb` database
 >     * Type `psql -d  sensorweb  -U postgres` and *enter*

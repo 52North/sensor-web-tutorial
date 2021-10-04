@@ -193,7 +193,7 @@ at the office of 52°North GmbH in the city of Muenster.
 > 1. Copy the above `InsertSensor` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + V)
 > 1. Click the `Send` button
@@ -321,7 +321,7 @@ in Muenster applies for 09:37:12 o'clock local time on the 6. August 2021
 > 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + V)
 > 1. Click the `Send` button
@@ -364,7 +364,7 @@ The `GetCapabilities` request is identical to the example in the last section.
 > 1. Copy the above `GetCapabilities` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + V)
 > 1. Click the `Send` button
@@ -655,7 +655,7 @@ Compared to the example of the previous section only the identifiers changed. As
 > 1. Copy the above `GetDataAvailability` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + V)
 > 1. Click the `Send` button
@@ -749,7 +749,7 @@ Also the following `GetObservation` request contains an example for each filter 
 > 1. Copy the above `GetObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + V)
 > 1. Click the `Send` button
@@ -830,7 +830,7 @@ only includes the observation which was inserted earlier, but this time the obse
 </sos:GetObservationResponse>
 ```
 
-#### DescribeSensor
+### DescribeSensor
 
 The `DescribeSensor` operation requests the sensor/procedure description usually encoded in SensorML
 standard or any other suitable format.
@@ -863,7 +863,7 @@ The following `DescribeSensor` request contains an example for each filter optio
 > 1. Copy the above `DescribeSensor` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + V)
 > 1. Click the `Send` button
@@ -1091,7 +1091,7 @@ only includes one procedure description.
     </swes:DescribeSensorResponse>
 ```
 
-#### Additional InsertObservations
+### Additional InsertObservations
 
 Now we insert some additional observation.
 
@@ -1330,7 +1330,7 @@ Now we insert some additional observation.
 > 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
 >     * Click in the request field
->     * Mark the content (CTRL + a)
+>     * Mark the content (CTRL + A)
 >     * Delete the content (del)
 >     * Insert the copied request (CTRL + V)
 > 1. Click the `Send` button
