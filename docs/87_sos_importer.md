@@ -31,7 +31,7 @@ and the current **SOS Importer Feeder** (`52n-sos-importer-feeder-VERSION_NUMBER
 [Download](https://github.com/52North/sos-importer/releases)
 
 When the files are downloaded you can store them together in a folder of your choice. Next you need
-a csv-file with data you want to import. The example file which is used in this tutorial you can find
+a csv-file with data you want to import. You can find the example csv-file which is used in this tutorial
 here: [Download](https://wiki.52north.org/SensorWeb/SosImporter#Demo_data)
 
 After that you need to make sure you have a running SOS instance. If you do not have a running
@@ -97,7 +97,7 @@ dropdown-menu. When the needed format is missing, you can add it by clicking on 
 > 1. Select the format `dd.MM.yyyy HH:mm`
 > 1. Continue by clicking on `Next`
 
-The other three columns contain measured values as a numeric values.
+The other three columns contain measured values which are numeric values.
 
 ![ImporterStep3a2.PNG](images/ImporterStep3a2.PNG "Choose Metadata for the selected Column")
 
