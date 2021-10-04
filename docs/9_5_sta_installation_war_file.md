@@ -8,9 +8,9 @@ layout: page
 This tutorial shows you how to install a Sensor Things API (STA). To be able to install the
 __52°North STA__ the following software has to be downloaded and installed:
 
-- __Java Runtime Environment__ (JRE) 8.0 or higher
-- __Application server__ compatible to Java Servlet-API 2.5 or higher
-- Running __database management system__
+* __Java Runtime Environment__ (JRE) 8.0 or higher
+* __Application server__ compatible to Java Servlet-API 2.5 or higher
+* Running __database management system__
 
 For Windows systems we provide a tutorial, how to setup the system for the installation of the STA.
 In the tutorial we use __Apache Tomcat__ as the application server
@@ -47,7 +47,7 @@ folder `52n-sos-webapp`. If this is the case than you can reach the webapp with 
 
 If the download does not work, you find an already downloaded version in `/home/demo/webapps/`:
 
-- Alternative `sudo cp /home/demo/52n-sensorthings-webapp.war /opt/tomcat/webapps/`
+* Alternative `sudo cp /home/demo/52n-sensorthings-webapp.war /opt/tomcat/webapps/`
 
 #### Configuration
 
@@ -55,14 +55,14 @@ Next navigate in this new folder to the `application.yml` and open it with
 an editor (`TOMCAT_BASE/webapps/52n-sensorthings-webapp/WEB-INF/classes`). You need to adjust the following
 settings manually:
 
-- __server__ -> __rootURL__: Used for response serialization + url parsing, external URL Must be set correctly! ->Tutorial: `"http://localhost:8080/52n-sensorthings-webapp/"`
-- __server__ -> __servlet__ -> __context-path__: The path of the running STA (name of the applet in the
+* __server__ -> __rootURL__: Used for response serialization + url parsing, external URL Must be set correctly! ->Tutorial: `"http://localhost:8080/52n-sensorthings-webapp/"`
+* __server__ -> __servlet__ -> __context-path__: The path of the running STA (name of the applet in the
 Apache Tomcat). -> Tutorial: `"/52n-sensorthings-webapp"`
-- __spring__ -> __datasource__: Connection information to the database
-    - __username__: Database user name -> Tutorial: `postgres`
-    - __password__: Database user password -> Tutorial: `postgres`
-    - __url__: URL to the database (last value is the database name) -> Tutorial: `jdbc:postgresql://localhost:5432/sensorweb`
-    - __jpa__ -> __properties__ -> __hibernate__ -> __hbm2ddl___ -> __auto__: If you use the STA together with the SOS, set the setting to `none`! -> Tutorial: `non´
+* __spring__ -> __datasource__: Connection information to the database
+    * __username__: Database user name -> Tutorial: `postgres`
+    * __password__: Database user password -> Tutorial: `postgres`
+    * __url__: URL to the database (last value is the database name) -> Tutorial: `jdbc:postgresql://localhost:5432/sensorweb`
+    * __jpa__ -> __properties__ -> __hibernate__ -> __hbm2ddl__ -> __auto__: If you use the STA together with the SOS, set the setting to `none`! -> Tutorial: `none`
 
 > ####### Activity 1a
 >  
@@ -82,7 +82,7 @@ Apache Tomcat). -> Tutorial: `"/52n-sensorthings-webapp"`
 > ####### Activity 1b
 >  
 > 1. Open the *Files* application (*Activities* -> file cabinet symbol)
-> 1. Go to `opt` -> `tomcat` -> `webapps` -> `52n-sensorthings-webapp` -> `WEB-INF` -> `classes`
+> 1. Go to `/opt/tomcat/webapps/52n-sensorthings-webapp/WEB-INF/classes`
 > 1. Right click on`application.yml`and select `Open with Text Editor`
 > 1. Change the above mentioned parameter
 > 1. Save the changes
