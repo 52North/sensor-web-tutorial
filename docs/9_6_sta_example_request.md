@@ -7,7 +7,7 @@ layout: page
 
 This section explains by an example how to create and read data in the __Sensor Things API__ (STA).
 The example is a weather station at the 52°North GmbH office building which measures the air temperature
-and the air pressure. The STA data model groupes the data in the following classes which are called
+and the air pressure. The STA data model groups the data in the following classes which are called
 entities:
 
 - **Thing**, a `Thing` is an object of the physical world or the information world that is capable of
@@ -16,7 +16,7 @@ being identified and integrated into communication networks _(here: weather stat
 52°North GmbH office building)_
 - **HistoricalLocation**, a `Thing's` `HistoricalLocation` entity set provides the times of the current
 and previous location of the `Thing`
-- **Datastream**, a `Datastream` groups a collection of `Observations` meauring the same `Observedproperty`
+- **Datastream**, a `Datastream` groups a collection of `Observations` measuring the same `Observedproperty`
 and produced by the same `Sensor` _(here: collection of thermometer observation or barometer observations)_
 - **Sensor**, a `Sensor` is an instrument that observes a property or phenomenon with the goal
 of producing an estimate of the value of the property (here: thermometer and barometer)
@@ -33,7 +33,6 @@ To create new data in the STA the HTTP POST request is used and to read the HTTP
 information read the documentation:
 [https://docs.ogc.org/is/18-088/18-088.html](https://docs.ogc.org/is/18-088/18-088.html)
 
-
 > ####### Activity 1
 >  
 > Open Postman
@@ -42,10 +41,10 @@ information read the documentation:
 > 1. Go to `opt` -> `Postman` double-click `Postman` symbol
 > 1. Click the `+` next to the `Overview` tab to open a new tab
 > 1. Select `POST` in the drop-down (`GET`)
-> 1. Enter the URL: http://localhost:8080/52n-sensorthings-webapp/
+> 1. Enter the URL: <http://localhost:8080/52n-sensorthings-webapp/>
 > 1. Select `Body`
->		* Check `raw`
->		* Select `JSON`` in the drop-down (`Text`)
+>     - Check `raw`
+>     - Select `JSON`` in the drop-down (`Text`)
 
 ### Create Data
 
@@ -60,7 +59,7 @@ of the STA the request looks like this:
 The body of the request is a json document which is shown in the following. It contains a unique _identifier_,
 a _name_ and a _description_ for the `Thing` as well as the _properties_ of the `Thing`:
 
-~~~json
+```json
 {
   "@iot.id": "weather_station_1234",
   "name": "Weather Station 52°North",
@@ -69,7 +68,7 @@ a _name_ and a _description_ for the `Thing` as well as the _properties_ of the 
     "owner": "52°North GmbH"
   }
 }
-~~~
+```
 
 > ####### Activity 2
 >  
@@ -78,17 +77,17 @@ a _name_ and a _description_ for the `Thing` as well as the _properties_ of the 
 > 1. Add `Things` to the URL
 > 1. Copy the above `Thing` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response contains the parameters which were inserted by the request as well as a link to the `Thing` itself,
 a link to the `Datastream`, a link to the `Location` and a link to the `HistoricalLocations`. For now the links
 except the selflink do not lead to any data because the data is not yet created.
 
-~~~json
+```json
 {
     "@iot.id": "weather_station_1234",
     "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Things(weather_station_1234)",
@@ -101,7 +100,7 @@ except the selflink do not lead to any data because the data is not yet created.
     "Locations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Things(weather_station_1234)/Locations",
     "HistoricalLocations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Things(weather_station_1234)/HistoricalLocations"
 }
-~~~
+```
 
 #### Create Location
 
@@ -109,12 +108,12 @@ After that a `Location` needs to be added. In this example the URI for the POST 
 
 > [http://localhost:8080/52n-sensorthings-webapp/Locations](http://localhost:8080/52n-sensorthings-webapp/Locations)
 
-The body of the request contains similiar to the request before the unique _identifier_, the _name_ and
+The body of the request contains similar to the request before the unique _identifier_, the _name_ and
 _description_ of the `Location`. The _encoding Type_  holds the information how the location is encoded and
 the _location_ describes where the linked `Thing` is located. The `Location` is linked to the `Thing` by
 using the unique identifier of the `Thing`:
 
-~~~json
+```json
 {
   "@iot.id": "building_127",
   "name": "52°North",
@@ -133,8 +132,7 @@ using the unique identifier of the `Thing`:
       }
   ]
 }
-~~~
-
+```
 
 > ####### Activity 3
 >  
@@ -143,17 +141,17 @@ using the unique identifier of the `Thing`:
 > 1. Replace `Things` or add to the URL `Locations`
 > 1. Copy the above `Locations` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response shows the parameters which were send by the request and the links to the `Location` itself,
 the `Thing` and the `HistoricalLocations`. The link to the `Thing` leads to the weather station
 which was added beforehand.
 
-~~~json
+```json
 {
     "@iot.id": "building_127",
     "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Locations(building_127)",
@@ -176,7 +174,7 @@ which was added beforehand.
     "Things@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Locations(building_127)/Things",
     "HistoricalLocations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Locations(building_127)/HistoricalLocations"
 }
-~~~
+```
 
 #### Create Sensor
 
@@ -184,11 +182,11 @@ In the next step a `Sensor` is created. In the following the URI for the POST re
 
 > [http://localhost:8080/52n-sensorthings-webapp/Sensors](http://localhost:8080/52n-sensorthings-webapp/Sensors)
 
-Again the body of the request contains the unique _identifier_, the _name_ and the _descripition_ of the entity.
+Again the body of the request contains the unique _identifier_, the _name_ and the _description_ of the entity.
 The _encoding Type_ shows how the _metadata_ of the `Sensor` are encoded and the _metadata_ links information
 about the `Sensor`:
 
-~~~json
+```json
 {
   "@iot.id": "thermometer_1",
   "name": "Thermometer",
@@ -196,7 +194,7 @@ about the `Sensor`:
   "encodingType": "application/pdf",
   "metadata": "http://example.org/Thermometer.pdf"
 }
-~~~
+```
 
 > ####### Activity 4
 >  
@@ -205,16 +203,16 @@ about the `Sensor`:
 > 1. Replace `Locations` or add to the URL `Sensors`
 > 1. Copy the above `Sensors` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response holds the parameters of the request, a link to the `Sensor` itself and a link to the `Datastream`
 which is added later.
 
-~~~json
+```json
 {
     "@iot.id": "thermometer_1",
     "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)",
@@ -224,11 +222,11 @@ which is added later.
     "metadata": "http://example.org/Thermometer.pdf",
     "Datastreams@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)/Datastreams"
 }
-~~~
+```
 
-To present later in the tutorial the filter opitions a second `Sensor` is added:
+To present later in the tutorial the filter options, a second `Sensor` is added:
 
-~~~json
+```json
 {
   "@iot.id": "barometer_2",
   "name": "Barometer",
@@ -236,7 +234,7 @@ To present later in the tutorial the filter opitions a second `Sensor` is added:
   "encodingType": "application/pdf",
   "metadata": "http://example.org/Barometer.pdf"
 }
-~~~
+```
 
 > ####### Activity 5
 >  
@@ -244,10 +242,10 @@ To present later in the tutorial the filter opitions a second `Sensor` is added:
 >
 > 1. Copy the above `Sensors` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 #### Create ObservedProperty
@@ -259,14 +257,14 @@ Next an `ObservedProperty` needs to be created. The URI for the POST request is 
 The body of the request contains a unique _identifier_, a _description_, a _name_ and a link to the _definition_
 of the `ObservedProperty`:
 
-~~~json
+```json
 {
   "@iot.id": "air_temperature",
   "description": "Air temperature is the bulk temperature of the air, not the surface (skin) temperature.",
   "name": "Air Temperature",
   "definition": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/"
 }
-~~~
+```
 
 > ####### Activity 6
 >  
@@ -275,16 +273,16 @@ of the `ObservedProperty`:
 > 1. Replace `Sensors` or add to the URL `ObservedProperties`
 > 1. Copy the above `ObservedProperty` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The parameters of the request are part of the response as well as a link to the `ObservedProperty` itself and
 a link to the `Datastream` which is added in the next step:
 
-~~~json
+```json
 {
     "@iot.id": "air_temperature",
     "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)",
@@ -293,19 +291,19 @@ a link to the `Datastream` which is added in the next step:
     "definition": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
     "Datastreams@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams"
 }
-~~~
+```
 
 The second `Sensor` which was added beforehand observes a different phenomenon so a second `ObservedProperty`
 needs to be created:
 
-~~~json
+```json
 {
   "@iot.id": "air_pressure",
   "description": "Air pressure is the force per unit area which would be exerted when the moving gas molecules of which the air is composed strike a theoretical surface of any orientation.",
   "name": "Air Pressure",
   "definition": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0015/"
 }
-~~~
+```
 
 > ####### Activity 7
 >  
@@ -313,10 +311,10 @@ needs to be created:
 >
 > 1. Copy the above `ObservedProperty` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 #### Create Datastream
@@ -327,9 +325,9 @@ After that a `Datastream` is created. The URI for the POST request looks like th
 
 The body of the `Datastream` contains as the other entities a unique _identifier_, a _name_ and a _description_.
 Moreover it holds a _unit of measurement_ and an _observation Type_. A `Sensor`, an `ObservedProperty`
-and a `Thing` are linked by there unique _idenitifier_:
+and a `Thing` are linked by there unique _identifier_:
 
-~~~json
+```json
 {
   "@iot.id": "thermometer_readings_102",
   "name": "Thermometer Readings",
@@ -350,7 +348,7 @@ and a `Thing` are linked by there unique _idenitifier_:
       "@iot.id": "weather_station_1234"
   }
 }
-~~~
+```
 
 > ####### Activity 8
 >  
@@ -359,16 +357,16 @@ and a `Thing` are linked by there unique _idenitifier_:
 > 1. Replace `ObservedProperties` or add to the URL `Datastreams`
 > 1. Copy the above `Datastream` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 Again the response contains the parameters of the request as well as links to the `ObservedProperty`,
 the `Observations`, the `Thing` and the `Sensor`:
 
-~~~json
+```json
 {
     "@iot.id": "thermometer_readings_102",
     "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)",
@@ -391,11 +389,11 @@ the `Observations`, the `Thing` and the `Sensor`:
     "Thing@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Thing",
     "Sensor@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Sensor"
 }
-~~~
+```
 
 For the second `Sensor` a second `Datastream` needs to be created.
 
-~~~json
+```json
 {
   "@iot.id": "barometer_readings_103",
   "name": "Barometer Readings",
@@ -416,7 +414,7 @@ For the second `Sensor` a second `Datastream` needs to be created.
       "@iot.id": "weather_station_1234"
   }
 }
-~~~
+```
 
 > ####### Activity 9
 >  
@@ -424,10 +422,10 @@ For the second `Sensor` a second `Datastream` needs to be created.
 >
 > 1. Copy the above `Datastream` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 #### Create FeatureOfInterest
@@ -439,7 +437,7 @@ Next a `FeatureOfInterest` needs to be created. The URI for the POST request is 
 The body of the `FeatureOfInterest` contains a unique _identifier_, a _name_, a _description_,
 an _encoding Type_ for the _feature_ and a description of the _feature_:
 
-~~~json
+```json
 {
   "@iot.id": "muenster",
   "name": "Muenster",
@@ -453,7 +451,7 @@ an _encoding Type_ for the _feature_ and a description of the _feature_:
     }
   }
 }
-~~~
+```
 
 > ####### Activity 10
 >  
@@ -462,16 +460,16 @@ an _encoding Type_ for the _feature_ and a description of the _feature_:
 > 1. Replace `Datastreams` or add to the URL `FeaturesOfInterest`
 > 1. Copy the above `FeatureOfInterest` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response holds the parameters of the request, a link to the `FeatureOfInterest` itself and a link
 to the `Observations`:
 
-~~~json
+```json
 {
     "@iot.id": "muenster",
     "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/FeaturesOfInterest(muenster)",
@@ -493,7 +491,7 @@ to the `Observations`:
     },
     "Observations@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/FeaturesOfInterest(muenster)/Observations"
 }
-~~~
+```
 
 #### Create Observation
 
@@ -505,7 +503,7 @@ The body of the request contains the _phenomenon time_ which is the time the obs
 the _result time_ which is the time the observation was published and the _result_ of the observation.
 The `Observation` is linked to the `Datastream` and `FeatureOfInterest` by there unique identifier:
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T15:57:53.00+02:00",
   "resultTime": "2021-08-17T15:57:53.00+02:00",
@@ -517,7 +515,7 @@ The `Observation` is linked to the `Datastream` and `FeatureOfInterest` by there
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
 > ####### Activity 11
 >  
@@ -526,16 +524,16 @@ The `Observation` is linked to the `Datastream` and `FeatureOfInterest` by there
 > 1. Replace `Datastreams` or add to the URL `Observations`
 > 1. Copy the above `Observation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response contains the parameters of the request and links to the `Observation` itself, the `Datastream`
 and `FeatureOfInterest`:
 
-~~~json
+```json
 {
     "@iot.id": "656145a4-9124-4af2-ad99-2707e6fb4088",
     "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(656145a4-9124-4af2-ad99-2707e6fb4088)",
@@ -545,11 +543,11 @@ and `FeatureOfInterest`:
     "Datastream@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(656145a4-9124-4af2-ad99-2707e6fb4088)/Datastream",
     "FeatureOfInterest@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Observations(656145a4-9124-4af2-ad99-2707e6fb4088)/FeatureOfInterest"
 }
-~~~
+```
 
 To make it possible to filter the `Observations` more `Observations` are added:
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T16:58:16.00+02:00",
   "resultTime": "2021-08-17T16:58:16.00+02:00",
@@ -561,9 +559,9 @@ To make it possible to filter the `Observations` more `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T17:58:08.00+02:00",
   "resultTime": "2021-08-17T17:58:08.00+02:00",
@@ -575,9 +573,9 @@ To make it possible to filter the `Observations` more `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T18:58:22.00+02:00",
   "resultTime": "2021-08-17T18:58:22.00+02:00",
@@ -589,9 +587,9 @@ To make it possible to filter the `Observations` more `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T19:58:13.00+02:00",
   "resultTime": "2021-08-17T19:58:13.00+02:00",
@@ -603,24 +601,24 @@ To make it possible to filter the `Observations` more `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
 > ####### Activity 11
 >  
-> Execute further `Observation` creation in Postman 
+> Execute further `Observation` creation in Postman
 > For each above `Observation` request
 >
 > 1. Copy the `Observation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 Also for the second `Sensor` `Observations` are added:
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T15:57:53.00+02:00",
   "resultTime": "2021-08-17T15:57:53.00+02:00",
@@ -632,9 +630,9 @@ Also for the second `Sensor` `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T16:58:16.00+02:00",
   "resultTime": "2021-08-17T16:58:16.00+02:00",
@@ -646,9 +644,9 @@ Also for the second `Sensor` `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T17:58:08.00+02:00",
   "resultTime": "2021-08-17T17:58:08.00+02:00",
@@ -660,9 +658,9 @@ Also for the second `Sensor` `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T18:58:22.00+02:00",
   "resultTime": "2021-08-17T18:58:22.00+02:00",
@@ -674,9 +672,9 @@ Also for the second `Sensor` `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
-~~~json
+```json
 {
   "phenomenonTime": "2021-08-17T19:58:13.00+02:00",
   "resultTime": "2021-08-17T19:58:13.00+02:00",
@@ -688,21 +686,20 @@ Also for the second `Sensor` `Observations` are added:
       "@iot.id": "muenster"
   }
 }
-~~~
+```
 
 > ####### Activity 12
 >  
-> Execute further `Observation` creation in Postman 
+> Execute further `Observation` creation in Postman
 > For each above `Observation` request
 >
 > 1. Copy the `Observation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
-> 		* Click in the field
-> 		* Mark the content (CTRL + a) if present
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     - Click in the field
+>     - Mark the content (CTRL + a) if present
+>     - Delete the content (del)
+>     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
-
 
 ### Read Data
 
@@ -720,7 +717,7 @@ the URI consists out of the _service root URI_, the _resource path_ and the _ide
 The response is a json document. It contains the parameters of the `Sensor` and links to the `Sensor` itself
 and the `Datastream`:
 
-~~~json
+```json
 {
     "@iot.id": "thermometer_1",
     "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)",
@@ -730,7 +727,7 @@ and the `Datastream`:
     "metadata": "http://example.org/Thermometer.pdf",
     "Datastreams@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/Sensors(thermometer_1)/Datastreams"
 }
-~~~
+```
 
 #### Read Datastreams with a certain ObservedProperty
 
@@ -746,7 +743,7 @@ All `Datastreams` which are linked to a certain `ObservedProperty` can be read b
 The response document contains all `Datastreams` which are linked to the certain `ObservedProperty` (here:
 one datastream "thermometere_readings_102"):
 
-~~~json
+```json
 {
     "@iot.count": 1,
     "value": [
@@ -775,7 +772,7 @@ one datastream "thermometere_readings_102"):
         }
     ]
 }
-~~~
+```
 
 #### Read Observations of a certain Datastream
 
@@ -790,7 +787,7 @@ This is another example of requesting all entities which are linked to a differe
 
 The response contains the five `Observations` which were created for the `Datastream`:
 
-~~~json
+```json
 {
     "@iot.count": 5,
     "value": [
@@ -841,7 +838,7 @@ The response contains the five `Observations` which were created for the `Datast
         }
     ]
 }
-~~~
+```
 
 #### Read Observations filtered by resultTime
 
@@ -852,11 +849,11 @@ parameter is added to the GET request to filter the `Observations` by the result
 >  
 > 1. Click the following URL
 >
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime%20ge%202021-08-17T14:00:00Z%20and%20resultTime%20le%202021-08-17T16:00:00Z){target=_blank}
+> [<http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations>?$filter=resultTime ge 2021-08-17T14:00:00Z and resultTime le 2021-08-17T16:00:00Z](http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$filter=resultTime%20ge%202021-08-17T14:00:00Z%20and%20resultTime%20le%202021-08-17T16:00:00Z){target=_blank}
 
 The response document only contains `Observations` which were published in the requested time period:
 
-~~~json
+```json
 {
     "@iot.count": 2,
     "value": [
@@ -880,7 +877,7 @@ The response document only contains `Observations` which were published in the r
         }
     ]
 }
-~~~
+```
 
 #### Read Datastreams with a certain FeatureOfInterest
 
@@ -892,12 +889,12 @@ more complicated because the `FeatureOfInterest` is only indirectly linked to th
 >  
 > 1. Click the following URL
 >
-> [http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id eq 'muenster'](http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id%20eq%20%27muenster%27){target=_blank}
+> [<http://localhost:8080/52n-sensorthings-webapp/Datastreams>?$filter=Observations/FeatureOfInterest/id eq 'muenster'](http://localhost:8080/52n-sensorthings-webapp/Datastreams?$filter=Observations/FeatureOfInterest/id%20eq%20%27muenster%27){target=_blank}
 
 The response holds both `Datastreams` which were created because there `Observations` are linked to the same
 `FeatureOfInterest`:
 
-~~~json
+```json
 {
     "@iot.count": 2,
     "value": [
@@ -949,7 +946,7 @@ The response holds both `Datastreams` which were created because there `Observat
         }
     ]
 }
-~~~
+```
 
 #### Read Observations with expanded FeatureOfInterest
 
@@ -966,7 +963,7 @@ the first two `Observations` and to expand the linked `FeatureOfInterest`.
 
 The response document contains the requested `Observations`:
 
-~~~json
+```json
 {
     "@iot.count": 5,
     "@iot.nextLink": "http://localhost:8080/52n-sensorthings-webapp/Datastreams(thermometer_readings_102)/Observations?$top=2&$orderby=phenomenonTime asc&$expand=FeatureOfInterest($top=100)&$skip=4",
@@ -1031,4 +1028,4 @@ The response document contains the requested `Observations`:
         }
     ]
 }
-~~~
+```

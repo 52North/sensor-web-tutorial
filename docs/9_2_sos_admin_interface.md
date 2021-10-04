@@ -9,7 +9,7 @@ With the `Admin` interface you can change the settings, de-/activate operations,
 
 ### Admin interface
 
-The admin interface allows the administrator to change the settings or modify the behaviour of the SOS.
+The admin interface allows the administrator to change the settings or modify the behavior of the SOS.
 
 > ####### Activity 1
 >
@@ -41,7 +41,7 @@ An additional tab exists in the admin settings, the `Credentials` tab to change 
 
 #### Datasource Maintenance
 
-With the *Datasource Maintanence* the administrator can
+With the *Datasource Maintenance* the administrator can
 
 * remove the data from the database
 * delete data which are marked as delete
@@ -69,7 +69,7 @@ You can see a short summary of the number of the entities contained in the SOS a
 
 #### Logging
 
-Configuration of the logging of the SOS 
+Configuration of the logging of the SOS
 
 > ####### Activity 5
 >
@@ -111,7 +111,7 @@ This configuration page allows the de-/activating of the support encodings.
 
 > ####### Activity 8
 >
-> 1. Hover over the `Admin` and `Setings` and *click* on `Encodings`
+> 1. Hover over the `Admin` and `Settings` and *click* on `Encodings`
 
 ![Admin_7.PNG](images/Admin_7.png "52°North SOS Admin interface")
 
@@ -121,7 +121,7 @@ This configuration page allows the de-/activating of the support bindings.
 
 > ####### Activity 9
 >
-> 1. Hover over the `Admin` and `Setings` and *click* on `Bindings`
+> 1. Hover over the `Admin` and `Settings` and *click* on `Bindings`
 
 ![Admin_8.PNG](images/Admin_8.png "52°North SOS Admin interface")
 
@@ -138,17 +138,17 @@ Select the profile the SOS should comply with.
 
 > ####### Activity 11
 >
-> 1. Hover over the `Admin` and `Setings` and *click* on `Profiles`
+> 1. Hover over the `Admin` and `Settings` and *click* on `Profiles`
 
 ![Admin_9.PNG](images/Admin_9.png "52°North SOS Admin interface")
 
-The profiles allows us to change the *default* behaviour of the SOS. Especially, the default response format of the *GetObservation* requests.
+The profiles allows us to change the *default* behavior of the SOS. Especially, the default response format of the *GetObservation* requests.
 
 Currently, the 52N SOS provides three profiles:
 
 * *SOS_20_PROFILE* -> default SOS 2.0, Observations are returned in OGC O&M 2.0
 * *hydrology* -> default SOS 2.0, Observations are returned in OGC WaterML 2.0
-* *inspire* -> default SOS 2.0, Observations are returned in Inspire OMSO 3.0 (specialised O&M 2.0)
+* *inspire* -> default SOS 2.0, Observations are returned in Inspire OMSO 3.0 (specialized O&M 2.0)
 
 #### Further configurations
 

@@ -14,15 +14,16 @@ information about the available observations in the SOS. Last the `GetObservatio
 returns the requested observations.
 
 ### 52°North SOS Test Client
+
 It is recommended to use the **52°North SOS Test Client** to test your installation of the SOS by sending
 prepared example requests or your own requests.
 
 ![testclientRequest.PNG](images/testclientRequest.PNG "52°North SOS Test Client")
 
 1. Here the example requests can be filtered by service, version, binding and operation.
-2. Here an example request can be choosen.
+2. Here an example request can be chosen.
 3. This is the URL of the SOS.
-4. In this field the choosen request gets loaded. The request can be manipulated or you can add your own request
+4. In this field the chosen request gets loaded. The request can be manipulated or you can add your own request
 in this field.
 
 It is also possible to follow this tutorial along and use the presented requests in the **52°North SOS Test Client**.
@@ -46,6 +47,7 @@ The workflow would be
 * [GetObservation](#getobservation)
 
 #### InsertSensor
+
 The `InsertSensor` operation can be used to add to the SOS a detailed sensor description about a certain sensor,
 encoded in a *OGC Sensor Model Language (SensorML)* version 1.0.1 or 2.0 document.
 To insert a certain sensor description the following request parameters are offered:
@@ -56,7 +58,7 @@ To insert a certain sensor description the following request parameters are offe
 | request| fixed value “InsertSensor”| yes|
 | version| indicates the service version, e.g. “2.0.0”| yes|
 | extension| specific extension, e.g. “language”| no|
-| procedureDescriptionFormat| reference to a known procedure description format, such as “http://www.opengis.net/sensorML/1.0.1” or “http://www.opengis.net/sensorML/2.0”| yes|
+| procedureDescriptionFormat| reference to a known procedure description format, such as “<http://www.opengis.net/sensorML/1.0.1>” or “<http://www.opengis.net/sensorML/2.0>”| yes|
 | procedureDescription| the procedure/sensor description using the format specified in parameter procedureDescriptionFormat, e.g. a valid SensorML document| yes|
 | observedProperty| reference to a dedicated observable property / phenomenon that is measured by the inserted sensor/procedure;| yes|
 | metadata/sosInsertionMetadata/observationType| Reference to an observation type which is produced by the sensor/procedure| yes|
@@ -203,10 +205,10 @@ the air temperature at the office of 52°North GmbH located in the city of Muens
 >
 > 1. Copy the above `InsertSensor` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
-> 		* Click in the request field
-> 		* Mark the content (CTRL + a)
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     * Click in the request field
+>     * Mark the content (CTRL + a)
+>     * Delete the content (del)
+>     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 In response to a successful `InsertSensor` request, the SOS responds with a pointer
@@ -214,7 +216,7 @@ to the created sensor instance (`<swes:assignedProcedure>`) as well as a pointer
 to the inserted sensor/procedure (`<swes:assignedOffering>`). This references are needed for the next step to insert
 an observation.
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <swes:InsertSensorResponse xmlns:swes="http://www.opengis.net/swes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/swes/2.0 http://schemas.opengis.net/swes/2.0/swesInsertSensor.xsd">
   <!-- reference to the created procedure/ sensor instance -->
@@ -222,7 +224,7 @@ an observation.
   <!-- reference to the created offering associated to the inserted procedure/ sensor -->
   <swes:assignedOffering>Thermometer_1285_offering</swes:assignedOffering>
 </swes:InsertSensorResponse>
-~~~
+```
 
 #### InsertObservation
 
@@ -243,7 +245,7 @@ to the offering of the `InsertSensor` response. The example is an observation at
 procedure/sensor. The sensor measured in Muenster an air temperature of 18.2°C at 09:37:12 o'clock local time
 on the 6. August 2021.
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sos:InsertObservation
     xmlns:sos="http://www.opengis.net/sos/2.0"
@@ -277,7 +279,7 @@ on the 6. August 2021.
             <!-- feature of interest of the observation -->
             <om:featureOfInterest>
                 <sams:SF_SpatialSamplingFeature gml:id="ssf_muenster">
-                    <!-- unique identifier of the featur of interest -->
+                    <!-- unique identifier of the feature of interest -->
                     <gml:identifier codeSpace="">Muenster</gml:identifier>
                     <!-- name of the feature of interest -->
                     <gml:name>Muenster</gml:name>
@@ -298,24 +300,24 @@ on the 6. August 2021.
         </om:OM_Observation>
     </sos:observation>
 </sos:InsertObservation>
-~~~
+```
 
 > ####### Activity 3
 >
 > 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
-> 		* Click in the request field
-> 		* Mark the content (CTRL + a)
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     * Click in the request field
+>     * Mark the content (CTRL + a)
+>     * Delete the content (del)
+>     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 A successful insertion results in an instance of an _insert observation response_ (`<sos:InsertObservationResponse>`).
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sos:InsertObservationResponse xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosInsertObservation.xsd"/>
-~~~
+```
 
 #### GetCapabilities
 
@@ -340,7 +342,7 @@ parameters:
 For example this `GetCapabilities` request contains an _accepted version_ (`<ows:AcceptedVersion>`) and filters for
 the relevant _sections_ (`<ows:Sections>`).
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sos:GetCapabilities
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -360,16 +362,16 @@ the relevant _sections_ (`<ows:Sections>`).
         <ows:Section>Contents</ows:Section>
     </ows:Sections>
 </sos:GetCapabilities>
-~~~
+```
 
 > ####### Activity 4
 >
 > 1. Copy the above `GetCapabilities` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
-> 		* Click in the request field
-> 		* Mark the content (CTRL + a)
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     * Click in the request field
+>     * Mark the content (CTRL + a)
+>     * Delete the content (del)
+>     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response document of the example request contains the most relevant sections. These are the
@@ -379,9 +381,9 @@ the _operations metadata_ which contains metadata about the offered operations (
 the _filter capabilities_ which includes metadata about the supported filter functionalities
 (`<sos:filterCapabilities>`) and the _contents_ which contains metadata about available observation offerings
 (`<sos:contents>`). The following response of the exemplar `GetCapabilities` request is not completely shown.
-Some parts are omitted to enable better readabiltiy.
+Some parts are omitted to enable better readability.
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sos:Capabilities xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:swes="http://www.opengis.net/swes/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" version="2.0.0" updateSequence="2021-08-11T11:03:46.885+02:00" xsi:schemaLocation="http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosGetCapabilities.xsd">
   <!-- metadata about the service itself, such as title, version, language -->
@@ -424,7 +426,7 @@ Some parts are omitted to enable better readabiltiy.
       <ows:Role codeSpace="TBA">TBA</ows:Role>
     </ows:ServiceContact>
   </ows:ServiceProvider>
-  <!-- metadata about the offered operations, including which operations are offered (like GetCapabilites, DescribeSensor, GetObservation, …), available bindings (e.g. POX, KVP, SOAP, JSON) and a URL endpoint -->
+  <!-- metadata about the offered operations, including which operations are offered (like GetCapabilities, DescribeSensor, GetObservation, …), available bindings (e.g. POX, KVP, SOAP, JSON) and a URL endpoint -->
   <ows:OperationsMetadata>
     <!-- ... -->
     <ows:Operation name="DescribeSensor">
@@ -568,7 +570,7 @@ Some parts are omitted to enable better readabiltiy.
       </fes:Temporal_Capabilities>
     </fes:Filter_Capabilities>
   </sos:filterCapabilities>
-  <!-- metadata about available observation offerings including their associated properties such as identifier, procedure, reponseFormats, temporal and spatial aspects, ... -->
+  <!-- metadata about available observation offerings including their associated properties such as identifier, procedure, responseFormats, temporal and spatial aspects, ... -->
   <sos:contents>
     <sos:Contents>
       <swes:offering>
@@ -619,19 +621,19 @@ Some parts are omitted to enable better readabiltiy.
           <!-- .... -->
           <!-- reference to the observation type -->
           <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</sos:observationType>
-          <!-- reference to the type of the associated featur of interest -->
+          <!-- reference to the type of the associated feature of interest -->
           <sos:featureOfInterestType>http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint</sos:featureOfInterestType>
         </sos:ObservationOffering>
       </swes:offering>
     </sos:Contents>
   </sos:contents>
 </sos:Capabilities>
-~~~
+```
 
 #### GetDataAvailability
 
 The `GetDataAvailability` operations is not part of the SOS standard, but recommended by the technical guidance for
-impelmenting download services using the OGC Sensor Observation Service and ISO 19143 filter encoding 
+impelmenting download services using the OGC Sensor Observation Service and ISO 19143 filter encoding
 ([https://inspire.ec.europa.eu/id/document/tg/download-sos](https://inspire.ec.europa.eu/id/document/tg/download-sos))
 as well as by the OGC SOS 2.0 hydrology profile best practice
 ([https://docs.opengeospatial.org/bp/14-004r1/14-004r1.html](https://docs.opengeospatial.org/bp/14-004r1/14-004r1.html)).
@@ -651,7 +653,7 @@ available observations can be filtered by the below listed parameters:
 
 The following `GetDataAvailability` request contains examples for each filter option.
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <gda:GetDataAvailability
     xmlns:gda="http://www.opengis.net/sosgda/1.0"
@@ -668,22 +670,22 @@ The following `GetDataAvailability` request contains examples for each filter op
     <!-- response document includes data of this offering and omits all others (optional, multiple values possible) -->
     <gda:offering>Thermometer_1285_offering</gda:offering>
 </gda:GetDataAvailability>
-~~~
+```
 
 > ####### Activity 5
 >
 > 1. Copy the above `GetDataAvailability` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
-> 		* Click in the request field
-> 		* Mark the content (CTRL + a)
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     * Click in the request field
+>     * Mark the content (CTRL + a)
+>     * Delete the content (del)
+>     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response document of the `GetDataAvailability` contains the _procedure/ sensor_, _observed property/ phenomenon_,
 _feature of interest_, _phenomenon time_, _offering_ and _description formats_.
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <gda:GetDataAvailabilityResponse xmlns:gda="http://www.opengis.net/sosgda/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/sosgda/2.0 http://waterml2.org/schemas/gda/2.0/gda.xsd">
   <gda:dataAvailabilityMember gml:id="dam_1">
@@ -722,13 +724,13 @@ _feature of interest_, _phenomenon time_, _offering_ and _description formats_.
     </gda:formatDescriptor>
   </gda:dataAvailabilityMember>
 </gda:GetDataAvailabilityResponse>
-~~~
+```
 
 #### GetObservation
 
 The `GetObservation` operation requests observation data encoded in Observations & Measurement (O&M)
 standard or any other suitable format. In general a SOS might host a huge number of observations, each
-composed within a certain offering. For this reason, several filter options can be submitted in a 
+composed within a certain offering. For this reason, several filter options can be submitted in a
 `GetObservation` request, as listed in the below table. Note that altought all filter options are not
 mandatory, at least some filters should be set in order to reduce the length of the response document.
 
@@ -744,11 +746,11 @@ mandatory, at least some filters should be set in order to reduce the length of 
 | procedure| reference to a dedicated procedure; used to filter observations by procedure| no|
 | spatialFilter| Used to filter observation with regard to spatial properties| no|
 | temporalFilter| Used to filter observation with regard to temporal properties| no|
-| responseFormat| Used to specify the desired response format, the default format for SOS 2.0 is http://www.opengis.net/om/2.0 | no|
+| responseFormat| Used to specify the desired response format, the default format for SOS 2.0 is <http://www.opengis.net/om/2.0> | no|
 
 The following `GetObservation` request contains an example for each filter option:
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sos:GetObservation
     xmlns:sos="http://www.opengis.net/sos/2.0"
@@ -790,22 +792,22 @@ The following `GetObservation` request contains an example for each filter optio
     <!-- accepted response format (optional) -->
     <sos:responseFormat>http://www.opengis.net/om/2.0</sos:responseFormat>
 </sos:GetObservation>
-~~~
+```
 
 > ####### Activity 6
 >
 > 1. Copy the above `GetObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
-> 		* Click in the request field
-> 		* Mark the content (CTRL + a)
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     * Click in the request field
+>     * Mark the content (CTRL + a)
+>     * Delete the content (del)
+>     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response document to the `GetObservation` request can hold multiple observations. In this case it
 only includes the observation which was inserted earlier.
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sos:GetObservationResponse xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:swes="http://www.opengis.net/swes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sos.xsd">
   <sos:observationData>
@@ -831,7 +833,7 @@ only includes the observation which was inserted earlier.
     </om:OM_Observation>
   </sos:observationData>
 </sos:GetObservationResponse>
-~~~
+```
 
 #### DescribeSensor
 
@@ -845,12 +847,12 @@ standard or any other suitable format.
 | version| indicates the service version, e.g. “2.0.0”| yes|
 | extension| specific extension, e.g. “language”| no|
 | procedure | reference to a dedicated procedure| yes|
-| procedureDescriptionFormat| Used to specify the desired response format, the default format for SOS 2.0 is http://www.opengis.net/sensorML/1.0.1 | yes|
+| procedureDescriptionFormat| Used to specify the desired response format, the default format for SOS 2.0 is <http://www.opengis.net/sensorML/1.0.1> | yes|
 | validTime | Used to filter sensor description with regard to temporal properties| no|
 
 The following `DescribeSensor` request contains an example for each filter option:
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <swes:DescribeSensor service="SOS" version="2.0.0"
     xmlns:swes="http://www.opengis.net/swes/2.0"
@@ -859,22 +861,22 @@ The following `DescribeSensor` request contains an example for each filter optio
     <swes:procedure>Thermometer_1285</swes:procedure>
     <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
 </swes:DescribeSensor>
-~~~
+```
 
 > ####### Activity 7
 >
 > 1. Copy the above `DescribeSensor` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
-> 		* Click in the request field
-> 		* Mark the content (CTRL + a)
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     * Click in the request field
+>     * Mark the content (CTRL + a)
+>     * Delete the content (del)
+>     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
 The response document to the `DescribeSensor` request can hold multiple procedure description if `UpdateSensorDescription` for the requested sensor were performed and the are in the extent of the requested validTime filter. In this case it
 only includes one procedure description.
 
-~~~xml
+```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <swes:DescribeSensorResponse xmlns:swes="http://www.opengis.net/swes/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xsi:schemaLocation="http://www.opengis.net/swes/2.0 http://schemas.opengis.net/swes/2.0/swesDescribeSensor.xsd">
       <swes:procedureDescriptionFormat>http://www.opengis.net/sensorml/2.0</swes:procedureDescriptionFormat>
@@ -1066,13 +1068,13 @@ only includes one procedure description.
         </swes:SensorDescription>
       </swes:description>
     </swes:DescribeSensorResponse>
-~~~
+```
 
 #### Additional InsertObservations
 
 Now we insert some additional observation.
 
-~~~xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sos:InsertObservation
     xmlns:sos="http://www.opengis.net/sos/2.0"
@@ -1147,18 +1149,18 @@ Now we insert some additional observation.
     </om:OM_Observation>
   </sos:observation>
 </sos:InsertObservation>
-~~~
+```
 
 > ####### Activity 8
 >
 > 1. Copy the above `InsertObservation` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Request` section
-> 		* Click in the request field
-> 		* Mark the content (CTRL + a)
-> 		* Delete the content (del)
-> 		* Insert the copied request (CTRL + v)
+>     * Click in the request field
+>     * Mark the content (CTRL + a)
+>     * Delete the content (del)
+>     * Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
-The observations which were added to the SOS in this tutorial can also be viewn in the
+The observations which were added to the SOS in this tutorial can also be viewed in the
 **52°North Helgoland Client**. This tutorial shows how to use the Helgoland Client:
 [tutorial](9_7_helgoland_client.md)

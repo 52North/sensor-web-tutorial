@@ -53,7 +53,7 @@ through the process of setting up the import of the csv-file.
 ### Choose CSV File
 
 After you execute the **SOS Importer Wizard** the following window opens. There you select the csv-file
-you want to import into the SOS. Moreover you can change the language between English and German and 
+you want to import into the SOS. Moreover you can change the language between English and German and
 you can choose if you want to use a `One-Time-Feed from a local CSV file` or a
 `One-Time-Feed/ Repetitive Feed from a FTP-Server`. In this tutorial we choose the
 `One-Time-Feed from a local CSV file`.
@@ -123,7 +123,7 @@ After that step you need to define the timezone for the marked date and time by 
 ### Add missing Metadata
 
 Now you only need to add the data which is missing in the csv-file. First you need to add a
-**Feature of Interest** to every column of measurments. Select `Set identifier manually` and add your
+**Feature of Interest** to every column of measurements. Select `Set identifier manually` and add your
 **Feature of Interest** by setting a name and a URI.
 
 ![ImporterStep6b.PNG](images/ImporterStep6b.PNG "Add missing Metadata")
@@ -136,7 +136,7 @@ Now you only need to add the data which is missing in the csv-file. First you ne
 > 1. Continue by clicking on `Next`
 > 1. Repeat this activity for the columns 3 and 4
 
-Next you need to choose an **Observed Property** for every column of measurments.
+Next you need to choose an **Observed Property** for every column of measurements.
 
 ![ImporterStep6b2.PNG](images/ImporterStep6b2.PNG "Add missing Metadata")
 
@@ -148,7 +148,7 @@ Next you need to choose an **Observed Property** for every column of measurments
 > 1. Continue by clicking on `Next`
 > 1. Repeat this activity for the columns 3 and 4
 
-Following you need to set a **Unit of Measurement** for every column of measurments.
+Following you need to set a **Unit of Measurement** for every column of measurements.
 
 ![ImporterStep6b3.PNG](images/ImporterStep6b3.PNG "Add missing Metadata")
 
@@ -160,7 +160,7 @@ Following you need to set a **Unit of Measurement** for every column of measurme
 > 1. Continue by clicking on `Next`
 > 1. Repeat this activity for the columns 3 and 4
 
-Last you need to add a **Sensor** to every column of measurments.
+Last you need to add a **Sensor** to every column of measurements.
 
 ![ImporterStep6b4.PNG](images/ImporterStep6b4.PNG "Add missing Metadata")
 
@@ -174,7 +174,7 @@ Last you need to add a **Sensor** to every column of measurments.
 
 ### Add missing Positions
 
-In this step you need to add a position to the **Feature of Interest** by adding a latitude, 
+In this step you need to add a position to the **Feature of Interest** by adding a latitude,
 a longitude and an altitude. `WGS84` is the reference system in this tutorial.
 
 ![ImporterStep6c.PNG](images/ImporterStep6c.PNG "Add missing Positions")
@@ -192,7 +192,7 @@ a longitude and an altitude. `WGS84` is the reference system in this tutorial.
 In this final step of the configuration you need to add the URL of the SOS, choose a folder for the
 configuration file and name the configuration file. In this tutorial the offering is generated from the
 sensor name, the specification version is `2.0.0`, the binding is `POX` and as an import strategy
-`Single Obeservation` is used.
+`Single Observation` is used.
 
 ![ImporterStep7.PNG](images/ImporterStep7.PNG "Final Configuration")
 

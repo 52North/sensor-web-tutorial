@@ -21,7 +21,6 @@ The workflow would be:
 * [Select Time Series Data](#select-time-series-data)
 * [Visualize Time Series Data](#visualize-time-series-data)
 
-
 ### Open Helgoland Client
 
 The **52°North Helgoland Client** is part of the **52°North SOS** installation. You can access
@@ -42,7 +41,7 @@ Helgoland Client for the first time you have no data selected to be shown in the
 ![HelgolandDiagramEmpty.png](images/HelgolandDiagramEmpty.png "Helgoland Diagram")
 
 1. Here you can adjust the language (currently supported languages are English, German and Portuguese)
-1. Here you can start the process of chosing timeseries data to be presented in the diagram
+1. Here you can start the process of choosing timeseries data to be presented in the diagram
 
 > ####### Activity 2
 >
@@ -58,12 +57,12 @@ because you first need to select a provider. In this tutorial the previous insta
 >
 > 1. Click on your data provider
 
-Now you can explore all the measurment stations, which are provided by the service. In this example
+Now you can explore all the measurement stations, which are provided by the service. In this example
 it is only on station, which measures the air temperature.
 
 ![HelgolandMap.png](images/HelgolandMap.png "Helgoland Map")
 
-If you chosed a station, which timeseries data you want to present in a diagram, you can select it
+If you have chosen a station, which timeseries data you want to present in a diagram, you can select it
 by clicking on it.
 
 > ####### Activity 4
@@ -107,7 +106,7 @@ to export your `Data as CSV (Zip-Archive)`.
 ### List Selection
 
 Alternativ to the `Map` tab you can use the `List selection` tab to add new timeseries data to the diagram.
-Similiar to the `Map` tab the first step is to select a provider.
+Similar to the `Map` tab the first step is to select a provider.
 
 ![HelgolandListSelection.png](images/HelgolandListSelection.png "Helgoland List Selection")
 
@@ -115,8 +114,8 @@ Similiar to the `Map` tab the first step is to select a provider.
 >
 > 1. Click on your data provider
 
-Next you have to select your timeseries data by chosing a category, a station, a phenomenon and a sensor
-from the list. When you select all criterias, the timeseries data is added to the diagram.
+Next you have to select your timeseries data by choosing a category, a station, a phenomenon and a sensor
+from the list. When you select all criteria, the timeseries data is added to the diagram.
 
 ![HelgolandListSelection2.png](images/HelgolandListSelection2.png "Helgoland List Selection")
 
@@ -132,11 +131,13 @@ and analyse your sensor web data.
 
 ### Standalone installation
 
-#### Requirments
-- __Application server__ compatible to Java Servlet-API 2.5 or higher
+#### Requirements
+
+* Application server__ compatible to Java Servlet-API 2.5 or higher
 
 #### Installation
-When your system matches the requirments above, download the latest releas __war-file__ from here:
+
+When your system matches the requirements above, download the latest release __war-file__ from here:
 
 > [52°North Helgoland](https://github.com/52North/helgoland/releases){target=_blank}
 
@@ -151,13 +152,13 @@ folder `helgoland-timeseries`. If this is the case than you can reach the webapp
 ### Configuration
 
 * Go to the application server webapp folder, e.g. `TOMCAT_BASE/webapps`
-* Go to 
-	* **standalone**: `/helgoland-timeseries/assets/`
-	* **SOS**: `/52n-sos-webapp/static/client/helgoland/assets/`
+* Go to
+  * **standalone**: `/helgoland-timeseries/assets/`
+  * **SOS**: `/52n-sos-webapp/static/client/helgoland/assets/`
 * Open `settings.json` in an editor
 
 The most important setting is the `datasetApis` where you define the `Helgoland-API`s the client should use.
-Here you can defined multiple Helgoland-API and SensorThings-API serivces.
+Here you can defined multiple Helgoland-API and SensorThings-API services.
 
 Other settings are
 
@@ -166,7 +167,7 @@ Other settings are
 * **languages**: Supported languages. The translation files are stored in the `/i18n` folder of the assets folder. Filename is defined `code` + `.json`, e.g. `en.json`
 * **timespanPresets**: Predefined timespans which can be selected instead of start and end time.
 
-~~~json
+```json
 {
   "providerBlackList": [{
     "serviceId": "srv_42c69c781d20426f2d383c11625a26b5",
@@ -284,5 +285,4 @@ Other settings are
     }
   ]
 }
-
-~~~
+```
