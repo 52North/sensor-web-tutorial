@@ -37,8 +37,7 @@ information read the documentation:
 >  
 > Open Postman
 >
-> 1. Open the *Files* application (*Activities* -> file cabinet symbol)
-> 1. Go to `opt` -> `Postman` double-click `Postman` symbol
+> 1. Open the *Postman* application
 > 1. Click the `+` next to the `Overview` tab to open a new tab
 > 1. Select `POST` in the drop-down (`GET`)
 > 1. Enter the URL: <http://localhost:8080/52n-sensorthings-webapp/>
