@@ -107,10 +107,7 @@ After that a `Location` needs to be added. In this example the URI for the POST 
 
 > [http://localhost:8080/52n-sensorthings-webapp/Locations](http://localhost:8080/52n-sensorthings-webapp/Locations)
 
-The body of the request contains similar to the request before the unique _identifier_, the _name_ and
-_description_ of the `Location`. The _encoding Type_  holds the information how the location is encoded and
-the _location_ describes where the linked `Thing` is located. The `Location` is linked to the `Thing` by
-using the unique identifier of the `Thing`:
+The body of the request contains similar to the request before the unique _identifier_, the _name_ and _description_ of the `Location`. The `encodingType`  holds the information how the location is encoded and the `location` describes where the linked `Thing` is located. The `Location` is linked to the `Thing` by using the unique identifier of the `Thing`:
 
 ```json
 {
@@ -182,7 +179,7 @@ In the next step a `Sensor` is created. In the following the URI for the POST re
 > [http://localhost:8080/52n-sensorthings-webapp/Sensors](http://localhost:8080/52n-sensorthings-webapp/Sensors)
 
 Again the body of the request contains the unique _identifier_, the _name_ and the _description_ of the entity.
-The _encoding Type_ shows how the _metadata_ of the `Sensor` are encoded and the _metadata_ links information
+The `encodingType` shows how the `metadata` of the `Sensor` are encoded and the `metadata` links information
 about the `Sensor`:
 
 ```json
@@ -255,8 +252,7 @@ Next an `ObservedProperty` needs to be created. The URI for the POST request is 
 
 > [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties)
 
-The body of the request contains a unique _identifier_, a _description_, a _name_ and a link to the _definition_
-of the `ObservedProperty`:
+The body of the request contains a unique _identifier_, a _description_, a `name` and a link to the `definition` of the `ObservedProperty`:
 
 ```json
 {
@@ -325,7 +321,7 @@ After that a `Datastream` is created. The URI for the POST request looks like th
 > [http://localhost:8080/52n-sensorthings-webapp/Datastreams](http://localhost:8080/52n-sensorthings-webapp/Datastreams)
 
 The body of the `Datastream` contains as the other entities a unique _identifier_, a _name_ and a _description_.
-Moreover it holds a _unit of measurement_ and an _observation Type_. A `Sensor`, an `ObservedProperty`
+Moreover it holds an `unitOfMeasurement` and an `observationType`. A `Sensor`, an `ObservedProperty`
 and a `Thing` are linked by there unique _identifier_:
 
 ```json
@@ -364,8 +360,7 @@ and a `Thing` are linked by there unique _identifier_:
 >     - Insert the copied request (CTRL + v)
 > 1. Click the `Send` button
 
-Again the response contains the parameters of the request as well as links to the `ObservedProperty`,
-the `Observations`, the `Thing` and the `Sensor`:
+Again the response contains the parameters of the request as well as links to the `ObservedProperty`, the `Observations`, the `Thing` and the `Sensor`:
 
 ```json
 {
