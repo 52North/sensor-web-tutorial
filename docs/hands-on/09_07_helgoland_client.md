@@ -40,8 +40,10 @@ Helgoland Client for the first time you have no data selected to be shown in the
 
 ![HelgolandDiagramEmpty.png](../images/HelgolandDiagramEmpty.png "Helgoland Diagram")
 
-1. Here you can adjust the language (currently supported languages are English, German and Portuguese)
-1. Here you can start the process of choosing timeseries data to be presented in the diagram
+1. Here you can choose timeseries in a map view to be shown in the diagram
+1. Here you can choose timeseries in a list view to be shown in the diagram
+1. Here you can change the view to a `Darkmode` or adjust the `Language` (currently supported languages
+are English and German)
 
 > ####### Activity 2
 >
@@ -53,6 +55,11 @@ it is only on station, which measures the air temperature. If you start the Helg
 first time, you have to select a provider before you can see the map.
 
 ![HelgolandMap.png](../images/HelgolandMap.png "Helgoland Map")
+
+1. Select a phenomenon to filter which stations are displayed in the map
+1. Here you can adjust the provider
+1. This symbol marks a measurment station
+1. Here you can navigate back to the diagram
 
 If you have chosen a station, which timeseries data you want to present in a diagram, you can select it
 by clicking on it.
@@ -80,16 +87,17 @@ to the map to add more timeseries data.
 
 ![HelgolandDiagramData.png](../images/HelgolandDiagramData.png "Helgoland Diagram")
 
-1. By clicking on the star you can add the timeseries data to your favorites. You can see your
-selected favorites under the `Favorites` tab.
-1. The arrow shows and hides the information below the arrow. It also shows and hides the option
-to export your `Data as CSV (Zip-Archive)`.
+1. By clicking here you can highlight the timeseries
 1. Here you can enable or disable the visibility of the data in the diagram.
-1. Here you can open a window with a map of the measurement station.
-1. By clicking on the pencil you can change the color of the displayed data in the diagram.
+1. Here you can style the timeseries
+1. By clicking on the star you can add the timeseries data to your favorites.
 1. Here you can delete the timeseries data from the diagram.
-1. By moving the red window or the edges of the window you can adjust the displayed period of time.
+1. Here you can configurate the diagram settings
 1. This button clears all data from the diagram.
+1. Here you can save a link to you clipboard to share your diagram
+1. Here you can see your saved favorites
+1. By clicking on the plus you can add more timeseries to the diagram
+1. By moving the red window or the edges of the window you can adjust the displayed period of time.
 
 > ####### Activity 5
 >
@@ -101,7 +109,7 @@ Alternativ to the `Map` tab you can use the `List selection` tab to add new time
 
 ![HelgolandListSelection.png](../images/HelgolandListSelection.png "Helgoland List Selection")
 
-> ####### Activity 7
+> ####### Activity 6
 >
 > 1. Choose a filter option
 > 1. Select an item from the list below to filter by
@@ -111,7 +119,7 @@ from the list. When you select all criteria, the timeseries data is added to the
 
 ![HelgolandListSelection2.png](../images/HelgolandListSelection2.png "Helgoland List Selection")
 
-> ####### Activity 8
+> ####### Activity 7
 >
 > 1. Click on `Timeseries`
 > 1. Select a timeseries data
