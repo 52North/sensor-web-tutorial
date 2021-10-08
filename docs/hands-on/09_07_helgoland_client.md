@@ -18,8 +18,8 @@ The workflow would be:
 
 * [Open Helgoland Client](#open-helgoland-client)
 * [Explore Sensor Web Data on Map](#explore-sensor-web-data-on-map)
-* [Select Time Series Data](#select-time-series-data)
-* [Visualize Time Series Data](#visualize-time-series-data)
+* [Select Timeseries by Map](#select-timeseries-by-map)
+* [Visualize Timeseries in Diagram](#visualize-timeseries-in-diagram)
 
 ### Open Helgoland Client
 
@@ -35,96 +35,99 @@ the Helgoland Client from the SOS menu.
 
 ### Explore Sensor Web Data on Map
 
-When you open the Helgoland Client you come to the `Diagram` tab. Because you opened the
-Helgoland Client for the first time you have no data selected to be shown in the diagram.
+When you open the Helgoland Client you come to the `Diagram` view. Because you opened the
+Helgoland Client for the first time you have no data selected to be shown in the `Diagram`.
 
 ![HelgolandDiagramEmpty.png](../images/HelgolandDiagramEmpty.png "Helgoland Diagram")
 
-1. Here you can adjust the language (currently supported languages are English, German and Portuguese)
-1. Here you can start the process of choosing timeseries data to be presented in the diagram
+1. Here you can choose timeseries in the `Map` view to be shown in the `Diagram`
+1. Here you can choose timeseries in the `List` view to be shown in the `Diagram`
+1. Here you can change the view to a `Darkmode` or adjust the `Language` (currently supported languages
+are English and German)
 
 > ####### Activity 2
 >
 > 1. Select your language
-> 1. Click on `Please select a timeseries first`
-
-After you clicked on the button you come to the `Map` tab. At the moment you do not see the map
-because you first need to select a provider. In this tutorial the previous installed SOS is chosen.
-
-![HelgolandProvider.png](../images/HelgolandProvider.png "Chose Provider")
-
-> ####### Activity 3
->
-> 1. Click on your data provider
+> 1. Click on `Add timeseries by map`
 
 Now you can explore all the measurement stations, which are provided by the service. In this example
-it is only on station, which measures the air temperature.
+it is only on station, which measures the air temperature. If you start the Helgoland Client for the
+first time, you have to select a provider before you can see the `Map`.
 
 ![HelgolandMap.png](../images/HelgolandMap.png "Helgoland Map")
 
-If you have chosen a station, which timeseries data you want to present in a diagram, you can select it
+1. Select a phenomenon to filter which stations are displayed in the `Map`
+1. Here you can adjust the provider
+1. This symbol marks a measurment station
+1. Here you can navigate back to the `Diagram` view
+
+If you have chosen a station, which timeseries data you want to present in the `Diagram`, you can select it
 by clicking on it.
 
-> ####### Activity 4
+> ####### Activity 3
 >
-> 1. Select the station by clicking on the symbol in the map
+> 1. Select the station by clicking on the symbol in the `Map`
 
-### Select Time Series Data
+### Select Timeseries by Map
 
-After you clicked on a station a popup opens. In this you can select timeseries data and confirm
-your decision.
+After you clicked on a station a popup opens. In this you can select timeseries.
 
 ![HelgolandMapPopup.png](../images/HelgolandMapPopup.png "Helgoland Map Popup")
 
-> ####### Activity 5
+1. By clicking on the timeseries you select it for the `Diagram`
+1. Here you can navigate back to the `Diagram` view
+1. Click here to close the popup to choose data from different stations
+
+> ####### Activity 4
 >
 > 1. Select timeseries data
-> 1. Click on `Show adjustments in diagram`
+> 1. Click on `Diagram`
 
-### Visualize Time Series Data
+### Visualize Timeseries in Diagram
 
-The diagram now displays your chosen timeseries data. You can now visualize the data or go back
-to the map to add more timeseries data.
+Now the `Diagram` displays your chosen timeseries. You can visualize the data or add more timeseries.
 
 ![HelgolandDiagramData.png](../images/HelgolandDiagramData.png "Helgoland Diagram")
 
-1. By clicking on the star you can add the timeseries data to your favorites. You can see your
-selected favorites under the `Favorites` tab.
-1. The arrow shows and hides the information below the arrow. It also shows and hides the option
-to export your `Data as CSV (Zip-Archive)`.
-1. Here you can enable or disable the visibility of the data in the diagram.
-1. Here you can open a window with a map of the measurement station.
-1. By clicking on the pencil you can change the color of the displayed data in the diagram.
-1. Here you can delete the timeseries data from the diagram.
+1. By clicking here you can highlight the timeseries
+1. Here you can enable or disable the visibility of the data in the `Diagram`.
+1. Here you can style the timeseries
+1. By clicking on the star you can add the timeseries to your `Favorites`.
+1. Here you can delete the timeseries from the `Diagram`.
+1. Here you can configurate the `Diagram` settings
+1. This button clears all data from the `Diagram`.
+1. Here you can save a link to you clipboard to share your `Diagram`
+1. Here you can see your saved `Favorites`
+1. By clicking on the `Plus` you can add more timeseries to the `Diagram`
 1. By moving the red window or the edges of the window you can adjust the displayed period of time.
-1. This button clears all data from the diagram.
 
-> ####### Activity 6
+> ####### Activity 5
 >
 > 1. Try the different options and find the best way to visualize your data
 
-### List Selection
+### Select Timeseries by List
 
-Alternativ to the `Map` tab you can use the `List selection` tab to add new timeseries data to the diagram.
-Similar to the `Map` tab the first step is to select a provider.
+Alternativ to the `Map` view you can use the `List` view to add new timeseries to the `Diagram`. In the
+`List` view you can filter by four filter options (`Category`, `Station`, `Phenomenon` and `Sensor`).
+Select a filter option and then select an item you want to filter by from the `List` below.
 
 ![HelgolandListSelection.png](../images/HelgolandListSelection.png "Helgoland List Selection")
 
-> ####### Activity 7
+> ####### Activity 6
 >
-> 1. Click on your data provider
+> 1. Choose a filter option
+> 1. Select an item from the list below to filter by
 
-Next you have to select your timeseries data by choosing a category, a station, a phenomenon and a sensor
-from the list. When you select all criteria, the timeseries data is added to the diagram.
+When you have selected at least one filter you can click on `Timeseries`. There you can select timeseries
+for the `Diagram`.
 
 ![HelgolandListSelection2.png](../images/HelgolandListSelection2.png "Helgoland List Selection")
 
-> ####### Activity 8
+> ####### Activity 7
 >
-> 1. Select a `Category` by clicking on an item in the list
-> 1. Select a `Station` by clicking on an item in the list
-> 1. Select a `Phenomenon` by clicking on an item in the list
-> 1. Select a `Sensor` by clicking on an item in the list
+> 1. Click on `Timeseries`
+> 1. Select a timeseries
+> 1. Click on the diagram symbol to navigate back to the `Diagram`
 
 Now you successfully  learnt how to use the **52°North Helgoland Client** and can explore, visualize
 and analyse your sensor web data.
