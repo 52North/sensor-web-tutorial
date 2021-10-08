@@ -48,7 +48,7 @@ are English and German)
 > ####### Activity 2
 >
 > 1. Select your language
-> 1. Click on `Add timeseris by map`
+> 1. Click on `Add timeseries by map`
 
 Now you can explore all the measurement stations, which are provided by the service. In this example
 it is only on station, which measures the air temperature. If you start the Helgoland Client for the
@@ -75,6 +75,10 @@ your decision.
 
 ![HelgolandMapPopup.png](../images/HelgolandMapPopup.png "Helgoland Map Popup")
 
+1. By clicking on the timeseries you select it for the diagram
+1. Here you can navigate back to the diagram
+1. Click here to close the popup to choose data from different stations
+
 > ####### Activity 4
 >
 > 1. Select timeseries data
@@ -82,16 +86,15 @@ your decision.
 
 ### Visualize Time Series Data
 
-The diagram now displays your chosen timeseries data. You can now visualize the data or go back
-to the map to add more timeseries data.
+Now the diagram displays your chosen timeseries. You can visualize the data or add more timeseries.
 
 ![HelgolandDiagramData.png](../images/HelgolandDiagramData.png "Helgoland Diagram")
 
 1. By clicking here you can highlight the timeseries
 1. Here you can enable or disable the visibility of the data in the diagram.
 1. Here you can style the timeseries
-1. By clicking on the star you can add the timeseries data to your favorites.
-1. Here you can delete the timeseries data from the diagram.
+1. By clicking on the star you can add the timeseries to your favorites.
+1. Here you can delete the timeseries from the diagram.
 1. Here you can configurate the diagram settings
 1. This button clears all data from the diagram.
 1. Here you can save a link to you clipboard to share your diagram
@@ -105,7 +108,9 @@ to the map to add more timeseries data.
 
 ### List Selection
 
-Alternativ to the `Map` tab you can use the `List selection` tab to add new timeseries data to the diagram.
+Alternativ to the `Map` you can use the `List selection` to add new timeseries to the diagram. In the
+`List selection` you can filter by four filter options (`Category`, `Station`, `Phenomenon` and `Sensor`).
+Select a filter option and then select an item you want to filter by from the list below.
 
 ![HelgolandListSelection.png](../images/HelgolandListSelection.png "Helgoland List Selection")
 
@@ -114,8 +119,8 @@ Alternativ to the `Map` tab you can use the `List selection` tab to add new time
 > 1. Choose a filter option
 > 1. Select an item from the list below to filter by
 
-Next you have to select your timeseries data by choosing a category, a station, a phenomenon and a sensor
-from the list. When you select all criteria, the timeseries data is added to the diagram.
+When you have selected a least one filter you can click on `Timeseries`. There you can select timeseries
+for your diagram.
 
 ![HelgolandListSelection2.png](../images/HelgolandListSelection2.png "Helgoland List Selection")
 
