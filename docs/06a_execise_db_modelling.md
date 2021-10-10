@@ -7,7 +7,19 @@ layout: page
 
 As introduced before, two very typical approaches for serving your data with the 52°North Sensor Web Server comprise the creation of database views to emulate the 52°North data model or to use other external tools to copy your existing data into the 52°North Sensor Web database.
 However, in order to provide you with the necessary knowledge to implement these workflows, it is important to understand how the data model of the 52°North Sensor Web Server is structures. Consequently, this exercise introduces first the core elements of the 52°North Sensor Web Data model.
-Afterwards we will conduct an exercise in which you will write down, how you map the content of your existing data to the elements of the 52°North Sensor Web data model.
+Afterwards we will conduct an exercise in which you will work on an approach, how you map the content of your existing data to the elements of the 52°North Sensor Web data model.
+
+### Task 1
+
+Select a dataset that is common to your regular work which you would like to publish via the 52°North Sensor Web server. For this dataset, create empty tables (e.g. as Excel sheets or diagrams) of the 52°North Sensor Web data model. Write down the table name and indicate the columns that this table should have.
+
+### Task 2
+
+Fill the empty tables that you have created with data examples (e.g. the Excel sheet or diagram) from your data sets.
+
+
+### Explanation of the 52°North Sensor Web Data Model
+
 The following diagram outlines the general structure of the 52°North Sensor Web data model. Please note, there are some further tables in the data model which will not be discussed in this case. These tables are either not necessary for the normal operation of the SOS, or they only contain management information which does not require a conceptual mapping.
 
 ![DB_Model_Overview.png](images/DB_Model_Overview.png "Overview of the database model")
