@@ -142,18 +142,34 @@ After this general introduction, we will now have a closer look at the different
 | name | The human readable name of the category. | false | - | varchar(255) |
 | description | A short description of the category. | false | - | text |
 
-
+### Offering
 ![DB_Model_Offering.png](images/DB_Model_Offering.png "Overview of the Offering table")
-Offering
+**Description**: Storage of the offerings which is required by the SOS. An offering is used in SOS to group records according to specific criteria. In the INSPIRE context, an offering is an "INSPRE spatial dataset," an identifiable collection of spatial data.
 
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| offering_id | PK column of the table | true | - | int8 |
+| identifier | Unique identifier of the offering which can be used for filtering. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321. | true | - | varchar(255) |
+| name | The human readable name of the offering. | false | - | varchar(255) |
+| description | A short description of the offering | false | - | text |
+| sampling_time_start | The minimum samplingTimeStart of all observation that belong to this offering. If the column is empty, the information is calculated during the cache update and stored locally. Used for the capabilities of the SOS. | false | - | timestamp with time zone | 
+| sampling_time_end | The maximum samplingTimeStart of all observation that belong to this offering. If the column is empty, the information is calculated during the cache update and stored locally. Used for the capabilities of the SOS. | false | - | timestamp with time zone |
+| result_time_start | The minimum resultTimeStart of all observation that belong to this offering. If the column is empty, the information is calculated during the cache update and stored locally. Used for the capabilities of the SOS. | false | - | timestamp with time zone |
+| result_time_end | The maximum resultTimeEnd of all observation that belong to this offering. If the column is empty, the information is calculated during the cache update and stored locally. Used for the capabilities of the SOS. | false | - | timestamp with time zone | 
+| valid_time_start | The minimum validTimeStart of all observation that belong to this offering. If the column is empty, the information is calculated during the cache update and stored locally. Used for the capabilities of the SOS. | false | - | timestamp with time zone |
+| valid_time_end | The maximum validTimeEnd of all observation that belong to this offering. If the column is empty, the information is calculated during the cache update and stored locally. Used for the capabilities of the SOS. | false | - | timestamp with time zone |
+| geom | The envelope/geometry of all features or samplingGeometries of observations that belong to this offering. If the column is empty, the information is calculated during the cache update and stored locally. Used for the capabilities of the SOS. | false | - | GEOMETRY |
+
+### Procedure
 ![DB_Model_Procedure.png](images/DB_Model_Procedure.png "Overview of the Procedure table")
-Procedure
 
+### Phenomenon
 ![DB_Model_Phenomenon.png](images/DB_Model_Phenomenon.png "Overview of the Phenomenon table")
-Phenomenon
 
+### Platform
 ![DB_Model_Platform.png](images/DB_Model_Platform.png "Overview of the Platform table")
-Platform
 
+
+### SensorThings API-specific Tables
 ![DB_Model_STA_Tables.png](images/DB_Model_STA_Tables.png "Overview of the SensorThings API-specic tables")
-SensorThings API-specific Tables
+
