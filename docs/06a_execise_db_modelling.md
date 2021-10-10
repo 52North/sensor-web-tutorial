@@ -66,13 +66,50 @@ After this general introduction, we will now have a closer look at the different
 | origin_timezone | Define the origin timezone of the dataset timestamps. Possible values are offset (+02:00), id (CET) or full name (Europe/Berlin). It no time zone is defined, UTC would be used as default. | false | - | varchar(40) |
 | decimals | Number of decimals that should be present in the output of the observation values. If no value is set, all decimals would be present. | false | - | int4 |
 
-
+### Observation
 ![DB_Model_Observation.png](images/DB_Model_Observation.png "Overview of the Observation table")
-Observation
 
+**Description**: Storage of the observation values with the timestamp and additional metadata. The metadata are height/depth values for profile observation and sampling geometries for trajectory observations. In each observation entry only one value_... column should be filled with a value!
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| observation_id | PK column of the table | true | - | int8 |
+| value_type | Indicator used by Hibernate to map value specific entities. Valid values are quantity (scalar values in value_quantity), count (integer values in value_count), text (textual values in value_text), category (categorical values in value_category), bool (boolean values in value_boolean), reference (references in value_reference, e.g. link to a source, photo, video) | true | - | varchar(255) |
+| fk_dataset_id | Reference to the dataset to which this observation belongs. | true | - | int8 |
+| sampling_time_start | The timestamp when the observation period has started or the observation took place. In the the latter, sampling_time_start and sampling_time_end are equal. | true | - | timestamp with time zone |
+| sampling_time_end | The timestamp when the measurement period has finished or the observation took place. In the the latter, sampling_time_start and sampling_time_end are equal. | true | - | timestamp with time zone |
+| result_time | The timestamp when the observation was published. Might be identical with sampling_time_start and sampling_time_end. | true | - | timestamp with time zone |
+| identifier | Unique identifier of the observation which can be for used filtering, e.g. GetObservationById in the SOS. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321 | false | - | varchar(255) |
+| sta_identifier | Unique identifier used by SensorThingsAPI for addressing the entity. Should be a URI (reference to a vacabulary entry), UUID. E.g. 123, 123-321 | true | - | varchar(255) |
+| name | The human readable name of the observation. | false | - | varchar(255) | 
+| description | A short description of the observation | false | - | text |
+| is_deleted | Flag that indicates if this observation is deleted | true | 0 | int2 |
+| valid_time_start | The timestamp from when the obervation is valid, e.g. forcaste observations | false | NULL | timestamp with time zone |
+| valid_time_end | The timestamp until when the obervation is valid, e.g. forcaste observations | false | NULL | timestamp with time zone |
+| sampling_geometry | The geometry that represents the location where the observation was observed, e.g. mobile observations (trajectories) where this geometry is different from the feature geometry. | false | - | GEOMETRY | 
+| value_identifier | Identifier of the value. E.g. used in OGC SWE encoded values like SweText | false | - | varchar(255) |
+| value_name | Identifier of the name. E.g. used in OGC SWE encoded values like SweText | false | - | varchar(255) |
+| value_description | Identifier of the description. E.g. used in OGC SWE encoded values like SweText | false | - | varchar(255) |
+| vertical_from | The start level of a vertical observation, required for profile observations | true | 0 | numeric(20, 10) |
+| vertical_to | The end level or the level of a vertical observation, required for profile observations | true | 0 | numeric(20, 10) |
+| value_quantity | The quantity value of an observation (Measurement) | false | - | numeric(20, 10) | 
+| detection_limit_flag | Flag that indicates if measured value lower/higher of the detection limit. | false | - | int2 |
+| detection_limit | The detection limit | false | - | numeric(20, 10) |
+| value_text | The textual value of an observation (TextObservation)) | false | - | varchar(255) |
+| value_reference | The reference value (URI) of an observation (ReferenceObservation) | false | - | varchar(255) |
+| value_count | The count/integer value of an observation (CountObservation) | false | - | int4 |
+| value_boolean | The boolean value of an observation (Boolean/TruthObservation) | false | - | int2 |
+| value_category | The categorical value of an observation (CategoryObervation) | false | - | varchar(255) |
+| value_geometry | The geometry value of an observation (GeometryObservation) | false | - | GEOMETRY |
+| value_array | The textual value of an observation (SweDataArrayObservation)) | false | - | text |
+| value | The blob value of an observation | false | - | oid | 
+
+
+### Unit
 ![DB_Model_Unit.png](images/DB_Model_Unit.png "Overview of the Unit table")
 Unit
 
+### Feature
 ![DB_Model_Feature.png](images/DB_Model_Feature.png "Overview of the Feature table")
 Feature
 
