@@ -213,3 +213,30 @@ After this general introduction, we will now have a closer look at the different
 ### SensorThings API-specific Tables
 ![DB_Model_STA_Tables.png](images/DB_Model_STA_Tables.png "Overview of the SensorThings API-specic tables")
 
+#### location
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| location_id | - | true | - | int8 |
+| identifier | Unique identifier of the location. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321. | true | - | varchar(255) |
+| name | - | true | - | varchar(255) |
+| description | - | true | - | text 
+| geom | - | false | - | GEOMETRY |
+
+
+#### historical_location
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| historical_location_id | - | true | - | int8 |
+| identifier | Unique identifier of the HistoricalLocation. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321. | true | - | varchar(255) |
+| time | - | true | - | timestamp with time zone | timestamp | 
+
+
+### location_historical_location
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| fk_location_id | - | true | - | int8 | 
+| fk_historical_location_id | - | true | - | int8 |
+
