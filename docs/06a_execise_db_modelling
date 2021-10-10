@@ -11,20 +11,20 @@ Afterwards we will conduct an exercise in which you will write down, how you map
 The following diagram outlines the general structure of the 52°North Sensor Web data model. Please note, there are some further tables in the data model which will not be discussed in this case. These tables are either not necessary for the normal operation of the SOS, or they only contain management information which does not require a conceptual mapping.
 
 Before looking at the main contents of the tables, we first explain the meaning of these tables:
-   * Dataset: This is the central tables for organizing the database content. It organizes the observation data into datasets and defines common properties (e.g., observed parameter, unit of measurement, etc.) that are common to all observation belonging to a common dataset. Also, the Dataset table makes certain operations of the Sensor Web server more efficient, because it keeps track of the time stamp of the first and last value of a dataset.
-   * Observation: This tables contain the individual observations; mainly this includes the time stamps as well the values of the observation (the value that was measured).
-   * Unit: This table is used for storing the units of measurements used by the data sets.
-   * Category: In the 52°North Helgoland API it is possible to group data sets into Categories. These categories can be completely user-defined (e.g., organizations, projects, regions, thematical categories, etc.). This table is used for managing these categories (mainly mapping the category names to ids)
-   * Feature: The so-called Features are the geographical objects for which observations provide values. This can be cities, countries, measurement stations, etc.). Thus, this table contain mainly the names/ids of the Features as well as their geo-reference (e.g., coordinates).
-   * Offering: This table is specific to the SOS standard. It manages the groupings of observations which are called “Offerings”.
-   * Procedure: This table manages the procedures (e.g., sensors, human observers, models), which have generated the observations. Besides the names/ids of the procedures, this tables may contain comprehensive descriptions of the procedures (e.g., complete SensorML encoded sensor description documents)
-   * Phenomenon: This table manages the parameters which are observed by the sensors (the so-called observed properties)
-   * Platform: This table can be used to manage platforms on which sensors are mounted (e.g., research vessels, sensor stations, etc.)
+* Dataset: This is the central tables for organizing the database content. It organizes the observation data into datasets and defines common properties (e.g., observed parameter, unit of measurement, etc.) that are common to all observation belonging to a common dataset. Also, the Dataset table makes certain operations of the Sensor Web server more efficient, because it keeps track of the time stamp of the first and last value of a dataset.
+* Observation: This tables contain the individual observations; mainly this includes the time stamps as well the values of the observation (the value that was measured).
+* Unit: This table is used for storing the units of measurements used by the data sets.
+* Category: In the 52°North Helgoland API it is possible to group data sets into Categories. These categories can be completely user-defined (e.g., organizations, projects, regions, thematical categories, etc.). This table is used for managing these categories (mainly mapping the category names to ids)
+* Feature: The so-called Features are the geographical objects for which observations provide values. This can be cities, countries, measurement stations, etc.). Thus, this table contain mainly the names/ids of the Features as well as their geo-reference (e.g., coordinates).
+* Offering: This table is specific to the SOS standard. It manages the groupings of observations which are called “Offerings”.
+* Procedure: This table manages the procedures (e.g., sensors, human observers, models), which have generated the observations. Besides the names/ids of the procedures, this tables may contain comprehensive descriptions of the procedures (e.g., complete SensorML encoded sensor description documents)
+* Phenomenon: This table manages the parameters which are observed by the sensors (the so-called observed properties)
+* Platform: This table can be used to manage platforms on which sensors are mounted (e.g., research vessels, sensor stations, etc.)
    
 Besides these core tables, there are the following further tables which are necessary for operating the OGC SensorThings API module:
-   * Location: This refers to the location of Things to which sensors are attached
-   * Historical location: This refers to past locations of Things. However, if sensors are not moved, this table can remain empty.
-   * Platform - Location: This table ensures that platforms are linked to their locations; as locations may change, this table is necessary so that also historical locations can be linked to the platform
+* Location: This refers to the location of Things to which sensors are attached
+* Historical location: This refers to past locations of Things. However, if sensors are not moved, this table can remain empty.
+* Platform - Location: This table ensures that platforms are linked to their locations; as locations may change, this table is necessary so that also historical locations can be linked to the platform
 
 After this general introduction, we will now have a closer look at the different tables. In order to ensure good readability, we will focus on the important fields which are critical when creating a mapping of your own data to the 52°North Sensor Web database.
 
