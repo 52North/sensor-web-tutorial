@@ -38,6 +38,12 @@ After this general introduction, we will now have a closer look at the different
 | column | comment | NOT-NULL | default | SQL type |
 | --- | --- | --- | --- | --- | --- |
 | dataset_id | PK column of the table | true | - | int8 |
+| name | The human readable name of the dataset. | false | - | varchar(255) |
+| description | A short description of the dataset | false | - | text | 
+| first_time | The timestamp of the temporally first observation that belongs to this dataset. | false | - | timestamp with time zone |
+| last_time | The timestamp of the temporally last observation that belongs to this dataset. | false | - | timestamp with time zone |
+
+
 | dataset_type | Indicator whether the dataset provides individualObservation (individual observations), timeseries (timeseries obervations) or trajectories (trajectory observations). | true | 'not_initialized' | varchar(255) |
 | observation_type | Indicator whether the dataset observations are of type simple (a simple observation, e.g. a scalar value like the temperature) or profile (profile observations) | true | 'not_initialized' | varchar(255) |
 | value_type | Indicator of the type of the single values. Valid values are quantity (scalar values), count (integer values), text (textual values), category (categorical values), bool (boolean values), reference (references, e.g. link to a source, photo, video) | true | 'not_initialized' | varchar(255) |
@@ -54,18 +60,14 @@ After this general introduction, we will now have a closer look at the different
 | is_insitu | Flag that indicates if the procedure is insitu (1/true) or remote (0/false). | false | 1 | int2 |
 | is_hidden | Flag that indicates if this dataset should be hidden, e.g. for sub-datasets of a complex datasets | true | 0 | int2 |
 | origin_timezone | Define the origin timezone of the dataset timestamps. Possible values are offset (+02:00), id (CET) or full name (Europe/Berlin). It no time zone is defined, UTC would be used as default. | false | - | varchar(40) |
-| first_time | The timestamp of the temporally first observation that belongs to this dataset. | false | - | timestamp with time zone |
-| last_time | The timestamp of the temporally last observation that belongs to this dataset. | false | - | timestamp with time zone |
+
 | first_value | The value of the temporally first observation that belongs to this dataset. | false | - | numeric(20, 10) |
 | last_value | The value of the temporally last quantity observation that belongs to this dataset. | false | - | numeric(20, 10) |
 | fk_first_observation_id | Reference to the temporally first observation in the observation table that belongs to this dataset. | false | - | int8 |
 | fk_last_observation_id | Reference to the temporally last observation in the observation table that belongs to this dataset. | false | - | int8 |
 | decimals | Number of decimals that should be present in the output of the observation values. If no value is set, all decimals would be present. | false | - | int4 |
 | identifier | Unique identifier of the dataset which can be used for filtering, e.g. GetObservationById in the SOS and can be encoded in WaterML 2.0 oder TimeseriesML 1.0 outputs. | false | - | varchar(255) |
-| fk_identifier_codespace_id | The codespace of the dataset identifier, reference to the codespace table. Can be null. | false | - | int8 |
-| name | The human readable name of the dataset. | false | - | varchar(255) |
-| fk_name_codespace_id | The codespace of the dataset name, reference to the codespace table. Can be null. | false | - | int8 |
-| description | A short description of the dataset | false | - | text | 
+
 
 ![DB_Model_Observation.png](images/DB_Model_Observation.png "Overview of the Observation table")
 Observation
