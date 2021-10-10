@@ -42,8 +42,17 @@ Unit
 ![DB_Model_Feature.png](images/DB_Model_Feature.png "Overview of the Feature table")
 Feature
 
+### Category
 ![DB_Model_Category.png](images/DB_Model_Category.png "Overview of the Category table")
-Category
+**Description**: Storage of the categories which should be used to group the data.
+
+| column | meaning | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| category_id | PK column of the table | true | - | int8 |
+| identifier | Unique identifier of the category which can be used for filtering. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321 | true | - | varchar(255) |
+| name | The human readable name of the category. | false | - | varchar(255) |
+| description | A short description of the category | false | - | text |
+
 
 ![DB_Model_Offering.png](images/DB_Model_Offering.png "Overview of the Offering table")
 Offering
