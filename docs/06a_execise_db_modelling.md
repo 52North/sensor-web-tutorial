@@ -10,6 +10,8 @@ However, in order to provide you with the necessary knowledge to implement these
 Afterwards we will conduct an exercise in which you will write down, how you map the content of your existing data to the elements of the 52°North Sensor Web data model.
 The following diagram outlines the general structure of the 52°North Sensor Web data model. Please note, there are some further tables in the data model which will not be discussed in this case. These tables are either not necessary for the normal operation of the SOS, or they only contain management information which does not require a conceptual mapping.
 
+![DB_Model_Overview.png](images/DB_Model_Overview.png "Overview of the database model")
+
 Before looking at the main contents of the tables, we first explain the meaning of these tables:
 * Dataset: This is the central tables for organizing the database content. It organizes the observation data into datasets and defines common properties (e.g., observed parameter, unit of measurement, etc.) that are common to all observation belonging to a common dataset. Also, the Dataset table makes certain operations of the Sensor Web server more efficient, because it keeps track of the time stamp of the first and last value of a dataset.
 * Observation: This tables contain the individual observations; mainly this includes the time stamps as well the values of the observation (the value that was measured).
@@ -28,21 +30,32 @@ Besides these core tables, there are the following further tables which are nece
 
 After this general introduction, we will now have a closer look at the different tables. In order to ensure good readability, we will focus on the important fields which are critical when creating a mapping of your own data to the 52°North Sensor Web database.
 
+![DB_Model_Dataset.png](images/DB_Model_Dataset.png "Overview of the Dataset table")
 Dataset
 
-
+![DB_Model_Observation.png](images/DB_Model_Observation.png "Overview of the Observation table")
 Observation
 
+![DB_Model_Unit.png](images/DB_Model_Unit.png "Overview of the Unit table")
 Unit
+
+![DB_Model_Feature.png](images/DB_Model_Feature.png "Overview of the Feature table")
 Feature
+
+![DB_Model_Category.png](images/DB_Model_Category.png "Overview of the Category table")
 Category
 
+![DB_Model_Offering.png](images/DB_Model_Offering.png "Overview of the Offering table")
 Offering
 
+![DB_Model_Procedure.png](images/DB_Model_Procedure.png "Overview of the Procedure table")
 Procedure
 
+![DB_Model_Phenomenon.png](images/DB_Model_Phenomenon.png "Overview of the Phenomenon table")
 Phenomenon
 
+![DB_Model_Platform.png](images/DB_Model_Platform.png "Overview of the Platform table")
 Platform
 
+![DB_Model_STA_Tables.png](images/DB_Model_STA_Tables.png "Overview of the SensorThings API-specic tables")
 SensorThings API-specific Tables
