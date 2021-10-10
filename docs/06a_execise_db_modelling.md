@@ -80,7 +80,6 @@ After this general introduction, we will now have a closer look at the different
 | sampling_time_end | The timestamp when the measurement period has finished or the observation took place. In the the latter, sampling_time_start and sampling_time_end are equal. | true | - | timestamp with time zone |
 | result_time | The timestamp when the observation was published. Might be identical with sampling_time_start and sampling_time_end. | true | - | timestamp with time zone |
 | identifier | Unique identifier of the observation which can be for used filtering, e.g. GetObservationById in the SOS. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321 | false | - | varchar(255) |
-| sta_identifier | Unique identifier used by SensorThingsAPI for addressing the entity. Should be a URI (reference to a vacabulary entry), UUID. E.g. 123, 123-321 | true | - | varchar(255) |
 | name | The human readable name of the observation. | false | - | varchar(255) | 
 | description | A short description of the observation | false | - | text |
 | is_deleted | Flag that indicates if this observation is deleted | true | 0 | int2 |
