@@ -103,10 +103,17 @@ After this general introduction, we will now have a closer look at the different
 | value_array | The textual value of an observation (SweDataArrayObservation)) | false | - | text |
 | value | The blob value of an observation | false | - | oid | 
 
-
 ### Unit
 ![DB_Model_Unit.png](images/DB_Model_Unit.png "Overview of the Unit table")
-Unit
+
+**Description**: Storage of the units of measurement of the observation values. These may be °C or m as the unit for depth/height information.
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| unit_id | PK column of the table | true | - | int8 |
+| symbol | The symbol of the unit, e.g. °C or m. | true | - | varchar(255) |
+| name | Human readable name of the unit, e.g degree celsius or meter | false | - | varchar(255) | 
+| link | Link/reference to an external description of the unit, e.g. to a vocabulary.. | false | - | varchar(255) |
 
 ### Feature
 ![DB_Model_Feature.png](images/DB_Model_Feature.png "Overview of the Feature table")
