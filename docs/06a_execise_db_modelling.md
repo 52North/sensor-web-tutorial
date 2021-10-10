@@ -191,6 +191,8 @@ After this general introduction, we will now have a closer look at the different
 ### Phenomenon
 ![DB_Model_Phenomenon.png](images/DB_Model_Phenomenon.png "Overview of the Phenomenon table")
 
+**Description**: Storage of the observed parameters of the sensors.
+
 | column | comment | NOT-NULL | default | SQL type |
 | --- | --- | --- | --- | --- |
 | phenomenon_id | PK column of the table | true | - | int8 | 
@@ -220,10 +222,16 @@ After this general introduction, we will now have a closer look at the different
 | location_id | - | true | - | int8 |
 | identifier | Unique identifier of the location. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321. | true | - | varchar(255) |
 | name | - | true | - | varchar(255) |
-| fk_thing_id | Reference (foreign key) to the corresponding platform | true | - | int8 |
 | description | - | true | - | text 
 | geom | - | false | - | GEOMETRY |
 
+
+#### platform_location
+**Description**: Establishes a reference between plaforms (Things) and their location.
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| location_id | - | true | - | int8 |
+| platform_id | - | true | - | int8 |
 
 #### historical_location
 **Description**: Describes the time period when a location was the location of a thing in the past.
