@@ -144,6 +144,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Offering
 ![DB_Model_Offering.png](images/DB_Model_Offering.png "Overview of the Offering table")
+
 **Description**: Storage of the offerings which is required by the SOS. An offering is used in SOS to group records according to specific criteria. In the INSPIRE context, an offering is an "INSPRE spatial dataset," an identifiable collection of spatial data.
 
 | column | comment | NOT-NULL | default | SQL type |
@@ -163,12 +164,39 @@ After this general introduction, we will now have a closer look at the different
 ### Procedure
 ![DB_Model_Procedure.png](images/DB_Model_Procedure.png "Overview of the Procedure table")
 
+**Description**: Storage of the procedure/sensors. The procedure can be a sensor, process/method or a system that produces observations.
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| procedure_id | PK column of the table | true | - | int8 |
+| identifier | Unique identifier of the procedure which can be used for filtering. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321 | true | - | varchar(255) |
+| name | The human readable name of the procedure. | false | - | varchar(255) | string | 
+| description | A short description of the procedure | false | - | text |
+| description_file | Location to or XML encoded description of the procedure. Can be used if procedure history is not supported. | false | - | text |
+| is_reference | Flag that indicates if the procedure is a reference. | false | 0 | int2 |
+| fk_type_of_procedure_id | Reference to a procedure this entry is a typeOf. | false | - | int8 |
+
 ### Phenomenon
 ![DB_Model_Phenomenon.png](images/DB_Model_Phenomenon.png "Overview of the Phenomenon table")
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| phenomenon_id | PK column of the table | true | - | int8 | 
+| identifier | Unique identifier of the phenomenon which can be used for filtering. Should be a URI (reference to a vacabulary entry), UUID. E.g. http://www.example.org/123, 123-321 | true | - | varchar(255) |
+| name | The human readable name of the phenomenon. | false | - | varchar(255) |
+| description | A short description of the phenomenon | false | - | text |
 
 ### Platform
 ![DB_Model_Platform.png](images/DB_Model_Platform.png "Overview of the Platform table")
 
+**Description**: Storage of the platforms. With a platform several procedures can be grouped or in the case of citizen science the platform can be the camera or mobile phone. An example of a platform is a vessel that has multiple sensors (Procedure). In most cases, the platform is the same as the feature or procedure, such as a weather station or a water level location.
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| platform_id | PK column of the table | true | - | int8 |
+| identifier | Unique identifier of the platform which can be used for filtering. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321 | true | - | varchar(255) |
+| name | The human readable name of the platform. | false | - | varchar(255) |
+| description | A short description of the platform | false | - | text | 
 
 ### SensorThings API-specific Tables
 ![DB_Model_STA_Tables.png](images/DB_Model_STA_Tables.png "Overview of the SensorThings API-specic tables")
