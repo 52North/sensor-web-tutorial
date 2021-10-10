@@ -64,7 +64,7 @@ After this general introduction, we will now have a closer look at the different
 | decimals | Number of decimals that should be present in the output of the observation values. If no value is set, all decimals would be present. | false | - | int4 |
 | identifier | Unique identifier of the dataset which can be used for filtering, e.g. GetObservationById in the SOS and can be encoded in WaterML 2.0 oder TimeseriesML 1.0 outputs. | false | - | varchar(255) |
 | fk_identifier_codespace_id | The codespace of the dataset identifier, reference to the codespace table. Can be null. | false | - | int8 |
-| name | The human readable name of the dataset. | false | - | varchar(255) || 
+| name | The human readable name of the dataset. | false | - | varchar(255) |
 | fk_name_codespace_id | The codespace of the dataset name, reference to the codespace table. Can be null. | false | - | int8 |
 | description | A short description of the dataset | false | - | text | 
 
