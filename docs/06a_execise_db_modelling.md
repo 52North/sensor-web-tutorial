@@ -36,17 +36,12 @@ After this general introduction, we will now have a closer look at the different
 **Description**: Storage of the dataset, the core table of the whole database model.
 
 | column | comment | NOT-NULL | default | SQL type |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | dataset_id | PK column of the table | true | - | int8 |
 | name | The human readable name of the dataset. | false | - | varchar(255) |
 | description | A short description of the dataset | false | - | text | 
 | first_time | The timestamp of the temporally first observation that belongs to this dataset. | false | - | timestamp with time zone |
 | last_time | The timestamp of the temporally last observation that belongs to this dataset. | false | - | timestamp with time zone |
-
-
-| dataset_type | Indicator whether the dataset provides individualObservation (individual observations), timeseries (timeseries obervations) or trajectories (trajectory observations). | true | 'not_initialized' | varchar(255) |
-| observation_type | Indicator whether the dataset observations are of type simple (a simple observation, e.g. a scalar value like the temperature) or profile (profile observations) | true | 'not_initialized' | varchar(255) |
-| value_type | Indicator of the type of the single values. Valid values are quantity (scalar values), count (integer values), text (textual values), category (categorical values), bool (boolean values), reference (references, e.g. link to a source, photo, video) | true | 'not_initialized' | varchar(255) |
 | fk_procedure_id | Reference to the procedure that belongs that belongs to this dataset. | true | - | int8 |
 | fk_phenomenon_id | Reference to the phenomenon that belongs that belongs to this dataset. | true | - | int8 |
 | fk_offering_id | Reference to the offering that belongs that belongs to this dataset. | true | - | int8 |
@@ -54,6 +49,13 @@ After this general introduction, we will now have a closer look at the different
 | fk_feature_id | Reference to the feature that belongs that belongs to this dataset. | false | - | int8 |
 | fk_platform_id | Reference to the platform that belongs that belongs to this dataset. | false | - | int8 |
 | fk_unit_id | Reference to the unit of the observations that belongs to this dataset. | false | - | int8 | 
+
+
+
+| dataset_type | Indicator whether the dataset provides individualObservation (individual observations), timeseries (timeseries obervations) or trajectories (trajectory observations). | true | 'not_initialized' | varchar(255) |
+| observation_type | Indicator whether the dataset observations are of type simple (a simple observation, e.g. a scalar value like the temperature) or profile (profile observations) | true | 'not_initialized' | varchar(255) |
+| value_type | Indicator of the type of the single values. Valid values are quantity (scalar values), count (integer values), text (textual values), category (categorical values), bool (boolean values), reference (references, e.g. link to a source, photo, video) | true | 'not_initialized' | varchar(255) |
+
 | is_deleted | Flag that indicates if this dataset is deleted | true | 0 | int2 |
 | is_disabled | Flag that indicates if this dataset is disabled for insertion of new data | true | 0 | int2 || is_published | Flag that indicates if this dataset should be published | true | 1 | int2 |
 | is_mobile | Flag that indicates if the procedure is mobile (1/true) or stationary (0/false). | false | 0 | int2 |
