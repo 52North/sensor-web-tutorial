@@ -117,7 +117,18 @@ After this general introduction, we will now have a closer look at the different
 
 ### Feature
 ![DB_Model_Feature.png](images/DB_Model_Feature.png "Overview of the Feature table")
-Feature
+
+**Description**: Storage of the features (OfInterest). A feature represents the observed location, route, or area. As examples, the location of the weather station or the water level location, a ferry (Cuxhaven-Helgoland) or a lake of interest.
+
+| column | comment | NOT-NULL | default | SQL type |
+| --- | --- | --- | --- | --- |
+| feature_id | PK column of the table | true | - | int8 |
+| identifier | Unique identifier of the feature which is used for filtering. Should be a URI, UUID. E.g. http://www.example.org/123, 123-321 | true | - | varchar(255) | 
+| name | The human readable name of the feature. | false | - | varchar(255) |
+| description | A short description of the feature | false | - | text |
+| url | Optional URL to an external resource that describes the feature, e.g. a WFS | false | - | varchar(255) |
+| geom | The geometry/location of feature | false | - | GEOMETRY |
+
 
 ### Category
 ![DB_Model_Category.png](images/DB_Model_Category.png "Overview of the Category table")
