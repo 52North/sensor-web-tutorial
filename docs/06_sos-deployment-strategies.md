@@ -1,5 +1,5 @@
 ---
-title: 6. Setting Up an SOS
+title: 6. SOS Deployment Strategies
 layout: page
 ---
 
