@@ -116,21 +116,23 @@ The *Advanced Database configuration* provides additional settings for the datab
 
 You can also define the database model selecting other `Database concept`s, `Database extension`s and `Feature concept`s.
 
-The `Database concept` provides three models:
+The `Database concept` provides three different levels of database models:
 
 - Simple database model (minimal tables and columns, `No transactional support!`)
-- Transactional database model (default)
-- eReporting database model (extended transactional model for eReporting)
+- Transactional database model (default; this is the recommended model because it allows the insertion of data via the SOS write operations)
+- eReporting database model (extended transactional model for eReporting; this is only necessary for environmental agencies that need to fulfil reporing obligations for the European Environment Agency)
 
-The `Database concept` provides two selections:
+The `Database extensions` provides two selections:
 
-- Default database model
-- Extended model to support Samplings/MeasuringPrograms
+- Default database model (recommended)
+- Extended model to support Samplings/MeasuringPrograms (advanced extension: this extension is used to manage which observations belong to which measurement program/project)
 
 The `Feature concept` provides two selections:
 
 - Default feature concept
-- Extended feature concept (support for storing full WaterML 2.0 MonitoringPoint)
+- Extended feature concept (support for storing full WaterML 2.0 MonitoringPoint; only relevant for data providers from Hydrology)
+
+The further settings are relevant for optimizing the database connection (e.g. number of available connections, batch size (how many observations shall be handled in one insertion command to the database at the same time)). Furthermore it is possible to set the time zone in whichc the database is operated.
 
 In this tutorial we use the **default configuration**!
 
@@ -138,12 +140,11 @@ In this tutorial we use the **default configuration**!
 
 > ####### Activity 6
 >  
-> - No, we use the default configuration
+> - In this case we do not make any changes because we recommend to use the default configuration
 
 ###### Actions
 
-Under Actions you can chose if you want to create new table, delete all existing tables or update all existing tables in your database. If you use the database for the first time you do not want to change
-the settings and leave only `Create tables` marked. When the database model already exists `unselect` the `Create tables`.
+Under Actions you can chose if you want to create new table, delete all existing tables or update all existing tables in your database. If you use the database for the first time leave only `Create tables` marked. When the database model already exists `unselect` the `Create tables` option.
 
 ![SetupSOS_5.png](../images/SetupSOS_5.png "52°North SOS Installation Wizard Datasource Configuration")
 
