@@ -1,5 +1,5 @@
 ---
-title: 9.1. SOS Installation
+title: 3. SOS Installation
 layout: page
 ---
 
@@ -14,7 +14,7 @@ __52°North SOS__ the following software has to be downloaded and installed:
 
 For Windows systems we provide a tutorial, how to setup the system for the installation of the SOS.
 In the tutorial we use __Apache Tomcat__ as the application server
-and __PostgreSQL/PostGIS__ as the database management system: [Tutorial](../89_installation_requirements_for_windows.md)
+and __PostgreSQL/PostGIS__ as the database management system: [Tutorial](../89_installation-requirements-for-windows.md)
 
 If you want to use different software, have an other operating system
 or want to build the SOS from source you can find more information here:
@@ -31,7 +31,7 @@ When your system matches the requirements above, download the  __war-file__: [52
 > ####### Activity 1
 >  
 > 1. Save the file to `/home/demo/`
-> 1. Open a terminal [see](09_hands-on/#open-a-terminal){target=_blank}
+> 1. Open a terminal [see](02_virtualbox-introduction.md#open-a-terminal){target=_blank}
 > 1. Copy the file `52n-sos-webapp.war` into the folder `/opt/tomcat/webapps`
 >
 >    - Type `sudo cp /home/demo/52n-sos-webapp.war /opt/tomcat/webapps/`
@@ -158,7 +158,7 @@ On the *Settings* installation page you can define several configuration paramet
 
 This includes parameter for the SOS Capabilities (service provider and identification), CRS of the datasource, service parameter and specific parameter for some use cases.
 
-All these settings can be changed later in the [administrative backend](09_02_sos_admin_interface.md).
+All these settings can be changed later in the [administrative backend](04_sos-admin-interface.md).
 
 Below we expain the relevant settings for setting up an operational SOS server. Please note, we explain those field which are relevant for typical SOS setups in practice. Further, more specific fields are for expert use case or are specific to single projects. These additional fields should not be changed during the setup procedure.
 

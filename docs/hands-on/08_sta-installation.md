@@ -1,5 +1,5 @@
 ---
-title: 9.5. STA Installation
+title: 8. SensorThings API Installation
 layout: page
 ---
 
@@ -14,7 +14,7 @@ __52°North STA__ the following software has to be downloaded and installed:
 
 For Windows systems we provide a tutorial, how to setup the system for the installation of the STA.
 In the tutorial we use __Apache Tomcat__ as the application server
-and __PostgreSQL/ PostGIS__ as the database management system: [Tutorial](../89_installation_requirements_for_windows.md)
+and __PostgreSQL/ PostGIS__ as the database management system: [Tutorial](../89_installation-requirements-for-windows.md)
 
 ### Installing the Webapp
 
@@ -32,7 +32,7 @@ When your system matches the requirements above, download the  __war-file__: [52
 > ####### Activity 1
 >  
 > 1. Save the file to `/home/demo/`
-> 1. Open a terminal [see](09_00b_virtualbox_introduction/#open-a-terminal){target=_blank}
+> 1. Open a terminal [see](02_virtualbox-introduction.md#open-a-terminal){target=_blank}
 > 1. Copy the file `52n-sensorthings-webapp` into the folder `/opt/tomcat/webapps`
 >
 >     ```sh
@@ -68,7 +68,7 @@ settings manually:
 >  
 > Modify `application.yml` via *terminal* and *vim*
 >
-> 1. Open a terminal [see](09_00b_virtualbox_introduction#open-a-terminal){target=_blank}
+> 1. Open a terminal [see](02_virtualbox-introduction.md#open-a-terminal){target=_blank}
 > 1. Open the `application.yml` in an editor
 >
 >     ```sh

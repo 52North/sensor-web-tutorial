@@ -1,9 +1,9 @@
 ---
-title: 1. Introductory Hands-On
+title: 1. Using real-world-examples of SWE services
 layout: page
 ---
 
-## Introduction Hand-On: Sensor Web Examples
+## Using real-world-examples of SWE services
 
 Within this tutorial you will learn about the basics of Sensor Web technologies and get hands-on experiences with server as well as client implementations so that you will be able to design and develop your own Sensor Web infrastructures. But before starting with the technical details, this first hand-on shall give you an insight into two examples of Sensor Web deployments in practice.
 

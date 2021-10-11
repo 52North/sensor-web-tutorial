@@ -1,5 +1,5 @@
 ---
-title: 6a. Introduction and Exercise: Database Modelling for the 52°North Sensor Web Server
+title: 12. How to map your data to the 52°North Sensor Web data model?
 layout: page
 ---
 

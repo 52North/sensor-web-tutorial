@@ -1,5 +1,5 @@
 ---
-title: 9.2. SOS Admin Interface
+title: 4. SOS Admin Interface
 layout: page
 ---
 ### Introduction
@@ -24,7 +24,7 @@ Now you see the Admin start page with information about the Version and the buil
 >
 > 1. Click the blue `Export Configuration` button
 
-A new browser tab opens with the configuration of the SOS formatted in JSON. This file can be saved and [loaded during the installation](09_01_sos_installation_war_file.md#upload-a-configuration-file){target=_blank} of the SOS.
+A new browser tab opens with the configuration of the SOS formatted in JSON. This file can be saved and [loaded during the installation](03_sos-installation.md#upload-a-configuration-file){target=_blank} of the SOS.
 
 If you hover over `Admin` then *move* to `Settings` an further list appears with additional configurations.
 
@@ -36,7 +36,7 @@ If you hover over `Admin` then *move* to `Settings` an further list appears with
 >
 > 1. Hover over the `Admin` and *click* on `Settings`
 
-Now you see the same settings which we have described in the [installation](09_01_sos_installation_war_file.md#settings){target=_blank} process.
+Now you see the same settings which we have described in the [installation](03_sos-installation.md#settings){target=_blank} process.
 
 An additional tab exists in the admin settings, the `Credentials` tab to change the admin password.
 

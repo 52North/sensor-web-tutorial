@@ -41,19 +41,20 @@ nav:
   - 06_sos-deployment-strategies.md
   - 07_client-software.md
   - 08_iot.md
-  
-  - "Hands-On":
-    - hands-on/09_00a_intro_hands_on.md
-    - hands-on/09_00b_virtualbox_introduction.md
-    - hands-on/09_01_sos_installation_war_file.md
-    - hands-on/09_02_sos_admin_interface.md
-    - hands-on/09_03_sos_example_request.md
-    - hands-on/09_04_advanced_sos_example_request.md
-    - hands-on/09_05_sta_installation_war_file.md
-    - hands-on/09_06_sta_example_request.md
-    - hands-on/09_07_helgoland_client.md
-    - hands-on/09_08_sos_importer.md
-    - hands-on/09_09_exercise_db_modelling.md
-    - hands-on/09_10_sos4r.md
-  - 89_installation_requirements_for_windows.md
+  - 89_installation-requirements-for-windows.md
   - 99_bibliography.md
+  - "Hands-On":
+    - hands-on/01_using-real-world-examples-of-swe-services.md
+    - hands-on/02_virtualbox-introduction.md
+    - hands-on/03_sos-installation.md
+    - hands-on/04_sos-admin-interface.md
+    - hands-on/05_sos-example-request.md
+    - hands-on/06_sos-example-request-advanced.md
+    - hands-on/07_helgoland.md
+    - hands-on/08_sta-installation.md
+    - hands-on/09_sta-example-request.md
+    - hands-on/10_sos-importer.md
+    - hands-on/11_sos4r.md
+    - hands-on/12_db-modelling.md
+    
+  

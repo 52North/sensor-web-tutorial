@@ -1,5 +1,5 @@
 ---
-title: 9.8 SOS Importer
+title: 10. SOS Importer
 layout: page
 ---
 
@@ -37,7 +37,7 @@ here: [Download](https://52north.org/delivery/SensorWeb/Workshops/Frejus_2021/ex
 
 After that you need to make sure you have a running SOS instance. If you do not have a running
 SOS instance you can check out this tutorial, how to set up a SOS:
-[Tutorial](09_01_sos_installation_war_file.md)
+[Tutorial](03_sos-installation.md)
 
 Now you can execute the `52n-sos-importer-wizard-VERSION_NUMBER-bin.jar` which will guide you
 through the process of setting up the import of the csv-file.

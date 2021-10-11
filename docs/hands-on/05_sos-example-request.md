@@ -1,5 +1,5 @@
 ---
-title: 9.3. SOS Example Requests
+title: 5. Basic data loading with transactional workflows and data retrieval
 layout: page
 ---
 
@@ -1153,4 +1153,4 @@ Now we insert some additional observation.
 
 The observations which were added to the SOS in this tutorial can also be viewed in the
 **52°North Helgoland Client**. This tutorial shows how to use the Helgoland Client:
-[tutorial](09_07_helgoland_client.md)
+[tutorial](07_helgoland.md)
