@@ -292,18 +292,17 @@ The `netCDF` settings provides additional options to set how netCDF output of th
 
 ###### Procedure request/response handling
 
-The `Procedure request/response handling` settings provides the definition of
+The `Procedure request/response handling` settings manu allows to definition of specific aspects of the SOS response behaviour. Important settings include:
 
-- Allow only requesting of procedure instances/aggregations
-- Add outputs or encode  child procedure in SensorML
+- Allow only requesting of procedure instances/aggregations: SensorML can be used for defining sensor types and instances. With this setting it is possible to define that the SOS server only returns concrete sensors and no type descriptions.
+- Add outputs or encode child procedure in SensorML: Sensor systems may be organised in hierarchical manner (e.g. sensor system with many included sensor devices). With this parameter you can make sure, that the description of a complex sensor system includes inline also the descriptions of all embedded sensor devices.
 
 > ####### Activity 8
 >
-> TODO Explain settings
 >
 > 1. Select the `Service Provider` tab
 >
->     - Change the default definitions
+>     - Change the default definitions with values that correspond to you
 >     - *Name* -> e.g. `SIST`
 >     - *Website* -> e.g. `https://sist.cnrs.fr/`
 >     - *Phone*
@@ -317,7 +316,7 @@ The `Procedure request/response handling` settings provides the definition of
 >
 > 1. Select the `Service Identification` tab
 >
->     - Change the default definitions
+>     - Change the default definitions as shown below. You may also use other titles, keyword, and abstract.
 >     - *Title* -> `SIST SOS`
 >     - *Keywords* -> `SIST,CNRS, Sensor Web Workshop, Frejus`
 >     - *Abstract* -> `SIST Sensor Observation Service for Sensor Web Workshop`
@@ -325,10 +324,14 @@ The `Procedure request/response handling` settings provides the definition of
 > 1. Select the `Transactional Security` tab
 >
 >    - *Uncheck* `Transactional security active`
+>    
+>    This setting is important because we want later on use transactional operations to load data into the SOS.
 >
 > 1. Select the `Service` tab
 >
 >    - *Uncheck* `Block restrictionless requests`
+>
+>    This parameter allows to block requests without any filter parameters. Such requests could lead to huge responses and could be used for creating a copy of the whole SOS content. However, for our experiments in this tutorial we should allows all requests.
 >
 > 1. Select the `Miscellaneous` tab
 >
