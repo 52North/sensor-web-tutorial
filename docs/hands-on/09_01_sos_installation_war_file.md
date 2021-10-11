@@ -207,7 +207,7 @@ The `Miscellaneous` settings provides the definition of
 - Prefixes
 - HTTP Status
 - GetDataAvailability v2.0
-- Identifier for nothing/easting/altitude in SweCoordinates
+- Identifier for nothing/easting/altitude in SweCoordinates: The SOS can use different names of the axes of the coordinate system in its outputs. The names of the coordinate axes can be defined in this menu.
 
 ###### Transactional Security
 
@@ -216,24 +216,27 @@ The `Transactional Security` settings provides the definition of
 - En-/Disable the simple transactinal security
 - Configure the allowed IPs or the Authorization token
 
+This menu is very important when operating an SOS server in the Web. If the SOS server is publically available, you should activate the "Transactional Security". With enabling the transactional security, you can make sure that no external users can insert or delete data in your SOS server. An efficient approach in this menu is to restrict the access to the transactional operation only to the local server or to known IPs within your loacl network. In addition, you can set access tokens which can be used for the authorisation of clients. The recommendation is to restrict the IP addresses which may write into the SOS server.
+
 ###### CRS
 
-The `CRS` settings provides the definition of
+The `CRS` settings provides the definition of different settings related to coordinate reference systems used by the SOS.
 
-- Axis order in the database
-- The default CRS for database and responses
-- Supported CRS
+- Axis order in the database (depending on how your database management system organises geo-coordinates, the order of the axes can be changed, e.g. first x coordinate than y coordinate)
+- The default CRS for database and responses (the CRS that is used by default in the database and in the SOS responses)
+- Supported CRS (setting which coordinate references shall be supported by the SOS server)
 
 ###### Procedure Description
 
 The `Procedure Description` settings provides the definition of
 
-- Enrich the SensorML description with additional information (from database)
-- Define some parameter used for SensorML generation
+- Enrich the SensorML description with additional information (from database): If you insert a sensor into the SOS, you submit a SensorML file. However, with the content of the database, there may be additional information added to the existing SensorML documents (e.g. details about available data delivered by the sensor).
 
 ###### EXI Binding
 
-The `EXI Binding` settings provides the configuration of how EXI should be compressed
+The `EXI Binding` settings provides the configuration of how EXI should be compressed. 
+
+EXI stands for Efficient XML Interchange. This is a method for more efficient transmission of XML documents using a binary encoding. This reduces the data volume a lot but it is not commonly supported by clients. This setting should only be used if you have specific use cases requiring EXI and if you are sure that the client software supports EXI.
 
 ###### Streaming
 
