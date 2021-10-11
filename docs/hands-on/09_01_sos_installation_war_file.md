@@ -69,6 +69,7 @@ The installation process starts with the Welcome-page.
 
 If you have been running an SOS server before, you could export the settings of that SOS server and import them here via the "Upload a previous configuration file" functionality. However, in this tutorial, we are setting up a new SOS server so that we do not use this functionality.
 
+
 > ####### Activity 3
 >
 > 1. Click the blue `Start` button.
@@ -87,7 +88,7 @@ The 52N SOS supports the database management system:
 - PostgreSQL/PostGIS
 - SQL Server
   
-The *Custom* datasource should be selected if you do not use the created database model but views or adjusted hibernate mapping files. In this case the *existing* database model would not be validated against the expected!
+The *Custom* datasource should be selected if you do not use the created database model but views or adjusted hibernate mapping files. In this case the *existing* database model would not be validated against the expected model! However, this approach is only recommended for experienced expert users. In this tutorial we will use the most commonly used default data model for PostgreSQL/PostGIS.
 
 ![SetupSOS_2.png](../images/SetupSOS_2.png "52°North SOS Installation Wizard Datasource Configuration")
 
@@ -99,7 +100,7 @@ Next you need to set the parameters of your database.
 
 ###### Database Configuration
 
-In the *Database configuration* you define the connection parameters and credentials of the database.
+In the *Database configuration* you define the connection parameters and credentials of the database. This includes the user name/password as well as the connection details for the database (database name, the host on which the database is running (localhost if it is on the same computer as the SOS), and the port of the database).
 
 ![SetupSOS_3.png](../images/SetupSOS_3.png "52°North SOS Installation Wizard Datasource Configuration")
 
