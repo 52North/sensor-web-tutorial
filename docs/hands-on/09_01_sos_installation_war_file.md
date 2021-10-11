@@ -204,9 +204,9 @@ The next tab contains the `Service` settings. It allows the SOS oepration to set
 The `Miscellaneous` settings provides the definition of
 
 - Separator: Set which separators shall be used for indicating new data tokens, data blocks and decimal numbers
-- Prefixes
-- HTTP Status
-- GetDataAvailability v2.0
+- Maximum number of returned observation values: If you enable the hydrology profile of the SOS, this parameter allows you to restrict how many observations shall be returned at most for one single request.
+- HTTP Status: Allows to to set if the SOS shall always return the HTTP status code 200 - ok, or if an error code should be returned in case of exceptiona
+- GetDataAvailability v2.0: The GetDataAvailability operation is not included in the SOS standard, but it is part of further best practices. With this parameter you can set that this operation shall be supported in its version 2.0
 - Identifier for nothing/easting/altitude in SweCoordinates: The SOS can use different names of the axes of the coordinate system in its outputs. The names of the coordinate axes can be defined in this menu.
 
 ###### Transactional Security
