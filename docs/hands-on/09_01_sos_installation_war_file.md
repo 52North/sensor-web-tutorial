@@ -162,7 +162,7 @@ This includes parameter for the SOS Capabilities (service provider and identific
 
 All these settings can be changed later in the [administrative backend](09_02_sos_admin_interface.md).
 
-Below we expain the relevant settings for setting up an operational SOS server.
+Below we expain the relevant settings for setting up an operational SOS server. Please note, we explain those field which are relevant for typical SOS setups in practice. Further, more specific fields are for expert use case or are specific to single projects. These additional fields should not be changed during the setup procedure.
 
 ###### Service Provider
 
@@ -178,23 +178,24 @@ If you have a previous running SOS instance, you can also upload a service provi
 
 ###### Service Identification
 
-Here you can define the information about the `Service Identification` like:
+The next menu is called "Service Identification". You can reach it by clicking on the corresponding tab in the header. Here you can define the information about the `Service Identification` such as:
 
-- Title
-- Abstract
+- Title: A short title that you would like to give to your SOS server
+- Abstract: A short textual description of the content that your SOS server offers
+
+Further information does not need to be entered in this menu.
 
 This information would be provided in the Capabilities.
 
 ###### Service
 
-The `Service` settings provides the definition of
+The next tab contains the `Service` settings. It allows the SOS oepration to set the following important information:
 
-- SOS URL: The URL via which the SOS shall be available
-- Strict SpatialFiltering: 
-- Create/Update FOI geometry
-- List only parent offerings
-- Insert procedure/FOI via InsertResult
-- ...
+- SOS URL: The URL via which the SOS shall be available (for the tutorial, this shall be "localhost"; if the SOS is operated on an external server, this field should include the URL of this server)
+- Content cache update interval: The SOS server maintains an internal cache to answer more efficiently to GetCapabilities request. This parameter sets how often this Cache shall be updated. The more often the data in the SOS changes, the shorter this update interval should be set.
+- Strict SpatialFiltering: This option can be used to enforce the inclusion of coordinates in every observation; it is recommended if mobile sensors are used.
+- List only parent offerings: For very large SOS servers, the number of data sets may become huge. To reduce the length of the Capabilities document, it is possible to organise the datasets in a hierarchy. With this parameter, it can be set that only the top level elements of this hierarchy shall be listed in a Capabilities file (only recommended for expert users who are implementing an advanced hierarchical data model).
+- Sensor Directoy: The SOS is able to store sensor descriptions (SensorML) as files. With this parameter the folder for storing the sensor descriptions can be set.
 
 ![SetupSOS_7_1.png](../images/SetupSOS_7_1.png "52°North SOS Installation Wizard Optional Settings")
 
@@ -202,10 +203,10 @@ The `Service` settings provides the definition of
 
 The `Miscellaneous` settings provides the definition of
 
-- Separator
+- Separator: Set which separators shall be used for indicating new data tokens, data blocks and decimal numbers
 - Prefixes
 - HTTP Status
-- GetDataAVailability v2.0
+- GetDataAvailability v2.0
 - Identifier for nothing/easting/altitude in SweCoordinates
 
 ###### Transactional Security
