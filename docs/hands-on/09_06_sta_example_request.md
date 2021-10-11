@@ -246,7 +246,7 @@ To present later in the tutorial the filter options, a second `Sensor` is added:
 
 #### Create ObservedProperty
 
-Next an `ObservedProperty` needs to be created. For the first `Sensor` we will reuse the `ObservedProperty` created [in a previous hands-on](09_03_sos_example_requests.md):
+Next an `ObservedProperty` needs to be created. For the first `Sensor` we will reuse the `ObservedProperty` created [in a previous hands-on](09_03_sos_example_request.md):
 
 > [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature))
 
