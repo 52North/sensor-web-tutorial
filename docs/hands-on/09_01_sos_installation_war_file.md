@@ -179,8 +179,8 @@ This information would be provided in the Capabilities.
 
 The `Service` settings provides the definition of
 
-- SOS URL (TODO Beschreibung)
-- Strict SpatialFiltering
+- SOS URL: The URL via which the SOS shall be available
+- Strict SpatialFiltering: 
 - Create/Update FOI geometry
 - List only parent offerings
 - Insert procedure/FOI via InsertResult
