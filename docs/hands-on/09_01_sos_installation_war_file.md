@@ -276,21 +276,19 @@ The European INSPIRE directive is relevant for public data providers that have t
 
 ###### Identifier Prefix
 
-The `Identifier Prefix` settings provides the definition of
-Define prefxes for the identifier (mainly for data not inserted via SOS-T)
+The `Identifier Prefix` settings allows the definition of prefixes for the identifiers used by the SOS (mainly for data not inserted via SOS-T). For example, if you set the prefix to '52N', evey identifier returned by the SOS would include this prefix.
 
 ###### UVF Encoding
 
-The `UVF Encoding` settings provides the definition of
-Special format for exchanging data (customer)
+The `UVF Encoding` settings provides a switch to set if the UVF format shall be supported as an SOS output (typically this should be disabled as this is specific for a customer project)
 
 ###### OceanSITES netCDF
 
-The `OceanSITES netCDF` settings provides the definition of OceanSITES specific netCDF parameter
+The `OceanSITES netCDF` settings allow to control if and how the OceanSITES specification shall be used for netCDF output of the SOS server. This option is only relevant for marine data providers.
 
 ###### netCDF
 
-The `netCDF` settings provides the definition of netCDF output parameter/definitions
+The `netCDF` settings provides additional options to set how netCDF output of the SOS should be supported. As netCDF is not a regular output encoding of the SOS standard, this should be used for specific use cases (e.g. in marine sciences).
 
 ###### Procedure request/response handling
 
