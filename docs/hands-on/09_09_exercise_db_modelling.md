@@ -21,7 +21,7 @@ Fill the empty tables that you have created with data examples (e.g. the Excel s
 
 The following diagram outlines the general structure of the 52°North Sensor Web data model. Please note, there are some further tables in the data model which will not be discussed in this case. These tables are either not necessary for the normal operation of the SOS, or they only contain management information which does not require a conceptual mapping.
 
-![DB_Model_Overview.png](images/DB_Model_Overview.png "Overview of the database model")
+![DB_Model_Overview.png](../images/DB_Model_Overview.png "Overview of the database model")
 
 Before looking at the main contents of the tables, we first explain the meaning of these tables:
 
@@ -45,7 +45,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Dataset
 
-![DB_Model_Dataset.png](images/DB_Model_Dataset.png "Overview of the Dataset table")
+![DB_Model_Dataset.png](../images/DB_Model_Dataset.png "Overview of the Dataset table")
 
 **Description**: Storage of the dataset, the core table of the whole database model.
 
@@ -82,7 +82,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Observation
 
-![DB_Model_Observation.png](images/DB_Model_Observation.png "Overview of the Observation table")
+![DB_Model_Observation.png](../images/DB_Model_Observation.png "Overview of the Observation table")
 
 **Description**: Storage of the observation values with the timestamp and additional metadata. The metadata are height/depth values for profile observation and sampling geometries for trajectory observations. In each observation entry only one value_... column should be filled with a value!
 
@@ -120,7 +120,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Unit
 
-![DB_Model_Unit.png](images/DB_Model_Unit.png "Overview of the Unit table")
+![DB_Model_Unit.png](../images/DB_Model_Unit.png "Overview of the Unit table")
 
 **Description**: Storage of the units of measurement of the observation values. These may be °C or m as the unit for depth/height information.
 
@@ -133,7 +133,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Feature
 
-![DB_Model_Feature.png](images/DB_Model_Feature.png "Overview of the Feature table")
+![DB_Model_Feature.png](../images/DB_Model_Feature.png "Overview of the Feature table")
 
 **Description**: Storage of the features (OfInterest). A feature represents the observed location, route, or area. As examples, the location of the weather station or the water level location, a ferry (Cuxhaven-Helgoland) or a lake of interest.
 
@@ -148,7 +148,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Category
 
-![DB_Model_Category.png](images/DB_Model_Category.png "Overview of the Category table")
+![DB_Model_Category.png](../images/DB_Model_Category.png "Overview of the Category table")
 
 **Description**: Storage of the categories which should be used to group the data.
 
@@ -161,7 +161,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Offering
 
-![DB_Model_Offering.png](images/DB_Model_Offering.png "Overview of the Offering table")
+![DB_Model_Offering.png](../images/DB_Model_Offering.png "Overview of the Offering table")
 
 **Description**: Storage of the offerings which is required by the SOS. An offering is used in SOS to group records according to specific criteria. In the INSPIRE context, an offering is an "INSPRE spatial dataset," an identifiable collection of spatial data.
 
@@ -181,7 +181,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Procedure
 
-![DB_Model_Procedure.png](images/DB_Model_Procedure.png "Overview of the Procedure table")
+![DB_Model_Procedure.png](../images/DB_Model_Procedure.png "Overview of the Procedure table")
 
 **Description**: Storage of the procedure/sensors. The procedure can be a sensor, process/method or a system that produces observations.
 
@@ -197,7 +197,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Phenomenon
 
-![DB_Model_Phenomenon.png](images/DB_Model_Phenomenon.png "Overview of the Phenomenon table")
+![DB_Model_Phenomenon.png](../images/DB_Model_Phenomenon.png "Overview of the Phenomenon table")
 
 **Description**: Storage of the observed parameters of the sensors.
 
@@ -210,7 +210,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### Platform
 
-![DB_Model_Platform.png](images/DB_Model_Platform.png "Overview of the Platform table")
+![DB_Model_Platform.png](../images/DB_Model_Platform.png "Overview of the Platform table")
 
 **Description**: Storage of the platforms. With a platform several procedures can be grouped or in the case of citizen science the platform can be the camera or mobile phone. An example of a platform is a vessel that has multiple sensors (Procedure). In most cases, the platform is the same as the feature or procedure, such as a weather station or a water level location.
 
@@ -223,7 +223,7 @@ After this general introduction, we will now have a closer look at the different
 
 ### SensorThings API-specific Tables
 
-![DB_Model_STA_Tables.png](images/DB_Model_STA_Tables.png "Overview of the SensorThings API-specific tables")
+![DB_Model_STA_Tables.png](../images/DB_Model_STA_Tables.png "Overview of the SensorThings API-specific tables")
 
 #### location
 

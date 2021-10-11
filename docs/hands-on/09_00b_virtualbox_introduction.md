@@ -1,5 +1,5 @@
 ---
-title: 9. Hands-On
+title: 9. VirtualBox Introduction
 layout: page
 ---
 

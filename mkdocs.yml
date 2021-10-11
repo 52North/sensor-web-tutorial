@@ -43,7 +43,8 @@ nav:
   - 08_iot.md
   
   - "Hands-On":
-    - hands-on/09_00_hands-on.md
+    - hands-on/09_00a_intro_hands_on.md
+    - hands-on/09_00b_virtualbox_introduction.md
     - hands-on/09_01_sos_installation_war_file.md
     - hands-on/09_02_sos_admin_interface.md
     - hands-on/09_03_sos_example_request.md
@@ -52,5 +53,6 @@ nav:
     - hands-on/09_06_sta_example_request.md
     - hands-on/09_07_helgoland_client.md
     - hands-on/09_08_sos_importer.md
+    - hands-on/09_09_exercise_db_modelling.md
   - 89_installation_requirements_for_windows.md
   - 99_bibliography.md

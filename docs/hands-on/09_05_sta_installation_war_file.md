@@ -32,7 +32,7 @@ When your system matches the requirements above, download the  __war-file__: [52
 > ####### Activity 1
 >  
 > 1. Save the file to `/home/demo/`
-> 1. Open a terminal [see](09_00_hands-on.md/#open-a-terminal){target=_blank}
+> 1. Open a terminal [see](09_00b_virtualbox_introduction/#open-a-terminal){target=_blank}
 > 1. Copy the file `52n-sensorthings-webapp` into the folder `/opt/tomcat/webapps`
 >
 >     ```sh
@@ -68,7 +68,7 @@ settings manually:
 >  
 > Modify `application.yml` via *terminal* and *vim*
 >
-> 1. Open a terminal [see](09_00_hands-on.md#open-a-terminal){target=_blank}
+> 1. Open a terminal [see](09_00b_virtualbox_introduction#open-a-terminal){target=_blank}
 > 1. Open the `application.yml` in an editor
 >
 >     ```sh
