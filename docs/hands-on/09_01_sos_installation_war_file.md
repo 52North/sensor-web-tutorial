@@ -272,7 +272,7 @@ The `Procedure request/response handling` settings provides the definition of
 - Allow only requesting of procedure instances/aggregations
 - Add outputs or encode  child procedure in SensorML
 
-> ####### Activity 8 
+> ####### Activity 8
 >
 > TODO Explain settings
 >
