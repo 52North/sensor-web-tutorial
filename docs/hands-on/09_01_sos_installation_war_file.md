@@ -20,6 +20,8 @@ If you want to use different software, have an other operating system
 or want to build the SOS from source you can find more information here:
 [52°North SOS Documentation](https://wiki.52north.org/SensorWeb/SensorObservationServiceVDocumentation){target=_blank}
 
+For this tutorial we will start with a virtual box image, which contains the necessary external software. In the following sections you will learn how to install and configure the SOS server. Due to the extremely broad range of functionalities and extensions offered by the 52°North SOS server, the following steps are the typical tasks which have to be conducted in order to build a fully functional SOS server.
+
 ### Installing the Webapp
 
 #### Download and Deploy
@@ -64,6 +66,8 @@ You can start the installation process by clicking `here` on the link in the *re
 The installation process starts with the Welcome-page.
 
 ![SetupSOS_1.PNG](../images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
+
+If you have been running an SOS server before, you could export the settings of that SOS server and import them here via the "Upload a previous configuration file" functionality. However, in this tutorial, we are setting up a new SOS server so that we do not use this functionality.
 
 > ####### Activity 3
 >
