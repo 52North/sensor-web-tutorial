@@ -329,30 +329,3 @@ Dependending on the configuration the installation takes a while to create the d
 ![webappInstallCompleted.PNG](../images/webappInstallCompleted.PNG "52°North SOS Startpage")
 
 You now have successfully installed the __52°North SOS__.
-
-#### Further steps
-
-TODO remove?
-
-Additional installation/configuration steps which are not part of this hands-on
-
-##### Download latest release
-
-When your system matches the requirements above, download the package including the __war-file__: [52°North SOS latest version](https://github.com/52North/SOS/releases){target=_blank}
-
-Unzip the package and browse to the folder `UNZIPPED_PACKAGE/bin/target` where the file `52n-sos-webapp.war`
-is located. Copy the file `52n-sos-webapp.war` into the folder `/opt/tomcat/webapps`. Make sure your Tomcat
-and PostgreSQL are running. After a moment the __war-file__ gets converted and in the folder should be a new
-folder `52n-sos-webapp`. If this is the case than you can reach the webapp with this URL:
-[http://localhost:8080/52n-sos-webapp/](http://localhost:8080/52n-sos-webapp/){target=_blank}
-
-##### Upload a configuration file
-
-The installation process starts with the Welcome-page.
-
-![SetupSOS_1.PNG](../images/SetupSOS_1.PNG "52°North SOS Installation Wizard Welcome-Page")
-
-If you have an exported configuration file of a previous SOS installation you can upload this file here.
-For that click *Browse* in the *Upload a previous configuration file* section, select the file and click `Upload`.
-
-Otherwise you can start the installation without a configuration file by clicking the blue `Start` button.
