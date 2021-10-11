@@ -43,9 +43,9 @@ After a moment the __war-file__ gets converted and in the folder should be a new
 folder `52n-sos-webapp`. If this is the case than you can reach the webapp with this URL:
 [http://localhost:8080/52n-sos-webapp/](http://localhost:8080/52n-sos-webapp/){target=_blank}
 
-If the download does not work, you find an already downloaded version in `/home/demo/webapps/`:
+If the download does not work, you find an already downloaded version in `/home/demo/workshop/webapps/`:
 
-- Alternative `sudo cp /home/demo/webapps/52n-sos-webapp.war /opt/tomcat/webapps/`
+- Alternative `sudo cp /home/demo/workshop/webapps/52n-sos-webapp.war /opt/tomcat/webapps/`
 
 #### Installation
 
