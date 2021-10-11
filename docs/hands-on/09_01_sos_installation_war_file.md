@@ -148,8 +148,6 @@ Under Actions you can chose if you want to create new table, delete all existing
 
 ![SetupSOS_5.png](../images/SetupSOS_5.png "52°North SOS Installation Wizard Datasource Configuration")
 
-## TODO
-
 > ####### Activity 7
 >
 > 1. Press `Next` button
