@@ -4,9 +4,9 @@ layout: page
 ---
 ### Introduction
 
-TODO Check for completeness
+With the `Admin` interface you can change the settings, de-/activate operations, encodings and bindings or change the logging and check the latest log statements. 
 
-With the `Admin` interface you can change the settings, de-/activate operations, encodings and bindings or change the logging and check the latest log statements.
+During the set-up of the SOS you have already learned about the relevant settings of the SOS server. However, this tutorial shows you a set of further settings that might be changed during the operation of your SOS server.
 
 #### Admin interface
 
@@ -44,11 +44,11 @@ An additional tab exists in the admin settings, the `Credentials` tab to change 
 
 With the *Datasource Maintenance* the administrator can
 
-* remove the data from the database
-* delete data which are marked as delete
-* insert some sample data
-* reset the datasource configuration
-* insert predefined observableProperties and units.
+* clear all data from the database
+* delete data which are marked as delete (when deleting data via the transactional SOS operations, the data is only marked as deleted but not yet removed from the database; with this option you can delete all data marked as deleted form the database)
+* insert some sample data (only for testing purposes; this should not be executed in an operational database)
+* reset the datasource configuration (e.g. if you database server has changed)
+* insert predefined observableProperties and units (this is a comfort functionality so that you can add a pre-defined vocabulary to your SOS server)
 
 > ####### Activity 3
 >
@@ -64,13 +64,20 @@ A brief summery of the contained data.
 >
 > 1. Hover over the `Admin` and *click* on `Cache Summery`
 
-You can see a short summary of the number of the entities contained in the SOS and the bbox and temporal extends of the data.
+You can see a short summary of the number of the entities contained in the SOS and the bbox and temporal extends of the data. This is an important functionality for checking if SOS and database interact properly. Especially the following information is important:
+* last_update: this timestamp indicates the last time when the content of the SOS cache was successfully complete; if this timestamp is present, the interaction between SOS and database is working
+* max_phenomenontime and min_phenomenon_time: these timestamps indicate for which time period your SOS server contains data
+* num_* These entries show how many entities are contained in the different tables of the database
 
 ![Admin_4.PNG](../images/Admin_4.png "52°North SOS Admin interface")
 
 ##### Logging
 
-Configuration of the logging of the SOS
+Configuration of the logging of the SOS.
+
+Here you can make adjustments of the logging of your SOS server. This includes especially the modification of log levels. For regular operation we recommend to use WARN or ERROR. For debugging purposes other log levels such as DEBUG or TRACE can be used.
+
+Furthermore, you can define the maximum size of log files and how long the log files should be kept.
 
 > ####### Activity 5
 >
@@ -85,7 +92,9 @@ Configuration of the logging of the SOS
 
 ##### Operations
 
-This configuration page allows the de-/activation of the supported operations.
+This configuration page allows the de-/activation of the supported operations. You can activate/deactive the operations by clicking on the corresponding buttons.
+
+For an explanation of these operations, please refer to the session with the SOS introdcution.
 
 > ####### Activity 6
 >
@@ -106,6 +115,8 @@ transactional SOS operations.
 > 1. Click the *red inactive* button behind `InsertResult`
 > 1. Click the *red inactive* button behind `InsertResultTemplate`
 > 1. Click the *red inactive* button behind `InsertSensor`
+
+These operations will later on be needed for our hands-on to insert data into the SOS server.
 
 ##### Encodings
 
