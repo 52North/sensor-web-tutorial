@@ -242,17 +242,25 @@ EXI stands for Efficient XML Interchange. This is a method for more efficient tr
 
 The `Streaming` settings provides the definition dis-/enable the XML Streaming and define the chunk size for database queries
 
+The conventional operation of the SOS is that it first requests data from the database and after all data has been fetched, the encoding of the XML response starts. This may take a longer time in case of large data volumes. This setting allows to change this strategy: If enables, the SOS fetches the data from the database in smaller chunks which can be encoded while the next chunk of data is retrieved in parallel. 
+
+This option is recommended if the SOS has to deal with larger response files. Otherwise it should not be activated.
+
 ###### eReporting
 
-The `eReporting` settings provides the definition of eReporting specific parameter
+The `eReporting` settings provides the definition of eReporting specific parameters. This option is only relevant for envrionmental agencies with reporting obligations of air quality to the European Environment Agency.
 
 ###### FlexibleIdentifier
 
-The `FlexibleIdentifier` settings allows to define for which Objects the human readable name should be used in the response as identifier (if available)
+The `FlexibleIdentifier` settings allows to define for which Objects the human readable name should be used in the response as identifier (if available). 
+
+This extension allows to replace the identifiers stored in the database with other human readable names. Because this is normally not the case (the identifiers in the database should be human readable), this setting should not be used for regular SOS set-ups.
 
 ###### I18N
 
-The `I18N` settings provides the definition of default language
+The `I18N` settings provides the definition of default language.
+
+With I18N you can manage the support of multiple languages. This functionality would require further database tables that manage the translations of certain names (e.g. the name of the observed properties). For this tutorial we will focus on single-language operation.
 
 ###### INSPIRE
 
@@ -260,6 +268,11 @@ The `INSPIRE` settings provides the definition of
 
 - Enable INSPIRE
 - Definition of INSPIRE metadata (used in the Capabilities)
+
+The European INSPIRE directive is relevant for public data providers that have to fulfil specific requirements towards the publication of geospatial data. Within this menu you can set, if the additional requirements of the INSPIRE Technical Guidance of the European Commission should be supported. This comprises:
+- Conversion of Coordinate Reference Systems
+- Indication of the supported languages
+- Support of the GetDataAvailability operation
 
 ###### Identifier Prefix
 
