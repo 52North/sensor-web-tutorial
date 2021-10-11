@@ -120,7 +120,12 @@ These operations will later on be needed for our hands-on to insert data into th
 
 ##### Encodings
 
-This configuration page allows the de-/activation of the supported encodings.
+This configuration page allows the de-/activation of the supported encodings. To learn more of the default encodings, please refer to the session about OGC Observations and Measurements.
+
+This spefic menu can used for managing the supported encodings beyond these standard encodings. You may enable the experimental output of NetCDF (CF convention or the OceanSITES profile) as well as JSON. The UVF format is rather specific and not relevant for most use cases.
+
+In our case, we will not change the active encodings.
+
 
 > ####### Activity 8
 >
@@ -130,7 +135,14 @@ This configuration page allows the de-/activation of the supported encodings.
 
 ##### Bindings
 
-This configuration page allows the de-/activation of the supported bindings.
+This configuration page allows the de-/activation of the supported bindings. In this case a binding is a certain protocol/paradigm which shall be used for transmitting the SOS requests and responses.
+
+The following default bindings should be active:
+* application/soap+xml 
+* application/xml: the typical binding of the SOS standard without using SOAP
+* application/x-kvp: the binding of the SOS standard using the HTTP GET method (encoding requests in the URLs).
+
+The exi encoding as well as the json encoding are not standardised and are only recommended for specific use cases.
 
 > ####### Activity 9
 >
@@ -146,7 +158,7 @@ This configuration page allows the de-/activation of the supported bindings.
 
 ##### Profiles
 
-Select the profile the SOS should comply with.
+Select the profile the SOS should comply with. A profile is a set of additional rules to the SOS standard that have been defined for specific contexts.
 
 > ####### Activity 11
 >
@@ -159,8 +171,8 @@ The profiles allows us to change the *default* behavior of the SOS. Especially, 
 Currently, the 52N SOS provides three profiles:
 
 * *SOS_20_PROFILE* -> default SOS 2.0, Observations are returned in OGC O&M 2.0
-* *hydrology* -> default SOS 2.0, Observations are returned in OGC WaterML 2.0
-* *inspire* -> default SOS 2.0, Observations are returned in Inspire OMSO 3.0 (specialized O&M 2.0)
+* *hydrology* -> default SOS 2.0, Observations are returned in OGC WaterML 2.0 (should only be used for hydrological data)
+* *inspire* -> default SOS 2.0, Observations are returned in Inspire OMSO 3.0 (should only be used if you have to fulfill INSPIRE obligations with your SOS server)
 
 ##### Further configurations
 
