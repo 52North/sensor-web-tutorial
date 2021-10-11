@@ -248,50 +248,12 @@ To present later in the tutorial the filter options, a second `Sensor` is added:
 
 TODO change this to a PUT/Update of the Definition, as the same is created by the SOS
 
-Next an `ObservedProperty` needs to be created. The URI for the POST request is shown below:
+Next an `ObservedProperty` needs to be created. For the first `Sensor` we will reuse the `ObservedProperty` created [in a previous hands-on](09_03_sos_example_requests.md):
 
-> [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties)
-
-The body of the request contains a unique _identifier_, a _description_, a `name` and a link to the `definition` of the `ObservedProperty`:
-
-```json
-{
-  "@iot.id": "air_temperature",
-  "description": "Air temperature is the bulk temperature of the air, not the surface (skin) temperature.",
-  "name": "Air Temperature",
-  "definition": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/"
-}
-```
-
-> ####### Activity 6
->  
-> Execute `ObservedProperty` creation in Postman
->
-> 1. Replace `Sensors` or add to the URL `ObservedProperties`
-> 1. Copy the above `ObservedProperty` request (mark the request and CTRL + C)
-> 1. Paste the request in the field of the `Body` section
->     - Click in the field
->     - Mark the content (CTRL + A) if present
->     - Delete the content (del)
->     - Insert the copied request (CTRL + v)
-> 1. Click the `Send` button
-
-The parameters of the request are part of the response as well as a link to the `ObservedProperty` itself and
-a link to the `Datastream` which is added in the next step:
-
-```json
-{
-    "@iot.id": "air_temperature",
-    "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)",
-    "name": "Air Temperature",
-    "description": "Air temperature is the bulk temperature of the air, not the surface (skin) temperature.",
-    "definition": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/",
-    "Datastreams@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)/Datastreams"
-}
-```
+> [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature)](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_temperature))
 
 The second `Sensor` which was added beforehand observes a different phenomenon so a second `ObservedProperty`
-needs to be created:
+needs to be created. The body of the request contains a unique _identifier_, a _description_, a `name` and a link to the `definition` of the `ObservedProperty`:
 
 ```json
 {
@@ -302,10 +264,29 @@ needs to be created:
 }
 ```
 
+The URI for the `POST` request is shown below:
+
+> [http://localhost:8080/52n-sensorthings-webapp/ObservedProperties](http://localhost:8080/52n-sensorthings-webapp/ObservedProperties)
+
+The parameters of the request are part of the response as well as a link to the `ObservedProperty` itself and
+a link to the `Datastream` which is added in the next step:
+
+```json
+{
+    "@iot.id": "air_pressure",
+    "@iot.selfLink": "http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_pressure)",
+    "name": "Air Pressure",
+    "description": "Air pressure is the force per unit area which would be exerted when the moving gas molecules of which the air is composed strike a theoretical surface of any orientation.",
+    "definition": "http://vocab.nerc.ac.uk/collection/P07/current/CFSN0015/"
+    "Datastreams@iot.navigationLink": "http://localhost:8080/52n-sensorthings-webapp/ObservedProperties(air_pressure)/Datastreams"
+}
+```
+
 > ####### Activity 7
 >  
 > Execute a second `ObservedProperty` creation in Postman
 >
+> 1. Replace `Sensors` or add to the URL `ObservedProperties`
 > 1. Copy the above `ObservedProperty` request (mark the request and CTRL + C)
 > 1. Paste the request in the field of the `Body` section
 >     - Click in the field
