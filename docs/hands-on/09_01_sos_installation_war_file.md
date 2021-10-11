@@ -162,13 +162,17 @@ This includes parameter for the SOS Capabilities (service provider and identific
 
 All these settings can be changed later in the [administrative backend](09_02_sos_admin_interface.md).
 
+Below we expain the relevant settings for setting up an operational SOS server.
+
 ###### Service Provider
 
-Here you can define the information about the `Service Provider` which is provided in the Capabilities.
+Here you can define the information about the `Service Provider` which is provided in the Capabilities returned by the SOS server.
 
 ![SetupSOS_6.png](../images/SetupSOS_6.png "52°North SOS Installation Wizard Optional Settings")
 
-You can also upload a service provider file which overrides the above settings.
+In this menu please enter all the contact details of the person responsible of operating the SOS. We recommend to insert data into those fields which are also filled in the screenshots. Further information may be added, but is not necessary (e.g. textual instructions how to contact the support, hours of service of the support, fax number (facsimile), role of the contact person). For the fields which do not apply to your scenario, please fill in "TBA".
+
+If you have a previous running SOS instance, you can also upload a service provider file which overrides the above settings.
 
 ![SetupSOS_7.png](../images/SetupSOS_7.png "52°North SOS Installation Wizard Optional Settings")
 
