@@ -280,7 +280,7 @@ a link to the `Datastream` which is added in the next step:
 }
 ```
 
-> ####### Activity 7
+> ####### Activity 6
 >  
 > Execute a second `ObservedProperty` creation in Postman
 >
@@ -326,7 +326,7 @@ and a `Thing` are linked by there unique _identifier_:
 }
 ```
 
-> ####### Activity 8
+> ####### Activity 7
 >  
 > Execute `Datastream` creation in Postman
 >
@@ -391,7 +391,7 @@ For the second `Sensor` a second `Datastream` needs to be created.
 }
 ```
 
-> ####### Activity 9
+> ####### Activity 8
 >  
 > Execute a second `Datastream` creation in Postman
 >
@@ -428,7 +428,7 @@ an _encoding Type_ for the _feature_ and a description of the _feature_:
 }
 ```
 
-> ####### Activity 10
+> ####### Activity 9
 >  
 > Execute `FeatureOfInterest` creation in Postman
 >
@@ -492,7 +492,7 @@ The `Observation` is linked to the `Datastream` and `FeatureOfInterest` by there
 }
 ```
 
-> ####### Activity 11
+> ####### Activity 10
 >  
 > Execute `Observation` creation in Postman
 >
