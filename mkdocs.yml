@@ -1,5 +1,6 @@
 site_name: Sensor Web Tutorial
-
+site_author: Carsten Hollmann, Christian Autermann, Fabian Wessel, Matthes Rieke, Simon Jirka
+copyright: '<b>Authors</b>: Carsten Hollmann, Christian Autermann, Fabian Wessel, Matthes Rieke, Simon Jirka (52°North Spatial Information Research GmbH, <a href="https://52north.org" target="_blank">https://52north.org</a>)<br><b>License</b>: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"target="_blank">CC BY-NC-SA 4.0</a>'
 
 # Documentation and theme
 theme:
